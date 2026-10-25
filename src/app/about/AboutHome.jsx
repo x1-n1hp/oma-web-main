@@ -4,6 +4,7 @@ import React from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { motion } from "framer-motion";
+import { BubbleCard } from "../components/motion";
 
 const stats = [
   {
@@ -118,9 +119,9 @@ const AboutPage = () => {
           </motion.div>
         </div>
 
-        {/* Architectural Hairline Stat Ledger */}
+        {/* Architectural Stat Bubble Cards */}
         <motion.div
-          className="mt-16 rounded-2xl bg-white border border-[#DFD3BC] shadow-sm grid grid-cols-2 md:grid-cols-4 divide-y md:divide-y-0 md:divide-x divide-[#DFD3BC]"
+          className="mt-16 grid grid-cols-2 md:grid-cols-4 gap-4"
           initial="hidden"
           whileInView="show"
           viewport={{ once: true, amount: 0.3 }}
@@ -135,7 +136,6 @@ const AboutPage = () => {
           {stats.map((stat, idx) => (
             <motion.div
               key={idx}
-              className="p-6 sm:p-8 text-center"
               variants={{
                 hidden: { opacity: 0, y: 20 },
                 show: {
@@ -148,13 +148,17 @@ const AboutPage = () => {
                 },
               }}
             >
-              <h2 className="font-editorial text-3xl sm:text-4xl font-bold text-[#0F1729]">
-                {stat.value}
-              </h2>
-              <p className="text-xs font-bold uppercase tracking-wider text-[#9A7418] mt-1.5">
-                {stat.label}
-              </p>
-              <p className="text-xs text-[#64748B] mt-0.5">{stat.detail}</p>
+              <BubbleCard className="rounded-2xl bg-white border border-[#DFD3BC] shadow-sm p-6 sm:p-8 text-center h-full">
+                <h2 className="font-editorial text-3xl sm:text-4xl font-bold text-[#0F1729] group-hover:text-white transition-colors">
+                  {stat.value}
+                </h2>
+                <p className="text-xs font-bold uppercase tracking-wider text-[#9A7418] group-hover:text-[#E5C158] mt-1.5 transition-colors">
+                  {stat.label}
+                </p>
+                <p className="text-xs text-[#64748B] group-hover:text-slate-300 mt-0.5 transition-colors">
+                  {stat.detail}
+                </p>
+              </BubbleCard>
             </motion.div>
           ))}
         </motion.div>

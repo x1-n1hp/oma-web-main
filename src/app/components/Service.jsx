@@ -4,6 +4,7 @@ import React from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { motion } from "framer-motion";
+import { BubbleCard } from "./motion";
 
 const pillars = [
   {
@@ -93,7 +94,7 @@ const Service = () => {
           </div>
         </motion.div>
 
-        {/* 4 Numbered Practice Pillar Cards */}
+        {/* 4 Numbered Practice Pillar Bubble Cards */}
         <motion.div
           className="grid grid-cols-1 md:grid-cols-2 gap-6"
           initial="hidden"
@@ -119,26 +120,27 @@ const Service = () => {
                 },
               }}
             >
-              <Link
-                href={item.href}
-                className="group bg-white p-7 rounded-2xl border border-[#E5DEC9] hover:border-[#C59B27] transition-all shadow-sm hover:shadow-md flex items-start gap-5 h-full"
-              >
-                <div className="w-12 h-12 rounded-xl bg-[#FAF4E4] border border-[#E8D7B0] text-[#9A7418] flex items-center justify-center font-editorial font-bold text-lg shrink-0 group-hover:bg-[#0F1729] group-hover:text-[#E5C158] group-hover:border-[#0F1729] transition-colors">
-                  {item.num}
-                </div>
-                <div className="flex-1">
-                  <div className="flex items-center justify-between">
-                    <h3 className="font-editorial font-bold text-lg text-[#0F1729] group-hover:text-[#9A7418] transition-colors">
-                      {item.title}
-                    </h3>
-                    <span className="text-xs font-bold text-[#9A7418] group-hover:translate-x-1 transition-transform">
-                      →
-                    </span>
+              <Link href={item.href} className="block h-full">
+                <BubbleCard className="bg-white p-7 rounded-2xl border border-[#E5DEC9] shadow-sm hover:shadow-xl h-full">
+                  <div className="flex items-start gap-5">
+                    <div className="w-12 h-12 rounded-xl bg-[#FAF4E4] border border-[#E8D7B0] text-[#9A7418] flex items-center justify-center font-editorial font-bold text-lg shrink-0 group-hover:bg-[#C59B27] group-hover:text-[#0F1729] group-hover:border-[#E5C158] transition-colors">
+                      {item.num}
+                    </div>
+                    <div className="flex-1">
+                      <div className="flex items-center justify-between">
+                        <h3 className="font-editorial font-bold text-lg text-[#0F1729] group-hover:text-white transition-colors">
+                          {item.title}
+                        </h3>
+                        <span className="text-xs font-bold text-[#9A7418] group-hover:text-[#E5C158] group-hover:translate-x-1 transition-all">
+                          →
+                        </span>
+                      </div>
+                      <p className="text-xs sm:text-sm text-[#475569] group-hover:text-slate-300 leading-relaxed mt-1.5 transition-colors">
+                        {item.desc}
+                      </p>
+                    </div>
                   </div>
-                  <p className="text-xs sm:text-sm text-[#475569] leading-relaxed mt-1.5">
-                    {item.desc}
-                  </p>
-                </div>
+                </BubbleCard>
               </Link>
             </motion.div>
           ))}

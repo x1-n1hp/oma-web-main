@@ -3,6 +3,7 @@
 import React from "react";
 import Image from "next/image";
 import { motion } from "framer-motion";
+import { BubbleCard } from "./motion";
 
 const programs = [
   {
@@ -140,8 +141,8 @@ const About = () => {
             viewport={{ once: true, amount: 0.25 }}
             transition={{ duration: 0.7, ease: [0.21, 0.47, 0.32, 0.98] }}
           >
-            <div className="grid grid-cols-12 gap-4 items-center">
-              <div className="col-span-7 relative h-80 rounded-2xl overflow-hidden shadow-lg border border-[#E5DEC9]">
+            <div className="grid grid-cols-1 sm:grid-cols-12 gap-4 items-center">
+              <div className="sm:col-span-7 relative h-72 sm:h-80 rounded-2xl overflow-hidden shadow-lg border border-[#E5DEC9]">
                 <Image
                   src="/images/Oma-pic.JPG"
                   alt="About Oma Services"
@@ -149,7 +150,7 @@ const About = () => {
                   className="object-cover"
                 />
               </div>
-              <div className="col-span-5 space-y-4">
+              <div className="sm:col-span-5 space-y-4">
                 <div className="relative h-40 rounded-2xl overflow-hidden shadow-md border border-[#E5DEC9]">
                   <Image
                     src="/images/DSC_6802.JPG"
@@ -172,24 +173,29 @@ const About = () => {
           </motion.div>
         </div>
 
-        {/* Architectural Hairline Stat Ledger */}
+        {/* Architectural Stat Bubble Cards */}
         <motion.div
-          className="rounded-2xl bg-[#FAF7F2] border border-[#DFD3BC] grid grid-cols-2 md:grid-cols-4 divide-y md:divide-y-0 md:divide-x divide-[#DFD3BC] mb-20"
+          className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-20"
           initial={{ opacity: 0, y: 24 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.25 }}
           transition={{ duration: 0.6 }}
         >
           {stats.map((stat) => (
-            <div key={stat.label} className="p-6 sm:p-8 text-center">
-              <div className="font-editorial text-3xl sm:text-4xl font-bold text-[#0F1729]">
+            <BubbleCard
+              key={stat.label}
+              className="rounded-2xl bg-[#FAF7F2] border border-[#DFD3BC] p-6 sm:p-8 text-center shadow-sm"
+            >
+              <div className="font-editorial text-3xl sm:text-4xl font-bold text-[#0F1729] group-hover:text-white transition-colors">
                 {stat.value}
               </div>
-              <div className="text-xs font-bold uppercase tracking-wider text-[#9A7418] mt-1.5">
+              <div className="text-xs font-bold uppercase tracking-wider text-[#9A7418] group-hover:text-[#E5C158] mt-1.5 transition-colors">
                 {stat.label}
               </div>
-              <div className="text-xs text-[#64748B] mt-0.5">{stat.detail}</div>
-            </div>
+              <div className="text-xs text-[#64748B] group-hover:text-slate-300 mt-0.5 transition-colors">
+                {stat.detail}
+              </div>
+            </BubbleCard>
           ))}
         </motion.div>
 
@@ -213,7 +219,7 @@ const About = () => {
           </p>
         </motion.div>
 
-        {/* 3 Editorial Program Cards */}
+        {/* 3 Editorial Program Bubble Cards */}
         <motion.div
           className="grid grid-cols-1 md:grid-cols-3 gap-8"
           initial="hidden"
@@ -241,36 +247,39 @@ const About = () => {
                   },
                 },
               }}
-              whileHover={{ y: -6 }}
-              className="group rounded-2xl bg-[#FAF7F2] border border-[#E5DEC9] hover:border-[#C59B27] overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col"
             >
-              <div className="relative h-56 w-full overflow-hidden bg-[#0F1729]">
-                <Image
-                  src={prog.image}
-                  alt={prog.alt}
-                  fill
-                  className="object-cover transition-transform duration-500 group-hover:scale-105"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-[#0F1729]/80 via-[#0F1729]/20 to-transparent"></div>
-                <div className="absolute top-4 left-4 w-9 h-9 rounded-lg bg-[#FAF4E4] border border-[#E8D7B0] text-[#9A7418] font-editorial font-bold text-sm flex items-center justify-center shadow">
-                  {prog.numeral}
+              <BubbleCard
+                className="rounded-2xl bg-[#FAF7F2] border border-[#E5DEC9] shadow-sm hover:shadow-xl h-full"
+                contentClassName="flex flex-col"
+              >
+                <div className="relative h-56 w-full overflow-hidden bg-[#0F1729]">
+                  <Image
+                    src={prog.image}
+                    alt={prog.alt}
+                    fill
+                    className="object-cover transition-transform duration-500 group-hover:scale-105"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-[#0F1729]/85 via-[#0F1729]/20 to-transparent"></div>
+                  <div className="absolute top-4 left-4 w-9 h-9 rounded-lg bg-[#FAF4E4] group-hover:bg-[#C59B27] border border-[#E8D7B0] text-[#9A7418] group-hover:text-[#0F1729] font-editorial font-bold text-sm flex items-center justify-center shadow transition-colors">
+                    {prog.numeral}
+                  </div>
+                  <div className="absolute bottom-3 left-4 right-4 flex items-center justify-between text-white">
+                    <span className="text-xs font-bold uppercase tracking-widest text-[#E5C158]">
+                      {prog.subtitle}
+                    </span>
+                  </div>
                 </div>
-                <div className="absolute bottom-3 left-4 right-4 flex items-center justify-between text-white">
-                  <span className="text-xs font-bold uppercase tracking-widest text-[#E5C158]">
-                    {prog.subtitle}
-                  </span>
+                <div className="p-6 flex-1 flex flex-col justify-between">
+                  <div>
+                    <h4 className="font-editorial text-xl font-bold text-[#0F1729] group-hover:text-white transition-colors">
+                      {prog.title}
+                    </h4>
+                    <p className="text-xs sm:text-sm text-[#475569] group-hover:text-slate-300 mt-2 leading-relaxed transition-colors">
+                      {prog.description}
+                    </p>
+                  </div>
                 </div>
-              </div>
-              <div className="p-6 flex-1 flex flex-col justify-between">
-                <div>
-                  <h4 className="font-editorial text-xl font-bold text-[#0F1729]">
-                    {prog.title}
-                  </h4>
-                  <p className="text-xs sm:text-sm text-[#475569] mt-2 leading-relaxed">
-                    {prog.description}
-                  </p>
-                </div>
-              </div>
+              </BubbleCard>
             </motion.div>
           ))}
         </motion.div>

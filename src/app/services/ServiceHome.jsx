@@ -3,6 +3,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { motion } from "framer-motion";
+import { BubbleCard } from "../components/motion";
 
 const coreServices = [
   {
@@ -258,37 +259,34 @@ const ServicePage = () => {
           variants={containerVariants}
         >
           {coreServices.map((service) => (
-            <motion.div
-              key={service.title}
-              variants={itemVariants}
-              whileHover={{ y: -6 }}
-              className="bg-white p-7 rounded-2xl border border-[#E5DEC9] hover:border-[#C59B27] shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col justify-between"
-            >
-              <div>
-                <div className="flex items-center justify-between mb-6">
-                  <span className="w-9 h-9 rounded-lg bg-[#FAF4E4] border border-[#E8D7B0] text-[#9A7418] font-editorial font-bold text-sm flex items-center justify-center">
-                    {service.numeral}
-                  </span>
-                  <span className="text-[11px] font-bold uppercase tracking-widest text-[#64748B]">
-                    Certified Programme
-                  </span>
+            <motion.div key={service.title} variants={itemVariants}>
+              <BubbleCard className="bg-white p-7 rounded-2xl border border-[#E5DEC9] shadow-sm hover:shadow-xl h-full">
+                <div>
+                  <div className="flex items-center justify-between mb-6">
+                    <span className="w-9 h-9 rounded-lg bg-[#FAF4E4] group-hover:bg-[#C59B27] border border-[#E8D7B0] text-[#9A7418] group-hover:text-[#0F1729] font-editorial font-bold text-sm flex items-center justify-center transition-colors">
+                      {service.numeral}
+                    </span>
+                    <span className="text-[11px] font-bold uppercase tracking-widest text-[#64748B] group-hover:text-[#E5C158] transition-colors">
+                      Certified Programme
+                    </span>
+                  </div>
+                  <div className="h-32 flex items-center justify-center bg-[#FAF7F2] rounded-xl p-4 mb-6 border border-[#E5DEC9]">
+                    <Image
+                      src={service.image}
+                      alt={service.title}
+                      width={140}
+                      height={110}
+                      className="mx-auto h-24 object-contain"
+                    />
+                  </div>
+                  <h3 className="font-editorial text-xl font-bold text-[#0F1729] group-hover:text-white transition-colors">
+                    {service.title}
+                  </h3>
+                  <p className="text-[#475569] group-hover:text-slate-300 mt-2 text-xs sm:text-sm leading-relaxed transition-colors">
+                    {service.description}
+                  </p>
                 </div>
-                <div className="h-32 flex items-center justify-center bg-[#FAF7F2] rounded-xl p-4 mb-6 border border-[#E5DEC9]">
-                  <Image
-                    src={service.image}
-                    alt={service.title}
-                    width={140}
-                    height={110}
-                    className="mx-auto h-24 object-contain"
-                  />
-                </div>
-                <h3 className="font-editorial text-xl font-bold text-[#0F1729]">
-                  {service.title}
-                </h3>
-                <p className="text-[#475569] mt-2 text-xs sm:text-sm leading-relaxed">
-                  {service.description}
-                </p>
-              </div>
+              </BubbleCard>
             </motion.div>
           ))}
         </motion.div>
@@ -329,34 +327,31 @@ const ServicePage = () => {
               variants={containerVariants}
             >
               {category.services.map((service, idx) => (
-                <motion.div
-                  key={service.title}
-                  variants={itemVariants}
-                  whileHover={{ y: -5 }}
-                  className="bg-white p-6 rounded-2xl border border-[#E5DEC9] hover:border-[#C59B27] shadow-sm hover:shadow-md transition-all duration-300 flex flex-col justify-between"
-                >
-                  <div>
-                    <div className="flex items-center justify-between mb-4">
-                      <div className="w-12 h-12 rounded-xl bg-[#FAF4E4] border border-[#E8D7B0] p-2.5 flex items-center justify-center">
-                        <Image
-                          src={service.icon}
-                          alt={service.title}
-                          width={32}
-                          height={32}
-                          className="object-contain"
-                        />
+                <motion.div key={service.title} variants={itemVariants}>
+                  <BubbleCard className="bg-white p-6 rounded-2xl border border-[#E5DEC9] shadow-sm hover:shadow-xl h-full">
+                    <div>
+                      <div className="flex items-center justify-between mb-4">
+                        <div className="w-12 h-12 rounded-xl bg-[#FAF4E4] border border-[#E8D7B0] p-2.5 flex items-center justify-center">
+                          <Image
+                            src={service.icon}
+                            alt={service.title}
+                            width={32}
+                            height={32}
+                            className="object-contain"
+                          />
+                        </div>
+                        <span className="font-editorial text-xs font-bold text-[#9A7418] group-hover:text-[#E5C158] transition-colors">
+                          0{idx + 1}
+                        </span>
                       </div>
-                      <span className="font-editorial text-xs font-bold text-[#9A7418]">
-                        0{idx + 1}
-                      </span>
+                      <h4 className="font-editorial text-lg font-bold text-[#0F1729] group-hover:text-white transition-colors">
+                        {service.title}
+                      </h4>
+                      <p className="text-[#475569] group-hover:text-slate-300 mt-2 text-xs sm:text-sm leading-relaxed transition-colors">
+                        {service.description}
+                      </p>
                     </div>
-                    <h4 className="font-editorial text-lg font-bold text-[#0F1729]">
-                      {service.title}
-                    </h4>
-                    <p className="text-[#475569] mt-2 text-xs sm:text-sm leading-relaxed">
-                      {service.description}
-                    </p>
-                  </div>
+                  </BubbleCard>
                 </motion.div>
               ))}
             </motion.div>

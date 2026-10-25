@@ -5,6 +5,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { TypeAnimation } from "react-type-animation";
 import { motion } from "framer-motion";
+import { BubbleCard } from "./motion";
 
 const practiceLinks = [
   { label: "I. Professional Diction", href: "/diction" },
@@ -70,46 +71,48 @@ const HeroSection = () => {
               Services equips leaders and institutions to command attention.
             </p>
 
-            {/* Dual-Division Switcher Cards */}
+            {/* Dual-Division Switcher Bubble Cards */}
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-3.5 pt-1 max-w-xl">
-              <Link
-                href="/diction"
-                className="group p-4 rounded-xl bg-white border border-[#E5DEC9] hover:border-[#C59B27] shadow-sm transition-all flex items-start gap-3.5"
-              >
-                <div className="w-10 h-10 rounded-lg bg-[#FAF4E4] text-[#9A7418] flex items-center justify-center font-editorial font-bold text-base shrink-0 border border-[#E8D7B0]">
-                  I
-                </div>
-                <div>
-                  <div className="text-[11px] font-bold uppercase tracking-wider text-[#9A7418]">
-                    Division 01
+              <Link href="/diction" className="block">
+                <BubbleCard className="p-4 rounded-xl bg-white border border-[#E5DEC9] shadow-sm">
+                  <div className="flex items-start gap-3.5">
+                    <div className="w-10 h-10 rounded-lg bg-[#FAF4E4] text-[#9A7418] group-hover:bg-[#C59B27] group-hover:text-[#0F1729] flex items-center justify-center font-editorial font-bold text-base shrink-0 border border-[#E8D7B0] group-hover:border-[#E5C158] transition-colors">
+                      I
+                    </div>
+                    <div>
+                      <div className="text-[11px] font-bold uppercase tracking-wider text-[#9A7418] group-hover:text-[#E5C158] transition-colors">
+                        Division 01
+                      </div>
+                      <div className="text-sm font-bold text-[#0F1729] group-hover:text-white transition-colors">
+                        Professional Diction →
+                      </div>
+                      <div className="text-xs text-[#64748B] group-hover:text-slate-300 mt-0.5 transition-colors">
+                        Elocution, Phonics &amp; Speech Therapy
+                      </div>
+                    </div>
                   </div>
-                  <div className="text-sm font-bold text-[#0F1729] group-hover:text-[#9A7418] transition-colors">
-                    Professional Diction →
-                  </div>
-                  <div className="text-xs text-[#64748B] mt-0.5">
-                    Elocution, Phonics &amp; Speech Therapy
-                  </div>
-                </div>
+                </BubbleCard>
               </Link>
 
-              <Link
-                href="/web-design"
-                className="group p-4 rounded-xl bg-white border border-[#E5DEC9] hover:border-[#0F1729] shadow-sm transition-all flex items-start gap-3.5"
-              >
-                <div className="w-10 h-10 rounded-lg bg-[#0F1729] text-[#C59B27] flex items-center justify-center font-editorial font-bold text-base shrink-0">
-                  II
-                </div>
-                <div>
-                  <div className="text-[11px] font-bold uppercase tracking-wider text-[#64748B]">
-                    Division 02
+              <Link href="/web-design" className="block">
+                <BubbleCard className="p-4 rounded-xl bg-white border border-[#E5DEC9] shadow-sm">
+                  <div className="flex items-start gap-3.5">
+                    <div className="w-10 h-10 rounded-lg bg-[#0F1729] text-[#C59B27] group-hover:bg-[#C59B27] group-hover:text-[#0F1729] flex items-center justify-center font-editorial font-bold text-base shrink-0 transition-colors">
+                      II
+                    </div>
+                    <div>
+                      <div className="text-[11px] font-bold uppercase tracking-wider text-[#64748B] group-hover:text-[#E5C158] transition-colors">
+                        Division 02
+                      </div>
+                      <div className="text-sm font-bold text-[#0F1729] group-hover:text-white transition-colors">
+                        Digital Engineering →
+                      </div>
+                      <div className="text-xs text-[#64748B] group-hover:text-slate-300 mt-0.5 transition-colors">
+                        Web Design, Mobile &amp; Custom Apps
+                      </div>
+                    </div>
                   </div>
-                  <div className="text-sm font-bold text-[#0F1729] group-hover:text-[#9A7418] transition-colors">
-                    Digital Engineering →
-                  </div>
-                  <div className="text-xs text-[#64748B] mt-0.5">
-                    Web Design, Mobile &amp; Custom Apps
-                  </div>
-                </div>
+                </BubbleCard>
               </Link>
             </div>
 
@@ -192,37 +195,42 @@ const HeroSection = () => {
                 </div>
               </div>
 
-              {/* Floating Acoustic & Institutional Credential Card */}
-              <div className="-mt-6 mx-4 bg-white border border-[#E5DEC9] rounded-xl p-4 shadow-xl relative z-10 flex items-center justify-between gap-4">
-                <div className="flex items-center gap-3">
-                  <div className="flex items-end gap-1 h-7 px-2.5 py-1.5 bg-[#FAF4E4] rounded-lg border border-[#E8D7B0]">
-                    <span className="w-1 h-3 bg-[#C59B27] wave-bar"></span>
-                    <span
-                      className="w-1 h-5 bg-[#0F1729] wave-bar"
-                      style={{ animationDelay: "0.2s" }}
-                    ></span>
-                    <span
-                      className="w-1 h-4 bg-[#C59B27] wave-bar"
-                      style={{ animationDelay: "0.4s" }}
-                    ></span>
-                    <span
-                      className="w-1 h-2.5 bg-[#0F1729] wave-bar"
-                      style={{ animationDelay: "0.6s" }}
-                    ></span>
-                  </div>
-                  <div>
-                    <div className="text-xs font-bold text-[#0F1729]">
-                      10,000+ Scholars &amp; Clients
+              {/* Floating Acoustic & Institutional Credential Bubble Card */}
+              <BubbleCard
+                hoverLift={false}
+                className="-mt-6 mx-4 bg-white border border-[#E5DEC9] rounded-xl p-4 shadow-xl relative z-10"
+              >
+                <div className="flex items-center justify-between gap-4">
+                  <div className="flex items-center gap-3">
+                    <div className="flex items-end gap-1 h-7 px-2.5 py-1.5 bg-[#FAF4E4] rounded-lg border border-[#E8D7B0]">
+                      <span className="w-1 h-3 bg-[#C59B27] wave-bar"></span>
+                      <span
+                        className="w-1 h-5 bg-[#0F1729] wave-bar"
+                        style={{ animationDelay: "0.2s" }}
+                      ></span>
+                      <span
+                        className="w-1 h-4 bg-[#C59B27] wave-bar"
+                        style={{ animationDelay: "0.4s" }}
+                      ></span>
+                      <span
+                        className="w-1 h-2.5 bg-[#0F1729] wave-bar"
+                        style={{ animationDelay: "0.6s" }}
+                      ></span>
                     </div>
-                    <div className="text-xs text-[#64748B]">
-                      Across 50+ Partner Institutions
+                    <div>
+                      <div className="text-xs font-bold text-[#0F1729] group-hover:text-white transition-colors">
+                        10,000+ Scholars &amp; Clients
+                      </div>
+                      <div className="text-xs text-[#64748B] group-hover:text-slate-300 transition-colors">
+                        Across 50+ Partner Institutions
+                      </div>
                     </div>
                   </div>
+                  <span className="text-xs font-bold text-[#9A7418] group-hover:text-[#E5C158] shrink-0 transition-colors">
+                    4.9★ Rated
+                  </span>
                 </div>
-                <span className="text-xs font-bold text-[#9A7418] shrink-0">
-                  4.9★ Rated
-                </span>
-              </div>
+              </BubbleCard>
             </div>
           </motion.div>
         </div>

@@ -4,6 +4,7 @@ import React from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { motion } from "framer-motion";
+import { BubbleCard } from "../../components/motion";
 
 const categories = [
   {
@@ -63,7 +64,7 @@ const Register = () => {
         {/* Category Cards */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           {categories.map((cat, idx) => (
-            <motion.div
+            <BubbleCard
               key={cat.title}
               initial={{ opacity: 0, y: 28 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -73,20 +74,20 @@ const Register = () => {
                 delay: 0.15 + idx * 0.15,
                 ease: [0.21, 0.47, 0.32, 0.98],
               }}
-              whileHover={{ y: -6 }}
-              className="bg-white rounded-3xl p-8 sm:p-10 border border-[#DFD3BC] hover:border-[#C59B27] shadow-lg hover:shadow-2xl transition-all duration-300 flex flex-col justify-between"
+              className="bg-white rounded-3xl p-8 sm:p-10 border border-[#DFD3BC] shadow-lg"
+              contentClassName="flex flex-col justify-between"
             >
               <div>
-                <div className="flex items-center justify-between mb-6 pb-4 border-b border-[#E5DEC9]">
-                  <span className="text-xs font-bold uppercase tracking-widest text-[#9A7418]">
+                <div className="flex items-center justify-between mb-6 pb-4 border-b border-[#E5DEC9] group-hover:border-white/15 transition-colors duration-500">
+                  <span className="text-xs font-bold uppercase tracking-widest text-[#9A7418] group-hover:text-[#E5C158] transition-colors duration-500">
                     {cat.label}
                   </span>
-                  <span className="w-9 h-9 rounded-lg bg-[#FAF4E4] border border-[#E8D7B0] text-[#9A7418] font-editorial font-bold text-sm flex items-center justify-center">
+                  <span className="w-9 h-9 rounded-lg bg-[#FAF4E4] group-hover:bg-white/10 border border-[#E8D7B0] group-hover:border-[#C59B27]/50 text-[#9A7418] group-hover:text-[#E5C158] font-editorial font-bold text-sm flex items-center justify-center transition-colors duration-500">
                     {cat.numeral}
                   </span>
                 </div>
 
-                <div className="w-24 h-24 rounded-2xl bg-[#FAF7F2] border border-[#E5DEC9] p-4 mb-6 flex items-center justify-center mx-auto">
+                <div className="w-24 h-24 rounded-2xl bg-[#FAF7F2] group-hover:bg-white/95 border border-[#E5DEC9] p-4 mb-6 flex items-center justify-center mx-auto transition-colors duration-500">
                   <Image
                     src={cat.image}
                     alt={cat.title}
@@ -96,10 +97,10 @@ const Register = () => {
                   />
                 </div>
 
-                <h2 className="font-editorial text-2xl sm:text-3xl font-bold text-[#0F1729] mb-3 text-center">
+                <h2 className="font-editorial text-2xl sm:text-3xl font-bold text-[#0F1729] group-hover:text-white mb-3 text-center transition-colors duration-500">
                   {cat.title}
                 </h2>
-                <p className="text-[#475569] text-center mb-8 text-xs sm:text-sm leading-relaxed">
+                <p className="text-[#475569] group-hover:text-slate-300 text-center mb-8 text-xs sm:text-sm leading-relaxed transition-colors duration-500">
                   {cat.description}
                 </p>
               </div>
@@ -108,12 +109,12 @@ const Register = () => {
                 <motion.button
                   whileHover={{ scale: 1.02 }}
                   whileTap={{ scale: 0.98 }}
-                  className="w-full py-3.5 px-6 rounded-xl bg-[#0F1729] text-white text-xs font-bold uppercase tracking-wider hover:bg-[#1E293B] transition shadow-md"
+                  className="w-full py-3.5 px-6 rounded-xl bg-[#0F1729] text-white group-hover:bg-[#C59B27] group-hover:text-[#0F1729] text-xs font-bold uppercase tracking-wider transition-colors duration-500 shadow-md"
                 >
                   Enroll in {cat.title} →
                 </motion.button>
               </Link>
-            </motion.div>
+            </BubbleCard>
           ))}
         </div>
       </div>

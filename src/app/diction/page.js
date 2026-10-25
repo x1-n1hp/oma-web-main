@@ -2,7 +2,12 @@ import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import Image from "next/image";
 import Link from "next/link";
-import { ScrollReveal, StaggerContainer, StaggerItem } from "../components/motion";
+import {
+  ScrollReveal,
+  StaggerContainer,
+  StaggerItem,
+  BubbleCard,
+} from "../components/motion";
 import {
   AcademicCapIcon,
   BookOpenIcon,
@@ -113,11 +118,11 @@ export default function DictionPage() {
         </ScrollReveal>
       </section>
 
-      {/* Hairline Stat Ledger */}
+      {/* Stat Bubble Cards */}
       <section className="max-w-6xl mx-auto px-6 -mt-8 relative z-10">
         <StaggerContainer
           staggerChildren={0.12}
-          className="grid grid-cols-2 md:grid-cols-4 bg-white rounded-2xl shadow-lg border border-[#DFD3BC] divide-y md:divide-y-0 md:divide-x divide-[#DFD3BC]"
+          className="grid grid-cols-2 md:grid-cols-4 gap-4"
         >
           {[
             { value: "10+", label: "Years Training" },
@@ -125,19 +130,21 @@ export default function DictionPage() {
             { value: "10,000+", label: "Students Trained" },
             { value: "830+", label: "Positive Reviews" },
           ].map((stat) => (
-            <StaggerItem key={stat.label} className="p-6 sm:p-8 text-center">
-              <p className="font-editorial text-3xl sm:text-4xl font-bold text-[#0F1729]">
-                {stat.value}
-              </p>
-              <p className="text-xs font-bold uppercase tracking-wider text-[#9A7418] mt-1.5">
-                {stat.label}
-              </p>
+            <StaggerItem key={stat.label}>
+              <BubbleCard className="bg-white rounded-2xl shadow-lg border border-[#DFD3BC] p-6 sm:p-8 text-center h-full">
+                <p className="font-editorial text-3xl sm:text-4xl font-bold text-[#0F1729] group-hover:text-white transition-colors">
+                  {stat.value}
+                </p>
+                <p className="text-xs font-bold uppercase tracking-wider text-[#9A7418] group-hover:text-[#E5C158] mt-1.5 transition-colors">
+                  {stat.label}
+                </p>
+              </BubbleCard>
             </StaggerItem>
           ))}
         </StaggerContainer>
       </section>
 
-      {/* Services Grid */}
+      {/* Services Bubble Cards Grid */}
       <section className="max-w-6xl mx-auto px-6 py-20">
         <ScrollReveal direction="up" amount={0.3} className="mb-10">
           <span className="text-xs font-bold uppercase tracking-widest text-[#9A7418]">
@@ -153,29 +160,28 @@ export default function DictionPage() {
           className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
         >
           {dictionServices.map((service) => (
-            <StaggerItem
-              key={service.title}
-              className="bg-white rounded-2xl p-7 border border-[#E5DEC9] hover:border-[#C59B27] shadow-sm hover:shadow-md transition-all duration-300 hover:-translate-y-1 flex flex-col justify-between"
-            >
-              <div>
-                <div className="flex items-center justify-between mb-5">
-                  <div className="inline-flex rounded-xl bg-[#FAF4E4] border border-[#E8D7B0] p-3">
-                    <service.icon
-                      aria-hidden="true"
-                      className="h-6 w-6 text-[#9A7418]"
-                    />
+            <StaggerItem key={service.title}>
+              <BubbleCard className="bg-white rounded-2xl p-7 border border-[#E5DEC9] shadow-sm hover:shadow-xl h-full">
+                <div>
+                  <div className="flex items-center justify-between mb-5">
+                    <div className="inline-flex rounded-xl bg-[#FAF4E4] group-hover:bg-[#C59B27] border border-[#E8D7B0] p-3 transition-colors">
+                      <service.icon
+                        aria-hidden="true"
+                        className="h-6 w-6 text-[#9A7418] group-hover:text-[#0F1729] transition-colors"
+                      />
+                    </div>
+                    <span className="font-editorial text-sm font-bold text-[#9A7418] group-hover:text-[#E5C158] transition-colors">
+                      {service.num}
+                    </span>
                   </div>
-                  <span className="font-editorial text-sm font-bold text-[#9A7418]">
-                    {service.num}
-                  </span>
+                  <h3 className="font-editorial text-xl font-bold text-[#0F1729] group-hover:text-white mb-2 transition-colors">
+                    {service.title}
+                  </h3>
+                  <p className="text-xs sm:text-sm text-[#475569] group-hover:text-slate-300 leading-relaxed transition-colors">
+                    {service.description}
+                  </p>
                 </div>
-                <h3 className="font-editorial text-xl font-bold text-[#0F1729] mb-2">
-                  {service.title}
-                </h3>
-                <p className="text-xs sm:text-sm text-[#475569] leading-relaxed">
-                  {service.description}
-                </p>
-              </div>
+              </BubbleCard>
             </StaggerItem>
           ))}
         </StaggerContainer>

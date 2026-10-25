@@ -1,7 +1,12 @@
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import Link from "next/link";
-import { ScrollReveal, StaggerContainer, StaggerItem } from "../components/motion";
+import {
+  ScrollReveal,
+  StaggerContainer,
+  StaggerItem,
+  BubbleCard,
+} from "../components/motion";
 import {
   ChartBarSquareIcon,
   CodeBracketSquareIcon,
@@ -102,7 +107,7 @@ export default function WebDesignPage() {
         </ScrollReveal>
       </section>
 
-      {/* Offerings Grid */}
+      {/* Offerings Bubble Cards Grid */}
       <section className="max-w-6xl mx-auto px-6 py-20">
         <ScrollReveal
           direction="up"
@@ -126,27 +131,28 @@ export default function WebDesignPage() {
           className="grid grid-cols-1 md:grid-cols-2 gap-6"
         >
           {offerings.map((item) => (
-            <StaggerItem
-              key={item.title}
-              className="bg-white rounded-2xl p-7 border border-[#E5DEC9] hover:border-[#C59B27] shadow-sm hover:shadow-md transition-all duration-300 hover:-translate-y-1 flex items-start gap-5"
-            >
-              <div className="shrink-0 w-12 h-12 rounded-xl bg-[#FAF4E4] border border-[#E8D7B0] text-[#9A7418] flex items-center justify-center font-editorial font-bold text-lg">
-                {item.num}
-              </div>
-              <div>
-                <h3 className="font-editorial text-xl font-bold text-[#0F1729] mb-2">
-                  {item.title}
-                </h3>
-                <p className="text-xs sm:text-sm text-[#475569] leading-relaxed">
-                  {item.description}
-                </p>
-              </div>
+            <StaggerItem key={item.title}>
+              <BubbleCard className="bg-white rounded-2xl p-7 border border-[#E5DEC9] shadow-sm hover:shadow-xl h-full">
+                <div className="flex items-start gap-5">
+                  <div className="shrink-0 w-12 h-12 rounded-xl bg-[#FAF4E4] group-hover:bg-[#C59B27] border border-[#E8D7B0] text-[#9A7418] group-hover:text-[#0F1729] flex items-center justify-center font-editorial font-bold text-lg transition-colors">
+                    {item.num}
+                  </div>
+                  <div>
+                    <h3 className="font-editorial text-xl font-bold text-[#0F1729] group-hover:text-white mb-2 transition-colors">
+                      {item.title}
+                    </h3>
+                    <p className="text-xs sm:text-sm text-[#475569] group-hover:text-slate-300 leading-relaxed transition-colors">
+                      {item.description}
+                    </p>
+                  </div>
+                </div>
+              </BubbleCard>
             </StaggerItem>
           ))}
         </StaggerContainer>
       </section>
 
-      {/* 4-Step Delivery Methodology */}
+      {/* 4-Step Delivery Methodology Bubble Cards */}
       <section className="bg-white border-y border-[#E5DEC9] py-20 px-6">
         <div className="max-w-6xl mx-auto">
           <ScrollReveal
@@ -166,21 +172,20 @@ export default function WebDesignPage() {
             className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6"
           >
             {process.map((p) => (
-              <StaggerItem
-                key={p.step}
-                className="p-6 rounded-2xl bg-[#FAF7F2] border border-[#E5DEC9] flex flex-col justify-between"
-              >
-                <div>
-                  <span className="text-xs font-bold uppercase tracking-widest text-[#9A7418]">
-                    STEP {p.step}
-                  </span>
-                  <h4 className="font-editorial text-lg font-bold text-[#0F1729] mt-2 mb-2">
-                    {p.title}
-                  </h4>
-                  <p className="text-xs sm:text-sm text-[#475569] leading-relaxed">
-                    {p.desc}
-                  </p>
-                </div>
+              <StaggerItem key={p.step}>
+                <BubbleCard className="p-6 rounded-2xl bg-[#FAF7F2] border border-[#E5DEC9] h-full">
+                  <div>
+                    <span className="text-xs font-bold uppercase tracking-widest text-[#9A7418] group-hover:text-[#E5C158] transition-colors">
+                      STEP {p.step}
+                    </span>
+                    <h4 className="font-editorial text-lg font-bold text-[#0F1729] group-hover:text-white mt-2 mb-2 transition-colors">
+                      {p.title}
+                    </h4>
+                    <p className="text-xs sm:text-sm text-[#475569] group-hover:text-slate-300 leading-relaxed transition-colors">
+                      {p.desc}
+                    </p>
+                  </div>
+                </BubbleCard>
               </StaggerItem>
             ))}
           </StaggerContainer>

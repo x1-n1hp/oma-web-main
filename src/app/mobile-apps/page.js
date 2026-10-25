@@ -1,7 +1,12 @@
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import Link from "next/link";
-import { ScrollReveal, StaggerContainer, StaggerItem } from "../components/motion";
+import {
+  ScrollReveal,
+  StaggerContainer,
+  StaggerItem,
+  BubbleCard,
+} from "../components/motion";
 import {
   ArrowPathRoundedSquareIcon,
   ChartBarSquareIcon,
@@ -89,7 +94,7 @@ export default function MobileAppsPage() {
         </ScrollReveal>
       </section>
 
-      {/* Offerings Grid */}
+      {/* Offerings Bubble Cards Grid */}
       <section className="max-w-6xl mx-auto px-6 py-20">
         <ScrollReveal
           direction="up"
@@ -113,27 +118,28 @@ export default function MobileAppsPage() {
           className="grid grid-cols-1 md:grid-cols-2 gap-6"
         >
           {offerings.map((item) => (
-            <StaggerItem
-              key={item.title}
-              className="bg-white rounded-2xl p-7 border border-[#E5DEC9] hover:border-[#C59B27] shadow-sm hover:shadow-md transition-all duration-300 hover:-translate-y-1 flex items-start gap-5"
-            >
-              <div className="shrink-0 w-12 h-12 rounded-xl bg-[#FAF4E4] border border-[#E8D7B0] text-[#9A7418] flex items-center justify-center font-editorial font-bold text-lg">
-                {item.num}
-              </div>
-              <div>
-                <h3 className="font-editorial text-xl font-bold text-[#0F1729] mb-2">
-                  {item.title}
-                </h3>
-                <p className="text-xs sm:text-sm text-[#475569] leading-relaxed">
-                  {item.description}
-                </p>
-              </div>
+            <StaggerItem key={item.title}>
+              <BubbleCard className="bg-white rounded-2xl p-7 border border-[#E5DEC9] shadow-sm hover:shadow-xl h-full">
+                <div className="flex items-start gap-5">
+                  <div className="shrink-0 w-12 h-12 rounded-xl bg-[#FAF4E4] group-hover:bg-[#C59B27] border border-[#E8D7B0] text-[#9A7418] group-hover:text-[#0F1729] flex items-center justify-center font-editorial font-bold text-lg transition-colors">
+                    {item.num}
+                  </div>
+                  <div>
+                    <h3 className="font-editorial text-xl font-bold text-[#0F1729] group-hover:text-white mb-2 transition-colors">
+                      {item.title}
+                    </h3>
+                    <p className="text-xs sm:text-sm text-[#475569] group-hover:text-slate-300 leading-relaxed transition-colors">
+                      {item.description}
+                    </p>
+                  </div>
+                </div>
+              </BubbleCard>
             </StaggerItem>
           ))}
         </StaggerContainer>
       </section>
 
-      {/* Architectural Standards */}
+      {/* Architectural Standards Bubble Cards */}
       <section className="bg-white border-y border-[#E5DEC9] py-20 px-6">
         <div className="max-w-4xl mx-auto">
           <ScrollReveal direction="up" className="text-center mb-10">
@@ -150,14 +156,15 @@ export default function MobileAppsPage() {
             className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4"
           >
             {features.map((f) => (
-              <StaggerItem
-                key={f}
-                className="flex items-center gap-3 bg-[#FAF7F2] border border-[#E5DEC9] rounded-xl px-5 py-4 hover:border-[#C59B27] transition-colors"
-              >
-                <span className="w-2 h-2 rounded-full bg-[#C59B27] shrink-0" />
-                <span className="text-xs sm:text-sm font-bold text-[#0F1729]">
-                  {f}
-                </span>
+              <StaggerItem key={f}>
+                <BubbleCard className="bg-[#FAF7F2] border border-[#E5DEC9] rounded-xl px-5 py-4 shadow-sm">
+                  <div className="flex items-center gap-3">
+                    <span className="w-2 h-2 rounded-full bg-[#C59B27] group-hover:bg-[#E5C158] shrink-0 transition-colors" />
+                    <span className="text-xs sm:text-sm font-bold text-[#0F1729] group-hover:text-white transition-colors">
+                      {f}
+                    </span>
+                  </div>
+                </BubbleCard>
               </StaggerItem>
             ))}
           </StaggerContainer>
