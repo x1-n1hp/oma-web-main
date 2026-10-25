@@ -1,22 +1,37 @@
+"use client";
+
 import React from "react";
 import Image from "next/image";
+import { motion } from "framer-motion";
 
 const ContactUs = () => {
   return (
-    <section className="bg-gray-50 py-16 px-6" id="contact">
+    <section className="bg-gray-50 py-16 px-6 overflow-hidden" id="contact">
       {/* Wrapper to center the content */}
       <div className="max-w-screen-lg mx-auto">
         {/* Header Section */}
-        <div className="text-center max-w-2xl mx-auto mb-12">
+        <motion.div
+          className="text-center max-w-2xl mx-auto mb-12"
+          initial={{ opacity: 0, y: 25 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.3 }}
+          transition={{ duration: 0.6, ease: [0.21, 0.47, 0.32, 0.98] }}
+        >
           <h2 className="text-2xl font-semibold text-indigo-600 uppercase tracking-wide">
             Contact Us
           </h2>
-        </div>
+        </motion.div>
 
         {/* Content Section */}
         <div className="flex flex-col lg:flex-row lg:justify-between gap-12">
           {/* Left: Contact Information */}
-          <div className="lg:w-1/2 space-y-8">
+          <motion.div
+            className="lg:w-1/2 space-y-8"
+            initial={{ opacity: 0, x: -30 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true, amount: 0.25 }}
+            transition={{ duration: 0.7, ease: [0.21, 0.47, 0.32, 0.98] }}
+          >
             <h3 className="text-2xl font-semibold text-gray-800">Get in Touch</h3>
             <p className="text-gray-600 leading-relaxed">
               Thank you for your interest in Oma Services. We are here to assist
@@ -26,21 +41,32 @@ const ContactUs = () => {
             </p>
             <ul className="space-y-4">
               <li className="flex items-center gap-4">
-                <Image
-                  src="/images/mail-icon.png"
-                  alt="Email Icon"
-                  width={24}
-                  height={24}
-                />
-                <span className="text-sm text-gray-800 font-medium">
+                <div className="p-2 bg-indigo-50 rounded-full">
+                  <Image
+                    src="/images/mail-icon.png"
+                    alt="Email Icon"
+                    width={24}
+                    height={24}
+                  />
+                </div>
+                <a
+                  href="mailto:partnerships@omadiction.pro"
+                  className="text-sm text-gray-800 font-medium hover:text-indigo-600 transition-colors"
+                >
                   partnerships@omadiction.pro
-                </span>
+                </a>
               </li>
             </ul>
-          </div>
+          </motion.div>
 
           {/* Right: Contact Form */}
-          <div className="lg:w-1/2 bg-transparent rounded-lg p-8">
+          <motion.div
+            className="lg:w-1/2 bg-white rounded-xl shadow-md p-8 border border-gray-100"
+            initial={{ opacity: 0, x: 30 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true, amount: 0.25 }}
+            transition={{ duration: 0.7, ease: [0.21, 0.47, 0.32, 0.98] }}
+          >
             <h3 className="text-2xl font-semibold text-gray-800 mb-4">
               Send Us a Message
             </h3>
@@ -62,7 +88,7 @@ const ContactUs = () => {
                   name="name"
                   placeholder="Enter your name"
                   required
-                  className="w-full border-gray-300 rounded-lg shadow-sm p-3 mt-2 bg-gray-50 focus:outline-none focus:ring-2 focus:ring-indigo-600 focus:border-indigo-600"
+                  className="w-full border border-gray-300 rounded-lg shadow-sm p-3 mt-2 bg-gray-50 focus:outline-none focus:ring-2 focus:ring-indigo-600 focus:border-indigo-600"
                 />
               </div>
               <div>
@@ -78,7 +104,7 @@ const ContactUs = () => {
                   name="email"
                   placeholder="Enter your email"
                   required
-                  className="w-full border-gray-300 rounded-lg shadow-sm p-3 mt-2 bg-gray-50 focus:outline-none focus:ring-2 focus:ring-indigo-600 focus:border-indigo-600"
+                  className="w-full border border-gray-300 rounded-lg shadow-sm p-3 mt-2 bg-gray-50 focus:outline-none focus:ring-2 focus:ring-indigo-600 focus:border-indigo-600"
                 />
               </div>
               <div>
@@ -94,19 +120,21 @@ const ContactUs = () => {
                   rows="5"
                   placeholder="Enter your message"
                   required
-                  className="resize-none w-full border-gray-300 rounded-lg shadow-sm p-3 mt-2 bg-gray-50 focus:outline-none focus:ring-2 focus:ring-indigo-600 focus:border-indigo-600"
+                  className="resize-none w-full border border-gray-300 rounded-lg shadow-sm p-3 mt-2 bg-gray-50 focus:outline-none focus:ring-2 focus:ring-indigo-600 focus:border-indigo-600"
                 ></textarea>
               </div>
               <div className="flex justify-center">
-                <button
+                <motion.button
                   type="submit"
+                  whileHover={{ scale: 1.03 }}
+                  whileTap={{ scale: 0.97 }}
                   className="px-8 py-3 bg-indigo-600 text-white font-medium rounded-lg shadow-md hover:bg-indigo-700 transition"
                 >
                   Submit now →
-                </button>
+                </motion.button>
               </div>
             </form>
-          </div>
+          </motion.div>
         </div>
       </div>
     </section>

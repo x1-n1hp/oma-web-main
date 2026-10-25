@@ -1,6 +1,7 @@
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import Link from "next/link";
+import { ScrollReveal, StaggerContainer, StaggerItem } from "../components/motion";
 import {
   BoltIcon,
   BookOpenIcon,
@@ -40,12 +41,12 @@ const stack = ["Next.js", "React", "Node.js", "Tailwind CSS", "PostgreSQL", "Ver
 
 export default function WebAppsPage() {
   return (
-    <main className="min-h-screen bg-[#f6f9fc]">
+    <main className="min-h-screen bg-[#f6f9fc] overflow-hidden">
       <Navbar />
 
       {/* Hero */}
       <section className="bg-[#1e2a5e] text-white py-20 px-6">
-        <div className="max-w-4xl mx-auto text-center">
+        <ScrollReveal direction="up" delay={0.1} className="max-w-4xl mx-auto text-center">
           <p className="text-[#c9922a] font-semibold text-sm mb-3">Web Applications</p>
           <h1 className="text-4xl md:text-5xl font-extrabold leading-tight mb-6">
             Software built around how your business works
@@ -55,21 +56,26 @@ export default function WebAppsPage() {
             reliable, scalable, and practical to maintain long-term.
           </p>
           <a href="mailto:partnerships@omadiction.pro">
-            <button className="px-7 py-3 bg-[#c9922a] text-white font-semibold rounded-lg hover:bg-[#b07e24] transition-colors">
+            <button className="px-7 py-3 bg-[#c9922a] text-white font-semibold rounded-lg hover:bg-[#b07e24] transition-colors shadow-md">
               Scope a project
             </button>
           </a>
-        </div>
+        </ScrollReveal>
       </section>
 
       {/* Offerings */}
       <section className="max-w-6xl mx-auto px-6 py-16">
-        <h2 className="text-2xl font-bold text-[#1e2a5e] mb-8">What we build</h2>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <ScrollReveal direction="up">
+          <h2 className="text-2xl font-bold text-[#1e2a5e] mb-8">What we build</h2>
+        </ScrollReveal>
+        <StaggerContainer
+          staggerChildren={0.12}
+          className="grid grid-cols-1 md:grid-cols-2 gap-6"
+        >
           {offerings.map((item) => (
-            <div
+            <StaggerItem
               key={item.title}
-              className="bg-white rounded-xl p-6 border border-gray-100 shadow-sm hover:shadow-md transition-shadow flex items-start gap-5"
+              className="bg-white rounded-xl p-6 border border-gray-100 shadow-sm hover:shadow-md transition-all duration-300 hover:-translate-y-1 flex items-start gap-5"
             >
               <div className="shrink-0 rounded-xl bg-[#f0f4ff] p-4">
                 <item.icon aria-hidden="true" className="h-8 w-8 text-[#1e2a5e]" />
@@ -78,37 +84,44 @@ export default function WebAppsPage() {
                 <h3 className="text-lg font-semibold text-[#1e2a5e] mb-2">{item.title}</h3>
                 <p className="text-sm text-gray-600 leading-relaxed">{item.description}</p>
               </div>
-            </div>
+            </StaggerItem>
           ))}
-        </div>
+        </StaggerContainer>
       </section>
 
       {/* Tech stack */}
       <section className="bg-white py-16 px-6">
         <div className="max-w-4xl mx-auto text-center">
-          <h2 className="text-2xl font-bold text-[#1e2a5e] mb-8">Our technology stack</h2>
-          <div className="flex flex-wrap justify-center gap-3">
+          <ScrollReveal direction="up">
+            <h2 className="text-2xl font-bold text-[#1e2a5e] mb-8">Our technology stack</h2>
+          </ScrollReveal>
+          <StaggerContainer
+            staggerChildren={0.08}
+            className="flex flex-wrap justify-center gap-3"
+          >
             {stack.map((tech) => (
-              <span
+              <StaggerItem
                 key={tech}
-                className="px-5 py-2 rounded-full bg-[#f0f4ff] text-[#1e2a5e] font-semibold text-sm border border-[#1e2a5e]/10"
+                className="px-5 py-2 rounded-full bg-[#f0f4ff] text-[#1e2a5e] font-semibold text-sm border border-[#1e2a5e]/10 hover:bg-[#e4edff] transition-colors"
               >
                 {tech}
-              </span>
+              </StaggerItem>
             ))}
-          </div>
+          </StaggerContainer>
         </div>
       </section>
 
       {/* CTA */}
       <section className="bg-[#1e2a5e] py-14 px-6 text-center">
-        <h2 className="text-2xl font-bold text-white mb-3">Have a problem that needs a web solution?</h2>
-        <p className="text-gray-300 mb-6">Walk us through the challenge and we&apos;ll figure out the right approach together.</p>
-        <Link href="/contact">
-          <button className="px-6 py-3 bg-[#c9922a] text-white font-semibold rounded-lg hover:bg-[#b07e24] transition-colors">
-            Start the conversation
-          </button>
-        </Link>
+        <ScrollReveal direction="up" className="max-w-3xl mx-auto">
+          <h2 className="text-2xl font-bold text-white mb-3">Have a problem that needs a web solution?</h2>
+          <p className="text-gray-300 mb-6">Walk us through the challenge and we&apos;ll figure out the right approach together.</p>
+          <Link href="/contact">
+            <button className="px-6 py-3 bg-[#c9922a] text-white font-semibold rounded-lg hover:bg-[#b07e24] transition-colors shadow-md">
+              Start the conversation
+            </button>
+          </Link>
+        </ScrollReveal>
       </section>
 
       <Footer />

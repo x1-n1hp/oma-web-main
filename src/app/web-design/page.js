@@ -1,6 +1,7 @@
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import Link from "next/link";
+import { ScrollReveal, StaggerContainer, StaggerItem } from "../components/motion";
 import {
   ChartBarSquareIcon,
   CodeBracketSquareIcon,
@@ -45,12 +46,12 @@ const process = [
 
 export default function WebDesignPage() {
   return (
-    <main className="min-h-screen bg-[#f6f9fc]">
+    <main className="min-h-screen bg-[#f6f9fc] overflow-hidden">
       <Navbar />
 
       {/* Hero */}
       <section className="bg-[#1e2a5e] text-white py-20 px-6">
-        <div className="max-w-4xl mx-auto text-center">
+        <ScrollReveal direction="up" delay={0.1} className="max-w-4xl mx-auto text-center">
           <p className="text-[#c9922a] font-semibold text-sm mb-3">Website Design</p>
           <h1 className="text-4xl md:text-5xl font-extrabold leading-tight mb-6">
             Your brand deserves a website that works
@@ -60,21 +61,26 @@ export default function WebDesignPage() {
             not generic templates.
           </p>
           <a href="mailto:partnerships@omadiction.pro">
-            <button className="px-7 py-3 bg-[#c9922a] text-white font-semibold rounded-lg hover:bg-[#b07e24] transition-colors">
+            <button className="px-7 py-3 bg-[#c9922a] text-white font-semibold rounded-lg hover:bg-[#b07e24] transition-colors shadow-md">
               Start your project
             </button>
           </a>
-        </div>
+        </ScrollReveal>
       </section>
 
       {/* Offerings */}
       <section className="max-w-6xl mx-auto px-6 py-16">
-        <h2 className="text-2xl font-bold text-[#1e2a5e] mb-8">What&apos;s included</h2>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <ScrollReveal direction="up">
+          <h2 className="text-2xl font-bold text-[#1e2a5e] mb-8">What&apos;s included</h2>
+        </ScrollReveal>
+        <StaggerContainer
+          staggerChildren={0.12}
+          className="grid grid-cols-1 md:grid-cols-2 gap-6"
+        >
           {offerings.map((item) => (
-            <div
+            <StaggerItem
               key={item.title}
-              className="bg-white rounded-xl p-6 border border-gray-100 shadow-sm hover:shadow-md transition-shadow flex items-start gap-5"
+              className="bg-white rounded-xl p-6 border border-gray-100 shadow-sm hover:shadow-md transition-all duration-300 hover:-translate-y-1 flex items-start gap-5"
             >
               <div className="shrink-0 rounded-xl bg-[#f0f4ff] p-4">
                 <item.icon aria-hidden="true" className="h-8 w-8 text-[#1e2a5e]" />
@@ -83,38 +89,45 @@ export default function WebDesignPage() {
                 <h3 className="text-lg font-semibold text-[#1e2a5e] mb-2">{item.title}</h3>
                 <p className="text-sm text-gray-600 leading-relaxed">{item.description}</p>
               </div>
-            </div>
+            </StaggerItem>
           ))}
-        </div>
+        </StaggerContainer>
       </section>
 
       {/* Process */}
       <section className="bg-white py-16 px-6">
         <div className="max-w-4xl mx-auto">
-          <h2 className="text-2xl font-bold text-[#1e2a5e] mb-10 text-center">How we work</h2>
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6">
+          <ScrollReveal direction="up">
+            <h2 className="text-2xl font-bold text-[#1e2a5e] mb-10 text-center">How we work</h2>
+          </ScrollReveal>
+          <StaggerContainer
+            staggerChildren={0.12}
+            className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6"
+          >
             {process.map((p) => (
-              <div key={p.step} className="text-center">
-                <div className="w-12 h-12 rounded-full bg-[#1e2a5e] text-white font-bold text-lg flex items-center justify-center mx-auto mb-4">
+              <StaggerItem key={p.step} className="text-center">
+                <div className="w-12 h-12 rounded-full bg-[#1e2a5e] text-white font-bold text-lg flex items-center justify-center mx-auto mb-4 shadow-sm">
                   {p.step}
                 </div>
                 <h4 className="font-semibold text-[#1e2a5e] mb-2">{p.title}</h4>
                 <p className="text-sm text-gray-500 leading-relaxed">{p.desc}</p>
-              </div>
+              </StaggerItem>
             ))}
-          </div>
+          </StaggerContainer>
         </div>
       </section>
 
       {/* CTA */}
       <section className="bg-[#1e2a5e] py-14 px-6 text-center">
-        <h2 className="text-2xl font-bold text-white mb-3">Let&apos;s build something great</h2>
-        <p className="text-gray-300 mb-6">Tell us about your project and we&apos;ll put together a plan.</p>
-        <Link href="/contact">
-          <button className="px-6 py-3 bg-[#c9922a] text-white font-semibold rounded-lg hover:bg-[#b07e24] transition-colors">
-            Get in touch
-          </button>
-        </Link>
+        <ScrollReveal direction="up" className="max-w-3xl mx-auto">
+          <h2 className="text-2xl font-bold text-white mb-3">Let&apos;s build something great</h2>
+          <p className="text-gray-300 mb-6">Tell us about your project and we&apos;ll put together a plan.</p>
+          <Link href="/contact">
+            <button className="px-6 py-3 bg-[#c9922a] text-white font-semibold rounded-lg hover:bg-[#b07e24] transition-colors shadow-md">
+              Get in touch
+            </button>
+          </Link>
+        </ScrollReveal>
       </section>
 
       <Footer />
