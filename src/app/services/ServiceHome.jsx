@@ -4,52 +4,134 @@ import Image from "next/image";
 import Link from "next/link";
 import { motion } from "framer-motion";
 
-const services = [
+const coreServices = [
   {
+    numeral: "I",
     title: "Speech Therapy",
-    description: "Enhancing communication skills through expert speech correction and vocal training.",
+    description:
+      "Enhancing communication skills through expert speech correction, vocal clarity, and personalized elocution coaching.",
     image: "/images/speaker.png",
   },
   {
+    numeral: "II",
     title: "Diction Training",
-    description: "Perfecting pronunciation and articulation for clear, confident speech delivery.",
+    description:
+      "Perfecting pronunciation, cadence, and articulation for clear, authoritative speech delivery in schools and boardrooms.",
     image: "/images/school.png",
   },
   {
+    numeral: "III",
     title: "Phonics Classes",
-    description: "Building strong reading and spelling skills through phonetic awareness techniques.",
+    description:
+      "Building strong reading, spelling, and phonemic foundations through structured phonetic awareness methodologies.",
     image: "/images/classroom.png",
   },
 ];
 
 const additionalServices = [
   {
-    category: "Media Communication Department",
+    index: "01",
+    category: "Media & Web Engineering Department",
+    href: "/web-design",
     services: [
-      { title: "Website Design", description: "Creating visually stunning and user-friendly websites.", icon: "/images/graphic-design.png" },
-      { title: "Website Management", description: "Ensuring your website runs smoothly and efficiently.", icon: "/images/data-management.png" },
-      { title: "Website Marketing", description: "Driving traffic and engagement to your website.", icon: "/images/marketing.png" },
-      { title: "Website Advertising", description: "Promoting your website to reach a wider audience.", icon: "/images/digital-marketing.png" },
+      {
+        title: "Website Design",
+        description:
+          "Creating visually distinguished, high-converting websites tailored to your brand authority.",
+        icon: "/images/graphic-design.png",
+      },
+      {
+        title: "Website Management",
+        description:
+          "Proactive maintenance, security updates, and performance optimization so your site runs effortlessly.",
+        icon: "/images/data-management.png",
+      },
+      {
+        title: "Website Marketing",
+        description:
+          "Technical SEO and strategic positioning to drive qualified traffic and institutional engagement.",
+        icon: "/images/marketing.png",
+      },
+      {
+        title: "Website Advertising",
+        description:
+          "Precision paid acquisition across Google and Meta to place your brand before decision-makers.",
+        icon: "/images/digital-marketing.png",
+      },
     ],
   },
   {
-    category: "App Development",
+    index: "02",
+    category: "Mobile Application Engineering",
+    href: "/mobile-apps",
     services: [
-      { title: "App Design", description: "Designing intuitive and engaging mobile applications.", icon: "/images/edit.png" },
-      { title: "App Management", description: "Maintaining and updating your mobile applications.", icon: "/images/digital-content.png" },
-      { title: "App Marketing", description: "Promoting your app to maximize downloads and usage.", icon: "/images/advertisig-agency.png" },
-      { title: "App Advertising", description: "Advertising your app to reach your target audience.", icon: "/images/mobile.png" },
+      {
+        title: "App Design",
+        description:
+          "Designing intuitive, human-centric mobile interfaces with refined visual consistency.",
+        icon: "/images/edit.png",
+      },
+      {
+        title: "App Management",
+        description:
+          "Continuous post-launch maintenance, version upgrades, and stability monitoring.",
+        icon: "/images/digital-content.png",
+      },
+      {
+        title: "App Marketing",
+        description:
+          "App Store Optimisation (ASO) and growth campaigns to maximize downloads and retention.",
+        icon: "/images/advertisig-agency.png",
+      },
+      {
+        title: "App Advertising",
+        description:
+          "Targeted mobile acquisition campaigns engineered for measurable user growth.",
+        icon: "/images/mobile.png",
+      },
     ],
   },
   {
-    category: "Social Media Services",
+    index: "03",
+    category: "Social Media & Broadcast Growth",
+    href: "/web-apps",
     services: [
-      { title: "Social Media Designs", description: "Creating captivating designs for your social media.", icon: "/images/advertising.png" },
-      { title: "Monetization", description: "Helping you monetize platforms like Instagram, Facebook, and more.", icon: "/images/monetization.png" },
-      { title: "Instagram", description: "Optimizing and managing your Instagram presence.", icon: "/images/instagram.png" },
-      { title: "Facebook", description: "Building and growing your Facebook audience.", icon: "/images/facebook.png" },
-      { title: "YouTube", description: "Enhancing your YouTube channel for better engagement.", icon: "/images/youtube.png" },
-      { title: "Spotify & Podcast", description: "Promoting your Spotify and podcast content effectively.", icon: "/images/spotify.png" },
+      {
+        title: "Social Media Designs",
+        description:
+          "Editorial-grade visual identity and campaign assets across digital channels.",
+        icon: "/images/advertising.png",
+      },
+      {
+        title: "Platform Monetization",
+        description:
+          "Strategic audience monetization across Instagram, Facebook, YouTube, and digital hubs.",
+        icon: "/images/monetization.png",
+      },
+      {
+        title: "Instagram Strategy",
+        description:
+          "Curating and scaling an authoritative brand presence on Instagram.",
+        icon: "/images/instagram.png",
+      },
+      {
+        title: "Facebook Growth",
+        description:
+          "Building and engaging high-trust community and institutional pages.",
+        icon: "/images/facebook.png",
+      },
+      {
+        title: "YouTube Channel Production",
+        description:
+          "Optimizing video presentation, thumbnails, and channel growth for educational & brand reach.",
+        icon: "/images/youtube.png",
+      },
+      {
+        title: "Spotify & Podcast Distribution",
+        description:
+          "Launching and promoting spoken-word, educational, and executive podcast series.",
+        icon: "/images/spotify.png",
+      },
     ],
   },
 ];
@@ -67,179 +149,269 @@ const containerVariants = {
   hidden: { opacity: 0 },
   show: {
     opacity: 1,
-    transition: {
-      staggerChildren: 0.1,
-    },
+    transition: { staggerChildren: 0.1 },
   },
 };
 
 const itemVariants = {
-  hidden: { opacity: 0, y: 25 },
+  hidden: { opacity: 0, y: 24 },
   show: {
     opacity: 1,
     y: 0,
-    transition: { duration: 0.5, ease: [0.21, 0.47, 0.32, 0.98] },
+    transition: { duration: 0.55, ease: [0.21, 0.47, 0.32, 0.98] },
   },
 };
 
 const ServicePage = () => {
   return (
-    <main className="bg-gray-100 min-h-screen flex flex-col overflow-hidden">
-      {/* Hero Section */}
-      <section
-        className="relative bg-cover bg-center bg-no-repeat py-20 text-center"
-        style={{ backgroundImage: "url('/images/blue-background.jpg')" }}
-      >
-        {/* Overlay */}
-        <div className="absolute inset-0 bg-black opacity-50"></div>
-
-        {/* Content */}
-        <div className="relative z-10 text-center px-4 max-w-4xl mx-auto">
-          <motion.h2
-            className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mt-2"
-            initial={{ opacity: 0, y: 25 }}
+    <div className="bg-[#FAF7F2] text-[#0F1729] min-h-screen flex flex-col overflow-hidden">
+      {/* Executive Editorial Hero Banner */}
+      <section className="bg-[#0F1729] text-white py-20 px-6 border-b border-[#C59B27]/30 relative overflow-hidden">
+        <div className="max-w-4xl mx-auto text-center relative z-10">
+          <motion.span
+            className="inline-block px-4 py-1.5 rounded-full bg-[#C59B27]/20 border border-[#C59B27]/40 text-[#E5C158] text-xs font-bold uppercase tracking-widest mb-4"
+            initial={{ opacity: 0, y: 15 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
+            transition={{ duration: 0.5 }}
           >
-            Oma Services
-          </motion.h2>
+            Practice Directory • Oma Services
+          </motion.span>
+          <motion.h1
+            className="font-editorial text-4xl sm:text-5xl lg:text-6xl font-bold leading-tight"
+            initial={{ opacity: 0, y: 24 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.1 }}
+          >
+            Comprehensive Communication &amp;{" "}
+            <span className="italic font-normal text-[#E5C158]">
+              Digital Engineering.
+            </span>
+          </motion.h1>
           <motion.p
-            className="font-medium text-gray-200 mt-4 mx-auto leading-relaxed max-w-xl"
+            className="text-slate-300 text-base sm:text-lg mt-4 mx-auto leading-relaxed max-w-2xl"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.15 }}
+            transition={{ duration: 0.6, delay: 0.2 }}
           >
-            From world-class diction training to cutting-edge digital products — explore our full range of services below.
+            From world-class diction training and school phonics to bespoke
+            websites, mobile apps, and digital growth — explore our specialized
+            departments below.
           </motion.p>
           <motion.div
-            className="flex flex-wrap justify-center gap-3 mt-6"
+            className="flex flex-wrap justify-center gap-3 mt-8"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.25 }}
+            transition={{ duration: 0.6, delay: 0.3 }}
           >
-            <Link href="/diction" className="px-5 py-2 rounded-full bg-white/20 hover:bg-white/30 text-white text-sm font-medium transition-colors backdrop-blur-sm">Professional Diction</Link>
-            <Link href="/web-design" className="px-5 py-2 rounded-full bg-white/20 hover:bg-white/30 text-white text-sm font-medium transition-colors backdrop-blur-sm">Website Design</Link>
-            <Link href="/mobile-apps" className="px-5 py-2 rounded-full bg-white/20 hover:bg-white/30 text-white text-sm font-medium transition-colors backdrop-blur-sm">Mobile Apps</Link>
-            <Link href="/web-apps" className="px-5 py-2 rounded-full bg-white/20 hover:bg-white/30 text-white text-sm font-medium transition-colors backdrop-blur-sm">Web Applications</Link>
+            <Link
+              href="/diction"
+              className="px-5 py-2.5 rounded-full bg-[#FAF4E4] text-[#0F1729] text-xs font-bold uppercase tracking-wider hover:bg-[#C59B27] transition-colors"
+            >
+              I. Professional Diction
+            </Link>
+            <Link
+              href="/web-design"
+              className="px-5 py-2.5 rounded-full bg-white/10 hover:bg-white/20 border border-white/15 text-white text-xs font-bold uppercase tracking-wider transition-colors"
+            >
+              II. Website Design
+            </Link>
+            <Link
+              href="/mobile-apps"
+              className="px-5 py-2.5 rounded-full bg-white/10 hover:bg-white/20 border border-white/15 text-white text-xs font-bold uppercase tracking-wider transition-colors"
+            >
+              III. Mobile Apps
+            </Link>
+            <Link
+              href="/web-apps"
+              className="px-5 py-2.5 rounded-full bg-white/10 hover:bg-white/20 border border-white/15 text-white text-xs font-bold uppercase tracking-wider transition-colors"
+            >
+              IV. Web Applications
+            </Link>
           </motion.div>
         </div>
       </section>
 
-      {/* Core Services */}
-      <motion.div
-        className="grid md:grid-cols-3 gap-8 px-8 pb-16 mt-16 max-w-6xl mx-auto w-full"
-        initial="hidden"
-        whileInView="show"
-        viewport={{ once: true, amount: 0.2 }}
-        variants={containerVariants}
-      >
-        {services.map((service, index) => (
-          <motion.div
-            key={index}
-            variants={itemVariants}
-            whileHover={{ y: -6 }}
-            className="bg-white p-6 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 text-center"
+      {/* Core Diction & Elocution Services */}
+      <section className="max-w-6xl mx-auto px-6 py-20 w-full border-b border-[#E5DEC9]">
+        <div className="flex flex-col sm:flex-row sm:items-end justify-between mb-10 gap-4">
+          <div>
+            <span className="text-xs font-bold uppercase tracking-widest text-[#9A7418]">
+              Division I • Elocution Academy
+            </span>
+            <h2 className="font-editorial text-3xl sm:text-4xl font-bold text-[#0F1729] mt-1">
+              Core Diction &amp; Speech Programmes
+            </h2>
+          </div>
+          <Link
+            href="/diction"
+            className="text-xs font-bold uppercase tracking-wider text-[#9A7418] hover:text-[#0F1729] transition-colors"
           >
-            <Image
-              src={service.image}
-              alt={service.title}
-              width={200}
-              height={150}
-              className="mx-auto h-36 object-contain"
-            />
-            <h3 className="text-xl font-semibold text-gray-800 mt-4">
-              {service.title}
-            </h3>
-            <p className="text-gray-600 mt-2 text-sm leading-relaxed">{service.description}</p>
-          </motion.div>
-        ))}
-      </motion.div>
+            Explore Diction Department →
+          </Link>
+        </div>
 
-      {/* Additional Services */}
-      {additionalServices.map((category, index) => (
-        <section key={index} className="px-8 pb-16 max-w-6xl mx-auto w-full">
-          <motion.h3
-            className="text-3xl font-bold text-gray-800 mb-8 text-center"
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, amount: 0.3 }}
-            transition={{ duration: 0.5 }}
-          >
-            {category.category}
-          </motion.h3>
-          <motion.div
-            className="grid md:grid-cols-2 lg:grid-cols-3 gap-8"
-            initial="hidden"
-            whileInView="show"
-            viewport={{ once: true, amount: 0.15 }}
-            variants={containerVariants}
-          >
-            {category.services.map((service, idx) => (
-              <motion.div
-                key={idx}
-                variants={itemVariants}
-                whileHover={{ y: -5 }}
-                className="bg-white p-6 rounded-xl shadow-md hover:shadow-xl transition-all duration-300 text-center border border-gray-100"
-              >
-                <Image
-                  src={service.icon}
-                  alt={service.title}
-                  width={50}
-                  height={50}
-                  className="mx-auto mb-4"
-                />
-                <h4 className="text-lg font-semibold text-gray-800">
+        <motion.div
+          className="grid md:grid-cols-3 gap-8"
+          initial="hidden"
+          whileInView="show"
+          viewport={{ once: true, amount: 0.2 }}
+          variants={containerVariants}
+        >
+          {coreServices.map((service) => (
+            <motion.div
+              key={service.title}
+              variants={itemVariants}
+              whileHover={{ y: -6 }}
+              className="bg-white p-7 rounded-2xl border border-[#E5DEC9] hover:border-[#C59B27] shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col justify-between"
+            >
+              <div>
+                <div className="flex items-center justify-between mb-6">
+                  <span className="w-9 h-9 rounded-lg bg-[#FAF4E4] border border-[#E8D7B0] text-[#9A7418] font-editorial font-bold text-sm flex items-center justify-center">
+                    {service.numeral}
+                  </span>
+                  <span className="text-[11px] font-bold uppercase tracking-widest text-[#64748B]">
+                    Certified Programme
+                  </span>
+                </div>
+                <div className="h-32 flex items-center justify-center bg-[#FAF7F2] rounded-xl p-4 mb-6 border border-[#E5DEC9]">
+                  <Image
+                    src={service.image}
+                    alt={service.title}
+                    width={140}
+                    height={110}
+                    className="mx-auto h-24 object-contain"
+                  />
+                </div>
+                <h3 className="font-editorial text-xl font-bold text-[#0F1729]">
                   {service.title}
-                </h4>
-                <p className="text-gray-600 mt-2 text-sm leading-relaxed">{service.description}</p>
-              </motion.div>
-            ))}
-          </motion.div>
-        </section>
-      ))}
+                </h3>
+                <p className="text-[#475569] mt-2 text-xs sm:text-sm leading-relaxed">
+                  {service.description}
+                </p>
+              </div>
+            </motion.div>
+          ))}
+        </motion.div>
+      </section>
 
-      {/* Diction Awards Section */}
-      <section className="bg-white py-16 px-8">
+      {/* Additional Departmental Suites */}
+      <section className="max-w-6xl mx-auto px-6 py-20 w-full space-y-20">
+        {additionalServices.map((category) => (
+          <div key={category.category} className="space-y-8">
+            <motion.div
+              className="flex flex-col sm:flex-row sm:items-end justify-between border-b border-[#E5DEC9] pb-4 gap-3"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, amount: 0.3 }}
+              transition={{ duration: 0.5 }}
+            >
+              <div>
+                <span className="text-xs font-bold uppercase tracking-widest text-[#9A7418]">
+                  Department {category.index}
+                </span>
+                <h3 className="font-editorial text-2xl sm:text-3xl font-bold text-[#0F1729] mt-1">
+                  {category.category}
+                </h3>
+              </div>
+              <Link
+                href={category.href}
+                className="text-xs font-bold uppercase tracking-wider text-[#9A7418] hover:text-[#0F1729]"
+              >
+                View Department Specifications →
+              </Link>
+            </motion.div>
+
+            <motion.div
+              className="grid md:grid-cols-2 lg:grid-cols-4 gap-6"
+              initial="hidden"
+              whileInView="show"
+              viewport={{ once: true, amount: 0.15 }}
+              variants={containerVariants}
+            >
+              {category.services.map((service, idx) => (
+                <motion.div
+                  key={service.title}
+                  variants={itemVariants}
+                  whileHover={{ y: -5 }}
+                  className="bg-white p-6 rounded-2xl border border-[#E5DEC9] hover:border-[#C59B27] shadow-sm hover:shadow-md transition-all duration-300 flex flex-col justify-between"
+                >
+                  <div>
+                    <div className="flex items-center justify-between mb-4">
+                      <div className="w-12 h-12 rounded-xl bg-[#FAF4E4] border border-[#E8D7B0] p-2.5 flex items-center justify-center">
+                        <Image
+                          src={service.icon}
+                          alt={service.title}
+                          width={32}
+                          height={32}
+                          className="object-contain"
+                        />
+                      </div>
+                      <span className="font-editorial text-xs font-bold text-[#9A7418]">
+                        0{idx + 1}
+                      </span>
+                    </div>
+                    <h4 className="font-editorial text-lg font-bold text-[#0F1729]">
+                      {service.title}
+                    </h4>
+                    <p className="text-[#475569] mt-2 text-xs sm:text-sm leading-relaxed">
+                      {service.description}
+                    </p>
+                  </div>
+                </motion.div>
+              ))}
+            </motion.div>
+          </div>
+        ))}
+      </section>
+
+      {/* The Diction Awards Editorial Section */}
+      <section className="bg-white border-t border-[#E5DEC9] py-20 px-6">
         <div className="max-w-6xl mx-auto">
           <motion.div
-            className="text-center mb-12"
-            initial={{ opacity: 0, y: 25 }}
+            className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center mb-16"
+            initial={{ opacity: 0, y: 24 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, amount: 0.3 }}
+            viewport={{ once: true, amount: 0.2 }}
             transition={{ duration: 0.6 }}
           >
-            <h2 className="text-4xl md:text-5xl font-bold text-blue-700">
-              The Diction Awards
-            </h2>
-            <p className="text-gray-600 mt-4 mx-auto max-w-2xl leading-relaxed">
-              The Diction Award celebrates excellence in linguistic expression, recognizing individuals who
-              demonstrate exceptional mastery of spoken and written communication.
-            </p>
+            <div className="lg:col-span-6 space-y-4">
+              <span className="inline-block px-3.5 py-1 rounded-full bg-[#FAF4E4] border border-[#E8D7B0] text-[#9A7418] text-xs font-bold uppercase tracking-widest">
+                Annual Academic Gala
+              </span>
+              <h2 className="font-editorial text-3xl sm:text-5xl font-bold text-[#0F1729]">
+                The Lagos OMA Diction Awards
+              </h2>
+              <p className="text-[#475569] text-sm sm:text-base leading-relaxed">
+                The Diction Awards celebrate excellence in linguistic
+                expression, recognizing scholars and schools that demonstrate
+                exceptional mastery of spoken and written English.
+              </p>
+              <div className="pt-2">
+                <Link
+                  href="/registration"
+                  className="inline-block px-7 py-3.5 rounded-xl bg-[#0F1729] text-white text-xs font-bold uppercase tracking-wider hover:bg-[#1E293B] transition shadow-md"
+                >
+                  Register for the 2024 Edition →
+                </Link>
+              </div>
+            </div>
+
+            <div className="lg:col-span-6">
+              <div className="p-4 rounded-3xl bg-[#FAF7F2] border border-[#DFD3BC] shadow-lg">
+                <Image
+                  src="/images/diction-awards.jpg"
+                  alt="Diction Award Show Banner"
+                  width={600}
+                  height={340}
+                  className="mx-auto rounded-2xl object-cover max-h-80 w-full object-top"
+                />
+              </div>
+            </div>
           </motion.div>
 
-          {/* Banner Image and Descriptive Text */}
+          {/* Awards Gallery */}
           <motion.div
-            className="text-center mb-12"
-            initial={{ opacity: 0, scale: 0.95, y: 25 }}
-            whileInView={{ opacity: 1, scale: 1, y: 0 }}
-            viewport={{ once: true, amount: 0.2 }}
-            transition={{ duration: 0.7 }}
-          >
-            <Image
-              src="/images/diction-awards.jpg"
-              alt="Diction Award Show Banner"
-              width={600}
-              height={300}
-              className="mx-auto rounded-xl shadow-lg object-cover"
-            />
-            <p className="text-gray-600 mt-4 leading-relaxed max-w-2xl mx-auto text-sm">
-              Here is the most recent Diction Award show, celebrating the achievements of outstanding individuals in the field of communication.
-            </p>
-          </motion.div>
-
-          {/* Awards Images */}
-          <motion.div
-            className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8"
+            className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6"
             initial="hidden"
             whileInView="show"
             viewport={{ once: true, amount: 0.15 }}
@@ -249,21 +421,25 @@ const ServicePage = () => {
               <motion.div
                 key={index}
                 variants={itemVariants}
-                className="relative group w-full h-64 overflow-hidden rounded-xl shadow-md cursor-pointer"
+                className="relative group w-full h-64 overflow-hidden rounded-2xl border border-[#E5DEC9] shadow-sm bg-[#0F1729]"
               >
                 <Image
                   src={image}
-                  alt={`Award ${index + 1}`}
+                  alt={`Award Gallery ${index + 1}`}
                   fill
-                  className="rounded-xl object-cover transition-transform duration-500 group-hover:scale-105"
+                  className="object-cover transition-transform duration-500 group-hover:scale-105"
                 />
-                <div className="absolute inset-0 bg-black/20 rounded-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                <div className="absolute inset-0 bg-gradient-to-t from-[#0F1729]/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-4">
+                  <span className="text-xs font-bold uppercase tracking-widest text-[#E5C158]">
+                    OMA Diction Awards Archive • 0{index + 1}
+                  </span>
+                </div>
               </motion.div>
             ))}
           </motion.div>
         </div>
       </section>
-    </main>
+    </div>
   );
 };
 

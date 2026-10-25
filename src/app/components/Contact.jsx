@@ -6,136 +6,178 @@ import { motion } from "framer-motion";
 
 const ContactUs = () => {
   return (
-    <section className="bg-gray-50 py-16 px-6 overflow-hidden" id="contact">
-      {/* Wrapper to center the content */}
-      <div className="max-w-screen-lg mx-auto">
-        {/* Header Section */}
+    <section className="bg-[#FAF7F2] py-20 px-6 overflow-hidden" id="contact">
+      <div className="max-w-6xl mx-auto">
         <motion.div
-          className="text-center max-w-2xl mx-auto mb-12"
-          initial={{ opacity: 0, y: 25 }}
+          className="rounded-3xl bg-white border border-[#E5DEC9] shadow-xl overflow-hidden grid grid-cols-1 lg:grid-cols-12"
+          initial={{ opacity: 0, y: 28 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, amount: 0.3 }}
-          transition={{ duration: 0.6, ease: [0.21, 0.47, 0.32, 0.98] }}
+          viewport={{ once: true, amount: 0.2 }}
+          transition={{ duration: 0.7, ease: [0.21, 0.47, 0.32, 0.98] }}
         >
-          <h2 className="text-2xl font-semibold text-indigo-600 uppercase tracking-wide">
-            Contact Us
-          </h2>
-        </motion.div>
+          {/* Left Oxford Navy Concierge Column */}
+          <div className="lg:col-span-5 bg-[#0F1729] text-white p-8 sm:p-10 flex flex-col justify-between">
+            <div className="space-y-4">
+              <div className="flex items-center gap-3">
+                <span className="h-px w-6 bg-[#C59B27]"></span>
+                <span className="text-xs font-bold uppercase tracking-widest text-[#E5C158]">
+                  Direct Concierge
+                </span>
+              </div>
+              <h2 className="font-editorial text-3xl sm:text-4xl font-bold leading-tight">
+                Initiate a Conversation with Oma Services.
+              </h2>
+              <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">
+                Thank you for your interest in Oma Services. Whether enrolling
+                your school in our Diction Academy, inquiring about the OMA
+                Diction Awards, or commissioning a custom website or mobile
+                application, our team responds promptly.
+              </p>
+            </div>
 
-        {/* Content Section */}
-        <div className="flex flex-col lg:flex-row lg:justify-between gap-12">
-          {/* Left: Contact Information */}
-          <motion.div
-            className="lg:w-1/2 space-y-8"
-            initial={{ opacity: 0, x: -30 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true, amount: 0.25 }}
-            transition={{ duration: 0.7, ease: [0.21, 0.47, 0.32, 0.98] }}
-          >
-            <h3 className="text-2xl font-semibold text-gray-800">Get in Touch</h3>
-            <p className="text-gray-600 leading-relaxed">
-              Thank you for your interest in Oma Services. We are here to assist
-              you and provide the information you need. Whether you have questions
-              about our diction programmes, digital services, or want to discuss a project,
-              we&apos;re just a message away.
-            </p>
-            <ul className="space-y-4">
-              <li className="flex items-center gap-4">
-                <div className="p-2 bg-indigo-50 rounded-full">
+            <div className="space-y-5 pt-8 border-t border-white/15 mt-8 text-xs">
+              <div className="flex items-center gap-3.5">
+                <div className="p-2.5 bg-[#FAF4E4] rounded-xl border border-[#E8D7B0] shrink-0">
                   <Image
                     src="/images/mail-icon.png"
                     alt="Email Icon"
-                    width={24}
-                    height={24}
+                    width={20}
+                    height={20}
                   />
                 </div>
-                <a
-                  href="mailto:partnerships@omadiction.pro"
-                  className="text-sm text-gray-800 font-medium hover:text-indigo-600 transition-colors"
-                >
-                  partnerships@omadiction.pro
-                </a>
-              </li>
-            </ul>
-          </motion.div>
+                <div>
+                  <div className="text-[#E5C158] uppercase font-bold tracking-wider text-[11px]">
+                    Electronic Mail
+                  </div>
+                  <a
+                    href="mailto:partnerships@omadiction.pro"
+                    className="text-sm font-medium text-white hover:text-[#E5C158] transition-colors mt-0.5 block"
+                  >
+                    partnerships@omadiction.pro
+                  </a>
+                </div>
+              </div>
 
-          {/* Right: Contact Form */}
-          <motion.div
-            className="lg:w-1/2 bg-white rounded-xl shadow-md p-8 border border-gray-100"
-            initial={{ opacity: 0, x: 30 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true, amount: 0.25 }}
-            transition={{ duration: 0.7, ease: [0.21, 0.47, 0.32, 0.98] }}
-          >
-            <h3 className="text-2xl font-semibold text-gray-800 mb-4">
-              Send Us a Message
-            </h3>
+              <div>
+                <div className="text-[#E5C158] uppercase font-bold tracking-wider text-[11px]">
+                  Practice Divisions
+                </div>
+                <div className="text-slate-300 mt-1 leading-relaxed">
+                  Executive Elocution • School Phonics &amp; Diction • Website
+                  Design • Mobile &amp; Web Engineering
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* Right Clean Editorial Form */}
+          <div className="lg:col-span-7 p-8 sm:p-10">
+            <div className="mb-6">
+              <span className="text-xs font-bold uppercase tracking-widest text-[#9A7418]">
+                Inquiry Dispatch
+              </span>
+              <h3 className="font-editorial text-2xl sm:text-3xl font-bold text-[#0F1729] mt-1">
+                Send Us a Message
+              </h3>
+            </div>
+
             <form
               action="https://submit-form.com/LvrjBvQzY"
               method="POST"
-              className="space-y-6"
+              className="space-y-5"
             >
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <div>
+                  <label
+                    htmlFor="name"
+                    className="block text-xs font-bold uppercase tracking-wider text-[#475569] mb-1.5"
+                  >
+                    Your Full Name
+                  </label>
+                  <input
+                    type="text"
+                    id="name"
+                    name="name"
+                    placeholder="e.g. Adebayo Williams"
+                    required
+                    className="w-full px-4 py-3 rounded-xl bg-[#FAF7F2] border border-[#DFD3BC] text-sm text-[#0F1729] placeholder-[#64748B] focus:outline-none focus:border-[#0F1729] focus:bg-white transition-colors"
+                  />
+                </div>
+                <div>
+                  <label
+                    htmlFor="email"
+                    className="block text-xs font-bold uppercase tracking-wider text-[#475569] mb-1.5"
+                  >
+                    Email Address
+                  </label>
+                  <input
+                    type="email"
+                    id="email"
+                    name="email"
+                    placeholder="you@organisation.com"
+                    required
+                    className="w-full px-4 py-3 rounded-xl bg-[#FAF7F2] border border-[#DFD3BC] text-sm text-[#0F1729] placeholder-[#64748B] focus:outline-none focus:border-[#0F1729] focus:bg-white transition-colors"
+                  />
+                </div>
+              </div>
+
               <div>
                 <label
-                  htmlFor="name"
-                  className="block text-sm font-medium text-gray-600"
+                  htmlFor="inquiry_type"
+                  className="block text-xs font-bold uppercase tracking-wider text-[#475569] mb-1.5"
                 >
-                  Your Name
+                  Inquiry Pillar
                 </label>
-                <input
-                  type="text"
-                  id="name"
-                  name="name"
-                  placeholder="Enter your name"
-                  required
-                  className="w-full border border-gray-300 rounded-lg shadow-sm p-3 mt-2 bg-gray-50 focus:outline-none focus:ring-2 focus:ring-indigo-600 focus:border-indigo-600"
-                />
-              </div>
-              <div>
-                <label
-                  htmlFor="email"
-                  className="block text-sm font-medium text-gray-600"
+                <select
+                  id="inquiry_type"
+                  name="inquiry_type"
+                  className="w-full px-4 py-3 rounded-xl bg-[#FAF7F2] border border-[#DFD3BC] text-sm text-[#0F1729] focus:outline-none focus:border-[#0F1729] focus:bg-white transition-colors"
                 >
-                  Email Address
-                </label>
-                <input
-                  type="email"
-                  id="email"
-                  name="email"
-                  placeholder="Enter your email"
-                  required
-                  className="w-full border border-gray-300 rounded-lg shadow-sm p-3 mt-2 bg-gray-50 focus:outline-none focus:ring-2 focus:ring-indigo-600 focus:border-indigo-600"
-                />
+                  <option value="Website Design & Digital Engineering">
+                    Website Design &amp; Digital Engineering
+                  </option>
+                  <option value="Professional Diction & School Training">
+                    Professional Diction &amp; School Training
+                  </option>
+                  <option value="Mobile App / Custom Software">
+                    Mobile App / Custom Web Application
+                  </option>
+                  <option value="OMA Diction Awards Registration">
+                    OMA Diction Awards Competition
+                  </option>
+                </select>
               </div>
+
               <div>
                 <label
                   htmlFor="message"
-                  className="block text-sm font-medium text-gray-600"
+                  className="block text-xs font-bold uppercase tracking-wider text-[#475569] mb-1.5"
                 >
-                  Your Message
+                  Your Message or Project Brief
                 </label>
                 <textarea
                   id="message"
                   name="message"
-                  rows="5"
-                  placeholder="Enter your message"
+                  rows="4"
+                  placeholder="Tell us about your timeline, goals, or training requirements..."
                   required
-                  className="resize-none w-full border border-gray-300 rounded-lg shadow-sm p-3 mt-2 bg-gray-50 focus:outline-none focus:ring-2 focus:ring-indigo-600 focus:border-indigo-600"
+                  className="resize-none w-full px-4 py-3 rounded-xl bg-[#FAF7F2] border border-[#DFD3BC] text-sm text-[#0F1729] placeholder-[#64748B] focus:outline-none focus:border-[#0F1729] focus:bg-white transition-colors"
                 ></textarea>
               </div>
-              <div className="flex justify-center">
+
+              <div>
                 <motion.button
                   type="submit"
-                  whileHover={{ scale: 1.03 }}
-                  whileTap={{ scale: 0.97 }}
-                  className="px-8 py-3 bg-indigo-600 text-white font-medium rounded-lg shadow-md hover:bg-indigo-700 transition"
+                  whileHover={{ scale: 1.02 }}
+                  whileTap={{ scale: 0.98 }}
+                  className="px-8 py-3.5 rounded-xl bg-[#0F1729] text-white text-xs font-bold uppercase tracking-wider hover:bg-[#1E293B] transition shadow-md"
                 >
-                  Submit now →
+                  Submit Inquiry →
                 </motion.button>
               </div>
             </form>
-          </motion.div>
-        </div>
+          </div>
+        </motion.div>
       </div>
     </section>
   );

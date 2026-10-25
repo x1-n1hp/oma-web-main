@@ -14,38 +14,51 @@ import {
 
 export const metadata = {
   title: "Professional Diction | Oma Services",
-  description: "World-class diction training, speech therapy, phonics, and language coaching for individuals and schools.",
+  description:
+    "World-class diction training, speech therapy, phonics, and language coaching for individuals and schools.",
 };
 
 const dictionServices = [
   {
+    num: "01",
     title: "Speech Therapy",
-    description: "Targeted correction of pronunciation patterns, accent reduction, and vocal clarity for confident everyday communication.",
+    description:
+      "Targeted correction of pronunciation patterns, accent refinement, and vocal clarity for confident everyday communication.",
     icon: SpeakerWaveIcon,
   },
   {
+    num: "02",
     title: "Diction Training",
-    description: "Structured class-by-class programmes that sharpen articulation, rhythm, and delivery for students and professionals alike.",
+    description:
+      "Structured class-by-class programmes that sharpen articulation, rhythm, and delivery for students and professionals alike.",
     icon: AcademicCapIcon,
   },
   {
+    num: "03",
     title: "Phonics Classes",
-    description: "Building strong reading and spelling foundations through phonemic awareness — ideal for young learners and remedial learners.",
+    description:
+      "Building strong reading and spelling foundations through phonemic awareness — ideal for young and remedial learners.",
     icon: BookOpenIcon,
   },
   {
+    num: "04",
     title: "Diction Club",
-    description: "A community programme where members practise together, receive peer feedback, and build lasting communication confidence.",
+    description:
+      "A community programme where members practise together, receive peer feedback, and build lasting communication confidence.",
     icon: UserGroupIcon,
   },
   {
-    title: "Social Polish",
-    description: "Etiquette and communication coaching for professional settings — interviews, presentations, networking, and public speaking.",
+    num: "05",
+    title: "Social Polish & Etiquette",
+    description:
+      "Etiquette and executive communication coaching for interviews, boardrooms, presentations, and public speaking.",
     icon: ChatBubbleLeftRightIcon,
   },
   {
+    num: "06",
     title: "Diction Games",
-    description: "Interactive linguistic challenges and activities that make learning pronunciation engaging for children and adults.",
+    description:
+      "Interactive linguistic challenges and activities that make mastering pronunciation engaging for children and adults.",
     icon: PuzzlePieceIcon,
   },
 ];
@@ -61,53 +74,80 @@ const galleryImages = [
 
 export default function DictionPage() {
   return (
-    <main className="min-h-screen bg-[#f6f9fc] overflow-hidden">
+    <main className="min-h-screen bg-[#FAF7F2] text-[#0F1729] overflow-hidden">
       <Navbar />
 
-      {/* Hero */}
-      <section className="bg-[#1e2a5e] text-white py-20 px-6">
-        <ScrollReveal direction="up" delay={0.1} className="max-w-4xl mx-auto text-center">
-          <p className="text-[#c9922a] font-semibold text-sm mb-3">Professional Diction</p>
-          <h1 className="text-4xl md:text-5xl font-extrabold leading-tight mb-6">
-            Speak English with clarity and confidence
+      {/* Executive Editorial Hero */}
+      <section className="bg-[#0F1729] text-white py-20 px-6 border-b border-[#C59B27]/30">
+        <ScrollReveal
+          direction="up"
+          delay={0.1}
+          className="max-w-4xl mx-auto text-center"
+        >
+          <span className="inline-block px-4 py-1.5 rounded-full bg-[#C59B27]/20 border border-[#C59B27]/40 text-[#E5C158] text-xs font-bold uppercase tracking-widest mb-4">
+            Division I • Professional Diction &amp; Elocution
+          </span>
+          <h1 className="font-editorial text-4xl sm:text-5xl lg:text-6xl font-bold leading-tight mb-6">
+            Speak English with{" "}
+            <span className="italic font-normal text-[#E5C158]">
+              clarity and authority.
+            </span>
           </h1>
-          <p className="text-gray-300 text-lg max-w-2xl mx-auto leading-relaxed mb-8">
-            OMA has trained thousands of students and professionals across Nigeria to master spoken English —
-            from phonics fundamentals to advanced speech delivery.
+          <p className="text-slate-300 text-base sm:text-lg max-w-2xl mx-auto leading-relaxed mb-8">
+            OMA has trained over 10,000 students and professionals across
+            Nigeria to master spoken English — from phonemic fundamentals to
+            commanding stage and boardroom delivery.
           </p>
-          <a href="mailto:partnerships@omadiction.pro">
-            <button className="px-7 py-3 bg-[#c9922a] text-white font-semibold rounded-lg hover:bg-[#b07e24] transition-colors shadow-md">
-              Enrol now
-            </button>
-          </a>
+          <div className="flex flex-wrap justify-center gap-4">
+            <a href="mailto:partnerships@omadiction.pro">
+              <button className="px-7 py-3.5 bg-[#C59B27] text-[#0F1729] text-xs font-bold uppercase tracking-wider rounded-xl hover:bg-[#d4a932] transition-colors shadow-md">
+                Enrol Your School or Team →
+              </button>
+            </a>
+            <Link href="/registration">
+              <button className="px-7 py-3.5 border border-white/25 text-white text-xs font-bold uppercase tracking-wider rounded-xl hover:bg-white/10 transition-colors">
+                2024 Diction Awards
+              </button>
+            </Link>
+          </div>
         </ScrollReveal>
       </section>
 
-      {/* Stats */}
-      <section className="max-w-4xl mx-auto px-6 py-12">
+      {/* Hairline Stat Ledger */}
+      <section className="max-w-6xl mx-auto px-6 -mt-8 relative z-10">
         <StaggerContainer
           staggerChildren={0.12}
-          className="grid grid-cols-2 md:grid-cols-4 gap-6 bg-white rounded-xl shadow-sm p-8 border border-gray-100"
+          className="grid grid-cols-2 md:grid-cols-4 bg-white rounded-2xl shadow-lg border border-[#DFD3BC] divide-y md:divide-y-0 md:divide-x divide-[#DFD3BC]"
         >
           {[
-            { value: "10+", label: "Years training" },
-            { value: "50+", label: "Partner schools" },
-            { value: "10,000+", label: "Students trained" },
-            { value: "830+", label: "Positive reviews" },
+            { value: "10+", label: "Years Training" },
+            { value: "50+", label: "Partner Schools" },
+            { value: "10,000+", label: "Students Trained" },
+            { value: "830+", label: "Positive Reviews" },
           ].map((stat) => (
-            <StaggerItem key={stat.label} className="text-center">
-              <p className="text-3xl font-extrabold text-[#1e2a5e]">{stat.value}</p>
-              <p className="text-sm text-gray-500 mt-1">{stat.label}</p>
+            <StaggerItem key={stat.label} className="p-6 sm:p-8 text-center">
+              <p className="font-editorial text-3xl sm:text-4xl font-bold text-[#0F1729]">
+                {stat.value}
+              </p>
+              <p className="text-xs font-bold uppercase tracking-wider text-[#9A7418] mt-1.5">
+                {stat.label}
+              </p>
             </StaggerItem>
           ))}
         </StaggerContainer>
       </section>
 
-      {/* Services grid */}
-      <section className="max-w-6xl mx-auto px-6 py-12">
-        <ScrollReveal direction="up" amount={0.3}>
-          <h2 className="text-2xl font-bold text-[#1e2a5e] mb-8">What we offer</h2>
+      {/* Services Grid */}
+      <section className="max-w-6xl mx-auto px-6 py-20">
+        <ScrollReveal direction="up" amount={0.3} className="mb-10">
+          <span className="text-xs font-bold uppercase tracking-widest text-[#9A7418]">
+            Curriculum &amp; Coaching
+          </span>
+          <h2 className="font-editorial text-3xl sm:text-4xl font-bold text-[#0F1729] mt-1">
+            What We Offer in Our Diction Academy
+          </h2>
         </ScrollReveal>
+
         <StaggerContainer
           staggerChildren={0.1}
           className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
@@ -115,42 +155,77 @@ export default function DictionPage() {
           {dictionServices.map((service) => (
             <StaggerItem
               key={service.title}
-              className="bg-white rounded-xl p-6 border border-gray-100 shadow-sm hover:shadow-md transition-all duration-300 hover:-translate-y-1"
+              className="bg-white rounded-2xl p-7 border border-[#E5DEC9] hover:border-[#C59B27] shadow-sm hover:shadow-md transition-all duration-300 hover:-translate-y-1 flex flex-col justify-between"
             >
-              <div className="mb-4 inline-flex rounded-xl bg-[#f0f4ff] p-3">
-                <service.icon aria-hidden="true" className="h-8 w-8 text-[#1e2a5e]" />
+              <div>
+                <div className="flex items-center justify-between mb-5">
+                  <div className="inline-flex rounded-xl bg-[#FAF4E4] border border-[#E8D7B0] p-3">
+                    <service.icon
+                      aria-hidden="true"
+                      className="h-6 w-6 text-[#9A7418]"
+                    />
+                  </div>
+                  <span className="font-editorial text-sm font-bold text-[#9A7418]">
+                    {service.num}
+                  </span>
+                </div>
+                <h3 className="font-editorial text-xl font-bold text-[#0F1729] mb-2">
+                  {service.title}
+                </h3>
+                <p className="text-xs sm:text-sm text-[#475569] leading-relaxed">
+                  {service.description}
+                </p>
               </div>
-              <h3 className="text-lg font-semibold text-[#1e2a5e] mb-2">{service.title}</h3>
-              <p className="text-sm text-gray-600 leading-relaxed">{service.description}</p>
             </StaggerItem>
           ))}
         </StaggerContainer>
       </section>
 
-      {/* Diction Awards */}
-      <section className="bg-white py-16 px-6">
-        <div className="max-w-5xl mx-auto">
-          <ScrollReveal direction="up" className="text-center mb-10">
-            <h2 className="text-3xl font-bold text-[#1e2a5e]">The Diction Awards</h2>
-            <p className="text-gray-500 mt-3 max-w-xl mx-auto leading-relaxed">
-              Each year we celebrate exceptional communicators who have demonstrated mastery of spoken and written English.
+      {/* Diction Awards Showcase */}
+      <section className="bg-white border-y border-[#E5DEC9] py-20 px-6">
+        <div className="max-w-6xl mx-auto">
+          <ScrollReveal
+            direction="up"
+            className="text-center max-w-2xl mx-auto mb-12"
+          >
+            <span className="text-xs font-bold uppercase tracking-widest text-[#9A7418]">
+              Annual Competition
+            </span>
+            <h2 className="font-editorial text-3xl sm:text-4xl font-bold text-[#0F1729] mt-1">
+              The Lagos OMA Diction Awards
+            </h2>
+            <p className="text-[#475569] text-sm sm:text-base mt-3 leading-relaxed">
+              Each year we celebrate exceptional communicators who have
+              demonstrated mastery of spoken and written English across Lagos
+              schools.
             </p>
           </ScrollReveal>
-          <ScrollReveal direction="up" delay={0.15} className="mb-10 flex justify-center">
-            <Image
-              src="/images/diction-awards.jpg"
-              alt="Diction Awards"
-              width={680}
-              height={340}
-              className="rounded-xl shadow-md object-cover"
-            />
+
+          <ScrollReveal
+            direction="up"
+            delay={0.15}
+            className="mb-12 flex justify-center"
+          >
+            <div className="p-4 rounded-3xl bg-[#FAF7F2] border border-[#DFD3BC] shadow-lg max-w-2xl w-full">
+              <Image
+                src="/images/diction-awards.jpg"
+                alt="Diction Awards"
+                width={680}
+                height={340}
+                className="rounded-2xl object-cover w-full max-h-96 object-top"
+              />
+            </div>
           </ScrollReveal>
+
           <StaggerContainer
             staggerChildren={0.1}
-            className="grid grid-cols-2 md:grid-cols-3 gap-4"
+            className="grid grid-cols-2 md:grid-cols-3 gap-5"
           >
             {galleryImages.map((src, i) => (
-              <StaggerItem key={i} className="relative h-52 rounded-xl overflow-hidden shadow-sm">
+              <StaggerItem
+                key={i}
+                className="relative h-56 rounded-2xl overflow-hidden border border-[#E5DEC9] shadow-sm bg-[#0F1729]"
+              >
                 <Image
                   src={src}
                   alt={`Awards gallery ${i + 1}`}
@@ -163,20 +238,28 @@ export default function DictionPage() {
         </div>
       </section>
 
-      {/* CTA */}
-      <section className="bg-[#1e2a5e] py-14 px-6 text-center">
+      {/* Executive CTA */}
+      <section className="bg-[#0F1729] py-16 px-6 text-center">
         <ScrollReveal direction="up" className="max-w-3xl mx-auto">
-          <h2 className="text-2xl font-bold text-white mb-3">Ready to transform how you speak?</h2>
-          <p className="text-gray-300 mb-6">Register for a programme or reach out to discuss group training for your school or organisation.</p>
+          <span className="text-xs font-bold uppercase tracking-widest text-[#E5C158]">
+            Next Steps
+          </span>
+          <h2 className="font-editorial text-3xl sm:text-4xl font-bold text-white mt-2 mb-3">
+            Ready to Transform How Your Institution Speaks?
+          </h2>
+          <p className="text-slate-300 text-sm sm:text-base mb-8">
+            Register for the 2024 competition or schedule a consultation for
+            school-wide or executive diction training.
+          </p>
           <div className="flex justify-center gap-4 flex-wrap">
             <Link href="/registration">
-              <button className="px-6 py-3 bg-[#c9922a] text-white font-semibold rounded-lg hover:bg-[#b07e24] transition-colors shadow-md">
-                Register
+              <button className="px-7 py-3.5 bg-[#C59B27] text-[#0F1729] text-xs font-bold uppercase tracking-wider rounded-xl hover:bg-[#d4a932] transition-colors shadow-md">
+                Register for Awards →
               </button>
             </Link>
             <Link href="/contact">
-              <button className="px-6 py-3 border-2 border-white text-white font-semibold rounded-lg hover:bg-white hover:text-[#1e2a5e] transition-colors">
-                Contact us
+              <button className="px-7 py-3.5 border border-white/30 text-white text-xs font-bold uppercase tracking-wider rounded-xl hover:bg-white hover:text-[#0F1729] transition-colors">
+                Book Consultation
               </button>
             </Link>
           </div>

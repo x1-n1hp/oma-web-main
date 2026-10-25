@@ -1,4 +1,3 @@
-import Image from "next/image";
 import HeroSection from "./components/HeroSection";
 import Navbar from "./components/Navbar";
 import About from "./components/About";
@@ -8,14 +7,13 @@ import Footer from "./components/Footer";
 
 export default function Home() {
   return (
-    
-      <main className="scroll-smooth flex min-h-screen flex-col bg-customBlue text-customGrey mx-auto">
-        <Navbar />
-         <HeroSection />
-         <About />
-         <Service />
-         <Contact />
-         <Footer />
-      </main>
+    <main className="scroll-smooth flex min-h-screen flex-col bg-[#FAF7F2] text-[#0F1729] mx-auto">
+      <Navbar />
+      <HeroSection />
+      <About />
+      <Service />
+      <Contact />
+      <Footer />
+    </main>
   );
 }
