@@ -6,10 +6,19 @@ import { motion } from "framer-motion";
 
 const ContactUs = () => {
   return (
-    <section className="bg-[#FAF8F5] py-20 px-6 overflow-hidden" id="contact">
-      <div className="max-w-6xl mx-auto">
+    <section className="bg-[#F5F5F7] py-16 px-6 overflow-hidden" id="contact">
+      <div className="max-w-7xl mx-auto">
+        <div className="mb-8">
+          <h2 className="text-2xl sm:text-3xl font-bold tracking-tight text-[#202860]">
+            Direct Concierge.{" "}
+            <span className="text-[#5A6494] font-semibold">
+              Initiate a conversation with an OMA specialist.
+            </span>
+          </h2>
+        </div>
+
         <motion.div
-          className="rounded-3xl bg-white border border-[#D5DCF0] shadow-xl overflow-hidden grid grid-cols-1 lg:grid-cols-12"
+          className="rounded-[28px] bg-white border border-[#D5DCF0] shadow-xl overflow-hidden grid grid-cols-1 lg:grid-cols-12"
           initial={{ opacity: 0, y: 28 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.2 }}

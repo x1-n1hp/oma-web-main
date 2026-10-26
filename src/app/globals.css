@@ -3,7 +3,7 @@
 @tailwind utilities;
 
 :root {
-  --background: #FAF8F5;
+  --background: #F5F5F7;
   --foreground: #202860;
 }
 
@@ -15,6 +15,22 @@ body {
 
 .font-editorial {
   font-family: Georgia, "Times New Roman", serif;
+}
+
+/* Hide native scrollbar on Apple-style horizontal shelves while keeping smooth scroll */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+/* Apple Store Frosted Glass Navbar */
+.apple-glass-nav {
+  background: rgba(250, 248, 245, 0.84);
+  backdrop-filter: saturate(180%) blur(20px);
+  -webkit-backdrop-filter: saturate(180%) blur(20px);
 }
 
 .input {

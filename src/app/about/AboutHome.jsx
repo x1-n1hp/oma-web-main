@@ -31,9 +31,9 @@ const stats = [
 
 const AboutPage = () => {
   return (
-    <div className="bg-[#FAF8F5] text-[#202860] min-h-screen overflow-hidden">
-      {/* Editorial Hero Section */}
-      <section className="max-w-6xl mx-auto px-6 py-16 lg:py-24 border-b border-[#E2E6F2]">
+    <div className="bg-[#F5F5F7] text-[#202860] min-h-screen overflow-hidden">
+      {/* Apple Store-Style Split Hero Section */}
+      <section className="max-w-6xl mx-auto px-6 py-14 lg:py-20 border-b border-[#E2E6F2]">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
           {/* Left Content */}
           <motion.div
@@ -42,19 +42,17 @@ const AboutPage = () => {
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.7, ease: [0.21, 0.47, 0.32, 0.98] }}
           >
-            <div className="flex items-center gap-3">
-              <span className="h-px w-8 bg-[#B82020]"></span>
-              <span className="text-xs font-bold uppercase tracking-widest text-[#B82020]">
-                01 / How It Started
-              </span>
+            <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-[#FDF2F2] border border-[#F3CACA] text-[#B82020] text-xs font-bold uppercase tracking-wider">
+              <span className="w-1.5 h-1.5 rounded-full bg-[#B82020]"></span>
+              01 / How It Started
             </div>
 
-            <h1 className="font-editorial text-4xl sm:text-5xl font-bold text-[#202860] leading-[1.12]">
-              Our Dream is{" "}
-              <span className="italic font-normal text-[#B82020]">
-                Global Learning
-              </span>{" "}
-              &amp; Digital Transformation.
+            <h1 className="text-3xl sm:text-5xl font-bold tracking-tight leading-[1.12]">
+              <span className="text-[#202860]">Our Heritage.</span>{" "}
+              <span className="text-[#5A6494] font-normal">
+                Global learning and digital transformation built for lasting
+                impact.
+              </span>
             </h1>
 
             <p className="text-[#424B78] text-base leading-relaxed">
@@ -104,12 +102,11 @@ const AboutPage = () => {
             }}
           >
             <div className="relative">
-              <div className="absolute -inset-3 rounded-2xl border-2 border-[#B82020]/45 translate-x-2 translate-y-2 pointer-events-none"></div>
-              <div className="relative bg-white p-3 rounded-2xl border border-[#D5DCF0] shadow-xl">
+              <div className="relative bg-white p-3 rounded-[28px] border border-[#D5DCF0] shadow-xl">
                 <Image
                   src="/images/DSC_6849.JPG"
                   alt="Oma Services Leadership"
-                  className="w-full h-80 sm:h-96 rounded-xl block object-cover"
+                  className="w-full h-80 sm:h-96 rounded-[20px] block object-cover"
                   width={600}
                   height={420}
                   priority
@@ -148,7 +145,7 @@ const AboutPage = () => {
                 },
               }}
             >
-              <BubbleCard className="rounded-2xl bg-white border border-[#D5DCF0] shadow-sm p-6 sm:p-8 text-center h-full">
+              <BubbleCard className="rounded-[28px] bg-white border border-[#D5DCF0] shadow-sm p-6 sm:p-8 text-center h-full">
                 <h2
                   className={`font-editorial text-3xl sm:text-4xl font-bold group-hover:text-white transition-colors ${
                     idx % 2 === 0 ? "text-[#B82020]" : "text-[#202860]"
@@ -169,43 +166,23 @@ const AboutPage = () => {
       </section>
 
       {/* OMA's Mission & The Diction Oracle Editorial Feature */}
-      <section className="py-20 px-6 bg-white">
-        <div className="max-w-5xl mx-auto">
-          <div className="text-center max-w-2xl mx-auto mb-12">
-            <motion.span
-              className="inline-block bg-[#FDF2F2] border border-[#F3CACA] text-[#B82020] px-4 py-1.5 rounded-full text-xs font-bold uppercase tracking-widest"
-              initial={{ opacity: 0, y: 15 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, amount: 0.3 }}
-              transition={{ duration: 0.5 }}
-            >
+      <section className="py-16 px-6 bg-white">
+        <div className="max-w-6xl mx-auto">
+          <div className="max-w-3xl mb-10">
+            <span className="inline-block bg-[#FDF2F2] border border-[#F3CACA] text-[#B82020] px-3.5 py-1 rounded-full text-xs font-bold uppercase tracking-widest mb-3">
               02 / OMA&apos;s Mission
-            </motion.span>
-            <motion.h2
-              className="font-editorial text-3xl sm:text-5xl font-bold text-[#202860] mt-4"
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, amount: 0.3 }}
-              transition={{ duration: 0.6, delay: 0.1 }}
-            >
-              Our Institutional Mandate
-            </motion.h2>
-            <motion.p
-              className="text-base sm:text-lg text-[#424B78] mt-4 leading-relaxed"
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, amount: 0.3 }}
-              transition={{ duration: 0.6, delay: 0.2 }}
-            >
-              To empower individuals and organisations with world-class
-              communication skills and purpose-built digital solutions — helping
-              them speak with clarity, build with purpose, and grow with
-              confidence.
-            </motion.p>
+            </span>
+            <h2 className="text-2xl sm:text-4xl font-bold tracking-tight leading-snug">
+              <span className="text-[#202860]">Our Mandate.</span>{" "}
+              <span className="text-[#5A6494] font-normal">
+                Empowering individuals and organisations to speak with clarity
+                and build with purpose.
+              </span>
+            </h2>
           </div>
 
           <motion.div
-            className="rounded-3xl bg-[#202860] border-b-4 border-[#B82020] p-6 sm:p-10 text-white shadow-2xl grid grid-cols-1 lg:grid-cols-12 gap-8 items-center"
+            className="rounded-[28px] bg-[#202860] border-b-4 border-[#B82020] p-6 sm:p-10 text-white shadow-2xl grid grid-cols-1 lg:grid-cols-12 gap-8 items-center"
             initial={{ opacity: 0, y: 28 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, amount: 0.2 }}
@@ -215,13 +192,13 @@ const AboutPage = () => {
               <Image
                 src="/images/Oma-pic.JPG"
                 alt="The Diction Oracle"
-                className="rounded-2xl shadow-lg w-full h-72 sm:h-80 object-cover border border-white/15"
+                className="rounded-[20px] shadow-lg w-full h-72 sm:h-80 object-cover border border-white/15"
                 width={800}
                 height={450}
               />
             </div>
             <div className="lg:col-span-5 space-y-4">
-              <span className="inline-block px-3.5 py-1 rounded-full bg-[#B82020]/30 border border-[#FF8A8A]/40 text-[#FF8A8A] text-xs font-bold uppercase tracking-widest">
+              <span className="inline-block px-3.5 py-1 rounded-full bg-[#B82020] text-white text-xs font-bold uppercase tracking-widest">
                 The Diction Oracle
               </span>
               <h3 className="font-editorial text-2xl sm:text-3xl font-bold leading-snug">
@@ -236,9 +213,9 @@ const AboutPage = () => {
               <div className="pt-2">
                 <Link
                   href="/contact"
-                  className="inline-block px-6 py-3 rounded-xl bg-[#B82020] text-white text-xs font-bold uppercase tracking-wider hover:bg-[#D12828] transition shadow-md"
+                  className="inline-block px-6 py-3 rounded-full bg-[#B82020] text-white text-xs font-bold uppercase tracking-wider hover:bg-[#D12828] transition shadow-md"
                 >
-                  Partner With Us →
+                  Partner With Us &gt;
                 </Link>
               </div>
             </div>

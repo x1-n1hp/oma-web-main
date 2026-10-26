@@ -12,7 +12,54 @@ import {
 
 const Footer = () => {
   return (
-    <footer className="bg-[#202860] text-[#FAF8F5] border-t-4 border-[#B82020] overflow-hidden">
+    <>
+      {/* Apple Store-Style "Quick Links" Pill Bar Above Footer */}
+      <section className="bg-[#F5F5F7] border-t border-[#D5DCF0] py-10 px-6">
+        <div className="max-w-6xl mx-auto">
+          <h2 className="text-xl font-bold text-[#202860] mb-4 tracking-tight">
+            Quick Links
+          </h2>
+          <div className="flex flex-wrap gap-2.5">
+            <Link
+              href="/registration/register/recitation"
+              className="inline-flex items-center gap-1.5 px-4 py-2 rounded-full bg-white border border-[#D5DCF0] text-xs font-semibold text-[#202860] hover:bg-[#202860] hover:text-white transition-colors shadow-sm"
+            >
+              <span>2024 Poetry Recitation Enrollment</span>
+              <span>↗</span>
+            </Link>
+            <Link
+              href="/registration/register/mispronounced"
+              className="inline-flex items-center gap-1.5 px-4 py-2 rounded-full bg-white border border-[#D5DCF0] text-xs font-semibold text-[#202860] hover:bg-[#202860] hover:text-white transition-colors shadow-sm"
+            >
+              <span>Words Often Mispronounced Enrollment</span>
+              <span>↗</span>
+            </Link>
+            <Link
+              href="/diction"
+              className="inline-flex items-center gap-1.5 px-4 py-2 rounded-full bg-white border border-[#D5DCF0] text-xs font-semibold text-[#202860] hover:bg-[#B82020] hover:text-white hover:border-[#B82020] transition-colors shadow-sm"
+            >
+              <span>School Diction Deployment Inquiry</span>
+              <span>↗</span>
+            </Link>
+            <Link
+              href="/web-design"
+              className="inline-flex items-center gap-1.5 px-4 py-2 rounded-full bg-white border border-[#D5DCF0] text-xs font-semibold text-[#202860] hover:bg-[#202860] hover:text-white transition-colors shadow-sm"
+            >
+              <span>Commission Website / Mobile App</span>
+              <span>↗</span>
+            </Link>
+            <a
+              href="mailto:partnerships@omadiction.pro"
+              className="inline-flex items-center gap-1.5 px-4 py-2 rounded-full bg-[#FDF2F2] border border-[#F3CACA] text-xs font-semibold text-[#B82020] hover:bg-[#B82020] hover:text-white transition-colors shadow-sm"
+            >
+              <span>Direct Concierge: partnerships@omadiction.pro</span>
+              <span>↗</span>
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <footer className="bg-[#202860] text-[#FAF8F5] border-t-4 border-[#B82020] overflow-hidden">
       <div className="max-w-6xl mx-auto px-6 py-16">
         <motion.div
           className="grid grid-cols-1 md:grid-cols-12 gap-10 pb-12 border-b border-white/10"
@@ -179,7 +226,8 @@ const Footer = () => {
           </div>
         </div>
       </div>
-    </footer>
+      </footer>
+    </>
   );
 };
 

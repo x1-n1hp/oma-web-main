@@ -8,8 +8,8 @@ import { BubbleCard } from "../components/motion";
 
 const RegistrationHome = () => {
   return (
-    <section className="py-16 lg:py-24 px-6 bg-[#FAF8F5] text-[#202860] flex-1 overflow-hidden">
-      <div className="max-w-6xl mx-auto">
+    <section className="py-14 lg:py-20 px-6 bg-[#F5F5F7] text-[#202860] flex-1 overflow-hidden">
+      <div className="max-w-7xl mx-auto">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
           {/* Left: Structured Competition Information & Category Selection */}
           <motion.div
@@ -22,8 +22,11 @@ const RegistrationHome = () => {
               ★ 9th Annual Edition • Lagos OMA Diction Awards
             </div>
 
-            <h1 className="font-editorial text-3xl sm:text-5xl font-bold text-[#202860] leading-tight">
-              2024 OMA Diction Awards Competition
+            <h1 className="text-3xl sm:text-5xl font-bold tracking-tight text-[#202860] leading-[1.08]">
+              2024 Diction Awards.{" "}
+              <span className="text-[#5A6494] font-semibold">
+                Register for Nigeria&apos;s premier school elocution competition.
+              </span>
             </h1>
 
             <p className="text-[#424B78] text-sm sm:text-base leading-relaxed">
@@ -54,7 +57,7 @@ const RegistrationHome = () => {
               ].map((prize, idx) => (
                 <BubbleCard
                   key={prize.rank}
-                  className="bg-white p-4 rounded-2xl border border-[#D5DCF0] shadow-sm text-center"
+                  className="bg-white p-4 rounded-[24px] border border-[#D5DCF0] shadow-sm text-center"
                 >
                   <div className="text-[11px] font-bold uppercase tracking-wider text-[#B82020] group-hover:text-[#FF8A8A] transition-colors duration-500">
                     {prize.rank}
@@ -76,7 +79,7 @@ const RegistrationHome = () => {
             {/* Two Interactive Registration Category Cards */}
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-1">
               <BubbleCard
-                className="p-6 rounded-2xl border-2 border-[#202860] bg-white text-[#202860] shadow-sm"
+                className="p-6 rounded-[28px] border-2 border-[#202860] bg-white text-[#202860] shadow-sm"
                 contentClassName="flex flex-col justify-between"
               >
                 <div>
@@ -102,7 +105,7 @@ const RegistrationHome = () => {
               </BubbleCard>
 
               <BubbleCard
-                className="p-6 rounded-2xl border-2 border-[#D5DCF0] bg-white text-[#202860] shadow-sm"
+                className="p-6 rounded-[28px] border-2 border-[#D5DCF0] bg-white text-[#202860] shadow-sm"
                 contentClassName="flex flex-col justify-between"
               >
                 <div>

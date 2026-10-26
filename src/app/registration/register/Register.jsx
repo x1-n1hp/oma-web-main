@@ -29,7 +29,7 @@ const categories = [
 
 const Register = () => {
   return (
-    <div className="flex flex-col flex-1 bg-[#FAF8F5] text-[#202860] py-20 px-6 overflow-hidden">
+    <div className="flex flex-col flex-1 bg-[#F5F5F7] text-[#202860] py-16 px-6 overflow-hidden">
       <div className="max-w-5xl mx-auto w-full">
         {/* Header */}
         <div className="text-center max-w-2xl mx-auto mb-14">
@@ -42,12 +42,15 @@ const Register = () => {
             9th Edition • Candidate Enrollment
           </motion.span>
           <motion.h1
-            className="font-editorial text-4xl sm:text-5xl font-bold text-[#202860]"
+            className="text-3xl sm:text-5xl font-bold tracking-tight text-[#202860]"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.1 }}
           >
-            Select Your Competition Category
+            Competition Categories.{" "}
+            <span className="text-[#5A6494] font-semibold">
+              Select your track for the 2024 Awards.
+            </span>
           </motion.h1>
           <motion.p
             className="text-sm sm:text-base text-[#424B78] mt-3 leading-relaxed"
@@ -74,7 +77,7 @@ const Register = () => {
                 delay: 0.15 + idx * 0.15,
                 ease: [0.21, 0.47, 0.32, 0.98],
               }}
-              className="bg-white rounded-3xl p-8 sm:p-10 border border-[#D5DCF0] shadow-lg"
+              className="bg-white rounded-[28px] p-8 sm:p-10 border border-[#D5DCF0] shadow-lg"
               contentClassName="flex flex-col justify-between"
             >
               <div>

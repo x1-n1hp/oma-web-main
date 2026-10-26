@@ -2,149 +2,224 @@
 
 import React from "react";
 import Link from "next/link";
-import Image from "next/image";
-import { motion } from "framer-motion";
-import { BubbleCard } from "./motion";
+import { BubbleCard, ShelfCarousel } from "./motion";
 
 const pillars = [
   {
     num: "01",
+    department: "01 • Elocution Academy",
     title: "Professional Diction & Elocution",
     desc: "Speech therapy, phonics, accent refinement, and school-wide communication curricula led by certified specialists.",
     href: "/diction",
   },
   {
     num: "02",
-    title: "Bespoke Website Design",
-    desc: "Custom editorial and corporate websites engineered for speed, brand prestige, and measurable visitor conversion.",
+    department: "02 • Web Department",
+    title: "Website Design & Management",
+    desc: "Visually distinguished corporate and school websites with proactive security and speed optimization.",
     href: "/web-design",
   },
   {
     num: "03",
-    title: "Mobile App Engineering",
-    desc: "Native and cross-platform iOS & Android applications built for reliability, intuitive UX, and seamless scale.",
+    department: "03 • Mobile Department",
+    title: "iOS & Android App Engineering",
+    desc: "Human-centric mobile interfaces, App Store Optimization (ASO), and continuous release management.",
     href: "/mobile-apps",
   },
   {
     num: "04",
-    title: "Custom Web Applications",
-    desc: "Multi-user school portals, client dashboards, SaaS platforms, and workflow automation systems.",
+    department: "04 • Custom SaaS",
+    title: "School Portals & Automation",
+    desc: "Role-based institutional portals, e-learning hubs, and custom workflow automation software.",
     href: "/web-apps",
+  },
+  {
+    num: "05",
+    department: "05 • Broadcast Growth",
+    title: "YouTube, Podcast & Social",
+    desc: "Audience monetization, Spotify podcast distribution, and executive channel production.",
+    href: "/services",
   },
 ];
 
 const Service = () => {
   return (
     <section
-      className="bg-[#FAF8F5] border-b border-[#E2E6F2] py-20 overflow-hidden"
+      className="bg-[#F5F5F7] border-b border-[#E2E6F2] py-16 overflow-hidden"
       id="services"
     >
-      <div className="max-w-6xl mx-auto px-6">
-        {/* Royal Cobalt Indigo & Brand Crimson Feature Card */}
-        <motion.div
-          className="rounded-3xl bg-[#202860] border-b-4 border-[#B82020] text-white p-8 sm:p-12 mb-14 relative overflow-hidden shadow-xl grid grid-cols-1 lg:grid-cols-12 gap-8 items-center"
-          initial={{ opacity: 0, y: 28 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, amount: 0.2 }}
-          transition={{ duration: 0.7 }}
+      <div className="max-w-6xl mx-auto px-6 space-y-16">
+        {/* ===================================================================
+            HORIZONTAL ENGINEERING & GROWTH SHELF (WITH < / > PADDLES)
+            =================================================================== */}
+        <ShelfCarousel
+          title="Digital Engineering & Growth."
+          subtitle="Everything your institution needs to scale online."
+          scrollAmount={320}
         >
-          <div className="lg:col-span-7 space-y-4">
-            <span className="inline-block px-3.5 py-1 rounded-full bg-[#B82020]/30 border border-[#FF8A8A]/40 text-[#FF8A8A] text-xs font-bold uppercase tracking-widest">
-              03 / Practice Directory
-            </span>
-            <h2 className="font-editorial text-3xl sm:text-4xl lg:text-5xl font-bold leading-tight">
-              Explore Our Comprehensive Suite of Services.
-            </h2>
-            <p className="text-slate-200 text-sm sm:text-base leading-relaxed max-w-xl">
-              Welcome to our dual-practice portfolio designed to elevate how
-              your institution speaks and how your digital platforms perform.
-            </p>
-            <div className="pt-2 flex flex-wrap gap-3">
-              <Link href="/services">
-                <motion.span
-                  whileHover={{ scale: 1.02 }}
-                  whileTap={{ scale: 0.98 }}
-                  className="inline-block px-7 py-3.5 rounded-xl bg-[#B82020] text-white text-xs font-bold uppercase tracking-wider hover:bg-[#D12828] transition cursor-pointer shadow-md"
-                >
-                  View All Services →
-                </motion.span>
-              </Link>
-              <Link href="/registration">
-                <motion.span
-                  whileHover={{ scale: 1.02 }}
-                  whileTap={{ scale: 0.98 }}
-                  className="inline-block px-7 py-3.5 rounded-xl border border-white/30 text-white text-xs font-bold uppercase tracking-wider hover:bg-white/10 transition cursor-pointer"
-                >
-                  2024 Diction Awards
-                </motion.span>
-              </Link>
-            </div>
-          </div>
-
-          <div className="lg:col-span-5 flex justify-center">
-            <div className="p-2.5 bg-white/10 border border-white/15 rounded-2xl shadow-2xl backdrop-blur-sm">
-              <Image
-                src="/images/oma-ads.jpg"
-                alt="Oma Services Portfolio"
-                width={420}
-                height={200}
-                className="rounded-xl object-cover"
-              />
-            </div>
-          </div>
-        </motion.div>
-
-        {/* 4 Numbered Practice Pillar Bubble Cards */}
-        <motion.div
-          className="grid grid-cols-1 md:grid-cols-2 gap-6"
-          initial="hidden"
-          whileInView="show"
-          viewport={{ once: true, amount: 0.2 }}
-          variants={{
-            hidden: { opacity: 0 },
-            show: {
-              opacity: 1,
-              transition: { staggerChildren: 0.12 },
-            },
-          }}
-        >
-          {pillars.map((item) => (
-            <motion.div
+          {pillars.map((item, idx) => (
+            <Link
               key={item.num}
-              variants={{
-                hidden: { opacity: 0, y: 24 },
-                show: {
-                  opacity: 1,
-                  y: 0,
-                  transition: { duration: 0.55 },
-                },
-              }}
+              href={item.href}
+              className="snap-start shrink-0 block"
             >
-              <Link href={item.href} className="block h-full">
-                <BubbleCard className="bg-white p-7 rounded-2xl border border-[#D5DCF0] shadow-sm hover:shadow-xl h-full">
-                  <div className="flex items-start gap-5">
-                    <div className="w-12 h-12 rounded-xl bg-[#FDF2F2] border border-[#F3CACA] text-[#B82020] flex items-center justify-center font-editorial font-bold text-lg shrink-0 group-hover:bg-[#B82020] group-hover:text-white group-hover:border-[#B82020] transition-colors">
-                      {item.num}
+              <BubbleCard className="w-[290px] sm:w-[310px] rounded-[28px] bg-white border border-[#D5DCF0] p-7 shadow-sm h-full">
+                <span
+                  className={`text-xs font-bold uppercase tracking-widest group-hover:text-[#FF8A8A] transition-colors ${
+                    idx % 2 === 0 ? "text-[#B82020]" : "text-[#202860]"
+                  }`}
+                >
+                  {item.department}
+                </span>
+                <h3 className="font-editorial text-xl font-bold text-[#202860] group-hover:text-white mt-2 mb-2 transition-colors">
+                  {item.title}
+                </h3>
+                <p className="text-xs text-[#424B78] group-hover:text-slate-200 leading-relaxed mb-5 transition-colors">
+                  {item.desc}
+                </p>
+                <span className="text-xs font-bold text-[#B82020] group-hover:text-white transition-colors">
+                  Learn more &gt;
+                </span>
+              </BubbleCard>
+            </Link>
+          ))}
+        </ShelfCarousel>
+
+        {/* ===================================================================
+            2024 OMA DICTION AWARDS APPLE-STYLE SHOWCASE BANNER & PRIZE SHELF
+            =================================================================== */}
+        <div>
+          <div className="mb-6">
+            <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold tracking-tight">
+              <span className="text-[#202860]">2024 OMA Diction Awards.</span>{" "}
+              <span className="text-[#5A6494] font-normal">
+                Linguistic mastery and stage poise celebrated live in Lagos.
+              </span>
+            </h2>
+          </div>
+
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-6">
+            {/* Left Wide Billboard Card */}
+            <div className="lg:col-span-7 rounded-[28px] bg-[#202860] text-white p-8 sm:p-10 border-b-4 border-[#B82020] shadow-xl flex flex-col justify-between relative overflow-hidden">
+              <div className="pointer-events-none absolute -right-16 -top-16 w-64 h-64 rounded-full border-[24px] border-[#B82020]/25"></div>
+              <div className="relative z-10 space-y-4">
+                <span className="inline-block px-3.5 py-1 rounded-full bg-[#B82020] text-white text-xs font-bold uppercase tracking-wider">
+                  9th Annual Edition • Silverbird Galleria, VI
+                </span>
+                <h3 className="font-editorial text-3xl sm:text-4xl font-bold leading-tight">
+                  Enroll Your Pupils for Nigeria&apos;s Premier Elocution Stage.
+                </h3>
+                <p className="text-sm text-slate-200 leading-relaxed max-w-xl">
+                  Open to pupils in Grades 3 to 6 across two flagship tracks:{" "}
+                  <strong className="text-white">
+                    Category A (Poetry Recitation)
+                  </strong>{" "}
+                  and{" "}
+                  <strong className="text-white">
+                    Category B (Words Often Mispronounced)
+                  </strong>
+                  .
+                </p>
+              </div>
+
+              <div className="relative z-10 grid grid-cols-3 gap-3 pt-6 mt-6 border-t border-white/15">
+                <div className="bg-white/10 rounded-2xl p-3.5 text-center">
+                  <span className="text-xs text-[#FF8A8A] font-bold block">
+                    1st Prize
+                  </span>
+                  <span className="font-editorial text-xl sm:text-2xl font-bold">
+                    ₦50,000
+                  </span>
+                </div>
+                <div className="bg-white/10 rounded-2xl p-3.5 text-center">
+                  <span className="text-xs text-slate-300 font-bold block">
+                    1st Runner-Up
+                  </span>
+                  <span className="font-editorial text-xl sm:text-2xl font-bold">
+                    ₦30,000
+                  </span>
+                </div>
+                <div className="bg-white/10 rounded-2xl p-3.5 text-center">
+                  <span className="text-xs text-slate-300 font-bold block">
+                    2nd Runner-Up
+                  </span>
+                  <span className="font-editorial text-xl sm:text-2xl font-bold">
+                    ₦20,000
+                  </span>
+                </div>
+              </div>
+            </div>
+
+            {/* Right Stacked Category Selection Bubble Cards */}
+            <div className="lg:col-span-5 flex flex-col gap-6">
+              <Link
+                href="/registration/register/recitation"
+                className="flex-1 flex"
+              >
+                <BubbleCard
+                  className="rounded-[28px] bg-white border-2 border-[#202860] p-7 shadow-md w-full"
+                  contentClassName="flex flex-col justify-between"
+                >
+                  <div>
+                    <div className="flex items-center justify-between">
+                      <span className="text-xs font-bold uppercase tracking-widest text-[#B82020] group-hover:text-[#FF8A8A]">
+                        Category A
+                      </span>
+                      <span className="text-xs font-bold text-[#5A6494] group-hover:text-slate-200">
+                        Entry: ₦7,000
+                      </span>
                     </div>
-                    <div className="flex-1">
-                      <div className="flex items-center justify-between">
-                        <h3 className="font-editorial font-bold text-lg text-[#202860] group-hover:text-white transition-colors">
-                          {item.title}
-                        </h3>
-                        <span className="text-xs font-bold text-[#B82020] group-hover:text-[#FF8A8A] group-hover:translate-x-1 transition-all">
-                          →
-                        </span>
-                      </div>
-                      <p className="text-xs sm:text-sm text-[#424B78] group-hover:text-slate-200 leading-relaxed mt-1.5 transition-colors">
-                        {item.desc}
-                      </p>
-                    </div>
+                    <h4 className="font-editorial text-2xl font-bold text-[#202860] group-hover:text-white mt-1">
+                      Poetry Recitation
+                    </h4>
+                    <p className="text-xs text-[#424B78] group-hover:text-slate-200 mt-1.5 leading-relaxed">
+                      Evaluates vocal expression, cadence, phonetic accuracy,
+                      and stage command.
+                    </p>
+                  </div>
+                  <div className="mt-4">
+                    <span className="inline-flex items-center gap-1.5 px-4 py-2 rounded-full bg-[#B82020] text-white group-hover:bg-white group-hover:text-[#202860] text-xs font-bold transition-colors">
+                      Register for Recitation &gt;
+                    </span>
                   </div>
                 </BubbleCard>
               </Link>
-            </motion.div>
-          ))}
-        </motion.div>
+
+              <Link
+                href="/registration/register/mispronounced"
+                className="flex-1 flex"
+              >
+                <BubbleCard
+                  className="rounded-[28px] bg-white border border-[#D5DCF0] p-7 shadow-md w-full"
+                  contentClassName="flex flex-col justify-between"
+                >
+                  <div>
+                    <div className="flex items-center justify-between">
+                      <span className="text-xs font-bold uppercase tracking-widest text-[#202860] group-hover:text-[#FF8A8A]">
+                        Category B
+                      </span>
+                      <span className="text-xs font-bold text-[#5A6494] group-hover:text-slate-200">
+                        Entry: ₦7,000
+                      </span>
+                    </div>
+                    <h4 className="font-editorial text-2xl font-bold text-[#202860] group-hover:text-white mt-1">
+                      Words Often Mispronounced
+                    </h4>
+                    <p className="text-xs text-[#424B78] group-hover:text-slate-200 mt-1.5 leading-relaxed">
+                      Tests mastery of challenging English vocabulary, stress
+                      patterns, and crisp articulation.
+                    </p>
+                  </div>
+                  <div className="mt-4">
+                    <span className="inline-flex items-center gap-1.5 px-4 py-2 rounded-full bg-[#202860] text-white group-hover:bg-[#B82020] text-xs font-bold transition-colors">
+                      Register for W.O.M &gt;
+                    </span>
+                  </div>
+                </BubbleCard>
+              </Link>
+            </div>
+          </div>
+        </div>
       </div>
     </section>
   );
