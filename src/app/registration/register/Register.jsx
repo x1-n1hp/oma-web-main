@@ -29,12 +29,12 @@ const categories = [
 
 const Register = () => {
   return (
-    <div className="flex flex-col flex-1 bg-[#FAF7F2] text-[#0F1729] py-20 px-6 overflow-hidden">
+    <div className="flex flex-col flex-1 bg-[#FAF8F5] text-[#202860] py-20 px-6 overflow-hidden">
       <div className="max-w-5xl mx-auto w-full">
         {/* Header */}
         <div className="text-center max-w-2xl mx-auto mb-14">
           <motion.span
-            className="inline-block px-4 py-1.5 rounded-full bg-[#FAF4E4] border border-[#E8D7B0] text-[#9A7418] text-xs font-bold uppercase tracking-widest mb-3"
+            className="inline-block px-4 py-1.5 rounded-full bg-[#FDF2F2] border border-[#F3CACA] text-[#B82020] text-xs font-bold uppercase tracking-widest mb-3"
             initial={{ opacity: 0, y: 15 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
@@ -42,7 +42,7 @@ const Register = () => {
             9th Edition • Candidate Enrollment
           </motion.span>
           <motion.h1
-            className="font-editorial text-4xl sm:text-5xl font-bold text-[#0F1729]"
+            className="font-editorial text-4xl sm:text-5xl font-bold text-[#202860]"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.1 }}
@@ -50,7 +50,7 @@ const Register = () => {
             Select Your Competition Category
           </motion.h1>
           <motion.p
-            className="text-sm sm:text-base text-[#475569] mt-3 leading-relaxed"
+            className="text-sm sm:text-base text-[#424B78] mt-3 leading-relaxed"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.2 }}
@@ -74,20 +74,20 @@ const Register = () => {
                 delay: 0.15 + idx * 0.15,
                 ease: [0.21, 0.47, 0.32, 0.98],
               }}
-              className="bg-white rounded-3xl p-8 sm:p-10 border border-[#DFD3BC] shadow-lg"
+              className="bg-white rounded-3xl p-8 sm:p-10 border border-[#D5DCF0] shadow-lg"
               contentClassName="flex flex-col justify-between"
             >
               <div>
-                <div className="flex items-center justify-between mb-6 pb-4 border-b border-[#E5DEC9] group-hover:border-white/15 transition-colors duration-500">
-                  <span className="text-xs font-bold uppercase tracking-widest text-[#9A7418] group-hover:text-[#E5C158] transition-colors duration-500">
+                <div className="flex items-center justify-between mb-6 pb-4 border-b border-[#E2E6F2] group-hover:border-white/15 transition-colors duration-500">
+                  <span className="text-xs font-bold uppercase tracking-widest text-[#B82020] group-hover:text-[#FF8A8A] transition-colors duration-500">
                     {cat.label}
                   </span>
-                  <span className="w-9 h-9 rounded-lg bg-[#FAF4E4] group-hover:bg-white/10 border border-[#E8D7B0] group-hover:border-[#C59B27]/50 text-[#9A7418] group-hover:text-[#E5C158] font-editorial font-bold text-sm flex items-center justify-center transition-colors duration-500">
+                  <span className="w-9 h-9 rounded-lg bg-[#FDF2F2] group-hover:bg-[#B82020] border border-[#F3CACA] group-hover:border-[#B82020] text-[#B82020] group-hover:text-white font-editorial font-bold text-sm flex items-center justify-center transition-colors duration-500">
                     {cat.numeral}
                   </span>
                 </div>
 
-                <div className="w-24 h-24 rounded-2xl bg-[#FAF7F2] group-hover:bg-white/95 border border-[#E5DEC9] p-4 mb-6 flex items-center justify-center mx-auto transition-colors duration-500">
+                <div className="w-24 h-24 rounded-2xl bg-[#FAF8F5] group-hover:bg-white/95 border border-[#E2E6F2] p-4 mb-6 flex items-center justify-center mx-auto transition-colors duration-500">
                   <Image
                     src={cat.image}
                     alt={cat.title}
@@ -97,10 +97,10 @@ const Register = () => {
                   />
                 </div>
 
-                <h2 className="font-editorial text-2xl sm:text-3xl font-bold text-[#0F1729] group-hover:text-white mb-3 text-center transition-colors duration-500">
+                <h2 className="font-editorial text-2xl sm:text-3xl font-bold text-[#202860] group-hover:text-white mb-3 text-center transition-colors duration-500">
                   {cat.title}
                 </h2>
-                <p className="text-[#475569] group-hover:text-slate-300 text-center mb-8 text-xs sm:text-sm leading-relaxed transition-colors duration-500">
+                <p className="text-[#424B78] group-hover:text-slate-200 text-center mb-8 text-xs sm:text-sm leading-relaxed transition-colors duration-500">
                   {cat.description}
                 </p>
               </div>
@@ -109,7 +109,7 @@ const Register = () => {
                 <motion.button
                   whileHover={{ scale: 1.02 }}
                   whileTap={{ scale: 0.98 }}
-                  className="w-full py-3.5 px-6 rounded-xl bg-[#0F1729] text-white group-hover:bg-[#C59B27] group-hover:text-[#0F1729] text-xs font-bold uppercase tracking-wider transition-colors duration-500 shadow-md"
+                  className="w-full py-3.5 px-6 rounded-xl bg-[#B82020] text-white group-hover:bg-white group-hover:text-[#202860] text-xs font-bold uppercase tracking-wider transition-colors duration-500 shadow-md"
                 >
                   Enroll in {cat.title} →
                 </motion.button>

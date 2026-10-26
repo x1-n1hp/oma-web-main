@@ -3,8 +3,8 @@
 @tailwind utilities;
 
 :root {
-  --background: #FAF7F2;
-  --foreground: #0F1729;
+  --background: #FAF8F5;
+  --foreground: #202860;
 }
 
 body {
@@ -18,7 +18,7 @@ body {
 }
 
 .input {
-  @apply w-full px-4 py-3 border border-[#DFD3BC] rounded-xl bg-[#FAF7F2] text-[#0F1729] placeholder-[#64748B] text-sm transition-colors focus:outline-none focus:border-[#0F1729] focus:bg-white;
+  @apply w-full px-4 py-3 border border-[#D5DCF0] rounded-xl bg-[#FAF8F5] text-[#202860] placeholder-[#5A6494] text-sm transition-colors focus:outline-none focus:border-[#B82020] focus:bg-white;
 }
 
 @keyframes pulseBar {

@@ -12,7 +12,7 @@ import {
 
 const Footer = () => {
   return (
-    <footer className="bg-[#0F1729] text-[#FAF7F2] border-t border-[#C59B27]/30 overflow-hidden">
+    <footer className="bg-[#202860] text-[#FAF8F5] border-t-4 border-[#B82020] overflow-hidden">
       <div className="max-w-6xl mx-auto px-6 py-16">
         <motion.div
           className="grid grid-cols-1 md:grid-cols-12 gap-10 pb-12 border-b border-white/10"
@@ -37,7 +37,7 @@ const Footer = () => {
                 <span className="font-editorial font-bold text-lg tracking-tight text-white block leading-none">
                   OMA SERVICES
                 </span>
-                <span className="text-[11px] tracking-widest uppercase text-[#E5C158] font-semibold block mt-1">
+                <span className="text-[11px] tracking-widest uppercase text-[#FF8A8A] font-semibold block mt-1">
                   Diction &amp; Digital Engineering
                 </span>
               </div>
@@ -51,14 +51,14 @@ const Footer = () => {
 
           {/* Navigation Column */}
           <div className="md:col-span-3 space-y-3">
-            <h4 className="text-xs font-bold uppercase tracking-widest text-[#E5C158]">
+            <h4 className="text-xs font-bold uppercase tracking-widest text-[#FF8A8A]">
               Institution
             </h4>
             <ul className="space-y-2.5 text-xs text-slate-300">
               <li>
                 <Link
                   href="/"
-                  className="hover:text-[#E5C158] transition-colors"
+                  className="hover:text-[#FF8A8A] transition-colors"
                 >
                   Home
                 </Link>
@@ -66,7 +66,7 @@ const Footer = () => {
               <li>
                 <Link
                   href="/about"
-                  className="hover:text-[#E5C158] transition-colors"
+                  className="hover:text-[#FF8A8A] transition-colors"
                 >
                   About Our Heritage
                 </Link>
@@ -74,7 +74,7 @@ const Footer = () => {
               <li>
                 <Link
                   href="/services"
-                  className="hover:text-[#E5C158] transition-colors"
+                  className="hover:text-[#FF8A8A] transition-colors"
                 >
                   Services Directory
                 </Link>
@@ -82,7 +82,7 @@ const Footer = () => {
               <li>
                 <Link
                   href="/registration"
-                  className="hover:text-[#E5C158] transition-colors"
+                  className="hover:text-[#FF8A8A] transition-colors"
                 >
                   2024 OMA Diction Awards
                 </Link>
@@ -90,7 +90,7 @@ const Footer = () => {
               <li>
                 <Link
                   href="/contact"
-                  className="hover:text-[#E5C158] transition-colors"
+                  className="hover:text-[#FF8A8A] transition-colors"
                 >
                   Contact Concierge
                 </Link>
@@ -100,14 +100,14 @@ const Footer = () => {
 
           {/* Practice Divisions Column */}
           <div className="md:col-span-4 space-y-3">
-            <h4 className="text-xs font-bold uppercase tracking-widest text-[#E5C158]">
+            <h4 className="text-xs font-bold uppercase tracking-widest text-[#FF8A8A]">
               Practice Divisions
             </h4>
             <ul className="space-y-2.5 text-xs text-slate-300">
               <li>
                 <Link
                   href="/diction"
-                  className="hover:text-[#E5C158] transition-colors"
+                  className="hover:text-[#FF8A8A] transition-colors"
                 >
                   I. Professional Diction &amp; Elocution
                 </Link>
@@ -115,7 +115,7 @@ const Footer = () => {
               <li>
                 <Link
                   href="/web-design"
-                  className="hover:text-[#E5C158] transition-colors"
+                  className="hover:text-[#FF8A8A] transition-colors"
                 >
                   II. Bespoke Website Design
                 </Link>
@@ -123,7 +123,7 @@ const Footer = () => {
               <li>
                 <Link
                   href="/mobile-apps"
-                  className="hover:text-[#E5C158] transition-colors"
+                  className="hover:text-[#FF8A8A] transition-colors"
                 >
                   III. Mobile App Engineering
                 </Link>
@@ -131,7 +131,7 @@ const Footer = () => {
               <li>
                 <Link
                   href="/web-apps"
-                  className="hover:text-[#E5C158] transition-colors"
+                  className="hover:text-[#FF8A8A] transition-colors"
                 >
                   IV. Custom Web Applications
                 </Link>
@@ -141,7 +141,7 @@ const Footer = () => {
         </motion.div>
 
         {/* Bottom Bar */}
-        <div className="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-400">
+        <div className="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-300">
           <div>
             © {new Date().getFullYear()} Oma Services (The Diction Oracle). All
             rights reserved.
@@ -154,7 +154,7 @@ const Footer = () => {
               target="_blank"
               rel="noopener noreferrer"
               aria-label="Facebook"
-              className="text-slate-300 hover:text-[#E5C158] transition-colors"
+              className="text-slate-300 hover:text-[#FF8A8A] transition-colors"
             >
               <UserGroupIcon aria-hidden="true" className="h-5 w-5" />
             </motion.a>
@@ -162,7 +162,7 @@ const Footer = () => {
               whileHover={{ scale: 1.1, y: -1 }}
               href="mailto:partnerships@omadiction.pro"
               aria-label="Email Oma Diction"
-              className="text-slate-300 hover:text-[#E5C158] transition-colors"
+              className="text-slate-300 hover:text-[#FF8A8A] transition-colors"
             >
               <EnvelopeIcon aria-hidden="true" className="h-5 w-5" />
             </motion.a>
@@ -172,7 +172,7 @@ const Footer = () => {
               target="_blank"
               rel="noopener noreferrer"
               aria-label="YouTube"
-              className="text-slate-300 hover:text-[#E5C158] transition-colors"
+              className="text-slate-300 hover:text-[#FF8A8A] transition-colors"
             >
               <PlayCircleIcon aria-hidden="true" className="h-5 w-5" />
             </motion.a>

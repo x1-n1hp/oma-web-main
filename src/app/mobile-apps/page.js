@@ -62,32 +62,32 @@ const features = [
 
 export default function MobileAppsPage() {
   return (
-    <main className="min-h-screen bg-[#FAF7F2] text-[#0F1729] overflow-hidden">
+    <main className="min-h-screen bg-[#FAF8F5] text-[#202860] overflow-hidden">
       <Navbar />
 
-      {/* Executive Editorial Hero */}
-      <section className="bg-[#0F1729] text-white py-20 px-6 border-b border-[#C59B27]/30">
+      {/* Royal Cobalt Indigo & Brand Crimson Editorial Hero */}
+      <section className="bg-[#202860] text-white py-20 px-6 border-b-4 border-[#B82020]">
         <ScrollReveal
           direction="up"
           delay={0.1}
           className="max-w-4xl mx-auto text-center"
         >
-          <span className="inline-block px-4 py-1.5 rounded-full bg-[#C59B27]/20 border border-[#C59B27]/40 text-[#E5C158] text-xs font-bold uppercase tracking-widest mb-4">
+          <span className="inline-block px-4 py-1.5 rounded-full bg-[#B82020]/30 border border-[#FF8A8A]/40 text-[#FF8A8A] text-xs font-bold uppercase tracking-widest mb-4">
             Division III • Mobile Application Engineering
           </span>
           <h1 className="font-editorial text-4xl sm:text-5xl lg:text-6xl font-bold leading-tight mb-6">
             Mobile applications engineered for{" "}
-            <span className="italic font-normal text-[#E5C158]">
+            <span className="italic font-normal text-[#FF8A8A]">
               daily reliance.
             </span>
           </h1>
-          <p className="text-slate-300 text-base sm:text-lg max-w-2xl mx-auto leading-relaxed mb-8">
+          <p className="text-slate-200 text-base sm:text-lg max-w-2xl mx-auto leading-relaxed mb-8">
             We engineer mobile applications that are fast, reliable, and built
             around real user behaviour — from initial wireframe to App Store
             and Google Play deployment.
           </p>
           <a href="mailto:partnerships@omadiction.pro">
-            <button className="px-7 py-3.5 bg-[#C59B27] text-[#0F1729] text-xs font-bold uppercase tracking-wider rounded-xl hover:bg-[#d4a932] transition-colors shadow-md">
+            <button className="px-7 py-3.5 bg-[#B82020] text-white text-xs font-bold uppercase tracking-wider rounded-xl hover:bg-[#D12828] transition-colors shadow-md">
               Discuss Your Mobile App →
             </button>
           </a>
@@ -98,17 +98,17 @@ export default function MobileAppsPage() {
       <section className="max-w-6xl mx-auto px-6 py-20">
         <ScrollReveal
           direction="up"
-          className="flex items-end justify-between mb-10 border-b border-[#E5DEC9] pb-4"
+          className="flex items-end justify-between mb-10 border-b border-[#E2E6F2] pb-4"
         >
           <div>
-            <span className="text-xs font-bold uppercase tracking-widest text-[#9A7418]">
+            <span className="text-xs font-bold uppercase tracking-widest text-[#B82020]">
               Mobile Capabilities
             </span>
-            <h2 className="font-editorial text-3xl sm:text-4xl font-bold text-[#0F1729] mt-1">
+            <h2 className="font-editorial text-3xl sm:text-4xl font-bold text-[#202860] mt-1">
               Our Mobile Engineering Services
             </h2>
           </div>
-          <span className="text-xs font-semibold text-[#64748B] hidden sm:inline">
+          <span className="text-xs font-semibold text-[#5A6494] hidden sm:inline">
             iOS &amp; Android
           </span>
         </ScrollReveal>
@@ -119,16 +119,16 @@ export default function MobileAppsPage() {
         >
           {offerings.map((item) => (
             <StaggerItem key={item.title}>
-              <BubbleCard className="bg-white rounded-2xl p-7 border border-[#E5DEC9] shadow-sm hover:shadow-xl h-full">
+              <BubbleCard className="bg-white rounded-2xl p-7 border border-[#D5DCF0] shadow-sm hover:shadow-xl h-full">
                 <div className="flex items-start gap-5">
-                  <div className="shrink-0 w-12 h-12 rounded-xl bg-[#FAF4E4] group-hover:bg-[#C59B27] border border-[#E8D7B0] text-[#9A7418] group-hover:text-[#0F1729] flex items-center justify-center font-editorial font-bold text-lg transition-colors">
+                  <div className="shrink-0 w-12 h-12 rounded-xl bg-[#FDF2F2] group-hover:bg-[#B82020] border border-[#F3CACA] group-hover:border-[#B82020] text-[#B82020] group-hover:text-white flex items-center justify-center font-editorial font-bold text-lg transition-colors">
                     {item.num}
                   </div>
                   <div>
-                    <h3 className="font-editorial text-xl font-bold text-[#0F1729] group-hover:text-white mb-2 transition-colors">
+                    <h3 className="font-editorial text-xl font-bold text-[#202860] group-hover:text-white mb-2 transition-colors">
                       {item.title}
                     </h3>
-                    <p className="text-xs sm:text-sm text-[#475569] group-hover:text-slate-300 leading-relaxed transition-colors">
+                    <p className="text-xs sm:text-sm text-[#424B78] group-hover:text-slate-200 leading-relaxed transition-colors">
                       {item.description}
                     </p>
                   </div>
@@ -140,13 +140,13 @@ export default function MobileAppsPage() {
       </section>
 
       {/* Architectural Standards Bubble Cards */}
-      <section className="bg-white border-y border-[#E5DEC9] py-20 px-6">
+      <section className="bg-white border-y border-[#E2E6F2] py-20 px-6">
         <div className="max-w-4xl mx-auto">
           <ScrollReveal direction="up" className="text-center mb-10">
-            <span className="text-xs font-bold uppercase tracking-widest text-[#9A7418]">
+            <span className="text-xs font-bold uppercase tracking-widest text-[#B82020]">
               Core Architecture
             </span>
-            <h2 className="font-editorial text-3xl font-bold text-[#0F1729] mt-1">
+            <h2 className="font-editorial text-3xl font-bold text-[#202860] mt-1">
               Built-In From the Start
             </h2>
           </ScrollReveal>
@@ -157,10 +157,10 @@ export default function MobileAppsPage() {
           >
             {features.map((f) => (
               <StaggerItem key={f}>
-                <BubbleCard className="bg-[#FAF7F2] border border-[#E5DEC9] rounded-xl px-5 py-4 shadow-sm">
+                <BubbleCard className="bg-[#FAF8F5] border border-[#D5DCF0] rounded-xl px-5 py-4 shadow-sm">
                   <div className="flex items-center gap-3">
-                    <span className="w-2 h-2 rounded-full bg-[#C59B27] group-hover:bg-[#E5C158] shrink-0 transition-colors" />
-                    <span className="text-xs sm:text-sm font-bold text-[#0F1729] group-hover:text-white transition-colors">
+                    <span className="w-2 h-2 rounded-full bg-[#B82020] group-hover:bg-[#FF8A8A] shrink-0 transition-colors" />
+                    <span className="text-xs sm:text-sm font-bold text-[#202860] group-hover:text-white transition-colors">
                       {f}
                     </span>
                   </div>
@@ -172,20 +172,20 @@ export default function MobileAppsPage() {
       </section>
 
       {/* Executive CTA */}
-      <section className="bg-[#0F1729] py-16 px-6 text-center">
+      <section className="bg-[#202860] py-16 px-6 text-center">
         <ScrollReveal direction="up" className="max-w-3xl mx-auto">
-          <span className="text-xs font-bold uppercase tracking-widest text-[#E5C158]">
+          <span className="text-xs font-bold uppercase tracking-widest text-[#FF8A8A]">
             Product Discovery
           </span>
           <h2 className="font-editorial text-3xl sm:text-4xl font-bold text-white mt-2 mb-3">
             Have a Mobile Product Vision?
           </h2>
-          <p className="text-slate-300 text-sm sm:text-base mb-8">
+          <p className="text-slate-200 text-sm sm:text-base mb-8">
             Share your requirements and we&apos;ll help you scope, design, and
             ship it.
           </p>
           <Link href="/contact">
-            <button className="px-7 py-3.5 bg-[#C59B27] text-[#0F1729] text-xs font-bold uppercase tracking-wider rounded-xl hover:bg-[#d4a932] transition-colors shadow-md">
+            <button className="px-7 py-3.5 bg-[#B82020] text-white text-xs font-bold uppercase tracking-wider rounded-xl hover:bg-[#D12828] transition-colors shadow-md">
               Let&apos;s Talk →
             </button>
           </Link>

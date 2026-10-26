@@ -5,7 +5,7 @@ import Register from "./Register";
 
 const RegistrationPage = () => {
   return (
-    <main className="flex flex-col min-h-screen bg-[#FAF7F2] text-[#0F1729]">
+    <main className="flex flex-col min-h-screen bg-[#FAF8F5] text-[#202860]">
       <Navbar />
       <Register />
       <Footer />

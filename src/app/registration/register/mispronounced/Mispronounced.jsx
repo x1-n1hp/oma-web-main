@@ -5,26 +5,26 @@ import { motion } from "framer-motion";
 
 export default function MispronouncedEnrollmentForm() {
   return (
-    <div className="min-h-screen bg-[#FAF7F2] text-[#0F1729] py-16 px-6">
+    <div className="min-h-screen bg-[#FAF8F5] text-[#202860] py-16 px-6">
       <motion.div
-        className="max-w-4xl mx-auto bg-white shadow-xl rounded-3xl p-8 sm:p-12 border border-[#DFD3BC]"
+        className="max-w-4xl mx-auto bg-white shadow-xl rounded-3xl p-8 sm:p-12 border border-[#D5DCF0]"
         initial={{ opacity: 0, y: 24 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6 }}
       >
-        <div className="text-center mb-8 pb-6 border-b border-[#E5DEC9]">
-          <span className="inline-block px-3.5 py-1 rounded-full bg-[#FAF4E4] border border-[#E8D7B0] text-[#9A7418] text-xs font-bold uppercase tracking-widest mb-3">
+        <div className="text-center mb-8 pb-6 border-b border-[#E2E6F2]">
+          <span className="inline-block px-3.5 py-1 rounded-full bg-[#FDF2F2] border border-[#F3CACA] text-[#B82020] text-xs font-bold uppercase tracking-widest mb-3">
             Category B • Words Often Mispronounced
           </span>
-          <h1 className="font-editorial text-2xl sm:text-4xl font-bold text-[#0F1729]">
+          <h1 className="font-editorial text-2xl sm:text-4xl font-bold text-[#202860]">
             Lagos OMA Diction Awards — Words Often Mispronounced Enrollment
           </h1>
         </div>
 
         {/* Executive Payment Notice Ledger */}
-        <div className="bg-[#0F1729] text-white p-6 mb-10 rounded-2xl border border-[#C59B27]/40 grid grid-cols-1 md:grid-cols-12 gap-4 items-center">
+        <div className="bg-[#202860] text-white p-6 mb-10 rounded-2xl border-l-4 border-[#B82020] grid grid-cols-1 md:grid-cols-12 gap-4 items-center">
           <div className="md:col-span-7 space-y-1">
-            <p className="text-xs font-bold uppercase tracking-widest text-[#E5C158]">
+            <p className="text-xs font-bold uppercase tracking-widest text-[#FF8A8A]">
               Registration Fee Instructions
             </p>
             <p className="text-sm text-slate-200">
@@ -35,15 +35,15 @@ export default function MispronouncedEnrollmentForm() {
           </div>
           <div className="md:col-span-5 bg-white/5 border border-white/10 rounded-xl p-4 text-xs space-y-1">
             <div>
-              <span className="text-[#E5C158] font-bold">Account Name:</span>{" "}
+              <span className="text-[#FF8A8A] font-bold">Account Name:</span>{" "}
               Oma Professional Services
             </div>
             <div>
-              <span className="text-[#E5C158] font-bold">Account Number:</span>{" "}
+              <span className="text-[#FF8A8A] font-bold">Account Number:</span>{" "}
               0107068307
             </div>
             <div>
-              <span className="text-[#E5C158] font-bold">Bank:</span> GTBANK
+              <span className="text-[#FF8A8A] font-bold">Bank:</span> GTBANK
             </div>
           </div>
         </div>
@@ -55,7 +55,7 @@ export default function MispronouncedEnrollmentForm() {
         >
           {/* Section I: Student Info */}
           <div className="space-y-4">
-            <h2 className="font-editorial text-xl font-bold text-[#0F1729] border-b border-[#E5DEC9] pb-2">
+            <h2 className="font-editorial text-xl font-bold text-[#202860] border-b border-[#E2E6F2] pb-2">
               I. Pupil Details
             </h2>
             <div className="grid md:grid-cols-3 gap-4">
@@ -108,7 +108,7 @@ export default function MispronouncedEnrollmentForm() {
 
           {/* Section II: School Info */}
           <div className="space-y-4">
-            <h2 className="font-editorial text-xl font-bold text-[#0F1729] border-b border-[#E5DEC9] pb-2">
+            <h2 className="font-editorial text-xl font-bold text-[#202860] border-b border-[#E2E6F2] pb-2">
               II. School Details
             </h2>
             <div className="grid md:grid-cols-3 gap-4">
@@ -134,7 +134,7 @@ export default function MispronouncedEnrollmentForm() {
 
           {/* Section III: Recitation Info */}
           <div className="space-y-4">
-            <h2 className="font-editorial text-xl font-bold text-[#0F1729] border-b border-[#E5DEC9] pb-2">
+            <h2 className="font-editorial text-xl font-bold text-[#202860] border-b border-[#E2E6F2] pb-2">
               III. Reference Poetry Selection
             </h2>
             <div className="grid md:grid-cols-2 gap-4">
@@ -164,10 +164,10 @@ export default function MispronouncedEnrollmentForm() {
 
           {/* Section IV: Release Section */}
           <div className="space-y-4">
-            <h2 className="font-editorial text-xl font-bold text-[#0F1729] border-b border-[#E5DEC9] pb-2">
+            <h2 className="font-editorial text-xl font-bold text-[#202860] border-b border-[#E2E6F2] pb-2">
               IV. Guardian / Pronouncer&apos;s Release
             </h2>
-            <p className="text-xs sm:text-sm text-[#475569]">
+            <p className="text-xs sm:text-sm text-[#424B78]">
               I hereby authorize and release the pupil named below to attend and
               participate in the 2024 OMA Diction Awards Competition:
             </p>
@@ -188,7 +188,7 @@ export default function MispronouncedEnrollmentForm() {
 
           {/* Section V: Receipt Upload Link */}
           <div className="space-y-3">
-            <label className="block text-xs font-bold uppercase tracking-wider text-[#9A7418]">
+            <label className="block text-xs font-bold uppercase tracking-wider text-[#B82020]">
               V. Payment Receipt Verification Link
             </label>
             <input
@@ -198,7 +198,7 @@ export default function MispronouncedEnrollmentForm() {
               required
               className="input"
             />
-            <p className="text-xs text-[#64748B]">
+            <p className="text-xs text-[#5A6494]">
               Please note: This event will be broadcast live on TV, online, and
               on the Diction Oracle YouTube Channel.
             </p>
@@ -206,7 +206,7 @@ export default function MispronouncedEnrollmentForm() {
 
           <button
             type="submit"
-            className="bg-[#0F1729] hover:bg-[#1E293B] text-white text-xs font-bold uppercase tracking-wider py-4 px-8 rounded-xl shadow-lg w-full transition"
+            className="bg-[#B82020] hover:bg-[#9E1818] text-white text-xs font-bold uppercase tracking-wider py-4 px-8 rounded-xl shadow-lg shadow-[#B82020]/20 w-full transition"
           >
             Submit Candidate Enrollment →
           </button>

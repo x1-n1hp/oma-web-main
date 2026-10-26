@@ -6,28 +6,28 @@ import { motion } from "framer-motion";
 
 const ContactUs = () => {
   return (
-    <section className="bg-[#FAF7F2] py-20 px-6 overflow-hidden" id="contact">
+    <section className="bg-[#FAF8F5] py-20 px-6 overflow-hidden" id="contact">
       <div className="max-w-6xl mx-auto">
         <motion.div
-          className="rounded-3xl bg-white border border-[#E5DEC9] shadow-xl overflow-hidden grid grid-cols-1 lg:grid-cols-12"
+          className="rounded-3xl bg-white border border-[#D5DCF0] shadow-xl overflow-hidden grid grid-cols-1 lg:grid-cols-12"
           initial={{ opacity: 0, y: 28 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.2 }}
           transition={{ duration: 0.7, ease: [0.21, 0.47, 0.32, 0.98] }}
         >
-          {/* Left Oxford Navy Concierge Column */}
-          <div className="lg:col-span-5 bg-[#0F1729] text-white p-8 sm:p-10 flex flex-col justify-between">
+          {/* Left Royal Cobalt Indigo & Crimson Concierge Column */}
+          <div className="lg:col-span-5 bg-[#202860] text-white p-8 sm:p-10 flex flex-col justify-between border-b-4 lg:border-b-0 lg:border-r-4 border-[#B82020]">
             <div className="space-y-4">
               <div className="flex items-center gap-3">
-                <span className="h-px w-6 bg-[#C59B27]"></span>
-                <span className="text-xs font-bold uppercase tracking-widest text-[#E5C158]">
+                <span className="h-px w-6 bg-[#B82020]"></span>
+                <span className="text-xs font-bold uppercase tracking-widest text-[#FF8A8A]">
                   Direct Concierge
                 </span>
               </div>
               <h2 className="font-editorial text-3xl sm:text-4xl font-bold leading-tight">
                 Initiate a Conversation with Oma Services.
               </h2>
-              <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">
+              <p className="text-xs sm:text-sm text-slate-200 leading-relaxed">
                 Thank you for your interest in Oma Services. Whether enrolling
                 your school in our Diction Academy, inquiring about the OMA
                 Diction Awards, or commissioning a custom website or mobile
@@ -37,7 +37,7 @@ const ContactUs = () => {
 
             <div className="space-y-5 pt-8 border-t border-white/15 mt-8 text-xs">
               <div className="flex items-center gap-3.5">
-                <div className="p-2.5 bg-[#FAF4E4] rounded-xl border border-[#E8D7B0] shrink-0">
+                <div className="p-2.5 bg-[#FDF2F2] rounded-xl border border-[#F3CACA] shrink-0">
                   <Image
                     src="/images/mail-icon.png"
                     alt="Email Icon"
@@ -46,12 +46,12 @@ const ContactUs = () => {
                   />
                 </div>
                 <div>
-                  <div className="text-[#E5C158] uppercase font-bold tracking-wider text-[11px]">
+                  <div className="text-[#FF8A8A] uppercase font-bold tracking-wider text-[11px]">
                     Electronic Mail
                   </div>
                   <a
                     href="mailto:partnerships@omadiction.pro"
-                    className="text-sm font-medium text-white hover:text-[#E5C158] transition-colors mt-0.5 block"
+                    className="text-sm font-medium text-white hover:text-[#FF8A8A] transition-colors mt-0.5 block"
                   >
                     partnerships@omadiction.pro
                   </a>
@@ -59,10 +59,10 @@ const ContactUs = () => {
               </div>
 
               <div>
-                <div className="text-[#E5C158] uppercase font-bold tracking-wider text-[11px]">
+                <div className="text-[#FF8A8A] uppercase font-bold tracking-wider text-[11px]">
                   Practice Divisions
                 </div>
-                <div className="text-slate-300 mt-1 leading-relaxed">
+                <div className="text-slate-200 mt-1 leading-relaxed">
                   Executive Elocution • School Phonics &amp; Diction • Website
                   Design • Mobile &amp; Web Engineering
                 </div>
@@ -73,10 +73,10 @@ const ContactUs = () => {
           {/* Right Clean Editorial Form */}
           <div className="lg:col-span-7 p-8 sm:p-10">
             <div className="mb-6">
-              <span className="text-xs font-bold uppercase tracking-widest text-[#9A7418]">
+              <span className="text-xs font-bold uppercase tracking-widest text-[#B82020]">
                 Inquiry Dispatch
               </span>
-              <h3 className="font-editorial text-2xl sm:text-3xl font-bold text-[#0F1729] mt-1">
+              <h3 className="font-editorial text-2xl sm:text-3xl font-bold text-[#202860] mt-1">
                 Send Us a Message
               </h3>
             </div>
@@ -90,7 +90,7 @@ const ContactUs = () => {
                 <div>
                   <label
                     htmlFor="name"
-                    className="block text-xs font-bold uppercase tracking-wider text-[#475569] mb-1.5"
+                    className="block text-xs font-bold uppercase tracking-wider text-[#202860] mb-1.5"
                   >
                     Your Full Name
                   </label>
@@ -100,13 +100,13 @@ const ContactUs = () => {
                     name="name"
                     placeholder="e.g. Adebayo Williams"
                     required
-                    className="w-full px-4 py-3 rounded-xl bg-[#FAF7F2] border border-[#DFD3BC] text-sm text-[#0F1729] placeholder-[#64748B] focus:outline-none focus:border-[#0F1729] focus:bg-white transition-colors"
+                    className="w-full px-4 py-3 rounded-xl bg-[#FAF8F5] border border-[#D5DCF0] text-sm text-[#202860] placeholder-[#5A6494] focus:outline-none focus:border-[#B82020] focus:bg-white transition-colors"
                   />
                 </div>
                 <div>
                   <label
                     htmlFor="email"
-                    className="block text-xs font-bold uppercase tracking-wider text-[#475569] mb-1.5"
+                    className="block text-xs font-bold uppercase tracking-wider text-[#202860] mb-1.5"
                   >
                     Email Address
                   </label>
@@ -116,7 +116,7 @@ const ContactUs = () => {
                     name="email"
                     placeholder="you@organisation.com"
                     required
-                    className="w-full px-4 py-3 rounded-xl bg-[#FAF7F2] border border-[#DFD3BC] text-sm text-[#0F1729] placeholder-[#64748B] focus:outline-none focus:border-[#0F1729] focus:bg-white transition-colors"
+                    className="w-full px-4 py-3 rounded-xl bg-[#FAF8F5] border border-[#D5DCF0] text-sm text-[#202860] placeholder-[#5A6494] focus:outline-none focus:border-[#B82020] focus:bg-white transition-colors"
                   />
                 </div>
               </div>
@@ -124,14 +124,14 @@ const ContactUs = () => {
               <div>
                 <label
                   htmlFor="inquiry_type"
-                  className="block text-xs font-bold uppercase tracking-wider text-[#475569] mb-1.5"
+                  className="block text-xs font-bold uppercase tracking-wider text-[#202860] mb-1.5"
                 >
                   Inquiry Pillar
                 </label>
                 <select
                   id="inquiry_type"
                   name="inquiry_type"
-                  className="w-full px-4 py-3 rounded-xl bg-[#FAF7F2] border border-[#DFD3BC] text-sm text-[#0F1729] focus:outline-none focus:border-[#0F1729] focus:bg-white transition-colors"
+                  className="w-full px-4 py-3 rounded-xl bg-[#FAF8F5] border border-[#D5DCF0] text-sm text-[#202860] focus:outline-none focus:border-[#B82020] focus:bg-white transition-colors"
                 >
                   <option value="Website Design & Digital Engineering">
                     Website Design &amp; Digital Engineering
@@ -151,7 +151,7 @@ const ContactUs = () => {
               <div>
                 <label
                   htmlFor="message"
-                  className="block text-xs font-bold uppercase tracking-wider text-[#475569] mb-1.5"
+                  className="block text-xs font-bold uppercase tracking-wider text-[#202860] mb-1.5"
                 >
                   Your Message or Project Brief
                 </label>
@@ -161,7 +161,7 @@ const ContactUs = () => {
                   rows="4"
                   placeholder="Tell us about your timeline, goals, or training requirements..."
                   required
-                  className="resize-none w-full px-4 py-3 rounded-xl bg-[#FAF7F2] border border-[#DFD3BC] text-sm text-[#0F1729] placeholder-[#64748B] focus:outline-none focus:border-[#0F1729] focus:bg-white transition-colors"
+                  className="resize-none w-full px-4 py-3 rounded-xl bg-[#FAF8F5] border border-[#D5DCF0] text-sm text-[#202860] placeholder-[#5A6494] focus:outline-none focus:border-[#B82020] focus:bg-white transition-colors"
                 ></textarea>
               </div>
 
@@ -170,7 +170,7 @@ const ContactUs = () => {
                   type="submit"
                   whileHover={{ scale: 1.02 }}
                   whileTap={{ scale: 0.98 }}
-                  className="px-8 py-3.5 rounded-xl bg-[#0F1729] text-white text-xs font-bold uppercase tracking-wider hover:bg-[#1E293B] transition shadow-md"
+                  className="px-8 py-3.5 rounded-xl bg-[#B82020] text-white text-xs font-bold uppercase tracking-wider hover:bg-[#9E1818] transition shadow-md shadow-[#B82020]/20"
                 >
                   Submit Inquiry →
                 </motion.button>

@@ -32,193 +32,219 @@ const Navbar = () => {
   };
 
   return (
-    <nav className="bg-[#FAF7F2]/95 backdrop-blur-md border-b border-[#E5DEC9] sticky top-0 z-50">
-      <div className="max-w-6xl mx-auto flex items-center justify-between px-6 py-4">
-        {/* Brand Identity */}
-        <Link href="/" className="flex items-center gap-3 group">
-          <div className="w-11 h-11 rounded-xl bg-white p-1.5 border border-[#E5DEC9] shadow-sm flex items-center justify-center group-hover:border-[#C59B27] transition-colors">
-            <Image
-              src="/images/oma-logo.png"
-              alt="Oma Logo"
-              width={40}
-              height={40}
-              className="object-contain"
-              priority
-            />
-          </div>
-          <div>
-            <span className="font-editorial font-bold text-lg tracking-tight text-[#0F1729] block leading-none">
-              OMA SERVICES
-            </span>
-            <span className="text-[11px] tracking-widest uppercase text-[#9A7418] font-semibold block mt-1">
-              Diction &amp; Digital Engineering
+    <header className="sticky top-0 z-50">
+      {/* Top Institutional Ribbon in Brand Cobalt (#202860) & Crimson (#B82020) */}
+      <div className="bg-[#202860] text-white text-[11px] py-2 px-6 border-b-2 border-[#B82020]">
+        <div className="max-w-6xl mx-auto flex flex-wrap items-center justify-between gap-2">
+          <div className="flex items-center gap-2 font-medium">
+            <span className="inline-block w-2 h-2 rounded-full bg-[#B82020]"></span>
+            <span>
+              Lagos, Nigeria • Premier Elocution Academy &amp; Full-Stack Digital Engineering
             </span>
           </div>
-        </Link>
-
-        {/* Desktop Navigation */}
-        <div className="hidden md:flex items-center space-x-8">
-          {navLinks.map((link) =>
-            link.hasDropdown ? (
-              <div
-                key={link.title}
-                className="relative"
-                onMouseEnter={() => setServicesOpen(true)}
-                onMouseLeave={() => setServicesOpen(false)}
-              >
-                <Link
-                  href={link.path}
-                  className={`flex items-center gap-1.5 text-xs font-semibold uppercase tracking-wider pb-1 transition-colors ${
-                    isActive(link.path) || services.some((s) => pathname === s.path)
-                      ? "text-[#9A7418] border-b-2 border-[#C59B27]"
-                      : "text-[#334155] hover:text-[#0F1729]"
-                  }`}
-                >
-                  {link.title}
-                  <ChevronDownIcon className="h-3.5 w-3.5 text-[#9A7418]" />
-                </Link>
-
-                {/* Executive Dropdown Menu */}
-                {servicesOpen && (
-                  <div className="absolute top-full left-0 pt-3 w-72">
-                    <div className="bg-white rounded-2xl shadow-2xl p-2 border border-[#E5DEC9]">
-                      <div className="px-3 py-2 border-b border-[#FAF7F2]">
-                        <span className="text-[10px] font-bold uppercase tracking-widest text-[#9A7418]">
-                          Practice Divisions
-                        </span>
-                      </div>
-                      {services.map((s) => (
-                        <Link
-                          key={s.path}
-                          href={s.path}
-                          className={`flex items-start gap-3 p-3 rounded-xl transition-colors ${
-                            pathname === s.path
-                              ? "bg-[#FAF4E4] text-[#0F1729]"
-                              : "hover:bg-[#FAF7F2] text-[#0F1729]"
-                          }`}
-                        >
-                          <span className="w-7 h-7 rounded-lg bg-[#FAF4E4] border border-[#E8D7B0] text-[#9A7418] font-editorial font-bold text-xs flex items-center justify-center shrink-0 mt-0.5">
-                            {s.numeral}
-                          </span>
-                          <div>
-                            <div className="text-xs font-bold text-[#0F1729]">
-                              {s.title}
-                            </div>
-                            <div className="text-[11px] text-[#64748B] mt-0.5">
-                              {s.subtitle}
-                            </div>
-                          </div>
-                        </Link>
-                      ))}
-                      <div className="mt-1 pt-2 border-t border-[#E5DEC9] px-3 py-1.5">
-                        <Link
-                          href="/services"
-                          className="text-xs font-bold text-[#9A7418] hover:text-[#0F1729] flex items-center justify-between"
-                        >
-                          <span>View Complete Directory</span>
-                          <span>→</span>
-                        </Link>
-                      </div>
-                    </div>
-                  </div>
-                )}
-              </div>
-            ) : (
-              <Link
-                key={link.title}
-                href={link.path}
-                className={`text-xs font-semibold uppercase tracking-wider pb-1 transition-colors ${
-                  isActive(link.path)
-                    ? "text-[#9A7418] border-b-2 border-[#C59B27]"
-                    : "text-[#334155] hover:text-[#0F1729]"
-                }`}
-              >
-                {link.title}
-              </Link>
-            )
-          )}
-        </div>
-
-        {/* Executive Consultation Button */}
-        <div className="hidden md:flex items-center gap-3">
           <Link
-            href="/contact"
-            className="px-5 py-2.5 rounded-full bg-[#0F1729] text-[#FAF7F2] text-xs font-semibold tracking-wider uppercase hover:bg-[#1E293B] transition-colors shadow-sm"
+            href="/registration"
+            className="text-red-200 hover:text-white font-semibold transition-colors hidden sm:inline"
           >
-            Book Consultation →
+            ★ 2024 OMA Diction Awards — Registration Open →
           </Link>
         </div>
-
-        {/* Mobile Menu Toggle */}
-        <button
-          className="md:hidden text-[#0F1729] p-2 rounded-lg border border-[#E5DEC9] bg-white focus:outline-none"
-          onClick={() => setNavbarOpen(!navbarOpen)}
-          aria-label="Toggle navigation menu"
-        >
-          {navbarOpen ? (
-            <XMarkIcon className="h-5 w-5" />
-          ) : (
-            <Bars3Icon className="h-5 w-5" />
-          )}
-        </button>
       </div>
 
-      {/* Mobile Menu Drawer */}
-      {navbarOpen && (
-        <div className="md:hidden bg-[#0F1729] text-[#FAF7F2] border-t border-[#C59B27]/30">
-          <ul className="flex flex-col py-6 px-6 space-y-2">
-            {navLinks.map((link) => (
-              <li key={link.title}>
+      <nav className="bg-white/95 backdrop-blur-md border-b border-[#E2E6F2]">
+        <div className="max-w-6xl mx-auto flex items-center justify-between px-6 py-4">
+          {/* Brand Identity */}
+          <Link href="/" className="flex items-center gap-3 group">
+            <div className="w-11 h-11 rounded-xl bg-white p-1.5 border border-[#D5DCF0] shadow-sm flex items-center justify-center group-hover:border-[#B82020] transition-colors">
+              <Image
+                src="/images/oma-logo.png"
+                alt="Oma Logo"
+                width={40}
+                height={40}
+                className="object-contain"
+                priority
+              />
+            </div>
+            <div>
+              <span className="font-editorial font-bold text-lg tracking-tight text-[#202860] block leading-none">
+                OMA SERVICES
+              </span>
+              <span className="text-[11px] tracking-widest uppercase text-[#B82020] font-bold block mt-1">
+                Diction &amp; Digital Engineering
+              </span>
+            </div>
+          </Link>
+
+          {/* Desktop Navigation */}
+          <div className="hidden md:flex items-center space-x-8">
+            {navLinks.map((link) =>
+              link.hasDropdown ? (
+                <div
+                  key={link.title}
+                  className="relative"
+                  onMouseEnter={() => setServicesOpen(true)}
+                  onMouseLeave={() => setServicesOpen(false)}
+                >
+                  <Link
+                    href={link.path}
+                    className={`flex items-center gap-1.5 text-xs font-bold uppercase tracking-wider pb-1 transition-colors ${
+                      isActive(link.path) || services.some((s) => pathname === s.path)
+                        ? "text-[#B82020] border-b-2 border-[#B82020]"
+                        : "text-[#202860] hover:text-[#B82020]"
+                    }`}
+                  >
+                    {link.title}
+                    <ChevronDownIcon className="h-3.5 w-3.5 text-[#B82020]" />
+                  </Link>
+
+                  {/* Executive Dropdown Menu */}
+                  {servicesOpen && (
+                    <div className="absolute top-full left-0 pt-3 w-72">
+                      <div className="bg-white rounded-2xl shadow-2xl p-2 border border-[#D5DCF0]">
+                        <div className="px-3 py-2 border-b border-[#E2E6F2]">
+                          <span className="text-[10px] font-bold uppercase tracking-widest text-[#B82020]">
+                            Practice Divisions
+                          </span>
+                        </div>
+                        {services.map((s) => (
+                          <Link
+                            key={s.path}
+                            href={s.path}
+                            className={`flex items-start gap-3 p-3 rounded-xl transition-colors ${
+                              pathname === s.path
+                                ? "bg-[#FDF2F2] text-[#202860]"
+                                : "hover:bg-[#FAF8F5] text-[#202860]"
+                            }`}
+                          >
+                            <span className="w-7 h-7 rounded-lg bg-[#FDF2F2] border border-[#F3CACA] text-[#B82020] font-editorial font-bold text-xs flex items-center justify-center shrink-0 mt-0.5">
+                              {s.numeral}
+                            </span>
+                            <div>
+                              <div className="text-xs font-bold text-[#202860]">
+                                {s.title}
+                              </div>
+                              <div className="text-[11px] text-[#5A6494] mt-0.5">
+                                {s.subtitle}
+                              </div>
+                            </div>
+                          </Link>
+                        ))}
+                        <div className="mt-1 pt-2 border-t border-[#E2E6F2] px-3 py-1.5">
+                          <Link
+                            href="/services"
+                            className="text-xs font-bold text-[#B82020] hover:text-[#202860] flex items-center justify-between"
+                          >
+                            <span>View Complete Directory</span>
+                            <span>→</span>
+                          </Link>
+                        </div>
+                      </div>
+                    </div>
+                  )}
+                </div>
+              ) : (
                 <Link
+                  key={link.title}
                   href={link.path}
-                  className={`block py-2.5 text-xs font-bold uppercase tracking-wider transition-colors ${
+                  className={`text-xs font-bold uppercase tracking-wider pb-1 transition-colors ${
                     isActive(link.path)
-                      ? "text-[#E5C158]"
-                      : "text-slate-200 hover:text-white"
+                      ? "text-[#B82020] border-b-2 border-[#B82020]"
+                      : "text-[#202860] hover:text-[#B82020]"
                   }`}
-                  onClick={() => setNavbarOpen(false)}
                 >
                   {link.title}
                 </Link>
-              </li>
-            ))}
-            <li className="pt-4 border-t border-white/10 mt-2">
-              <p className="text-[11px] text-[#E5C158] mb-3 font-bold uppercase tracking-widest">
-                Practice Divisions
-              </p>
-              <div className="space-y-2">
-                {services.map((s) => (
+              )
+            )}
+          </div>
+
+          {/* Executive Consultation Button in Brand Crimson (#B82020) */}
+          <div className="hidden md:flex items-center gap-2.5">
+            <Link
+              href="/registration"
+              className="px-4 py-2 rounded-lg border-2 border-[#202860] text-[#202860] text-xs font-bold tracking-wider uppercase hover:bg-[#202860] hover:text-white transition-colors"
+            >
+              2024 Awards
+            </Link>
+            <Link
+              href="/contact"
+              className="px-5 py-2.5 rounded-lg bg-[#B82020] text-white text-xs font-bold tracking-wider uppercase hover:bg-[#9E1818] transition-colors shadow-md shadow-[#B82020]/20"
+            >
+              Book Consultation →
+            </Link>
+          </div>
+
+          {/* Mobile Menu Toggle */}
+          <button
+            className="md:hidden text-[#202860] p-2 rounded-lg border border-[#D5DCF0] bg-white focus:outline-none"
+            onClick={() => setNavbarOpen(!navbarOpen)}
+            aria-label="Toggle navigation menu"
+          >
+            {navbarOpen ? (
+              <XMarkIcon className="h-5 w-5" />
+            ) : (
+              <Bars3Icon className="h-5 w-5" />
+            )}
+          </button>
+        </div>
+
+        {/* Mobile Menu Drawer */}
+        {navbarOpen && (
+          <div className="md:hidden bg-[#202860] text-white border-t-2 border-[#B82020]">
+            <ul className="flex flex-col py-6 px-6 space-y-2">
+              {navLinks.map((link) => (
+                <li key={link.title}>
                   <Link
-                    key={s.path}
-                    href={s.path}
-                    className={`flex items-center gap-3 py-2 text-xs transition-colors ${
-                      pathname === s.path
-                        ? "text-[#E5C158] font-bold"
-                        : "text-slate-300 hover:text-[#E5C158]"
+                    href={link.path}
+                    className={`block py-2.5 text-xs font-bold uppercase tracking-wider transition-colors ${
+                      isActive(link.path)
+                        ? "text-[#FF8A8A]"
+                        : "text-slate-200 hover:text-white"
                     }`}
                     onClick={() => setNavbarOpen(false)}
                   >
-                    <span className="font-editorial text-[#C59B27] w-5">
-                      {s.numeral}.
-                    </span>
-                    <span>{s.title}</span>
+                    {link.title}
                   </Link>
-                ))}
-              </div>
-            </li>
-            <li className="pt-4">
-              <Link
-                href="/contact"
-                onClick={() => setNavbarOpen(false)}
-                className="block w-full text-center py-3 rounded-xl bg-[#C59B27] text-[#0F1729] text-xs font-bold uppercase tracking-wider"
-              >
-                Book Consultation →
-              </Link>
-            </li>
-          </ul>
-        </div>
-      )}
-    </nav>
+                </li>
+              ))}
+              <li className="pt-4 border-t border-white/10 mt-2">
+                <p className="text-[11px] text-[#FF8A8A] mb-3 font-bold uppercase tracking-widest">
+                  Practice Divisions
+                </p>
+                <div className="space-y-2">
+                  {services.map((s) => (
+                    <Link
+                      key={s.path}
+                      href={s.path}
+                      className={`flex items-center gap-3 py-2 text-xs transition-colors ${
+                        pathname === s.path
+                          ? "text-[#FF8A8A] font-bold"
+                          : "text-slate-300 hover:text-[#FF8A8A]"
+                      }`}
+                      onClick={() => setNavbarOpen(false)}
+                    >
+                      <span className="font-editorial text-[#FF8A8A] w-5">
+                        {s.numeral}.
+                      </span>
+                      <span>{s.title}</span>
+                    </Link>
+                  ))}
+                </div>
+              </li>
+              <li className="pt-4">
+                <Link
+                  href="/contact"
+                  onClick={() => setNavbarOpen(false)}
+                  className="block w-full text-center py-3 rounded-xl bg-[#B82020] text-white text-xs font-bold uppercase tracking-wider"
+                >
+                  Book Consultation →
+                </Link>
+              </li>
+            </ul>
+          </div>
+        )}
+      </nav>
+    </header>
   );
 };
 
