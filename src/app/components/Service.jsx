@@ -45,7 +45,7 @@ const pillars = [
 const Service = () => {
   return (
     <section
-      className="bg-[#F5F5F7] border-b border-[#E2E6F2] py-16 overflow-hidden"
+      className="bg-[#F5F5F7] dark:bg-[#0A0E24] border-b border-[#E2E6F2] dark:border-[#232E66] py-16 overflow-hidden transition-colors duration-300"
       id="services"
     >
       <div className="max-w-6xl mx-auto px-6 space-y-16">
@@ -63,21 +63,21 @@ const Service = () => {
               href={item.href}
               className="snap-start shrink-0 block"
             >
-              <BubbleCard className="w-[290px] sm:w-[310px] rounded-[28px] bg-white border border-[#D5DCF0] p-7 shadow-sm h-full">
+              <BubbleCard className="w-[290px] sm:w-[310px] rounded-[28px] bg-white dark:bg-[#131A3E] border border-[#D5DCF0] dark:border-[#232E66] p-7 shadow-sm h-full">
                 <span
                   className={`text-xs font-bold uppercase tracking-widest group-hover:text-[#FF8A8A] transition-colors ${
-                    idx % 2 === 0 ? "text-[#B82020]" : "text-[#202860]"
+                    idx % 2 === 0 ? "text-[#B82020] dark:text-[#FF8A8A]" : "text-[#202860] dark:text-[#94A3D3]"
                   }`}
                 >
                   {item.department}
                 </span>
-                <h3 className="font-editorial text-xl font-bold text-[#202860] group-hover:text-white mt-2 mb-2 transition-colors">
+                <h3 className="font-editorial text-xl font-bold text-[#202860] dark:text-white group-hover:text-white mt-2 mb-2 transition-colors">
                   {item.title}
                 </h3>
-                <p className="text-xs text-[#424B78] group-hover:text-slate-200 leading-relaxed mb-5 transition-colors">
+                <p className="text-xs text-[#424B78] dark:text-[#94A3D3] group-hover:text-slate-200 leading-relaxed mb-5 transition-colors">
                   {item.desc}
                 </p>
-                <span className="text-xs font-bold text-[#B82020] group-hover:text-white transition-colors">
+                <span className="text-xs font-bold text-[#B82020] dark:text-[#FF8A8A] group-hover:text-white transition-colors">
                   Learn more &gt;
                 </span>
               </BubbleCard>
@@ -91,8 +91,8 @@ const Service = () => {
         <div>
           <div className="mb-6">
             <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold tracking-tight">
-              <span className="text-[#202860]">2024 OMA Diction Awards.</span>{" "}
-              <span className="text-[#5A6494] font-normal">
+              <span className="text-[#202860] dark:text-white transition-colors duration-300">2024 OMA Diction Awards.</span>{" "}
+              <span className="text-[#5A6494] dark:text-[#94A3D3] font-normal transition-colors duration-300">
                 Linguistic mastery and stage poise celebrated live in Lagos.
               </span>
             </h2>
@@ -100,7 +100,7 @@ const Service = () => {
 
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-6">
             {/* Left Wide Billboard Card */}
-            <div className="lg:col-span-7 rounded-[28px] bg-[#202860] text-white p-8 sm:p-10 border-b-4 border-[#B82020] shadow-xl flex flex-col justify-between relative overflow-hidden">
+            <div className="lg:col-span-7 rounded-[28px] bg-[#202860] dark:bg-[#131A3E] text-white p-8 sm:p-10 border-b-4 border-[#B82020] shadow-xl flex flex-col justify-between relative overflow-hidden">
               <div className="pointer-events-none absolute -right-16 -top-16 w-64 h-64 rounded-full border-[24px] border-[#B82020]/25"></div>
               <div className="relative z-10 space-y-4">
                 <span className="inline-block px-3.5 py-1 rounded-full bg-[#B82020] text-white text-xs font-bold uppercase tracking-wider">
@@ -157,22 +157,22 @@ const Service = () => {
                 className="flex-1 flex"
               >
                 <BubbleCard
-                  className="rounded-[28px] bg-white border-2 border-[#202860] p-7 shadow-md w-full"
+                  className="rounded-[28px] bg-white dark:bg-[#131A3E] border-2 border-[#202860] dark:border-[#B82020] p-7 shadow-md w-full"
                   contentClassName="flex flex-col justify-between"
                 >
                   <div>
                     <div className="flex items-center justify-between">
-                      <span className="text-xs font-bold uppercase tracking-widest text-[#B82020] group-hover:text-[#FF8A8A]">
+                      <span className="text-xs font-bold uppercase tracking-widest text-[#B82020] dark:text-[#FF8A8A] group-hover:text-[#FF8A8A]">
                         Category A
                       </span>
-                      <span className="text-xs font-bold text-[#5A6494] group-hover:text-slate-200">
+                      <span className="text-xs font-bold text-[#5A6494] dark:text-[#94A3D3] group-hover:text-slate-200">
                         Entry: ₦7,000
                       </span>
                     </div>
-                    <h4 className="font-editorial text-2xl font-bold text-[#202860] group-hover:text-white mt-1">
+                    <h4 className="font-editorial text-2xl font-bold text-[#202860] dark:text-white group-hover:text-white mt-1">
                       Poetry Recitation
                     </h4>
-                    <p className="text-xs text-[#424B78] group-hover:text-slate-200 mt-1.5 leading-relaxed">
+                    <p className="text-xs text-[#424B78] dark:text-[#94A3D3] group-hover:text-slate-200 mt-1.5 leading-relaxed">
                       Evaluates vocal expression, cadence, phonetic accuracy,
                       and stage command.
                     </p>
@@ -190,28 +190,28 @@ const Service = () => {
                 className="flex-1 flex"
               >
                 <BubbleCard
-                  className="rounded-[28px] bg-white border border-[#D5DCF0] p-7 shadow-md w-full"
+                  className="rounded-[28px] bg-white dark:bg-[#131A3E] border border-[#D5DCF0] dark:border-[#232E66] p-7 shadow-md w-full"
                   contentClassName="flex flex-col justify-between"
                 >
                   <div>
                     <div className="flex items-center justify-between">
-                      <span className="text-xs font-bold uppercase tracking-widest text-[#202860] group-hover:text-[#FF8A8A]">
+                      <span className="text-xs font-bold uppercase tracking-widest text-[#202860] dark:text-[#94A3D3] group-hover:text-[#FF8A8A]">
                         Category B
                       </span>
-                      <span className="text-xs font-bold text-[#5A6494] group-hover:text-slate-200">
+                      <span className="text-xs font-bold text-[#5A6494] dark:text-[#94A3D3] group-hover:text-slate-200">
                         Entry: ₦7,000
                       </span>
                     </div>
-                    <h4 className="font-editorial text-2xl font-bold text-[#202860] group-hover:text-white mt-1">
+                    <h4 className="font-editorial text-2xl font-bold text-[#202860] dark:text-white group-hover:text-white mt-1">
                       Words Often Mispronounced
                     </h4>
-                    <p className="text-xs text-[#424B78] group-hover:text-slate-200 mt-1.5 leading-relaxed">
+                    <p className="text-xs text-[#424B78] dark:text-[#94A3D3] group-hover:text-slate-200 mt-1.5 leading-relaxed">
                       Tests mastery of challenging English vocabulary, stress
                       patterns, and crisp articulation.
                     </p>
                   </div>
                   <div className="mt-4">
-                    <span className="inline-flex items-center gap-1.5 px-4 py-2 rounded-full bg-[#202860] text-white group-hover:bg-[#B82020] text-xs font-bold transition-colors">
+                    <span className="inline-flex items-center gap-1.5 px-4 py-2 rounded-full bg-[#202860] dark:bg-[#B82020] text-white group-hover:bg-[#B82020] text-xs font-bold transition-colors">
                       Register for W.O.M &gt;
                     </span>
                   </div>

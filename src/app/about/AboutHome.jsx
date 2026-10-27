@@ -31,9 +31,9 @@ const stats = [
 
 const AboutPage = () => {
   return (
-    <div className="bg-[#F5F5F7] text-[#202860] min-h-screen overflow-hidden">
+    <div className="bg-[#F5F5F7] dark:bg-[#0A0E24] text-[#202860] dark:text-white min-h-screen overflow-hidden transition-colors duration-300">
       {/* Apple Store-Style Split Hero Section */}
-      <section className="max-w-6xl mx-auto px-6 py-14 lg:py-20 border-b border-[#E2E6F2]">
+      <section className="max-w-6xl mx-auto px-6 py-14 lg:py-20 border-b border-[#E2E6F2] dark:border-[#232E66]">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
           {/* Left Content */}
           <motion.div
@@ -42,48 +42,48 @@ const AboutPage = () => {
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.7, ease: [0.21, 0.47, 0.32, 0.98] }}
           >
-            <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-[#FDF2F2] border border-[#F3CACA] text-[#B82020] text-xs font-bold uppercase tracking-wider">
+            <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-[#FDF2F2] dark:bg-[#B82020]/20 border border-[#F3CACA] dark:border-[#B82020]/40 text-[#B82020] dark:text-[#FF8A8A] text-xs font-bold uppercase tracking-wider">
               <span className="w-1.5 h-1.5 rounded-full bg-[#B82020]"></span>
               01 / How It Started
             </div>
 
             <h1 className="text-3xl sm:text-5xl font-bold tracking-tight leading-[1.12]">
-              <span className="text-[#202860]">Our Heritage.</span>{" "}
-              <span className="text-[#5A6494] font-normal">
+              <span className="text-[#202860] dark:text-white transition-colors duration-300">Our Heritage.</span>{" "}
+              <span className="text-[#5A6494] dark:text-[#94A3D3] font-normal transition-colors duration-300">
                 Global learning and digital transformation built for lasting
                 impact.
               </span>
             </h1>
 
-            <p className="text-[#424B78] text-base leading-relaxed">
+            <p className="text-[#424B78] dark:text-[#94A3D3] text-base leading-relaxed">
               At Oma Services, we help individuals and organisations communicate
               better and build smarter. From diction training and speech therapy
               to websites, mobile apps, and custom web platforms — we bring
               expertise, creativity, and a genuine commitment to results.
             </p>
 
-            <div className="pt-4 grid grid-cols-3 gap-3 border-t border-[#E2E6F2]">
+            <div className="pt-4 grid grid-cols-3 gap-3 border-t border-[#E2E6F2] dark:border-[#232E66]">
               <div className="pt-3">
-                <div className="text-[11px] font-bold text-[#B82020] uppercase tracking-wider">
+                <div className="text-[11px] font-bold text-[#B82020] dark:text-[#FF8A8A] uppercase tracking-wider">
                   Pillar I
                 </div>
-                <div className="text-sm font-bold text-[#202860] mt-0.5">
+                <div className="text-sm font-bold text-[#202860] dark:text-white mt-0.5">
                   Adaptivity
                 </div>
               </div>
-              <div className="pt-3 border-l border-[#E2E6F2] pl-3">
-                <div className="text-[11px] font-bold text-[#202860] uppercase tracking-wider">
+              <div className="pt-3 border-l border-[#E2E6F2] dark:border-[#232E66] pl-3">
+                <div className="text-[11px] font-bold text-[#202860] dark:text-slate-300 uppercase tracking-wider">
                   Pillar II
                 </div>
-                <div className="text-sm font-bold text-[#202860] mt-0.5">
+                <div className="text-sm font-bold text-[#202860] dark:text-white mt-0.5">
                   Oral Excellence
                 </div>
               </div>
-              <div className="pt-3 border-l border-[#E2E6F2] pl-3">
-                <div className="text-[11px] font-bold text-[#B82020] uppercase tracking-wider">
+              <div className="pt-3 border-l border-[#E2E6F2] dark:border-[#232E66] pl-3">
+                <div className="text-[11px] font-bold text-[#B82020] dark:text-[#FF8A8A] uppercase tracking-wider">
                   Pillar III
                 </div>
-                <div className="text-sm font-bold text-[#202860] mt-0.5">
+                <div className="text-sm font-bold text-[#202860] dark:text-white mt-0.5">
                   Digital Craft
                 </div>
               </div>
@@ -102,7 +102,7 @@ const AboutPage = () => {
             }}
           >
             <div className="relative">
-              <div className="relative bg-white p-3 rounded-[28px] border border-[#D5DCF0] shadow-xl">
+              <div className="relative bg-white dark:bg-[#131A3E] p-3 rounded-[28px] border border-[#D5DCF0] dark:border-[#232E66] shadow-xl">
                 <Image
                   src="/images/DSC_6849.JPG"
                   alt="Oma Services Leadership"
@@ -145,18 +145,18 @@ const AboutPage = () => {
                 },
               }}
             >
-              <BubbleCard className="rounded-[28px] bg-white border border-[#D5DCF0] shadow-sm p-6 sm:p-8 text-center h-full">
+              <BubbleCard className="rounded-[28px] bg-white dark:bg-[#131A3E] border border-[#D5DCF0] dark:border-[#232E66] shadow-sm p-6 sm:p-8 text-center h-full">
                 <h2
                   className={`font-editorial text-3xl sm:text-4xl font-bold group-hover:text-white transition-colors ${
-                    idx % 2 === 0 ? "text-[#B82020]" : "text-[#202860]"
+                    idx % 2 === 0 ? "text-[#B82020] dark:text-[#FF8A8A]" : "text-[#202860] dark:text-white"
                   }`}
                 >
                   {stat.value}
                 </h2>
-                <p className="text-xs font-bold uppercase tracking-wider text-[#202860] group-hover:text-[#FF8A8A] mt-1.5 transition-colors">
+                <p className="text-xs font-bold uppercase tracking-wider text-[#202860] dark:text-slate-200 group-hover:text-[#FF8A8A] mt-1.5 transition-colors">
                   {stat.label}
                 </p>
-                <p className="text-xs text-[#5A6494] group-hover:text-slate-300 mt-0.5 transition-colors">
+                <p className="text-xs text-[#5A6494] dark:text-[#94A3D3] group-hover:text-slate-300 mt-0.5 transition-colors">
                   {stat.detail}
                 </p>
               </BubbleCard>
@@ -166,15 +166,15 @@ const AboutPage = () => {
       </section>
 
       {/* OMA's Mission & The Diction Oracle Editorial Feature */}
-      <section className="py-16 px-6 bg-white">
+      <section className="py-16 px-6 bg-white dark:bg-[#0A0E24] border-t border-[#E2E6F2] dark:border-[#232E66] transition-colors duration-300">
         <div className="max-w-6xl mx-auto">
           <div className="max-w-3xl mb-10">
-            <span className="inline-block bg-[#FDF2F2] border border-[#F3CACA] text-[#B82020] px-3.5 py-1 rounded-full text-xs font-bold uppercase tracking-widest mb-3">
+            <span className="inline-block bg-[#FDF2F2] dark:bg-[#B82020]/20 border border-[#F3CACA] dark:border-[#B82020]/40 text-[#B82020] dark:text-[#FF8A8A] px-3.5 py-1 rounded-full text-xs font-bold uppercase tracking-widest mb-3">
               02 / OMA&apos;s Mission
             </span>
             <h2 className="text-2xl sm:text-4xl font-bold tracking-tight leading-snug">
-              <span className="text-[#202860]">Our Mandate.</span>{" "}
-              <span className="text-[#5A6494] font-normal">
+              <span className="text-[#202860] dark:text-white transition-colors duration-300">Our Mandate.</span>{" "}
+              <span className="text-[#5A6494] dark:text-[#94A3D3] font-normal transition-colors duration-300">
                 Empowering individuals and organisations to speak with clarity
                 and build with purpose.
               </span>
@@ -182,7 +182,7 @@ const AboutPage = () => {
           </div>
 
           <motion.div
-            className="rounded-[28px] bg-[#202860] border-b-4 border-[#B82020] p-6 sm:p-10 text-white shadow-2xl grid grid-cols-1 lg:grid-cols-12 gap-8 items-center"
+            className="rounded-[28px] bg-[#202860] dark:bg-[#131A3E] border-b-4 border-[#B82020] p-6 sm:p-10 text-white shadow-2xl grid grid-cols-1 lg:grid-cols-12 gap-8 items-center"
             initial={{ opacity: 0, y: 28 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, amount: 0.2 }}

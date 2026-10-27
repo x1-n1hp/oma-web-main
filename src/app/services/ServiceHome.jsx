@@ -154,9 +154,9 @@ const awardImages = [
 
 const ServicePage = () => {
   return (
-    <div className="bg-[#F5F5F7] text-[#202860] min-h-screen flex flex-col overflow-hidden">
+    <div className="bg-[#F5F5F7] dark:bg-[#0A0E24] text-[#202860] dark:text-white min-h-screen flex flex-col overflow-hidden transition-colors duration-300">
       {/* Apple Store-Style Split Header + Specialist Concierge Widget */}
-      <section className="pt-12 pb-8 px-6 max-w-6xl mx-auto w-full border-b border-[#E2E6F2]">
+      <section className="pt-12 pb-8 px-6 max-w-6xl mx-auto w-full border-b border-[#E2E6F2] dark:border-[#232E66]">
         <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-8">
           <motion.div
             className="max-w-3xl"
@@ -164,13 +164,13 @@ const ServicePage = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
           >
-            <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-[#FDF2F2] border border-[#F3CACA] text-[#B82020] text-xs font-bold uppercase tracking-wider mb-3">
+            <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-[#FDF2F2] dark:bg-[#B82020]/20 border border-[#F3CACA] dark:border-[#B82020]/40 text-[#B82020] dark:text-[#FF8A8A] text-xs font-bold uppercase tracking-wider mb-3">
               <span className="w-1.5 h-1.5 rounded-full bg-[#B82020]"></span>
               Practice Storefront • Oma Services
             </div>
             <h1 className="text-3xl sm:text-5xl font-bold tracking-tight leading-[1.12]">
-              <span className="text-[#202860]">All Services.</span>{" "}
-              <span className="text-[#5A6494] font-normal">
+              <span className="text-[#202860] dark:text-white transition-colors duration-300">All Services.</span>{" "}
+              <span className="text-[#5A6494] dark:text-[#94A3D3] font-normal transition-colors duration-300">
                 World-class elocution academy and full-stack digital engineering
                 under one roof.
               </span>
@@ -178,18 +178,18 @@ const ServicePage = () => {
           </motion.div>
 
           {/* Specialist Concierge Widget */}
-          <div className="flex items-center gap-3.5 bg-white px-4 py-3 rounded-2xl border border-[#D5DCF0] shadow-sm shrink-0">
+          <div className="flex items-center gap-3.5 bg-white dark:bg-[#131A3E] px-4 py-3 rounded-2xl border border-[#D5DCF0] dark:border-[#232E66] shadow-sm shrink-0 transition-colors duration-300">
             <div className="relative w-10 h-10 rounded-full bg-gradient-to-br from-[#202860] to-[#B82020] text-white font-editorial font-bold text-sm flex items-center justify-center shrink-0">
               DO
-              <span className="absolute -bottom-0.5 -right-0.5 w-3 h-3 rounded-full bg-emerald-500 border-2 border-white"></span>
+              <span className="absolute -bottom-0.5 -right-0.5 w-3 h-3 rounded-full bg-emerald-500 border-2 border-white dark:border-[#131A3E]"></span>
             </div>
             <div className="text-xs">
-              <p className="font-bold text-[#202860]">
+              <p className="font-bold text-[#202860] dark:text-white">
                 Unsure which package fits your institution?
               </p>
               <Link
                 href="/contact"
-                className="text-[#B82020] font-semibold hover:underline"
+                className="text-[#B82020] dark:text-[#FF8A8A] font-semibold hover:underline"
               >
                 Speak with an OMA Specialist &gt;
               </Link>
@@ -199,17 +199,17 @@ const ServicePage = () => {
       </section>
 
       {/* Core Diction & Elocution Services (Tall 28px Apple-Style Bubble Cards) */}
-      <section className="max-w-6xl mx-auto px-6 py-14 w-full border-b border-[#E2E6F2]">
+      <section className="max-w-6xl mx-auto px-6 py-14 w-full border-b border-[#E2E6F2] dark:border-[#232E66]">
         <div className="flex flex-col sm:flex-row sm:items-end justify-between mb-8 gap-4">
           <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold tracking-tight">
-            <span className="text-[#202860]">Diction &amp; Elocution.</span>{" "}
-            <span className="text-[#5A6494] font-normal">
+            <span className="text-[#202860] dark:text-white transition-colors duration-300">Diction &amp; Elocution.</span>{" "}
+            <span className="text-[#5A6494] dark:text-[#94A3D3] font-normal transition-colors duration-300">
               Certified speech and phonics programmes for schools and leaders.
             </span>
           </h2>
           <Link
             href="/diction"
-            className="text-xs font-bold text-[#B82020] hover:text-[#202860] shrink-0 transition-colors"
+            className="text-xs font-bold text-[#B82020] dark:text-[#FF8A8A] hover:text-[#202860] dark:hover:text-white shrink-0 transition-colors"
           >
             Explore Diction Department &gt;
           </Link>
@@ -219,29 +219,29 @@ const ServicePage = () => {
           {coreServices.map((service) => (
             <BubbleCard
               key={service.title}
-              className="bg-white rounded-[28px] border border-[#D5DCF0] shadow-sm hover:shadow-xl h-full"
+              className="bg-white dark:bg-[#131A3E] rounded-[28px] border border-[#D5DCF0] dark:border-[#232E66] shadow-sm hover:shadow-xl h-full"
               contentClassName="flex flex-col justify-between"
             >
               {/* Top-Anchored Copy */}
               <div className="p-7 pb-4">
                 <div className="flex items-center justify-between mb-2">
-                  <span className="text-xs font-bold uppercase tracking-widest text-[#B82020] group-hover:text-[#FF8A8A] transition-colors">
+                  <span className="text-xs font-bold uppercase tracking-widest text-[#B82020] dark:text-[#FF8A8A] group-hover:text-[#FF8A8A] transition-colors">
                     {service.subtitle}
                   </span>
-                  <span className="w-7 h-7 rounded-full bg-[#FDF2F2] group-hover:bg-[#B82020] border border-[#F3CACA] text-[#B82020] group-hover:text-white font-editorial font-bold text-xs flex items-center justify-center transition-colors">
+                  <span className="w-7 h-7 rounded-full bg-[#FDF2F2] dark:bg-[#B82020]/20 group-hover:bg-[#B82020] border border-[#F3CACA] dark:border-[#B82020]/40 text-[#B82020] dark:text-[#FF8A8A] group-hover:text-white font-editorial font-bold text-xs flex items-center justify-center transition-colors">
                     {service.numeral}
                   </span>
                 </div>
-                <h3 className="font-editorial text-2xl font-bold text-[#202860] group-hover:text-white transition-colors">
+                <h3 className="font-editorial text-2xl font-bold text-[#202860] dark:text-white group-hover:text-white transition-colors">
                   {service.title}
                 </h3>
-                <p className="text-[#424B78] group-hover:text-slate-200 mt-2 text-xs sm:text-sm leading-relaxed transition-colors">
+                <p className="text-[#424B78] dark:text-[#94A3D3] group-hover:text-slate-200 mt-2 text-xs sm:text-sm leading-relaxed transition-colors">
                   {service.description}
                 </p>
               </div>
 
               {/* Bottom Visual Stage */}
-              <div className="mx-4 mb-4 h-44 flex items-center justify-center bg-[#FAF8F5] group-hover:bg-white/10 rounded-[20px] p-6 border border-[#E2E6F2] group-hover:border-white/15 transition-colors">
+              <div className="mx-4 mb-4 h-44 flex items-center justify-center bg-[#FAF8F5] dark:bg-[#0A0E24]/60 group-hover:bg-white/10 rounded-[20px] p-6 border border-[#E2E6F2] dark:border-[#232E66] group-hover:border-white/15 transition-colors">
                 <Image
                   src={service.image}
                   alt={service.title}
@@ -271,9 +271,9 @@ const ServicePage = () => {
                 href={category.href}
                 className="snap-start shrink-0 block"
               >
-                <BubbleCard className="w-[285px] sm:w-[305px] bg-white p-7 rounded-[28px] border border-[#D5DCF0] shadow-sm h-full">
+                <BubbleCard className="w-[285px] sm:w-[305px] bg-white dark:bg-[#131A3E] p-7 rounded-[28px] border border-[#D5DCF0] dark:border-[#232E66] shadow-sm h-full">
                   <div className="flex items-center justify-between mb-5">
-                    <div className="w-12 h-12 rounded-2xl bg-[#FDF2F2] border border-[#F3CACA] p-2.5 flex items-center justify-center">
+                    <div className="w-12 h-12 rounded-2xl bg-[#FDF2F2] dark:bg-[#B82020]/20 border border-[#F3CACA] dark:border-[#B82020]/40 p-2.5 flex items-center justify-center">
                       <Image
                         src={service.icon}
                         alt={service.title}
@@ -282,17 +282,17 @@ const ServicePage = () => {
                         className="object-contain"
                       />
                     </div>
-                    <span className="font-editorial text-xs font-bold text-[#B82020] group-hover:text-[#FF8A8A] transition-colors">
+                    <span className="font-editorial text-xs font-bold text-[#B82020] dark:text-[#FF8A8A] group-hover:text-[#FF8A8A] transition-colors">
                       0{idx + 1}
                     </span>
                   </div>
-                  <h4 className="font-editorial text-xl font-bold text-[#202860] group-hover:text-white transition-colors">
+                  <h4 className="font-editorial text-xl font-bold text-[#202860] dark:text-white group-hover:text-white transition-colors">
                     {service.title}
                   </h4>
-                  <p className="text-[#424B78] group-hover:text-slate-200 mt-2 text-xs sm:text-sm leading-relaxed mb-4 transition-colors">
+                  <p className="text-[#424B78] dark:text-[#94A3D3] group-hover:text-slate-200 mt-2 text-xs sm:text-sm leading-relaxed mb-4 transition-colors">
                     {service.description}
                   </p>
-                  <span className="text-xs font-bold text-[#B82020] group-hover:text-white transition-colors">
+                  <span className="text-xs font-bold text-[#B82020] dark:text-[#FF8A8A] group-hover:text-white transition-colors">
                     Explore department &gt;
                   </span>
                 </BubbleCard>
@@ -303,7 +303,7 @@ const ServicePage = () => {
       </section>
 
       {/* The Diction Awards Shelf Section */}
-      <section className="bg-white border-t border-[#E2E6F2] py-16 px-6">
+      <section className="bg-white dark:bg-[#0A0E24] border-t border-[#E2E6F2] dark:border-[#232E66] py-16 px-6 transition-colors duration-300">
         <div className="max-w-6xl mx-auto">
           <ShelfCarousel
             eyebrow="Annual Academic Gala"
@@ -314,7 +314,7 @@ const ServicePage = () => {
             {awardImages.map((image, index) => (
               <div
                 key={index}
-                className="snap-start shrink-0 relative group w-[310px] sm:w-[350px] h-72 overflow-hidden rounded-[28px] border border-[#D5DCF0] shadow-sm bg-[#202860]"
+                className="snap-start shrink-0 relative group w-[310px] sm:w-[350px] h-72 overflow-hidden rounded-[28px] border border-[#D5DCF0] dark:border-[#232E66] shadow-sm bg-[#202860]"
               >
                 <Image
                   src={image}

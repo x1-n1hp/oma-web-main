@@ -7,6 +7,12 @@
   --foreground: #202860;
 }
 
+:root.dark,
+html.dark {
+  --background: #0A0E24;
+  --foreground: #FFFFFF;
+}
+
 body {
   @apply font-sans m-0 p-0;
   color: var(--foreground);
@@ -33,8 +39,19 @@ body {
   -webkit-backdrop-filter: saturate(180%) blur(20px);
 }
 
+html.dark .apple-glass-nav,
+.dark .apple-glass-nav {
+  background: rgba(10, 14, 36, 0.85);
+  border-color: rgba(35, 46, 102, 0.6);
+}
+
 .input {
   @apply w-full px-4 py-3 border border-[#D5DCF0] rounded-xl bg-[#FAF8F5] text-[#202860] placeholder-[#5A6494] text-sm transition-colors focus:outline-none focus:border-[#B82020] focus:bg-white;
+}
+
+html.dark .input,
+.dark .input {
+  @apply border-[#232E66] bg-[#131A3E] text-white placeholder-[#6B7BA8] focus:border-[#FF8A8A] focus:bg-[#18214C];
 }
 
 @keyframes pulseBar {

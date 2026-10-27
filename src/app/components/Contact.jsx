@@ -6,26 +6,26 @@ import { motion } from "framer-motion";
 
 const ContactUs = () => {
   return (
-    <section className="bg-[#F5F5F7] py-16 px-6 overflow-hidden" id="contact">
+    <section className="bg-[#F5F5F7] dark:bg-[#0A0E24] py-16 px-6 overflow-hidden transition-colors duration-300" id="contact">
       <div className="max-w-7xl mx-auto">
         <div className="mb-8">
-          <h2 className="text-2xl sm:text-3xl font-bold tracking-tight text-[#202860]">
-            Direct Concierge.{" "}
-            <span className="text-[#5A6494] font-semibold">
+          <h2 className="text-2xl sm:text-3xl font-bold tracking-tight">
+            <span className="text-[#202860] dark:text-white transition-colors duration-300">Direct Concierge.</span>{" "}
+            <span className="text-[#5A6494] dark:text-[#94A3D3] font-semibold transition-colors duration-300">
               Initiate a conversation with an OMA specialist.
             </span>
           </h2>
         </div>
 
         <motion.div
-          className="rounded-[28px] bg-white border border-[#D5DCF0] shadow-xl overflow-hidden grid grid-cols-1 lg:grid-cols-12"
+          className="rounded-[28px] bg-white dark:bg-[#131A3E] border border-[#D5DCF0] dark:border-[#232E66] shadow-xl overflow-hidden grid grid-cols-1 lg:grid-cols-12"
           initial={{ opacity: 0, y: 28 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.2 }}
           transition={{ duration: 0.7, ease: [0.21, 0.47, 0.32, 0.98] }}
         >
           {/* Left Royal Cobalt Indigo & Crimson Concierge Column */}
-          <div className="lg:col-span-5 bg-[#202860] text-white p-8 sm:p-10 flex flex-col justify-between border-b-4 lg:border-b-0 lg:border-r-4 border-[#B82020]">
+          <div className="lg:col-span-5 bg-[#202860] dark:bg-[#0E1538] text-white p-8 sm:p-10 flex flex-col justify-between border-b-4 lg:border-b-0 lg:border-r-4 border-[#B82020]">
             <div className="space-y-4">
               <div className="flex items-center gap-3">
                 <span className="h-px w-6 bg-[#B82020]"></span>
@@ -82,10 +82,10 @@ const ContactUs = () => {
           {/* Right Clean Editorial Form */}
           <div className="lg:col-span-7 p-8 sm:p-10">
             <div className="mb-6">
-              <span className="text-xs font-bold uppercase tracking-widest text-[#B82020]">
+              <span className="text-xs font-bold uppercase tracking-widest text-[#B82020] dark:text-[#FF8A8A]">
                 Inquiry Dispatch
               </span>
-              <h3 className="font-editorial text-2xl sm:text-3xl font-bold text-[#202860] mt-1">
+              <h3 className="font-editorial text-2xl sm:text-3xl font-bold text-[#202860] dark:text-white mt-1">
                 Send Us a Message
               </h3>
             </div>
@@ -99,7 +99,7 @@ const ContactUs = () => {
                 <div>
                   <label
                     htmlFor="name"
-                    className="block text-xs font-bold uppercase tracking-wider text-[#202860] mb-1.5"
+                    className="block text-xs font-bold uppercase tracking-wider text-[#202860] dark:text-slate-200 mb-1.5"
                   >
                     Your Full Name
                   </label>
@@ -109,13 +109,13 @@ const ContactUs = () => {
                     name="name"
                     placeholder="e.g. Adebayo Williams"
                     required
-                    className="w-full px-4 py-3 rounded-xl bg-[#FAF8F5] border border-[#D5DCF0] text-sm text-[#202860] placeholder-[#5A6494] focus:outline-none focus:border-[#B82020] focus:bg-white transition-colors"
+                    className="w-full px-4 py-3 rounded-xl bg-[#FAF8F5] dark:bg-[#0A0E24] border border-[#D5DCF0] dark:border-[#232E66] text-sm text-[#202860] dark:text-white placeholder-[#5A6494] dark:placeholder-[#6B7BA8] focus:outline-none focus:border-[#B82020] dark:focus:border-[#FF8A8A] focus:bg-white dark:focus:bg-[#18214C] transition-colors"
                   />
                 </div>
                 <div>
                   <label
                     htmlFor="email"
-                    className="block text-xs font-bold uppercase tracking-wider text-[#202860] mb-1.5"
+                    className="block text-xs font-bold uppercase tracking-wider text-[#202860] dark:text-slate-200 mb-1.5"
                   >
                     Email Address
                   </label>
@@ -125,7 +125,7 @@ const ContactUs = () => {
                     name="email"
                     placeholder="you@organisation.com"
                     required
-                    className="w-full px-4 py-3 rounded-xl bg-[#FAF8F5] border border-[#D5DCF0] text-sm text-[#202860] placeholder-[#5A6494] focus:outline-none focus:border-[#B82020] focus:bg-white transition-colors"
+                    className="w-full px-4 py-3 rounded-xl bg-[#FAF8F5] dark:bg-[#0A0E24] border border-[#D5DCF0] dark:border-[#232E66] text-sm text-[#202860] dark:text-white placeholder-[#5A6494] dark:placeholder-[#6B7BA8] focus:outline-none focus:border-[#B82020] dark:focus:border-[#FF8A8A] focus:bg-white dark:focus:bg-[#18214C] transition-colors"
                   />
                 </div>
               </div>
@@ -133,14 +133,14 @@ const ContactUs = () => {
               <div>
                 <label
                   htmlFor="inquiry_type"
-                  className="block text-xs font-bold uppercase tracking-wider text-[#202860] mb-1.5"
+                  className="block text-xs font-bold uppercase tracking-wider text-[#202860] dark:text-slate-200 mb-1.5"
                 >
                   Inquiry Pillar
                 </label>
                 <select
                   id="inquiry_type"
                   name="inquiry_type"
-                  className="w-full px-4 py-3 rounded-xl bg-[#FAF8F5] border border-[#D5DCF0] text-sm text-[#202860] focus:outline-none focus:border-[#B82020] focus:bg-white transition-colors"
+                  className="w-full px-4 py-3 rounded-xl bg-[#FAF8F5] dark:bg-[#0A0E24] border border-[#D5DCF0] dark:border-[#232E66] text-sm text-[#202860] dark:text-white focus:outline-none focus:border-[#B82020] dark:focus:border-[#FF8A8A] focus:bg-white dark:focus:bg-[#18214C] transition-colors"
                 >
                   <option value="Website Design & Digital Engineering">
                     Website Design &amp; Digital Engineering
@@ -160,7 +160,7 @@ const ContactUs = () => {
               <div>
                 <label
                   htmlFor="message"
-                  className="block text-xs font-bold uppercase tracking-wider text-[#202860] mb-1.5"
+                  className="block text-xs font-bold uppercase tracking-wider text-[#202860] dark:text-slate-200 mb-1.5"
                 >
                   Your Message or Project Brief
                 </label>
@@ -170,7 +170,7 @@ const ContactUs = () => {
                   rows="4"
                   placeholder="Tell us about your timeline, goals, or training requirements..."
                   required
-                  className="resize-none w-full px-4 py-3 rounded-xl bg-[#FAF8F5] border border-[#D5DCF0] text-sm text-[#202860] placeholder-[#5A6494] focus:outline-none focus:border-[#B82020] focus:bg-white transition-colors"
+                  className="resize-none w-full px-4 py-3 rounded-xl bg-[#FAF8F5] dark:bg-[#0A0E24] border border-[#D5DCF0] dark:border-[#232E66] text-sm text-[#202860] dark:text-white placeholder-[#5A6494] dark:placeholder-[#6B7BA8] focus:outline-none focus:border-[#B82020] dark:focus:border-[#FF8A8A] focus:bg-white dark:focus:bg-[#18214C] transition-colors"
                 ></textarea>
               </div>
 

@@ -5,24 +5,24 @@ import { motion } from "framer-motion";
 
 export default function OmaRegistrationForm() {
   return (
-    <div className="min-h-screen bg-[#FAF8F5] text-[#202860] py-16 px-6">
+    <div className="min-h-screen bg-[#F5F5F7] dark:bg-[#0A0E24] text-[#202860] dark:text-white py-16 px-6 transition-colors duration-300">
       <motion.div
-        className="max-w-4xl mx-auto bg-white shadow-xl rounded-3xl p-8 sm:p-12 border border-[#D5DCF0]"
+        className="max-w-4xl mx-auto bg-white dark:bg-[#131A3E] shadow-xl rounded-3xl p-8 sm:p-12 border border-[#D5DCF0] dark:border-[#232E66]"
         initial={{ opacity: 0, y: 24 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6 }}
       >
-        <div className="text-center mb-8 pb-6 border-b border-[#E2E6F2]">
-          <span className="inline-block px-3.5 py-1 rounded-full bg-[#FDF2F2] border border-[#F3CACA] text-[#B82020] text-xs font-bold uppercase tracking-widest mb-3">
+        <div className="text-center mb-8 pb-6 border-b border-[#E2E6F2] dark:border-[#232E66]">
+          <span className="inline-block px-3.5 py-1 rounded-full bg-[#FDF2F2] dark:bg-[#B82020]/20 border border-[#F3CACA] dark:border-[#B82020]/40 text-[#B82020] dark:text-[#FF8A8A] text-xs font-bold uppercase tracking-widest mb-3">
             Category A • Poetry Recitation
           </span>
-          <h1 className="font-editorial text-2xl sm:text-4xl font-bold text-[#202860]">
+          <h1 className="font-editorial text-2xl sm:text-4xl font-bold text-[#202860] dark:text-white">
             Lagos OMA Diction Awards — Student Recitation Enrollment
           </h1>
         </div>
 
         {/* Executive Payment Notice Ledger */}
-        <div className="bg-[#202860] text-white p-6 mb-10 rounded-2xl border-l-4 border-[#B82020] grid grid-cols-1 md:grid-cols-12 gap-4 items-center">
+        <div className="bg-[#202860] dark:bg-[#0E1538] text-white p-6 mb-10 rounded-2xl border-l-4 border-[#B82020] grid grid-cols-1 md:grid-cols-12 gap-4 items-center">
           <div className="md:col-span-7 space-y-1">
             <p className="text-xs font-bold uppercase tracking-widest text-[#FF8A8A]">
               Registration Fee Instructions
@@ -55,7 +55,7 @@ export default function OmaRegistrationForm() {
         >
           {/* Section I: Student Info */}
           <div className="space-y-4">
-            <h2 className="font-editorial text-xl font-bold text-[#202860] border-b border-[#E2E6F2] pb-2">
+            <h2 className="font-editorial text-xl font-bold text-[#202860] dark:text-white border-b border-[#E2E6F2] dark:border-[#232E66] pb-2">
               I. Pupil Details
             </h2>
             <div className="grid md:grid-cols-3 gap-4">
@@ -108,7 +108,7 @@ export default function OmaRegistrationForm() {
 
           {/* Section II: School Info */}
           <div className="space-y-4">
-            <h2 className="font-editorial text-xl font-bold text-[#202860] border-b border-[#E2E6F2] pb-2">
+            <h2 className="font-editorial text-xl font-bold text-[#202860] dark:text-white border-b border-[#E2E6F2] dark:border-[#232E66] pb-2">
               II. School Details
             </h2>
             <div className="grid md:grid-cols-2 gap-4">
@@ -140,7 +140,7 @@ export default function OmaRegistrationForm() {
 
           {/* Section III: Recitation Info */}
           <div className="space-y-4">
-            <h2 className="font-editorial text-xl font-bold text-[#202860] border-b border-[#E2E6F2] pb-2">
+            <h2 className="font-editorial text-xl font-bold text-[#202860] dark:text-white border-b border-[#E2E6F2] dark:border-[#232E66] pb-2">
               III. Poetry Recitation Selection
             </h2>
             <div className="grid md:grid-cols-2 gap-4">
@@ -170,10 +170,10 @@ export default function OmaRegistrationForm() {
 
           {/* Section IV: Release Section */}
           <div className="space-y-4">
-            <h2 className="font-editorial text-xl font-bold text-[#202860] border-b border-[#E2E6F2] pb-2">
+            <h2 className="font-editorial text-xl font-bold text-[#202860] dark:text-white border-b border-[#E2E6F2] dark:border-[#232E66] pb-2">
               IV. Guardian / Pronouncer&apos;s Release
             </h2>
-            <p className="text-xs sm:text-sm text-[#424B78]">
+            <p className="text-xs sm:text-sm text-[#424B78] dark:text-[#94A3D3]">
               I hereby authorize and release the pupil named below to attend and
               participate in the 2024 OMA Diction Awards Competition:
             </p>
@@ -194,7 +194,7 @@ export default function OmaRegistrationForm() {
 
           {/* Section V: Receipt Upload Link */}
           <div className="space-y-3">
-            <label className="block text-xs font-bold uppercase tracking-wider text-[#B82020]">
+            <label className="block text-xs font-bold uppercase tracking-wider text-[#B82020] dark:text-[#FF8A8A]">
               V. Payment Receipt Verification Link
             </label>
             <input
@@ -204,7 +204,7 @@ export default function OmaRegistrationForm() {
               required
               className="input"
             />
-            <p className="text-xs text-[#5A6494]">
+            <p className="text-xs text-[#5A6494] dark:text-[#94A3D3]">
               Please note: This event will be broadcast live on TV, online, and
               on the Diction Oracle YouTube Channel.
             </p>

@@ -5,7 +5,7 @@ import RegistrationHome from "@/app/registration/RegistrationHome";
 
 const RegistrationPage = () => {
   return (
-    <main className="flex flex-col min-h-screen bg-[#F5F5F7] text-[#202860]">
+    <main className="flex flex-col min-h-screen bg-[#F5F5F7] dark:bg-[#0A0E24] text-[#202860] dark:text-white transition-colors duration-300">
       <Navbar />
       <RegistrationHome />
       <Footer />

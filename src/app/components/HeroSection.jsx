@@ -10,7 +10,7 @@ import { BubbleCard, ShelfCarousel } from "./motion";
 const HeroSection = () => {
   return (
     <section
-      className="bg-[#F5F5F7] border-b border-[#E2E6F2] overflow-hidden pt-12 pb-16"
+      className="bg-[#F5F5F7] dark:bg-[#0A0E24] border-b border-[#E2E6F2] dark:border-[#232E66] overflow-hidden pt-12 pb-16 transition-colors duration-300"
       id="home"
     >
       {/* =====================================================================
@@ -25,18 +25,18 @@ const HeroSection = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.65, ease: [0.21, 0.47, 0.32, 0.98] }}
           >
-            <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-[#FDF2F2] border border-[#F3CACA] text-[#B82020] text-xs font-bold uppercase tracking-wider mb-3">
+            <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-[#FDF2F2] dark:bg-[#B82020]/20 border border-[#F3CACA] dark:border-[#B82020]/40 text-[#B82020] dark:text-[#FF8A8A] text-xs font-bold uppercase tracking-wider mb-3">
               <span className="w-1.5 h-1.5 rounded-full bg-[#B82020]"></span>
               Lagos, Nigeria • Speech &amp; Software Flagship
             </div>
             <h1 className="text-3xl sm:text-5xl font-bold tracking-tight leading-[1.12]">
-              <span className="text-[#202860]">Oma Services.</span>{" "}
-              <span className="text-[#5A6494] font-normal">
+              <span className="text-[#202860] dark:text-white transition-colors duration-300">Oma Services.</span>{" "}
+              <span className="text-[#5A6494] dark:text-[#94A3D3] font-normal transition-colors duration-300">
                 The best way to master spoken English and build world-class
                 digital products.
               </span>
             </h1>
-            <div className="pt-3 text-xs sm:text-sm font-bold uppercase tracking-widest text-[#B82020] min-h-[1.5rem]">
+            <div className="pt-3 text-xs sm:text-sm font-bold uppercase tracking-widest text-[#B82020] dark:text-[#FF8A8A] min-h-[1.5rem]">
               <TypeAnimation
                 sequence={[
                   "— Executive Elocution & School Diction Mastery",
@@ -60,35 +60,35 @@ const HeroSection = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.65, delay: 0.12 }}
           >
-            <div className="flex items-center gap-3.5 bg-white px-4 py-3 rounded-2xl border border-[#D5DCF0] shadow-sm">
+            <div className="flex items-center gap-3.5 bg-white dark:bg-[#131A3E] px-4 py-3 rounded-2xl border border-[#D5DCF0] dark:border-[#232E66] shadow-sm transition-colors duration-300">
               <div className="relative w-10 h-10 rounded-full bg-gradient-to-br from-[#202860] to-[#B82020] text-white font-editorial font-bold text-sm flex items-center justify-center shrink-0">
                 DO
-                <span className="absolute -bottom-0.5 -right-0.5 w-3 h-3 rounded-full bg-emerald-500 border-2 border-white"></span>
+                <span className="absolute -bottom-0.5 -right-0.5 w-3 h-3 rounded-full bg-emerald-500 border-2 border-white dark:border-[#131A3E]"></span>
               </div>
               <div className="text-xs">
-                <p className="font-bold text-[#202860]">
+                <p className="font-bold text-[#202860] dark:text-white">
                   Need a custom proposal or school audit?
                 </p>
                 <Link
                   href="/contact"
-                  className="text-[#B82020] font-semibold hover:underline"
+                  className="text-[#B82020] dark:text-[#FF8A8A] font-semibold hover:underline"
                 >
                   Ask an OMA Specialist &gt;
                 </Link>
               </div>
             </div>
 
-            <div className="flex items-center gap-3.5 bg-white px-4 py-3 rounded-2xl border border-[#D5DCF0] shadow-sm">
-              <div className="w-10 h-10 rounded-full bg-[#FDF2F2] border border-[#F3CACA] text-[#B82020] flex items-center justify-center shrink-0 font-bold text-sm">
+            <div className="flex items-center gap-3.5 bg-white dark:bg-[#131A3E] px-4 py-3 rounded-2xl border border-[#D5DCF0] dark:border-[#232E66] shadow-sm transition-colors duration-300">
+              <div className="w-10 h-10 rounded-full bg-[#FDF2F2] dark:bg-[#B82020]/20 border border-[#F3CACA] dark:border-[#B82020]/40 text-[#B82020] dark:text-[#FF8A8A] flex items-center justify-center shrink-0 font-bold text-sm">
                 ★
               </div>
               <div className="text-xs">
-                <p className="font-bold text-[#202860]">
+                <p className="font-bold text-[#202860] dark:text-white">
                   2024 OMA Diction Awards Gala
                 </p>
                 <Link
                   href="/registration"
-                  className="text-[#202860] font-semibold hover:text-[#B82020] transition-colors"
+                  className="text-[#202860] dark:text-slate-300 font-semibold hover:text-[#B82020] dark:hover:text-[#FF8A8A] transition-colors"
                 >
                   Silverbird Galleria, VI Lagos • Enroll &gt;
                 </Link>
@@ -106,13 +106,13 @@ const HeroSection = () => {
           {/* Category 1: Speech Therapy */}
           <Link
             href="/diction"
-            className="group flex flex-col items-center gap-2.5 min-w-[110px] p-3 rounded-2xl hover:bg-white transition-all"
+            className="group flex flex-col items-center gap-2.5 min-w-[110px] p-3 rounded-2xl hover:bg-white dark:hover:bg-[#131A3E] transition-all"
           >
-            <div className="w-16 h-16 rounded-2xl bg-white border border-[#D5DCF0] group-hover:border-[#B82020] shadow-sm flex items-center justify-center transition-all group-hover:-translate-y-1">
+            <div className="w-16 h-16 rounded-2xl bg-white dark:bg-[#131A3E] border border-[#D5DCF0] dark:border-[#232E66] group-hover:border-[#B82020] dark:group-hover:border-[#FF8A8A] shadow-sm flex items-center justify-center transition-all group-hover:-translate-y-1">
               <div className="flex items-end gap-1 h-7">
                 <span className="w-1.5 h-4 bg-[#B82020] rounded-full wave-bar"></span>
                 <span
-                  className="w-1.5 h-7 bg-[#202860] rounded-full wave-bar"
+                  className="w-1.5 h-7 bg-[#202860] dark:bg-[#94A3D3] rounded-full wave-bar"
                   style={{ animationDelay: "0.2s" }}
                 ></span>
                 <span
@@ -120,12 +120,12 @@ const HeroSection = () => {
                   style={{ animationDelay: "0.4s" }}
                 ></span>
                 <span
-                  className="w-1.5 h-3 bg-[#202860] rounded-full wave-bar"
+                  className="w-1.5 h-3 bg-[#202860] dark:bg-[#94A3D3] rounded-full wave-bar"
                   style={{ animationDelay: "0.6s" }}
                 ></span>
               </div>
             </div>
-            <span className="text-xs font-bold text-[#202860] group-hover:text-[#B82020] text-center transition-colors">
+            <span className="text-xs font-bold text-[#202860] dark:text-slate-200 group-hover:text-[#B82020] dark:group-hover:text-[#FF8A8A] text-center transition-colors">
               Speech Therapy
             </span>
           </Link>
@@ -133,14 +133,14 @@ const HeroSection = () => {
           {/* Category 2: School Diction */}
           <Link
             href="/diction"
-            className="group flex flex-col items-center gap-2.5 min-w-[110px] p-3 rounded-2xl hover:bg-white transition-all"
+            className="group flex flex-col items-center gap-2.5 min-w-[110px] p-3 rounded-2xl hover:bg-white dark:hover:bg-[#131A3E] transition-all"
           >
-            <div className="w-16 h-16 rounded-2xl bg-white border border-[#D5DCF0] group-hover:border-[#B82020] shadow-sm flex items-center justify-center transition-all group-hover:-translate-y-1">
-              <span className="font-editorial text-2xl font-bold text-[#202860] group-hover:text-[#B82020]">
+            <div className="w-16 h-16 rounded-2xl bg-white dark:bg-[#131A3E] border border-[#D5DCF0] dark:border-[#232E66] group-hover:border-[#B82020] dark:group-hover:border-[#FF8A8A] shadow-sm flex items-center justify-center transition-all group-hover:-translate-y-1">
+              <span className="font-editorial text-2xl font-bold text-[#202860] dark:text-white group-hover:text-[#B82020] dark:group-hover:text-[#FF8A8A]">
                 Aa
               </span>
             </div>
-            <span className="text-xs font-bold text-[#202860] group-hover:text-[#B82020] text-center transition-colors">
+            <span className="text-xs font-bold text-[#202860] dark:text-slate-200 group-hover:text-[#B82020] dark:group-hover:text-[#FF8A8A] text-center transition-colors">
               School Diction
             </span>
           </Link>
@@ -148,14 +148,14 @@ const HeroSection = () => {
           {/* Category 3: Phonics Classes */}
           <Link
             href="/diction"
-            className="group flex flex-col items-center gap-2.5 min-w-[110px] p-3 rounded-2xl hover:bg-white transition-all"
+            className="group flex flex-col items-center gap-2.5 min-w-[110px] p-3 rounded-2xl hover:bg-white dark:hover:bg-[#131A3E] transition-all"
           >
-            <div className="w-16 h-16 rounded-2xl bg-white border border-[#D5DCF0] group-hover:border-[#B82020] shadow-sm flex items-center justify-center transition-all group-hover:-translate-y-1">
-              <span className="font-mono text-base font-bold text-[#B82020]">
+            <div className="w-16 h-16 rounded-2xl bg-white dark:bg-[#131A3E] border border-[#D5DCF0] dark:border-[#232E66] group-hover:border-[#B82020] dark:group-hover:border-[#FF8A8A] shadow-sm flex items-center justify-center transition-all group-hover:-translate-y-1">
+              <span className="font-mono text-base font-bold text-[#B82020] dark:text-[#FF8A8A]">
                 /əˈlɒk/
               </span>
             </div>
-            <span className="text-xs font-bold text-[#202860] group-hover:text-[#B82020] text-center transition-colors">
+            <span className="text-xs font-bold text-[#202860] dark:text-slate-200 group-hover:text-[#B82020] dark:group-hover:text-[#FF8A8A] text-center transition-colors">
               Phonics Classes
             </span>
           </Link>
@@ -163,15 +163,15 @@ const HeroSection = () => {
           {/* Category 4: Website Design */}
           <Link
             href="/web-design"
-            className="group flex flex-col items-center gap-2.5 min-w-[110px] p-3 rounded-2xl hover:bg-white transition-all"
+            className="group flex flex-col items-center gap-2.5 min-w-[110px] p-3 rounded-2xl hover:bg-white dark:hover:bg-[#131A3E] transition-all"
           >
-            <div className="w-16 h-16 rounded-2xl bg-white border border-[#D5DCF0] group-hover:border-[#202860] shadow-sm flex items-center justify-center transition-all group-hover:-translate-y-1">
-              <div className="w-9 h-7 rounded-md border-2 border-[#202860] flex flex-col overflow-hidden">
+            <div className="w-16 h-16 rounded-2xl bg-white dark:bg-[#131A3E] border border-[#D5DCF0] dark:border-[#232E66] group-hover:border-[#202860] dark:group-hover:border-[#FF8A8A] shadow-sm flex items-center justify-center transition-all group-hover:-translate-y-1">
+              <div className="w-9 h-7 rounded-md border-2 border-[#202860] dark:border-[#94A3D3] flex flex-col overflow-hidden">
                 <div className="h-1.5 bg-[#B82020] w-full"></div>
-                <div className="flex-1 bg-[#EFF2FA]"></div>
+                <div className="flex-1 bg-[#EFF2FA] dark:bg-[#18214C]"></div>
               </div>
             </div>
-            <span className="text-xs font-bold text-[#202860] group-hover:text-[#B82020] text-center transition-colors">
+            <span className="text-xs font-bold text-[#202860] dark:text-slate-200 group-hover:text-[#B82020] dark:group-hover:text-[#FF8A8A] text-center transition-colors">
               Website Design
             </span>
           </Link>
@@ -179,15 +179,15 @@ const HeroSection = () => {
           {/* Category 5: Mobile Apps */}
           <Link
             href="/mobile-apps"
-            className="group flex flex-col items-center gap-2.5 min-w-[110px] p-3 rounded-2xl hover:bg-white transition-all"
+            className="group flex flex-col items-center gap-2.5 min-w-[110px] p-3 rounded-2xl hover:bg-white dark:hover:bg-[#131A3E] transition-all"
           >
-            <div className="w-16 h-16 rounded-2xl bg-white border border-[#D5DCF0] group-hover:border-[#202860] shadow-sm flex items-center justify-center transition-all group-hover:-translate-y-1">
-              <div className="w-6 h-10 rounded-lg border-2 border-[#202860] flex flex-col items-center justify-between p-1">
+            <div className="w-16 h-16 rounded-2xl bg-white dark:bg-[#131A3E] border border-[#D5DCF0] dark:border-[#232E66] group-hover:border-[#202860] dark:group-hover:border-[#FF8A8A] shadow-sm flex items-center justify-center transition-all group-hover:-translate-y-1">
+              <div className="w-6 h-10 rounded-lg border-2 border-[#202860] dark:border-[#94A3D3] flex flex-col items-center justify-between p-1">
                 <span className="w-2 h-0.5 bg-[#B82020] rounded-full"></span>
                 <span className="w-1.5 h-1.5 rounded-full bg-[#B82020]"></span>
               </div>
             </div>
-            <span className="text-xs font-bold text-[#202860] group-hover:text-[#B82020] text-center transition-colors">
+            <span className="text-xs font-bold text-[#202860] dark:text-slate-200 group-hover:text-[#B82020] dark:group-hover:text-[#FF8A8A] text-center transition-colors">
               Mobile Apps
             </span>
           </Link>
@@ -195,14 +195,14 @@ const HeroSection = () => {
           {/* Category 6: Custom Web Apps */}
           <Link
             href="/web-apps"
-            className="group flex flex-col items-center gap-2.5 min-w-[110px] p-3 rounded-2xl hover:bg-white transition-all"
+            className="group flex flex-col items-center gap-2.5 min-w-[110px] p-3 rounded-2xl hover:bg-white dark:hover:bg-[#131A3E] transition-all"
           >
-            <div className="w-16 h-16 rounded-2xl bg-white border border-[#D5DCF0] group-hover:border-[#202860] shadow-sm flex items-center justify-center transition-all group-hover:-translate-y-1">
-              <span className="font-mono text-sm font-bold text-[#202860] bg-[#EFF2FA] px-2 py-1 rounded border border-[#D5DCF0]">
+            <div className="w-16 h-16 rounded-2xl bg-white dark:bg-[#131A3E] border border-[#D5DCF0] dark:border-[#232E66] group-hover:border-[#202860] dark:group-hover:border-[#FF8A8A] shadow-sm flex items-center justify-center transition-all group-hover:-translate-y-1">
+              <span className="font-mono text-sm font-bold text-[#202860] dark:text-white bg-[#EFF2FA] dark:bg-[#18214C] px-2 py-1 rounded border border-[#D5DCF0] dark:border-[#232E66]">
                 &lt;/&gt;
               </span>
             </div>
-            <span className="text-xs font-bold text-[#202860] group-hover:text-[#B82020] text-center transition-colors">
+            <span className="text-xs font-bold text-[#202860] dark:text-slate-200 group-hover:text-[#B82020] dark:group-hover:text-[#FF8A8A] text-center transition-colors">
               Custom Web Apps
             </span>
           </Link>
@@ -210,14 +210,14 @@ const HeroSection = () => {
           {/* Category 7: 2024 Awards */}
           <Link
             href="/registration"
-            className="group flex flex-col items-center gap-2.5 min-w-[110px] p-3 rounded-2xl hover:bg-white transition-all"
+            className="group flex flex-col items-center gap-2.5 min-w-[110px] p-3 rounded-2xl hover:bg-white dark:hover:bg-[#131A3E] transition-all"
           >
-            <div className="w-16 h-16 rounded-2xl bg-[#FDF2F2] border border-[#F3CACA] group-hover:bg-[#B82020] shadow-sm flex items-center justify-center transition-all group-hover:-translate-y-1">
-              <span className="text-xl text-[#B82020] group-hover:text-white font-bold">
+            <div className="w-16 h-16 rounded-2xl bg-[#FDF2F2] dark:bg-[#B82020]/20 border border-[#F3CACA] dark:border-[#B82020]/40 group-hover:bg-[#B82020] shadow-sm flex items-center justify-center transition-all group-hover:-translate-y-1">
+              <span className="text-xl text-[#B82020] dark:text-[#FF8A8A] group-hover:text-white font-bold">
                 ★
               </span>
             </div>
-            <span className="text-xs font-bold text-[#B82020] text-center">
+            <span className="text-xs font-bold text-[#B82020] dark:text-[#FF8A8A] text-center">
               2024 Awards
             </span>
           </Link>
@@ -235,17 +235,17 @@ const HeroSection = () => {
           {/* Card 1: Tall 28px Apple-Style Card — Division I Diction */}
           <Link href="/diction" className="snap-start shrink-0 block">
             <BubbleCard
-              className="w-[310px] sm:w-[365px] h-[470px] rounded-[28px] bg-white border border-[#D5DCF0] shadow-md"
+              className="w-[310px] sm:w-[365px] h-[470px] rounded-[28px] bg-white dark:bg-[#131A3E] border border-[#D5DCF0] dark:border-[#232E66] shadow-md"
               contentClassName="flex flex-col justify-between"
             >
               <div className="p-7 pb-4">
-                <span className="text-xs font-bold uppercase tracking-widest text-[#B82020] group-hover:text-[#FF8A8A] transition-colors">
+                <span className="text-xs font-bold uppercase tracking-widest text-[#B82020] dark:text-[#FF8A8A] group-hover:text-[#FF8A8A] transition-colors">
                   Division I • Elocution Academy
                 </span>
-                <h3 className="font-editorial text-2xl font-bold text-[#202860] group-hover:text-white mt-1.5 leading-snug transition-colors">
+                <h3 className="font-editorial text-2xl font-bold text-[#202860] dark:text-white group-hover:text-white mt-1.5 leading-snug transition-colors">
                   Speak with effortless authority in every room.
                 </h3>
-                <p className="text-xs text-[#424B78] group-hover:text-slate-200 mt-2 leading-relaxed transition-colors">
+                <p className="text-xs text-[#424B78] dark:text-[#94A3D3] group-hover:text-slate-200 mt-2 leading-relaxed transition-colors">
                   School-wide diction deployment, phonics literacy, and
                   executive speech refinement across 50+ institutions.
                 </p>
@@ -298,29 +298,29 @@ const HeroSection = () => {
           {/* Card 2: Tall 28px Apple-Style Card — Division II Web Architecture */}
           <Link href="/web-design" className="snap-start shrink-0 block">
             <BubbleCard
-              className="w-[310px] sm:w-[365px] h-[470px] rounded-[28px] bg-white border border-[#D5DCF0] shadow-md"
+              className="w-[310px] sm:w-[365px] h-[470px] rounded-[28px] bg-white dark:bg-[#131A3E] border border-[#D5DCF0] dark:border-[#232E66] shadow-md"
               contentClassName="flex flex-col justify-between"
             >
               <div className="p-7 pb-4">
-                <span className="text-xs font-bold uppercase tracking-widest text-[#202860] group-hover:text-[#FF8A8A] transition-colors">
+                <span className="text-xs font-bold uppercase tracking-widest text-[#202860] dark:text-[#94A3D3] group-hover:text-[#FF8A8A] transition-colors">
                   Division II • Web Architecture
                 </span>
-                <h3 className="font-editorial text-2xl font-bold text-[#202860] group-hover:text-white mt-1.5 leading-snug transition-colors">
+                <h3 className="font-editorial text-2xl font-bold text-[#202860] dark:text-white group-hover:text-white mt-1.5 leading-snug transition-colors">
                   Bespoke websites engineered to convert.
                 </h3>
-                <p className="text-xs text-[#424B78] group-hover:text-slate-200 mt-2 leading-relaxed transition-colors">
+                <p className="text-xs text-[#424B78] dark:text-[#94A3D3] group-hover:text-slate-200 mt-2 leading-relaxed transition-colors">
                   Editorial UI/UX, technical SEO, and full lifecycle management
                   — never generic templates.
                 </p>
               </div>
 
-              <div className="mx-4 mb-4 h-56 rounded-[20px] bg-[#FAF8F5] group-hover:bg-white/10 border border-[#E2E6F2] group-hover:border-white/15 p-5 flex flex-col justify-between transition-colors">
-                <div className="rounded-xl bg-white shadow-md border border-[#D5DCF0] p-3">
-                  <div className="flex items-center gap-1.5 mb-2 pb-2 border-b border-slate-100">
+              <div className="mx-4 mb-4 h-56 rounded-[20px] bg-[#FAF8F5] dark:bg-[#0A0E24]/60 group-hover:bg-white/10 border border-[#E2E6F2] dark:border-[#232E66] group-hover:border-white/15 p-5 flex flex-col justify-between transition-colors">
+                <div className="rounded-xl bg-white dark:bg-[#18214C] shadow-md border border-[#D5DCF0] dark:border-[#232E66] p-3">
+                  <div className="flex items-center gap-1.5 mb-2 pb-2 border-b border-slate-100 dark:border-white/10">
                     <span className="w-2 h-2 rounded-full bg-[#B82020]"></span>
-                    <span className="w-2 h-2 rounded-full bg-[#202860]"></span>
-                    <span className="w-2 h-2 rounded-full bg-slate-300"></span>
-                    <span className="text-xs text-[#5A6494] ml-2 font-mono">
+                    <span className="w-2 h-2 rounded-full bg-[#202860] dark:bg-[#94A3D3]"></span>
+                    <span className="w-2 h-2 rounded-full bg-slate-300 dark:bg-slate-600"></span>
+                    <span className="text-xs text-[#5A6494] dark:text-[#94A3D3] ml-2 font-mono">
                       omadiction.pro
                     </span>
                   </div>
@@ -330,9 +330,9 @@ const HeroSection = () => {
                     </span>
                   </div>
                 </div>
-                <div className="flex items-center justify-between text-xs font-bold text-[#202860] group-hover:text-white transition-colors">
+                <div className="flex items-center justify-between text-xs font-bold text-[#202860] dark:text-white group-hover:text-white transition-colors">
                   <span>View Web Engineering Suite</span>
-                  <span className="w-7 h-7 rounded-full bg-[#202860] text-white group-hover:bg-[#B82020] flex items-center justify-center transition-colors">
+                  <span className="w-7 h-7 rounded-full bg-[#202860] dark:bg-[#B82020] text-white group-hover:bg-[#B82020] flex items-center justify-center transition-colors">
                     +
                   </span>
                 </div>
@@ -343,42 +343,42 @@ const HeroSection = () => {
           {/* Card 3: Tall 28px Apple-Style Card — 2024 OMA Diction Awards */}
           <Link href="/registration" className="snap-start shrink-0 block">
             <BubbleCard
-              className="w-[310px] sm:w-[365px] h-[470px] rounded-[28px] bg-white border-2 border-[#B82020]/40 shadow-md"
+              className="w-[310px] sm:w-[365px] h-[470px] rounded-[28px] bg-white dark:bg-[#131A3E] border-2 border-[#B82020]/40 dark:border-[#B82020]/60 shadow-md"
               contentClassName="flex flex-col justify-between"
             >
               <div className="p-7 pb-4">
-                <span className="text-xs font-bold uppercase tracking-widest text-[#B82020] group-hover:text-[#FF8A8A] transition-colors">
+                <span className="text-xs font-bold uppercase tracking-widest text-[#B82020] dark:text-[#FF8A8A] group-hover:text-[#FF8A8A] transition-colors">
                   ★ 9th Annual Edition • Lagos
                 </span>
-                <h3 className="font-editorial text-2xl font-bold text-[#202860] group-hover:text-white mt-1.5 leading-snug transition-colors">
+                <h3 className="font-editorial text-2xl font-bold text-[#202860] dark:text-white group-hover:text-white mt-1.5 leading-snug transition-colors">
                   2024 OMA Diction Awards Competition.
                 </h3>
-                <p className="text-xs text-[#424B78] group-hover:text-slate-200 mt-2 leading-relaxed transition-colors">
+                <p className="text-xs text-[#424B78] dark:text-[#94A3D3] group-hover:text-slate-200 mt-2 leading-relaxed transition-colors">
                   ₦50,000 1st Prize per category at Silverbird Galleria,
                   Victoria Island. Entry: ₦7,000 per pupil.
                 </p>
               </div>
 
-              <div className="mx-4 mb-4 h-56 rounded-[20px] bg-[#FDF2F2] group-hover:bg-white/10 border border-[#F3CACA] group-hover:border-white/15 p-5 flex flex-col justify-between transition-colors">
+              <div className="mx-4 mb-4 h-56 rounded-[20px] bg-[#FDF2F2] dark:bg-[#B82020]/15 group-hover:bg-white/10 border border-[#F3CACA] dark:border-[#B82020]/30 group-hover:border-white/15 p-5 flex flex-col justify-between transition-colors">
                 <div className="grid grid-cols-2 gap-2.5">
-                  <div className="bg-white rounded-xl p-3 border border-[#F3CACA]">
-                    <span className="text-xs font-bold text-[#B82020] block">
+                  <div className="bg-white dark:bg-[#18214C] rounded-xl p-3 border border-[#F3CACA] dark:border-[#B82020]/40">
+                    <span className="text-xs font-bold text-[#B82020] dark:text-[#FF8A8A] block">
                       Category A
                     </span>
-                    <span className="font-editorial text-sm font-bold text-[#202860]">
+                    <span className="font-editorial text-sm font-bold text-[#202860] dark:text-white">
                       Poetry Recitation
                     </span>
                   </div>
-                  <div className="bg-white rounded-xl p-3 border border-[#D5DCF0]">
-                    <span className="text-xs font-bold text-[#202860] block">
+                  <div className="bg-white dark:bg-[#18214C] rounded-xl p-3 border border-[#D5DCF0] dark:border-[#232E66]">
+                    <span className="text-xs font-bold text-[#202860] dark:text-slate-300 block">
                       Category B
                     </span>
-                    <span className="font-editorial text-sm font-bold text-[#202860]">
+                    <span className="font-editorial text-sm font-bold text-[#202860] dark:text-white">
                       Words Mispronounced
                     </span>
                   </div>
                 </div>
-                <div className="flex items-center justify-between text-xs font-bold text-[#B82020] group-hover:text-white transition-colors">
+                <div className="flex items-center justify-between text-xs font-bold text-[#B82020] dark:text-[#FF8A8A] group-hover:text-white transition-colors">
                   <span>Enroll Candidate Now</span>
                   <span className="w-7 h-7 rounded-full bg-[#B82020] text-white flex items-center justify-center">
                     →
@@ -391,23 +391,23 @@ const HeroSection = () => {
           {/* Card 4: Tall 28px Apple-Style Card — Mobile & Custom Web Applications */}
           <Link href="/mobile-apps" className="snap-start shrink-0 block">
             <BubbleCard
-              className="w-[310px] sm:w-[365px] h-[470px] rounded-[28px] bg-white border border-[#D5DCF0] shadow-md"
+              className="w-[310px] sm:w-[365px] h-[470px] rounded-[28px] bg-white dark:bg-[#131A3E] border border-[#D5DCF0] dark:border-[#232E66] shadow-md"
               contentClassName="flex flex-col justify-between"
             >
               <div className="p-7 pb-4">
-                <span className="text-xs font-bold uppercase tracking-widest text-[#202860] group-hover:text-[#FF8A8A] transition-colors">
+                <span className="text-xs font-bold uppercase tracking-widest text-[#202860] dark:text-[#94A3D3] group-hover:text-[#FF8A8A] transition-colors">
                   Divisions III &amp; IV • App Engineering
                 </span>
-                <h3 className="font-editorial text-2xl font-bold text-[#202860] group-hover:text-white mt-1.5 leading-snug transition-colors">
+                <h3 className="font-editorial text-2xl font-bold text-[#202860] dark:text-white group-hover:text-white mt-1.5 leading-snug transition-colors">
                   Native iOS, Android &amp; Custom School Portals.
                 </h3>
-                <p className="text-xs text-[#424B78] group-hover:text-slate-200 mt-2 leading-relaxed transition-colors">
+                <p className="text-xs text-[#424B78] dark:text-[#94A3D3] group-hover:text-slate-200 mt-2 leading-relaxed transition-colors">
                   Multi-user dashboards, Paystack/Flutterwave payments, and
                   offline-first mobile architecture.
                 </p>
               </div>
 
-              <div className="mx-4 mb-4 h-56 rounded-[20px] bg-[#202860] p-5 text-white flex flex-col justify-between">
+              <div className="mx-4 mb-4 h-56 rounded-[20px] bg-[#202860] dark:bg-[#0E1538] p-5 text-white flex flex-col justify-between">
                 <div className="flex flex-wrap gap-1.5">
                   <span className="px-2.5 py-1 rounded-md bg-white/10 text-xs font-semibold">
                     iOS &amp; Android
@@ -435,17 +435,17 @@ const HeroSection = () => {
           {/* Card 5: Tall 28px Apple-Style Card — The Diction Oracle Portrait Showcase */}
           <Link href="/about" className="snap-start shrink-0 block">
             <BubbleCard
-              className="w-[310px] sm:w-[365px] h-[470px] rounded-[28px] bg-white border border-[#D5DCF0] shadow-md"
+              className="w-[310px] sm:w-[365px] h-[470px] rounded-[28px] bg-white dark:bg-[#131A3E] border border-[#D5DCF0] dark:border-[#232E66] shadow-md"
               contentClassName="flex flex-col justify-between"
             >
               <div className="p-7 pb-4">
-                <span className="text-xs font-bold uppercase tracking-widest text-[#B82020] group-hover:text-[#FF8A8A] transition-colors">
+                <span className="text-xs font-bold uppercase tracking-widest text-[#B82020] dark:text-[#FF8A8A] group-hover:text-[#FF8A8A] transition-colors">
                   The Diction Oracle • Est. 10+ Yrs
                 </span>
-                <h3 className="font-editorial text-2xl font-bold text-[#202860] group-hover:text-white mt-1.5 leading-snug transition-colors">
+                <h3 className="font-editorial text-2xl font-bold text-[#202860] dark:text-white group-hover:text-white mt-1.5 leading-snug transition-colors">
                   Excellence in Spoken English &amp; Technology.
                 </h3>
-                <p className="text-xs text-[#424B78] group-hover:text-slate-200 mt-2 leading-relaxed transition-colors">
+                <p className="text-xs text-[#424B78] dark:text-[#94A3D3] group-hover:text-slate-200 mt-2 leading-relaxed transition-colors">
                   4.9★ rated across 50+ partner institutions with 830+ verified
                   client endorsements.
                 </p>

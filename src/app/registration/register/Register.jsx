@@ -29,12 +29,12 @@ const categories = [
 
 const Register = () => {
   return (
-    <div className="flex flex-col flex-1 bg-[#F5F5F7] text-[#202860] py-16 px-6 overflow-hidden">
+    <div className="flex flex-col flex-1 bg-[#F5F5F7] dark:bg-[#0A0E24] text-[#202860] dark:text-white py-16 px-6 overflow-hidden transition-colors duration-300">
       <div className="max-w-5xl mx-auto w-full">
         {/* Header */}
         <div className="text-center max-w-2xl mx-auto mb-14">
           <motion.span
-            className="inline-block px-4 py-1.5 rounded-full bg-[#FDF2F2] border border-[#F3CACA] text-[#B82020] text-xs font-bold uppercase tracking-widest mb-3"
+            className="inline-block px-4 py-1.5 rounded-full bg-[#FDF2F2] dark:bg-[#B82020]/20 border border-[#F3CACA] dark:border-[#B82020]/40 text-[#B82020] dark:text-[#FF8A8A] text-xs font-bold uppercase tracking-widest mb-3"
             initial={{ opacity: 0, y: 15 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
@@ -42,18 +42,18 @@ const Register = () => {
             9th Edition • Candidate Enrollment
           </motion.span>
           <motion.h1
-            className="text-3xl sm:text-5xl font-bold tracking-tight text-[#202860]"
+            className="text-3xl sm:text-5xl font-bold tracking-tight"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.1 }}
           >
-            Competition Categories.{" "}
-            <span className="text-[#5A6494] font-semibold">
+            <span className="text-[#202860] dark:text-white transition-colors duration-300">Competition Categories.</span>{" "}
+            <span className="text-[#5A6494] dark:text-[#94A3D3] font-semibold transition-colors duration-300">
               Select your track for the 2024 Awards.
             </span>
           </motion.h1>
           <motion.p
-            className="text-sm sm:text-base text-[#424B78] mt-3 leading-relaxed"
+            className="text-sm sm:text-base text-[#424B78] dark:text-[#94A3D3] mt-3 leading-relaxed"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.2 }}
@@ -77,20 +77,20 @@ const Register = () => {
                 delay: 0.15 + idx * 0.15,
                 ease: [0.21, 0.47, 0.32, 0.98],
               }}
-              className="bg-white rounded-[28px] p-8 sm:p-10 border border-[#D5DCF0] shadow-lg"
+              className="bg-white dark:bg-[#131A3E] rounded-[28px] p-8 sm:p-10 border border-[#D5DCF0] dark:border-[#232E66] shadow-lg"
               contentClassName="flex flex-col justify-between"
             >
               <div>
-                <div className="flex items-center justify-between mb-6 pb-4 border-b border-[#E2E6F2] group-hover:border-white/15 transition-colors duration-500">
-                  <span className="text-xs font-bold uppercase tracking-widest text-[#B82020] group-hover:text-[#FF8A8A] transition-colors duration-500">
+                <div className="flex items-center justify-between mb-6 pb-4 border-b border-[#E2E6F2] dark:border-[#232E66] group-hover:border-white/15 transition-colors duration-500">
+                  <span className="text-xs font-bold uppercase tracking-widest text-[#B82020] dark:text-[#FF8A8A] group-hover:text-[#FF8A8A] transition-colors duration-500">
                     {cat.label}
                   </span>
-                  <span className="w-9 h-9 rounded-lg bg-[#FDF2F2] group-hover:bg-[#B82020] border border-[#F3CACA] group-hover:border-[#B82020] text-[#B82020] group-hover:text-white font-editorial font-bold text-sm flex items-center justify-center transition-colors duration-500">
+                  <span className="w-9 h-9 rounded-lg bg-[#FDF2F2] dark:bg-[#B82020]/20 group-hover:bg-[#B82020] border border-[#F3CACA] dark:border-[#B82020]/40 group-hover:border-[#B82020] text-[#B82020] dark:text-[#FF8A8A] group-hover:text-white font-editorial font-bold text-sm flex items-center justify-center transition-colors duration-500">
                     {cat.numeral}
                   </span>
                 </div>
 
-                <div className="w-24 h-24 rounded-2xl bg-[#FAF8F5] group-hover:bg-white/95 border border-[#E2E6F2] p-4 mb-6 flex items-center justify-center mx-auto transition-colors duration-500">
+                <div className="w-24 h-24 rounded-2xl bg-[#FAF8F5] dark:bg-[#0A0E24]/60 group-hover:bg-white/95 border border-[#E2E6F2] dark:border-[#232E66] p-4 mb-6 flex items-center justify-center mx-auto transition-colors duration-500">
                   <Image
                     src={cat.image}
                     alt={cat.title}
@@ -100,10 +100,10 @@ const Register = () => {
                   />
                 </div>
 
-                <h2 className="font-editorial text-2xl sm:text-3xl font-bold text-[#202860] group-hover:text-white mb-3 text-center transition-colors duration-500">
+                <h2 className="font-editorial text-2xl sm:text-3xl font-bold text-[#202860] dark:text-white group-hover:text-white mb-3 text-center transition-colors duration-500">
                   {cat.title}
                 </h2>
-                <p className="text-[#424B78] group-hover:text-slate-200 text-center mb-8 text-xs sm:text-sm leading-relaxed transition-colors duration-500">
+                <p className="text-[#424B78] dark:text-[#94A3D3] group-hover:text-slate-200 text-center mb-8 text-xs sm:text-sm leading-relaxed transition-colors duration-500">
                   {cat.description}
                 </p>
               </div>
