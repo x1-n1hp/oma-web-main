@@ -15,49 +15,49 @@ import {
 } from "@heroicons/react/24/outline";
 
 export const metadata = {
-  title: "Mobile App Engineering | Oma Services",
+  title: "School & Parent Mobile Apps | Oma Services",
   description:
-    "Custom mobile applications for Android and iOS — designed, built, and launched for your business.",
+    "Keep school parents connected, informed, and delighted every day. Instant attendance alerts, digital report cards, and tuition fee payments on iPhone and Android.",
 };
 
 const offerings = [
   {
     num: "01",
-    title: "Mobile UI/UX Architecture",
+    title: "Parent-Friendly Design",
     description:
-      "Intuitive interface design that puts your users first — clean layouts, logical flows, and refined visual consistency.",
+      "Big, readable fonts, clean layout, and zero confusion for busy mothers and fathers on iOS and Android.",
     icon: PaintBrushIcon,
   },
   {
     num: "02",
-    title: "iOS & Android Development",
+    title: "School Mobile Hub",
     description:
-      "Cross-platform and native mobile apps engineered to be fast, stable, and ready for both Apple App Store and Google Play.",
+      "School news, term dates, homework assignments, and photo galleries all in one safe mobile app.",
     icon: DevicePhoneMobileIcon,
   },
   {
     num: "03",
-    title: "Lifecycle & Release Management",
+    title: "Instant Push Notifications",
     description:
-      "Post-launch maintenance, OS version updates, performance monitoring, and continuous improvements.",
+      "Send urgent messages, bus delay alerts, and event reminders straight to parents' lock screens in real time.",
     icon: ArrowPathRoundedSquareIcon,
   },
   {
     num: "04",
-    title: "App Store Growth & Marketing",
+    title: "Digital Fee Payments",
     description:
-      "App Store Optimisation (ASO) and targeted digital acquisition campaigns to drive downloads and retention.",
+      "Parents pay school fees with debit card or bank transfer in seconds, drastically reducing unpaid tuition.",
     icon: ChartBarSquareIcon,
   },
 ];
 
 const features = [
-  "Android & iOS Support",
-  "Offline-First Capability",
-  "Push Notifications",
-  "Biometric & Secure Auth",
-  "Paystack / Flutterwave / Stripe",
-  "Real-Time Analytics & Reporting",
+  "Easy for Every Parent to Use",
+  "Instant School Alert Notifications",
+  "Zero Paper Circulars or Bank Teller Chases",
+  "Student Daily Attendance Tracking",
+  "Digital Report Cards & Term Results",
+  "Direct Chat with Class Teachers",
 ];
 
 export default function MobileAppsPage() {
@@ -70,20 +70,20 @@ export default function MobileAppsPage() {
         <ScrollReveal direction="up" delay={0.1} className="max-w-3xl">
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#FDF2F2] dark:bg-[#B82020]/20 border border-[#F3CACA] dark:border-[#B82020]/40 text-[#B82020] dark:text-[#FF8A8A] text-[11px] font-bold uppercase tracking-widest mb-3">
             <span className="w-1.5 h-1.5 rounded-full bg-[#B82020]" />
-            Division III • Mobile Application Engineering
+            The Mobile App Parents Love to Use
           </div>
           <h1 className="text-4xl sm:text-5xl font-bold tracking-tight leading-[1.08]">
-            <span className="text-[#202860] dark:text-white transition-colors duration-300">Mobile Apps.</span>{" "}
+            <span className="text-[#202860] dark:text-white transition-colors duration-300">Mobile Applications.</span>{" "}
             <span className="text-[#5A6494] dark:text-[#94A3D3] font-semibold transition-colors duration-300">
-              iOS &amp; Android applications engineered for daily reliance.
+              Keep school parents connected, informed, and delighted every day.
             </span>
           </h1>
           <div className="flex flex-wrap gap-3 mt-6">
-            <a href="mailto:partnerships@omadiction.pro">
+            <Link href="/contact">
               <button className="px-6 py-3 bg-[#B82020] text-white text-xs font-bold uppercase tracking-wider rounded-full hover:bg-[#D12828] transition-colors shadow-md">
-                Discuss Your Mobile App →
+                Build Your School&apos;s Mobile App →
               </button>
-            </a>
+            </Link>
           </div>
         </ScrollReveal>
 
@@ -94,13 +94,13 @@ export default function MobileAppsPage() {
             </div>
             <div className="text-xs leading-snug">
               <p className="font-bold text-[#202860] dark:text-white">
-                Scoping an iOS or Android app?
+                Want a live mobile app demo for your school?
               </p>
               <Link
                 href="/contact"
                 className="text-[#B82020] dark:text-[#FF8A8A] font-semibold hover:underline inline-flex items-center gap-1 mt-0.5"
               >
-                Ask a Mobile Lead <span>↗</span>
+                Ask an App Specialist <span>↗</span>
               </Link>
             </div>
           </div>
@@ -114,9 +114,9 @@ export default function MobileAppsPage() {
           className="flex items-end justify-between mb-8"
         >
           <h2 className="text-2xl sm:text-3xl font-bold tracking-tight">
-            <span className="text-[#202860] dark:text-white transition-colors duration-300">Mobile Capabilities.</span>{" "}
+            <span className="text-[#202860] dark:text-white transition-colors duration-300">Parent &amp; School Features.</span>{" "}
             <span className="text-[#5A6494] dark:text-[#94A3D3] font-semibold transition-colors duration-300">
-              From wireframe to App Store and Google Play.
+              Everything you need to eliminate paper circulars forever.
             </span>
           </h2>
           <span className="text-xs font-semibold text-[#5A6494] dark:text-[#94A3D3] hidden sm:inline">
@@ -154,9 +154,9 @@ export default function MobileAppsPage() {
       <section className="max-w-7xl mx-auto px-6 py-12 border-t border-[#E2E6F2] dark:border-[#232E66]">
         <ScrollReveal direction="up" className="mb-8">
           <h2 className="text-2xl sm:text-3xl font-bold tracking-tight">
-            <span className="text-[#202860] dark:text-white transition-colors duration-300">Core Architecture.</span>{" "}
+            <span className="text-[#202860] dark:text-white transition-colors duration-300">Parent Experience Standards.</span>{" "}
             <span className="text-[#5A6494] dark:text-[#94A3D3] font-semibold transition-colors duration-300">
-              Built-in from the start.
+              Built for simplicity, speed, and peace of mind.
             </span>
           </h2>
         </ScrollReveal>
@@ -184,18 +184,17 @@ export default function MobileAppsPage() {
       <section className="bg-[#202860] dark:bg-[#131A3E] py-16 px-6 text-center transition-colors duration-300">
         <ScrollReveal direction="up" className="max-w-3xl mx-auto">
           <span className="text-xs font-bold uppercase tracking-widest text-[#FF8A8A]">
-            Product Discovery
+            Parent Engagement
           </span>
           <h2 className="font-editorial text-3xl sm:text-4xl font-bold text-white mt-2 mb-3">
-            Have a Mobile Product Vision?
+            Ready to Give Your Parents the Best Mobile App in Lagos?
           </h2>
           <p className="text-slate-200 text-sm sm:text-base mb-8">
-            Share your requirements and we&apos;ll help you scope, design, and
-            ship it.
+            Let&apos;s discuss your school&apos;s custom mobile app. Your teachers will save hours each week, and parents will rave about your school.
           </p>
           <Link href="/contact">
             <button className="px-7 py-3.5 bg-[#B82020] text-white text-xs font-bold uppercase tracking-wider rounded-xl hover:bg-[#D12828] transition-colors shadow-md">
-              Let&apos;s Talk →
+              Build Your School&apos;s Mobile App →
             </button>
           </Link>
         </ScrollReveal>

@@ -19,40 +19,40 @@ const RegistrationHome = () => {
             transition={{ duration: 0.7, ease: [0.21, 0.47, 0.32, 0.98] }}
           >
             <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[#FDF2F2] dark:bg-[#B82020]/20 border border-[#F3CACA] dark:border-[#B82020]/40 text-[#B82020] dark:text-[#FF8A8A] text-xs font-bold uppercase tracking-wider">
-              ★ 9th Annual Edition • Lagos OMA Diction Awards
+              ★ The Stage That Changes Everything For Your Child
             </div>
 
             <h1 className="text-3xl sm:text-5xl font-bold tracking-tight leading-[1.08]">
-              <span className="text-[#202860] dark:text-white transition-colors duration-300">2024 Diction Awards.</span>{" "}
+              <span className="text-[#202860] dark:text-white transition-colors duration-300">The 2024 OMA Diction Awards.</span>{" "}
               <span className="text-[#5A6494] dark:text-[#94A3D3] font-semibold transition-colors duration-300">
-                Register for Nigeria&apos;s premier school elocution competition.
+                Give your pupils the moment of their lives and bring home the champion&apos;s cup.
               </span>
             </h1>
 
             <p className="text-[#424B78] dark:text-[#94A3D3] text-sm sm:text-base leading-relaxed">
-              Welcome to the 9th edition of the Lagos OMA Diction Awards
-              Competition — celebrating linguistic mastery, phonetic precision,
-              and stage poise among Nigeria&apos;s brightest scholars. Select
-              your competition category below to enroll.
+              Every year, proud parents and dedicated teachers gather at Silverbird Galleria to witness
+              ordinary school pupils transform into extraordinary, confident champions. Your pupils will
+              perform under stage lights, accept applause from hundreds of cheering guests, and walk away
+              with cash prizes, medals, and unforgettable pride.
             </p>
 
             {/* Architectural Prize Ledger */}
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
               {[
                 {
-                  rank: "1st Prize Winner",
+                  rank: "Grand Champion",
                   amount: "₦50,000",
-                  sub: "Per Category + Trophy",
+                  sub: "Championship Cup + Display Glory",
                 },
                 {
                   rank: "1st Runner-Up",
                   amount: "₦30,000",
-                  sub: "Per Category + Medal",
+                  sub: "Silver Medal + Parent Ovation",
                 },
                 {
                   rank: "2nd Runner-Up",
                   amount: "₦20,000",
-                  sub: "Per Category + Medal",
+                  sub: "Bronze Medal + Commendation",
                 },
               ].map((prize, idx) => (
                 <BubbleCard
@@ -90,8 +90,7 @@ const RegistrationHome = () => {
                     Poetry Recitation
                   </h2>
                   <p className="text-xs text-[#424B78] dark:text-[#94A3D3] group-hover:text-slate-200 mt-1.5 leading-relaxed transition-colors duration-500">
-                    Evaluates vocal expression, cadence, phonetic accuracy, and
-                    stage command.
+                    Where words stir hearts and win crowds. Evaluates vocal power, heartfelt emotion, and clear British pronunciation.
                   </p>
                 </div>
                 <Link
@@ -113,11 +112,10 @@ const RegistrationHome = () => {
                     Category B
                   </span>
                   <h2 className="font-editorial text-xl font-bold mt-1 text-[#202860] dark:text-white group-hover:text-white transition-colors duration-500">
-                    Words Often Mispronounced
+                    Words Mispronounced
                   </h2>
                   <p className="text-xs text-[#424B78] dark:text-[#94A3D3] group-hover:text-slate-200 mt-1.5 leading-relaxed transition-colors duration-500">
-                    Tests mastery of challenging English vocabulary, stress
-                    patterns, and articulation.
+                    Turning tricky English words into trophies. Tests confidence with silent letters, deceptive spellings, and stress.
                   </p>
                 </div>
                 <Link
@@ -167,14 +165,14 @@ const RegistrationHome = () => {
               <div className="mt-4 flex items-center justify-between text-xs pt-2 border-t border-[#E2E6F2] dark:border-[#232E66]">
                 <div>
                   <span className="font-bold text-[#202860] dark:text-white block">
-                    Silverbird Galleria, Hall 4
+                    Silverbird Galleria, Victoria Island
                   </span>
                   <span className="text-[#5A6494] dark:text-[#94A3D3]">
-                    Victoria Island, Lagos • Entry: ₦7,000
+                    The Red Carpet Experience • Entry: ₦7,000
                   </span>
                 </div>
                 <span className="px-3 py-1 rounded-full bg-[#FDF2F2] dark:bg-[#B82020]/20 text-[#B82020] dark:text-[#FF8A8A] font-bold border border-[#F3CACA] dark:border-[#B82020]/40">
-                  Official Pass
+                  Stage Pass
                 </span>
               </div>
             </div>

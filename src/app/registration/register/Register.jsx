@@ -12,7 +12,7 @@ const categories = [
     label: "Category A",
     title: "Poetry Recitation",
     description:
-      "Showcase your vocal expression, cadence, and stage command in the 2024 OMA Diction Awards Competition.",
+      "Where words stir hearts and win crowds. Your pupil recites a celebrated poem with captivating emotion, stage courage, and polished British diction.",
     image: "/images/storyteller.png",
     link: "/registration/register/recitation",
   },
@@ -21,7 +21,7 @@ const categories = [
     label: "Category B",
     title: "Words Often Mispronounced",
     description:
-      "Demonstrate your mastery of challenging English vocabulary, stress patterns, and phonetic precision.",
+      "Turning tricky English words into trophies. A thrilling phonetic challenge where pupils conquer silent letters, stress patterns, and unexpected spellings.",
     image: "/images/talk.png",
     link: "/registration/register/mispronounced",
   },
@@ -39,7 +39,7 @@ const Register = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
           >
-            9th Edition • Candidate Enrollment
+            The 2024 Stage of Champions
           </motion.span>
           <motion.h1
             className="text-3xl sm:text-5xl font-bold tracking-tight"
@@ -47,9 +47,9 @@ const Register = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.1 }}
           >
-            <span className="text-[#202860] dark:text-white transition-colors duration-300">Competition Categories.</span>{" "}
+            <span className="text-[#202860] dark:text-white transition-colors duration-300">Choose Your Track.</span>{" "}
             <span className="text-[#5A6494] dark:text-[#94A3D3] font-semibold transition-colors duration-300">
-              Select your track for the 2024 Awards.
+              Give your pupil a stage to shine and win.
             </span>
           </motion.h1>
           <motion.p
@@ -58,9 +58,9 @@ const Register = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.2 }}
           >
-            To enroll a pupil, choose a competition track below for the 2024
-            Lagos OMA Diction Awards Competition (₦50,000 Top Prize per
-            category).
+            Select Category A for master poetry recitation, or Category B for the thrilling
+            words mispronounced challenge. Both tracks feature equal ₦50,000 top cash prizes,
+            gleaming trophies, and national television coverage.
           </motion.p>
         </div>
 

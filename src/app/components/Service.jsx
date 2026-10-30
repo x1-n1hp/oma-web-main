@@ -7,37 +7,37 @@ import { BubbleCard, ShelfCarousel } from "./motion";
 const pillars = [
   {
     num: "01",
-    department: "01 • Elocution Academy",
-    title: "Professional Diction & Elocution",
-    desc: "Speech therapy, phonics, accent refinement, and school-wide communication curricula led by certified specialists.",
+    department: "01 • Speech Transformation",
+    title: "School Diction & Eloquence Academy",
+    desc: "Transform hesitant pupils into confident, polished speakers that parents and guests applaud at every event.",
     href: "/diction",
   },
   {
     num: "02",
-    department: "02 • Web Department",
-    title: "Website Design & Management",
-    desc: "Visually distinguished corporate and school websites with proactive security and speed optimization.",
+    department: "02 • School Websites",
+    title: "High-Converting School Websites",
+    desc: "Beautiful admissions portals with online forms that make parents choose your school over the competition.",
     href: "/web-design",
   },
   {
     num: "03",
-    department: "03 • Mobile Department",
-    title: "iOS & Android App Engineering",
-    desc: "Human-centric mobile interfaces, App Store Optimization (ASO), and continuous release management.",
+    department: "03 • School & Parent Apps",
+    title: "Parent Communication & Result Apps",
+    desc: "Instant attendance, digital report cards, and automated fee reminders straight to parents' mobile phones.",
     href: "/mobile-apps",
   },
   {
     num: "04",
-    department: "04 • Custom SaaS",
-    title: "School Portals & Automation",
-    desc: "Role-based institutional portals, e-learning hubs, and custom workflow automation software.",
+    department: "04 • School Portals",
+    title: "All-in-One School Management SaaS",
+    desc: "End the chaos of lost paper records, manual spreadsheets, and fee reconciliation headaches forever.",
     href: "/web-apps",
   },
   {
     num: "05",
-    department: "05 • Broadcast Growth",
-    title: "YouTube, Podcast & Social",
-    desc: "Audience monetization, Spotify podcast distribution, and executive channel production.",
+    department: "05 • Media & YouTube",
+    title: "YouTube & Social Media Fame",
+    desc: "Showcase your pupils' debates, speech days, and performances with cinema-quality video parents love sharing.",
     href: "/services",
   },
 ];
@@ -53,8 +53,8 @@ const Service = () => {
             HORIZONTAL ENGINEERING & GROWTH SHELF (WITH < / > PADDLES)
             =================================================================== */}
         <ShelfCarousel
-          title="Digital Engineering & Growth."
-          subtitle="Everything your institution needs to scale online."
+          title="Proven School Growth Suites."
+          subtitle="Everything your school needs to dominate admissions, delight parents, and inspire pupils."
           scrollAmount={320}
         >
           {pillars.map((item, idx) => (
@@ -93,7 +93,7 @@ const Service = () => {
             <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold tracking-tight">
               <span className="text-[#202860] dark:text-white transition-colors duration-300">2024 OMA Diction Awards.</span>{" "}
               <span className="text-[#5A6494] dark:text-[#94A3D3] font-normal transition-colors duration-300">
-                Linguistic mastery and stage poise celebrated live in Lagos.
+                Where future leaders and orators are born.
               </span>
             </h2>
           </div>
@@ -107,10 +107,11 @@ const Service = () => {
                   9th Annual Edition • Silverbird Galleria, VI
                 </span>
                 <h3 className="font-editorial text-3xl sm:text-4xl font-bold leading-tight">
-                  Enroll Your Pupils for Nigeria&apos;s Premier Elocution Stage.
+                  Watch Your School&apos;s Stars Shine on National Television.
                 </h3>
                 <p className="text-sm text-slate-200 leading-relaxed max-w-xl">
-                  Open to pupils in Grades 3 to 6 across two flagship tracks:{" "}
+                  Imagine the immense pride of your school&apos;s parents seeing their children
+                  accept championship trophies at Silverbird Galleria. Open to Grades 3 to 6 across{" "}
                   <strong className="text-white">
                     Category A (Poetry Recitation)
                   </strong>{" "}
@@ -173,8 +174,8 @@ const Service = () => {
                       Poetry Recitation
                     </h4>
                     <p className="text-xs text-[#424B78] dark:text-[#94A3D3] group-hover:text-slate-200 mt-1.5 leading-relaxed">
-                      Evaluates vocal expression, cadence, phonetic accuracy,
-                      and stage command.
+                      Inspiring verses, stage charisma, and standing ovations
+                      from hundreds of cheering guests.
                     </p>
                   </div>
                   <div className="mt-4">
@@ -206,8 +207,8 @@ const Service = () => {
                       Words Often Mispronounced
                     </h4>
                     <p className="text-xs text-[#424B78] dark:text-[#94A3D3] group-hover:text-slate-200 mt-1.5 leading-relaxed">
-                      Tests mastery of challenging English vocabulary, stress
-                      patterns, and crisp articulation.
+                      Watch your smartest pupils tackle deceptive English trap words
+                      with lightning-fast phonetic precision.
                     </p>
                   </div>
                   <div className="mt-4">

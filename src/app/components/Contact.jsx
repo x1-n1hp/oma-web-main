@@ -10,9 +10,9 @@ const ContactUs = () => {
       <div className="max-w-7xl mx-auto">
         <div className="mb-8">
           <h2 className="text-2xl sm:text-3xl font-bold tracking-tight">
-            <span className="text-[#202860] dark:text-white transition-colors duration-300">Direct Concierge.</span>{" "}
+            <span className="text-[#202860] dark:text-white transition-colors duration-300">Let&apos;s Talk About Your School&apos;s Next Breakthrough.</span>{" "}
             <span className="text-[#5A6494] dark:text-[#94A3D3] font-semibold transition-colors duration-300">
-              Initiate a conversation with an OMA specialist.
+              We&apos;re ready to help your pupils excel.
             </span>
           </h2>
         </div>
@@ -30,17 +30,16 @@ const ContactUs = () => {
               <div className="flex items-center gap-3">
                 <span className="h-px w-6 bg-[#B82020]"></span>
                 <span className="text-xs font-bold uppercase tracking-widest text-[#FF8A8A]">
-                  Direct Concierge
+                  School Growth Partner
                 </span>
               </div>
               <h2 className="font-editorial text-3xl sm:text-4xl font-bold leading-tight">
-                Initiate a Conversation with Oma Services.
+                Start Your School&apos;s Transformation with Oma Services.
               </h2>
               <p className="text-xs sm:text-sm text-slate-200 leading-relaxed">
-                Thank you for your interest in Oma Services. Whether enrolling
-                your school in our Diction Academy, inquiring about the OMA
-                Diction Awards, or commissioning a custom website or mobile
-                application, our team responds promptly.
+                Every great school breakthrough begins with a friendly conversation. Whether
+                you want your pupils to speak with jaw-dropping confidence, need a free 45-minute
+                campus speech audit, or want to upgrade your school website and parent portal — our team is here for you.
               </p>
             </div>
 
@@ -83,10 +82,10 @@ const ContactUs = () => {
           <div className="lg:col-span-7 p-8 sm:p-10">
             <div className="mb-6">
               <span className="text-xs font-bold uppercase tracking-widest text-[#B82020] dark:text-[#FF8A8A]">
-                Inquiry Dispatch
+                Start the Conversation
               </span>
               <h3 className="font-editorial text-2xl sm:text-3xl font-bold text-[#202860] dark:text-white mt-1">
-                Send Us a Message
+                Book Your Free Consultation or School Audit
               </h3>
             </div>
 
@@ -181,7 +180,7 @@ const ContactUs = () => {
                   whileTap={{ scale: 0.98 }}
                   className="px-8 py-3.5 rounded-xl bg-[#B82020] text-white text-xs font-bold uppercase tracking-wider hover:bg-[#9E1818] transition shadow-md shadow-[#B82020]/20"
                 >
-                  Submit Inquiry →
+                  Schedule Your Free Consultation →
                 </motion.button>
               </div>
             </form>

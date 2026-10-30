@@ -15,38 +15,38 @@ import {
 } from "@heroicons/react/24/outline";
 
 export const metadata = {
-  title: "Website Design | Oma Services",
+  title: "High-Converting School & Business Websites | Oma Services",
   description:
-    "Professionally designed, fast, and user-friendly websites for businesses, schools, and personal brands.",
+    "Websites that make parents choose your school. Showcase student achievements, easy online admission forms, and Google SEO ranking.",
 };
 
 const offerings = [
   {
     num: "01",
-    title: "Bespoke Website Design",
+    title: "Breathtaking School Portals",
     description:
-      "Custom editorial and interactive layouts crafted to reflect your brand’s authority and convert visitors into long-term clients.",
+      "Showcase your student achievements, facilities, and academic results with interactive photo galleries and virtual tours.",
     icon: PaintBrushIcon,
   },
   {
     num: "02",
-    title: "Website & Platform Management",
+    title: "Easy Online Application Forms",
     description:
-      "Proactive security, content updates, uptime monitoring, and speed optimization so your platform remains effortless.",
+      "Make it effortless for busy parents to apply, upload birth certificates, and pay entrance fees online in minutes.",
     icon: CodeBracketSquareIcon,
   },
   {
     num: "03",
-    title: "Search & Content Positioning (SEO)",
+    title: "Local SEO Superpower",
     description:
-      "Technical SEO architecture, metadata optimization, and strategic positioning to attract high-intent organic traffic.",
+      "Help parents in your neighborhood discover your school before they see any competitor on Google search.",
     icon: MagnifyingGlassIcon,
   },
   {
     num: "04",
-    title: "Digital Campaign & Growth Advertising",
+    title: "Admissions Campaign Marketing",
     description:
-      "Precision campaign management across Google, Meta, and LinkedIn to put your institution in front of decision-makers.",
+      "Targeted social media campaigns during admission season that fill your classrooms with bright, eager pupils.",
     icon: ChartBarSquareIcon,
   },
 ];
@@ -54,23 +54,23 @@ const offerings = [
 const process = [
   {
     step: "01",
-    title: "Discovery & Audit",
-    desc: "Deep alignment on your goals, audience, and brand positioning before touching any design.",
+    title: "Understanding Your Story",
+    desc: "We listen to your school's vision, heritage, and what makes your campus uniquely special.",
   },
   {
     step: "02",
-    title: "Editorial UI Design",
-    desc: "High-fidelity interactive prototypes crafted for review prior to a single line of code.",
+    title: "Designing the Dream Experience",
+    desc: "We design a website that makes prospective parents say 'Wow, this school is incredible.'",
   },
   {
     step: "03",
-    title: "Next.js Engineering",
-    desc: "Clean, accessible, mobile-first development using modern frameworks built for speed.",
+    title: "Building with Care & Speed",
+    desc: "Every button, gallery, and form is tested to ensure a delightful experience for parents.",
   },
   {
     step: "04",
-    title: "Launch & Handover",
-    desc: "Custom domain deployment with comprehensive handover and dedicated post-launch support.",
+    title: "Celebration & Parent Launch",
+    desc: "We launch your new site, announce it to your school community, and watch the inquiries roll in.",
   },
 ];
 
@@ -84,20 +84,20 @@ export default function WebDesignPage() {
         <ScrollReveal direction="up" delay={0.1} className="max-w-3xl">
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#FDF2F2] dark:bg-[#B82020]/20 border border-[#F3CACA] dark:border-[#B82020]/40 text-[#B82020] dark:text-[#FF8A8A] text-[11px] font-bold uppercase tracking-widest mb-3">
             <span className="w-1.5 h-1.5 rounded-full bg-[#B82020]" />
-            Division II • Digital Product Engineering
+            Websites That Make Parents Choose Your School
           </div>
           <h1 className="text-4xl sm:text-5xl font-bold tracking-tight leading-[1.08]">
             <span className="text-[#202860] dark:text-white transition-colors duration-300">Website Design.</span>{" "}
             <span className="text-[#5A6494] dark:text-[#94A3D3] font-semibold transition-colors duration-300">
-              Your brand deserves a digital presence that commands respect.
+              A stunning online home that makes your school the talk of the town.
             </span>
           </h1>
           <div className="flex flex-wrap gap-3 mt-6">
-            <a href="mailto:partnerships@omadiction.pro">
+            <Link href="/contact">
               <button className="px-6 py-3 bg-[#B82020] text-white text-xs font-bold uppercase tracking-wider rounded-full hover:bg-[#D12828] transition-colors shadow-md">
-                Start Your Project →
+                Upgrade Your School Website →
               </button>
-            </a>
+            </Link>
           </div>
         </ScrollReveal>
 
@@ -108,13 +108,13 @@ export default function WebDesignPage() {
             </div>
             <div className="text-xs leading-snug">
               <p className="font-bold text-[#202860] dark:text-white">
-                Need a custom website proposal?
+                Want to see our school web portfolio?
               </p>
               <Link
                 href="/contact"
                 className="text-[#B82020] dark:text-[#FF8A8A] font-semibold hover:underline inline-flex items-center gap-1 mt-0.5"
               >
-                Ask a Digital Architect <span>↗</span>
+                Ask a School Web Specialist <span>↗</span>
               </Link>
             </div>
           </div>
@@ -130,7 +130,7 @@ export default function WebDesignPage() {
           <h2 className="text-2xl sm:text-3xl font-bold tracking-tight">
             <span className="text-[#202860] dark:text-white transition-colors duration-300">Capabilities.</span>{" "}
             <span className="text-[#5A6494] dark:text-[#94A3D3] font-semibold transition-colors duration-300">
-              What&apos;s included in our web engineering suite.
+              Everything your school needs to stand out online.
             </span>
           </h2>
           <span className="text-xs font-semibold text-[#5A6494] dark:text-[#94A3D3] hidden sm:inline">
@@ -168,9 +168,9 @@ export default function WebDesignPage() {
       <section className="max-w-7xl mx-auto px-6 py-12 border-t border-[#E2E6F2] dark:border-[#232E66]">
         <ScrollReveal direction="up" className="mb-8">
           <h2 className="text-2xl sm:text-3xl font-bold tracking-tight">
-            <span className="text-[#202860] dark:text-white transition-colors duration-300">Methodology.</span>{" "}
+            <span className="text-[#202860] dark:text-white transition-colors duration-300">Our 4-Step Process.</span>{" "}
             <span className="text-[#5A6494] dark:text-[#94A3D3] font-semibold transition-colors duration-300">
-              How we deliver from discovery to launch.
+              From first consultation to parents cheering your new website.
             </span>
           </h2>
         </ScrollReveal>
@@ -203,18 +203,17 @@ export default function WebDesignPage() {
       <section className="bg-[#202860] dark:bg-[#131A3E] py-16 px-6 text-center transition-colors duration-300">
         <ScrollReveal direction="up" className="max-w-3xl mx-auto">
           <span className="text-xs font-bold uppercase tracking-widest text-[#FF8A8A]">
-            Commission Your Platform
+            Transform Your Online Presence
           </span>
           <h2 className="font-editorial text-3xl sm:text-4xl font-bold text-white mt-2 mb-3">
-            Let&apos;s Architect Something Distinguished.
+            Ready to Make Your School the #1 Choice for Parents?
           </h2>
           <p className="text-slate-200 text-sm sm:text-base mb-8">
-            Tell us about your project and we&apos;ll prepare a tailored
-            engineering proposal.
+            Schedule a friendly call today. We&apos;ll show you how a modern website can dramatically boost your student enrollments.
           </p>
           <Link href="/contact">
             <button className="px-7 py-3.5 bg-[#B82020] text-white text-xs font-bold uppercase tracking-wider rounded-xl hover:bg-[#D12828] transition-colors shadow-md">
-              Get in Touch →
+              Upgrade Your School Website Today →
             </button>
           </Link>
         </ScrollReveal>

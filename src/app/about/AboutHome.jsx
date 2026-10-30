@@ -8,24 +8,24 @@ import { BubbleCard } from "../components/motion";
 
 const stats = [
   {
-    value: "10+",
-    label: "Years Experience",
-    detail: "Proven institutional track record",
+    value: "10,000+",
+    label: "Transformed Lives",
+    detail: "Children who found their true voice",
   },
   {
     value: "50+",
-    label: "Partner Schools",
-    detail: "Active curriculum deployment",
+    label: "Thriving Schools",
+    detail: "Now #1 choices in their districts",
+  },
+  {
+    value: "3x",
+    label: "Admissions Inquiries",
+    detail: "Reported by partner school leadership",
   },
   {
     value: "830+",
-    label: "Positive Reviews",
-    detail: "Verified client endorsements",
-  },
-  {
-    value: "10K+",
-    label: "Trusted Students",
-    detail: "Coached across Nigeria & beyond",
+    label: "Grateful Letters",
+    detail: "From parents, teachers & directors",
   },
 ];
 
@@ -44,22 +44,22 @@ const AboutPage = () => {
           >
             <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-[#FDF2F2] dark:bg-[#B82020]/20 border border-[#F3CACA] dark:border-[#B82020]/40 text-[#B82020] dark:text-[#FF8A8A] text-xs font-bold uppercase tracking-wider">
               <span className="w-1.5 h-1.5 rounded-full bg-[#B82020]"></span>
-              01 / How It Started
+              01 / The Story Behind the Transformation
             </div>
 
             <h1 className="text-3xl sm:text-5xl font-bold tracking-tight leading-[1.12]">
               <span className="text-[#202860] dark:text-white transition-colors duration-300">Our Heritage.</span>{" "}
               <span className="text-[#5A6494] dark:text-[#94A3D3] font-normal transition-colors duration-300">
-                Global learning and digital transformation built for lasting
-                impact.
+                Born to give every child a commanding voice and every school a competitive edge.
               </span>
             </h1>
 
             <p className="text-[#424B78] dark:text-[#94A3D3] text-base leading-relaxed">
-              At Oma Services, we help individuals and organisations communicate
-              better and build smarter. From diction training and speech therapy
-              to websites, mobile apps, and custom web platforms — we bring
-              expertise, creativity, and a genuine commitment to results.
+              Ten years ago, we watched brilliant Nigerian students fail interviews, stay silent
+              in class, and miss global opportunities simply because they had never been taught the
+              mechanics of confident speech. Oma Services was created to change that forever. Over the
+              past decade, we have partnered with passionate school proprietors to transform over
+              10,000 students into stage laureates.
             </p>
 
             <div className="pt-4 grid grid-cols-3 gap-3 border-t border-[#E2E6F2] dark:border-[#232E66]">
@@ -68,7 +68,7 @@ const AboutPage = () => {
                   Pillar I
                 </div>
                 <div className="text-sm font-bold text-[#202860] dark:text-white mt-0.5">
-                  Adaptivity
+                  Confidence First
                 </div>
               </div>
               <div className="pt-3 border-l border-[#E2E6F2] dark:border-[#232E66] pl-3">
@@ -76,7 +76,7 @@ const AboutPage = () => {
                   Pillar II
                 </div>
                 <div className="text-sm font-bold text-[#202860] dark:text-white mt-0.5">
-                  Oral Excellence
+                  School Growth
                 </div>
               </div>
               <div className="pt-3 border-l border-[#E2E6F2] dark:border-[#232E66] pl-3">
@@ -84,7 +84,7 @@ const AboutPage = () => {
                   Pillar III
                 </div>
                 <div className="text-sm font-bold text-[#202860] dark:text-white mt-0.5">
-                  Digital Craft
+                  Parent Pride
                 </div>
               </div>
             </div>
@@ -170,13 +170,12 @@ const AboutPage = () => {
         <div className="max-w-6xl mx-auto">
           <div className="max-w-3xl mb-10">
             <span className="inline-block bg-[#FDF2F2] dark:bg-[#B82020]/20 border border-[#F3CACA] dark:border-[#B82020]/40 text-[#B82020] dark:text-[#FF8A8A] px-3.5 py-1 rounded-full text-xs font-bold uppercase tracking-widest mb-3">
-              02 / OMA&apos;s Mission
+              02 / The Heart Behind the Mission
             </span>
             <h2 className="text-2xl sm:text-4xl font-bold tracking-tight leading-snug">
-              <span className="text-[#202860] dark:text-white transition-colors duration-300">Our Mandate.</span>{" "}
+              <span className="text-[#202860] dark:text-white transition-colors duration-300">The Diction Oracle.</span>{" "}
               <span className="text-[#5A6494] dark:text-[#94A3D3] font-normal transition-colors duration-300">
-                Empowering individuals and organisations to speak with clarity
-                and build with purpose.
+                Passionate advocate for every child&apos;s brilliance.
               </span>
             </h2>
           </div>
@@ -202,20 +201,20 @@ const AboutPage = () => {
                 The Diction Oracle
               </span>
               <h3 className="font-editorial text-2xl sm:text-3xl font-bold leading-snug">
-                Setting the Benchmark for Spoken English &amp; Digital
-                Excellence.
+                “When a child learns to speak with confidence, their entire future changes.”
               </h3>
               <p className="text-xs sm:text-sm text-slate-200 leading-relaxed">
-                Through school-wide elocution programmes, the annual Lagos OMA
-                Diction Awards, and our software engineering studio, we partner
-                with visionary educators and founders.
+                Known affectionately as &apos;The Diction Oracle&apos;, our founder&apos;s mission began with a
+                deep love for children and an unshakeable belief that Nigerian pupils can match any international
+                standard. Over 10 years later, that same passion fuels every classroom visit, teacher training session,
+                and annual Awards Gala.
               </p>
               <div className="pt-2">
                 <Link
                   href="/contact"
                   className="inline-block px-6 py-3 rounded-full bg-[#B82020] text-white text-xs font-bold uppercase tracking-wider hover:bg-[#D12828] transition shadow-md"
                 >
-                  Partner With Us &gt;
+                  Invite The Diction Oracle to Your Campus &gt;
                 </Link>
               </div>
             </div>

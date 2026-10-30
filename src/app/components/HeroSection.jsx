@@ -27,23 +27,22 @@ const HeroSection = () => {
           >
             <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-[#FDF2F2] dark:bg-[#B82020]/20 border border-[#F3CACA] dark:border-[#B82020]/40 text-[#B82020] dark:text-[#FF8A8A] text-xs font-bold uppercase tracking-wider mb-3">
               <span className="w-1.5 h-1.5 rounded-full bg-[#B82020]"></span>
-              Lagos, Nigeria • Speech &amp; Software Flagship
+              Transforming Scholars &amp; Elevating School Reputations
             </div>
             <h1 className="text-3xl sm:text-5xl font-bold tracking-tight leading-[1.12]">
               <span className="text-[#202860] dark:text-white transition-colors duration-300">Oma Services.</span>{" "}
               <span className="text-[#5A6494] dark:text-[#94A3D3] font-normal transition-colors duration-300">
-                The best way to master spoken English and build world-class
-                digital products.
+                Turn your pupils into articulate leaders and your school into the #1 choice.
               </span>
             </h1>
             <div className="pt-3 text-xs sm:text-sm font-bold uppercase tracking-widest text-[#B82020] dark:text-[#FF8A8A] min-h-[1.5rem]">
               <TypeAnimation
                 sequence={[
-                  "— Executive Elocution & School Diction Mastery",
+                  "— Watch Student Confidence Surge from Day One",
                   1800,
-                  "— Bespoke Website Design & Digital Architecture",
+                  "— Attract High-Value Families with Impeccable British Diction",
                   1800,
-                  "— Native Mobile & Enterprise Web Applications",
+                  "— Custom Portals That Eliminate School Operational Chaos",
                   1800,
                 ]}
                 wrapper="span"
@@ -67,13 +66,13 @@ const HeroSection = () => {
               </div>
               <div className="text-xs">
                 <p className="font-bold text-[#202860] dark:text-white">
-                  Need a custom proposal or school audit?
+                  Want to increase your school enrollment?
                 </p>
                 <Link
                   href="/contact"
                   className="text-[#B82020] dark:text-[#FF8A8A] font-semibold hover:underline"
                 >
-                  Ask an OMA Specialist &gt;
+                  Schedule Head of School Consultation &gt;
                 </Link>
               </div>
             </div>
@@ -84,13 +83,13 @@ const HeroSection = () => {
               </div>
               <div className="text-xs">
                 <p className="font-bold text-[#202860] dark:text-white">
-                  2024 OMA Diction Awards Gala
+                  Give Your Students the Stage of a Lifetime
                 </p>
                 <Link
                   href="/registration"
                   className="text-[#202860] dark:text-slate-300 font-semibold hover:text-[#B82020] dark:hover:text-[#FF8A8A] transition-colors"
                 >
-                  Silverbird Galleria, VI Lagos • Enroll &gt;
+                  ₦50,000 Top Prize &amp; Live TV • Secure Slots &gt;
                 </Link>
               </div>
             </div>
@@ -128,12 +127,15 @@ const HeroSection = () => {
             <span className="text-xs font-bold text-[#202860] dark:text-slate-200 group-hover:text-[#B82020] dark:group-hover:text-[#FF8A8A] text-center transition-colors">
               Speech Therapy
             </span>
+            <span className="text-[10px] text-[#5A6494] dark:text-[#94A3D3] text-center">
+              Unlock Confidence
+            </span>
           </Link>
 
           {/* Category 2: School Diction */}
           <Link
             href="/diction"
-            className="group flex flex-col items-center gap-2.5 min-w-[110px] p-3 rounded-2xl hover:bg-white dark:hover:bg-[#131A3E] transition-all"
+            className="group flex flex-col items-center gap-1.5 min-w-[110px] p-3 rounded-2xl hover:bg-white dark:hover:bg-[#131A3E] transition-all"
           >
             <div className="w-16 h-16 rounded-2xl bg-white dark:bg-[#131A3E] border border-[#D5DCF0] dark:border-[#232E66] group-hover:border-[#B82020] dark:group-hover:border-[#FF8A8A] shadow-sm flex items-center justify-center transition-all group-hover:-translate-y-1">
               <span className="font-editorial text-2xl font-bold text-[#202860] dark:text-white group-hover:text-[#B82020] dark:group-hover:text-[#FF8A8A]">
@@ -143,12 +145,15 @@ const HeroSection = () => {
             <span className="text-xs font-bold text-[#202860] dark:text-slate-200 group-hover:text-[#B82020] dark:group-hover:text-[#FF8A8A] text-center transition-colors">
               School Diction
             </span>
+            <span className="text-[10px] text-[#5A6494] dark:text-[#94A3D3] text-center">
+              Elevate Prestige
+            </span>
           </Link>
 
           {/* Category 3: Phonics Classes */}
           <Link
             href="/diction"
-            className="group flex flex-col items-center gap-2.5 min-w-[110px] p-3 rounded-2xl hover:bg-white dark:hover:bg-[#131A3E] transition-all"
+            className="group flex flex-col items-center gap-1.5 min-w-[110px] p-3 rounded-2xl hover:bg-white dark:hover:bg-[#131A3E] transition-all"
           >
             <div className="w-16 h-16 rounded-2xl bg-white dark:bg-[#131A3E] border border-[#D5DCF0] dark:border-[#232E66] group-hover:border-[#B82020] dark:group-hover:border-[#FF8A8A] shadow-sm flex items-center justify-center transition-all group-hover:-translate-y-1">
               <span className="font-mono text-base font-bold text-[#B82020] dark:text-[#FF8A8A]">
@@ -158,12 +163,15 @@ const HeroSection = () => {
             <span className="text-xs font-bold text-[#202860] dark:text-slate-200 group-hover:text-[#B82020] dark:group-hover:text-[#FF8A8A] text-center transition-colors">
               Phonics Classes
             </span>
+            <span className="text-[10px] text-[#5A6494] dark:text-[#94A3D3] text-center">
+              Turn Strugglers to Readers
+            </span>
           </Link>
 
           {/* Category 4: Website Design */}
           <Link
             href="/web-design"
-            className="group flex flex-col items-center gap-2.5 min-w-[110px] p-3 rounded-2xl hover:bg-white dark:hover:bg-[#131A3E] transition-all"
+            className="group flex flex-col items-center gap-1.5 min-w-[110px] p-3 rounded-2xl hover:bg-white dark:hover:bg-[#131A3E] transition-all"
           >
             <div className="w-16 h-16 rounded-2xl bg-white dark:bg-[#131A3E] border border-[#D5DCF0] dark:border-[#232E66] group-hover:border-[#202860] dark:group-hover:border-[#FF8A8A] shadow-sm flex items-center justify-center transition-all group-hover:-translate-y-1">
               <div className="w-9 h-7 rounded-md border-2 border-[#202860] dark:border-[#94A3D3] flex flex-col overflow-hidden">
@@ -174,12 +182,15 @@ const HeroSection = () => {
             <span className="text-xs font-bold text-[#202860] dark:text-slate-200 group-hover:text-[#B82020] dark:group-hover:text-[#FF8A8A] text-center transition-colors">
               Website Design
             </span>
+            <span className="text-[10px] text-[#5A6494] dark:text-[#94A3D3] text-center">
+              Admissions Booster
+            </span>
           </Link>
 
           {/* Category 5: Mobile Apps */}
           <Link
             href="/mobile-apps"
-            className="group flex flex-col items-center gap-2.5 min-w-[110px] p-3 rounded-2xl hover:bg-white dark:hover:bg-[#131A3E] transition-all"
+            className="group flex flex-col items-center gap-1.5 min-w-[110px] p-3 rounded-2xl hover:bg-white dark:hover:bg-[#131A3E] transition-all"
           >
             <div className="w-16 h-16 rounded-2xl bg-white dark:bg-[#131A3E] border border-[#D5DCF0] dark:border-[#232E66] group-hover:border-[#202860] dark:group-hover:border-[#FF8A8A] shadow-sm flex items-center justify-center transition-all group-hover:-translate-y-1">
               <div className="w-6 h-10 rounded-lg border-2 border-[#202860] dark:border-[#94A3D3] flex flex-col items-center justify-between p-1">
@@ -190,12 +201,15 @@ const HeroSection = () => {
             <span className="text-xs font-bold text-[#202860] dark:text-slate-200 group-hover:text-[#B82020] dark:group-hover:text-[#FF8A8A] text-center transition-colors">
               Mobile Apps
             </span>
+            <span className="text-[10px] text-[#5A6494] dark:text-[#94A3D3] text-center">
+              Delight Every Parent
+            </span>
           </Link>
 
           {/* Category 6: Custom Web Apps */}
           <Link
             href="/web-apps"
-            className="group flex flex-col items-center gap-2.5 min-w-[110px] p-3 rounded-2xl hover:bg-white dark:hover:bg-[#131A3E] transition-all"
+            className="group flex flex-col items-center gap-1.5 min-w-[110px] p-3 rounded-2xl hover:bg-white dark:hover:bg-[#131A3E] transition-all"
           >
             <div className="w-16 h-16 rounded-2xl bg-white dark:bg-[#131A3E] border border-[#D5DCF0] dark:border-[#232E66] group-hover:border-[#202860] dark:group-hover:border-[#FF8A8A] shadow-sm flex items-center justify-center transition-all group-hover:-translate-y-1">
               <span className="font-mono text-sm font-bold text-[#202860] dark:text-white bg-[#EFF2FA] dark:bg-[#18214C] px-2 py-1 rounded border border-[#D5DCF0] dark:border-[#232E66]">
@@ -205,12 +219,15 @@ const HeroSection = () => {
             <span className="text-xs font-bold text-[#202860] dark:text-slate-200 group-hover:text-[#B82020] dark:group-hover:text-[#FF8A8A] text-center transition-colors">
               Custom Web Apps
             </span>
+            <span className="text-[10px] text-[#5A6494] dark:text-[#94A3D3] text-center">
+              Zero School Chaos
+            </span>
           </Link>
 
           {/* Category 7: 2024 Awards */}
           <Link
             href="/registration"
-            className="group flex flex-col items-center gap-2.5 min-w-[110px] p-3 rounded-2xl hover:bg-white dark:hover:bg-[#131A3E] transition-all"
+            className="group flex flex-col items-center gap-1.5 min-w-[110px] p-3 rounded-2xl hover:bg-white dark:hover:bg-[#131A3E] transition-all"
           >
             <div className="w-16 h-16 rounded-2xl bg-[#FDF2F2] dark:bg-[#B82020]/20 border border-[#F3CACA] dark:border-[#B82020]/40 group-hover:bg-[#B82020] shadow-sm flex items-center justify-center transition-all group-hover:-translate-y-1">
               <span className="text-xl text-[#B82020] dark:text-[#FF8A8A] group-hover:text-white font-bold">
@@ -219,6 +236,9 @@ const HeroSection = () => {
             </div>
             <span className="text-xs font-bold text-[#B82020] dark:text-[#FF8A8A] text-center">
               2024 Awards
+            </span>
+            <span className="text-[10px] text-[#B82020]/80 dark:text-[#FF8A8A]/80 text-center">
+              Celebrate Stars Live
             </span>
           </Link>
         </div>
@@ -229,8 +249,8 @@ const HeroSection = () => {
           ===================================================================== */}
       <div className="max-w-6xl mx-auto px-6 pt-4">
         <ShelfCarousel
-          title="The Flagship Suites."
-          subtitle="Take a look at what’s transforming schools and brands right now."
+          title="Transformation Stories & Flagship Suites."
+          subtitle="See how schools gain an unfair competitive advantage in admissions and parent loyalty."
         >
           {/* Card 1: Tall 28px Apple-Style Card — Division I Diction */}
           <Link href="/diction" className="snap-start shrink-0 block">
@@ -240,21 +260,21 @@ const HeroSection = () => {
             >
               <div className="p-7 pb-4">
                 <span className="text-xs font-bold uppercase tracking-widest text-[#B82020] dark:text-[#FF8A8A] group-hover:text-[#FF8A8A] transition-colors">
-                  Division I • Elocution Academy
+                  Division I • Speech &amp; Confidence Transformation
                 </span>
                 <h3 className="font-editorial text-2xl font-bold text-[#202860] dark:text-white group-hover:text-white mt-1.5 leading-snug transition-colors">
-                  Speak with effortless authority in every room.
+                  When your students speak at open houses, parents enroll on the spot.
                 </h3>
                 <p className="text-xs text-[#424B78] dark:text-[#94A3D3] group-hover:text-slate-200 mt-2 leading-relaxed transition-colors">
-                  School-wide diction deployment, phonics literacy, and
-                  executive speech refinement across 50+ institutions.
+                  Nothing sells a school faster than articulate pupils. We transform
+                  hesitant, timid speakers into polished orators who blow parents away.
                 </p>
               </div>
 
               <div className="mx-4 mb-4 h-56 rounded-[20px] bg-gradient-to-br from-[#202860] via-[#1B2254] to-[#B82020] p-6 text-white flex flex-col justify-between overflow-hidden">
                 <div className="flex items-center justify-between">
                   <span className="px-3 py-1 rounded-full bg-white/15 text-xs font-bold">
-                    10,000+ Scholars
+                    88% Recommendation Surge
                   </span>
                   <span className="font-editorial text-lg font-bold text-[#FF8A8A]">
                     I
@@ -303,14 +323,14 @@ const HeroSection = () => {
             >
               <div className="p-7 pb-4">
                 <span className="text-xs font-bold uppercase tracking-widest text-[#202860] dark:text-[#94A3D3] group-hover:text-[#FF8A8A] transition-colors">
-                  Division II • Web Architecture
+                  Division II • High-Impact Web &amp; Admissions Engines
                 </span>
                 <h3 className="font-editorial text-2xl font-bold text-[#202860] dark:text-white group-hover:text-white mt-1.5 leading-snug transition-colors">
-                  Bespoke websites engineered to convert.
+                  A modern website that makes parents choose your school over the competition.
                 </h3>
                 <p className="text-xs text-[#424B78] dark:text-[#94A3D3] group-hover:text-slate-200 mt-2 leading-relaxed transition-colors">
-                  Editorial UI/UX, technical SEO, and full lifecycle management
-                  — never generic templates.
+                  Stop losing prospective families to outdated websites. We build
+                  breathtaking digital portals with effortless online application forms.
                 </p>
               </div>
 
@@ -326,12 +346,12 @@ const HeroSection = () => {
                   </div>
                   <div className="h-16 rounded-lg bg-gradient-to-r from-[#202860] to-[#B82020] p-2.5 text-white flex items-end">
                     <span className="text-xs font-bold">
-                      Next.js 15 • 99.9% Uptime
+                      Next.js 15 • 3x Admissions Growth
                     </span>
                   </div>
                 </div>
                 <div className="flex items-center justify-between text-xs font-bold text-[#202860] dark:text-white group-hover:text-white transition-colors">
-                  <span>View Web Engineering Suite</span>
+                  <span>View Admissions Web Suite</span>
                   <span className="w-7 h-7 rounded-full bg-[#202860] dark:bg-[#B82020] text-white group-hover:bg-[#B82020] flex items-center justify-center transition-colors">
                     +
                   </span>
@@ -348,14 +368,14 @@ const HeroSection = () => {
             >
               <div className="p-7 pb-4">
                 <span className="text-xs font-bold uppercase tracking-widest text-[#B82020] dark:text-[#FF8A8A] group-hover:text-[#FF8A8A] transition-colors">
-                  ★ 9th Annual Edition • Lagos
+                  ★ The Ultimate Student Milestone • Lagos
                 </span>
                 <h3 className="font-editorial text-2xl font-bold text-[#202860] dark:text-white group-hover:text-white mt-1.5 leading-snug transition-colors">
-                  2024 OMA Diction Awards Competition.
+                  Watch your pupils stand tall on the Silverbird stage and bring home gold.
                 </h3>
                 <p className="text-xs text-[#424B78] dark:text-[#94A3D3] group-hover:text-slate-200 mt-2 leading-relaxed transition-colors">
-                  ₦50,000 1st Prize per category at Silverbird Galleria,
-                  Victoria Island. Entry: ₦7,000 per pupil.
+                  The 2024 OMA Diction Awards gives your pupils life-defining recognition,
+                  national media fame, and a trophy your school can display with immense pride.
                 </p>
               </div>
 
@@ -379,7 +399,7 @@ const HeroSection = () => {
                   </div>
                 </div>
                 <div className="flex items-center justify-between text-xs font-bold text-[#B82020] dark:text-[#FF8A8A] group-hover:text-white transition-colors">
-                  <span>Enroll Candidate Now</span>
+                  <span>Register School Pupils Now</span>
                   <span className="w-7 h-7 rounded-full bg-[#B82020] text-white flex items-center justify-center">
                     →
                   </span>
@@ -396,34 +416,34 @@ const HeroSection = () => {
             >
               <div className="p-7 pb-4">
                 <span className="text-xs font-bold uppercase tracking-widest text-[#202860] dark:text-[#94A3D3] group-hover:text-[#FF8A8A] transition-colors">
-                  Divisions III &amp; IV • App Engineering
+                  Divisions III &amp; IV • School Operating Systems
                 </span>
                 <h3 className="font-editorial text-2xl font-bold text-[#202860] dark:text-white group-hover:text-white mt-1.5 leading-snug transition-colors">
-                  Native iOS, Android &amp; Custom School Portals.
+                  End tuition payment chases and lost report cards once and for all.
                 </h3>
                 <p className="text-xs text-[#424B78] dark:text-[#94A3D3] group-hover:text-slate-200 mt-2 leading-relaxed transition-colors">
-                  Multi-user dashboards, Paystack/Flutterwave payments, and
-                  offline-first mobile architecture.
+                  Give parents an app they love using. Automatic fee reminders, digital term reports,
+                  and instant attendance notifications right on their phones.
                 </p>
               </div>
 
               <div className="mx-4 mb-4 h-56 rounded-[20px] bg-[#202860] dark:bg-[#0E1538] p-5 text-white flex flex-col justify-between">
                 <div className="flex flex-wrap gap-1.5">
                   <span className="px-2.5 py-1 rounded-md bg-white/10 text-xs font-semibold">
-                    iOS &amp; Android
+                    100% On-Time Fees
                   </span>
                   <span className="px-2.5 py-1 rounded-md bg-white/10 text-xs font-semibold">
-                    Next.js
+                    Instant Reports
                   </span>
                   <span className="px-2.5 py-1 rounded-md bg-[#B82020] text-xs font-semibold">
-                    Paystack Ready
+                    Parent App
                   </span>
                   <span className="px-2.5 py-1 rounded-md bg-white/10 text-xs font-semibold">
-                    PostgreSQL
+                    Attendance
                   </span>
                 </div>
                 <div className="flex items-center justify-between text-xs font-bold">
-                  <span className="text-[#FF8A8A]">Scope Your App</span>
+                  <span className="text-[#FF8A8A]">Explore School OS</span>
                   <span className="w-7 h-7 rounded-full bg-white text-[#202860] flex items-center justify-center">
                     +
                   </span>
@@ -440,14 +460,14 @@ const HeroSection = () => {
             >
               <div className="p-7 pb-4">
                 <span className="text-xs font-bold uppercase tracking-widest text-[#B82020] dark:text-[#FF8A8A] group-hover:text-[#FF8A8A] transition-colors">
-                  The Diction Oracle • Est. 10+ Yrs
+                  Founder&apos;s Heart • The Diction Oracle
                 </span>
                 <h3 className="font-editorial text-2xl font-bold text-[#202860] dark:text-white group-hover:text-white mt-1.5 leading-snug transition-colors">
-                  Excellence in Spoken English &amp; Technology.
+                  A mission born to ensure no Nigerian child is held back by poor diction.
                 </h3>
                 <p className="text-xs text-[#424B78] dark:text-[#94A3D3] group-hover:text-slate-200 mt-2 leading-relaxed transition-colors">
-                  4.9★ rated across 50+ partner institutions with 830+ verified
-                  client endorsements.
+                  We believe eloquent speech unlocks global scholarships, executive careers,
+                  and unshakeable self-worth. Over 10 years of changed lives.
                 </p>
               </div>
 
@@ -461,7 +481,7 @@ const HeroSection = () => {
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-[#202860] via-[#202860]/25 to-transparent"></div>
                 <div className="absolute bottom-4 inset-x-4 flex items-center justify-between text-white text-xs font-bold">
-                  <span>Our Institutional Story</span>
+                  <span>Our Transformation Story</span>
                   <span className="px-3 py-1 rounded-full bg-[#B82020] text-white">
                     Read &gt;
                   </span>

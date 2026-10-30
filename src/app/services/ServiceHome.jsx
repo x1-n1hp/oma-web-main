@@ -8,26 +8,26 @@ import { BubbleCard, ShelfCarousel } from "../components/motion";
 const coreServices = [
   {
     numeral: "I",
-    title: "Speech Therapy",
-    subtitle: "Vocal Clarity & Correction",
+    title: "Gentle Speech Therapy",
+    subtitle: "Vocal Clarity & Joy",
     description:
-      "Enhancing communication skills through expert speech correction, vocal clarity, and personalized elocution coaching.",
+      "Caring, one-on-one sessions that help children overcome lisping, stuttering, and speech hurdles with joy and patience.",
     image: "/images/speaker.png",
   },
   {
     numeral: "II",
-    title: "Diction Training",
-    subtitle: "Schools & Executive Boardrooms",
+    title: "School Diction Transformation",
+    subtitle: "Campus Eloquence Academy",
     description:
-      "Perfecting pronunciation, cadence, and articulation for clear, authoritative speech delivery in schools and boardrooms.",
+      "Watch your entire student body speak with impressive, confident British accents that make prospective parents choose your school.",
     image: "/images/school.png",
   },
   {
     numeral: "III",
-    title: "Phonics Classes",
-    subtitle: "Structured Phonemic Literacy",
+    title: "Joyful Phonics Mastery",
+    subtitle: "Love for Reading & Spelling",
     description:
-      "Building strong reading, spelling, and phonemic foundations through structured phonetic awareness methodologies.",
+      "Fun, rhythmic phonics games and International Phonetic Alphabet drills that turn struggling pupils into enthusiastic, fluent readers.",
     image: "/images/classroom.png",
   },
 ];
@@ -35,109 +35,97 @@ const coreServices = [
 const additionalServices = [
   {
     index: "01",
-    category: "Media & Web Engineering.",
-    subtitle: "High-converting digital platforms and strategic growth.",
+    category: "Division II • Websites That Boost Admissions.",
+    subtitle: "A digital front door that impresses prospective parents and fills classrooms.",
     href: "/web-design",
     services: [
       {
-        title: "Website Design",
+        title: "Showcase School Websites",
         description:
-          "Creating visually distinguished, high-converting websites tailored to your brand authority.",
+          "Stunning photo galleries, virtual campus tours, and fast mobile-optimized pages that parents love.",
         icon: "/images/graphic-design.png",
       },
       {
-        title: "Website Management",
+        title: "Always-Online Reliability",
         description:
-          "Proactive maintenance, security updates, and performance optimization so your site runs effortlessly.",
+          "Your website never crashes, loads instantly on weak phone signals, and stays fresh with weekly updates.",
         icon: "/images/data-management.png",
       },
       {
-        title: "Website Marketing",
+        title: "Local SEO Superpower",
         description:
-          "Technical SEO and strategic positioning to drive qualified traffic and institutional engagement.",
+          "Help parents in your neighborhood discover your school before they see any competitor on Google.",
         icon: "/images/marketing.png",
       },
       {
-        title: "Website Advertising",
+        title: "Admissions Campaign Marketing",
         description:
-          "Precision paid acquisition across Google and Meta to place your brand before decision-makers.",
+          "Targeted social media and Google campaigns during admission season that attract quality enrollments.",
         icon: "/images/digital-marketing.png",
       },
     ],
   },
   {
     index: "02",
-    category: "Mobile App Engineering.",
-    subtitle: "Native-feel iOS and Android experiences built for daily reliance.",
+    category: "Division III • School & Parent Apps.",
+    subtitle: "The mobile app that delights school parents and eliminates paperwork.",
     href: "/mobile-apps",
     services: [
       {
-        title: "App Design",
+        title: "Parent-Friendly App Design",
         description:
-          "Designing intuitive, human-centric mobile interfaces with refined visual consistency.",
+          "Big readable fonts, clean layout, and zero confusion for busy mothers and fathers on iPhone and Android.",
         icon: "/images/edit.png",
       },
       {
-        title: "App Management",
+        title: "Instant School Alerts",
         description:
-          "Continuous post-launch maintenance, version upgrades, and stability monitoring.",
+          "Send urgent notifications, bus updates, and event reminders straight to parents' lock screens in real time.",
         icon: "/images/digital-content.png",
       },
       {
-        title: "App Marketing",
+        title: "Digital Fee Payments",
         description:
-          "App Store Optimisation (ASO) and growth campaigns to maximize downloads and retention.",
+          "Parents pay tuition with debit cards or bank transfers in seconds with instant digital receipts.",
         icon: "/images/advertisig-agency.png",
       },
       {
-        title: "App Advertising",
+        title: "Digital Result Cards",
         description:
-          "Targeted mobile acquisition campaigns engineered for measurable user growth.",
+          "View termly performance grades, teacher remarks, and attendance records securely on smartphones.",
         icon: "/images/mobile.png",
       },
     ],
   },
   {
     index: "03",
-    category: "Social & Broadcast Growth.",
-    subtitle: "Audience monetization and channel production across platforms.",
+    category: "Division IV • School Fame & Media.",
+    subtitle: "Showcase student debates, speech days, and choir performances on YouTube and TV.",
     href: "/web-apps",
     services: [
       {
-        title: "Social Media Designs",
+        title: "Cinema-Quality Video",
         description:
-          "Editorial-grade visual identity and campaign assets across digital channels.",
+          "Professional multi-camera filming of your school plays, carol services, and graduation galas.",
         icon: "/images/advertising.png",
-      },
-      {
-        title: "Platform Monetization",
-        description:
-          "Strategic audience monetization across Instagram, Facebook, YouTube, and digital hubs.",
-        icon: "/images/monetization.png",
-      },
-      {
-        title: "Instagram Strategy",
-        description:
-          "Curating and scaling an authoritative brand presence on Instagram.",
-        icon: "/images/instagram.png",
-      },
-      {
-        title: "Facebook Growth",
-        description:
-          "Building and engaging high-trust community and institutional pages.",
-        icon: "/images/facebook.png",
       },
       {
         title: "YouTube Channel Production",
         description:
-          "Optimizing video presentation, thumbnails, and channel growth for educational & brand reach.",
+          "High-reach student speech videos, polished thumbnails, and channel branding parents love to share.",
         icon: "/images/youtube.png",
       },
       {
-        title: "Spotify & Podcast Distribution",
+        title: "Parent Social Showcase",
         description:
-          "Launching and promoting spoken-word, educational, and executive podcast series.",
-        icon: "/images/spotify.png",
+          "Instagram reels and Facebook highlights celebrating your school's daily excellence and pupil talents.",
+        icon: "/images/instagram.png",
+      },
+      {
+        title: "National Gala Syndication",
+        description:
+          "Broadcasting student champions on national television and international media archives.",
+        icon: "/images/monetization.png",
       },
     ],
   },
@@ -166,13 +154,12 @@ const ServicePage = () => {
           >
             <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-[#FDF2F2] dark:bg-[#B82020]/20 border border-[#F3CACA] dark:border-[#B82020]/40 text-[#B82020] dark:text-[#FF8A8A] text-xs font-bold uppercase tracking-wider mb-3">
               <span className="w-1.5 h-1.5 rounded-full bg-[#B82020]"></span>
-              Practice Storefront • Oma Services
+              Transforming Your School&apos;s Voice &amp; Online Reach
             </div>
             <h1 className="text-3xl sm:text-5xl font-bold tracking-tight leading-[1.12]">
-              <span className="text-[#202860] dark:text-white transition-colors duration-300">All Services.</span>{" "}
+              <span className="text-[#202860] dark:text-white transition-colors duration-300">Our Full Suite of Services.</span>{" "}
               <span className="text-[#5A6494] dark:text-[#94A3D3] font-normal transition-colors duration-300">
-                World-class elocution academy and full-stack digital engineering
-                under one roof.
+                Empowering your pupils, delighting parents, and growing your school.
               </span>
             </h1>
           </motion.div>
@@ -185,13 +172,13 @@ const ServicePage = () => {
             </div>
             <div className="text-xs">
               <p className="font-bold text-[#202860] dark:text-white">
-                Unsure which package fits your institution?
+                Want to discover how other schools achieved record admissions?
               </p>
               <Link
                 href="/contact"
                 className="text-[#B82020] dark:text-[#FF8A8A] font-semibold hover:underline"
               >
-                Speak with an OMA Specialist &gt;
+                Talk to an OMA Specialist &gt;
               </Link>
             </div>
           </div>
@@ -202,9 +189,9 @@ const ServicePage = () => {
       <section className="max-w-6xl mx-auto px-6 py-14 w-full border-b border-[#E2E6F2] dark:border-[#232E66]">
         <div className="flex flex-col sm:flex-row sm:items-end justify-between mb-8 gap-4">
           <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold tracking-tight">
-            <span className="text-[#202860] dark:text-white transition-colors duration-300">Diction &amp; Elocution.</span>{" "}
+            <span className="text-[#202860] dark:text-white transition-colors duration-300">Unlocking Student Potential.</span>{" "}
             <span className="text-[#5A6494] dark:text-[#94A3D3] font-normal transition-colors duration-300">
-              Certified speech and phonics programmes for schools and leaders.
+              From shy voices to inspiring, articulate orators.
             </span>
           </h2>
           <Link
@@ -306,9 +293,9 @@ const ServicePage = () => {
       <section className="bg-white dark:bg-[#0A0E24] border-t border-[#E2E6F2] dark:border-[#232E66] py-16 px-6 transition-colors duration-300">
         <div className="max-w-6xl mx-auto">
           <ShelfCarousel
-            eyebrow="Annual Academic Gala"
-            title="The Lagos OMA Diction Awards."
-            subtitle="Celebrating linguistic mastery across Lagos schools."
+            eyebrow="The Stage of Champions"
+            title="The 2024 Lagos OMA Diction Awards."
+            subtitle="Where young scholars step into the national spotlight and win."
             scrollAmount={360}
           >
             {awardImages.map((image, index) => (

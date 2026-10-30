@@ -1,0 +1,974 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>OMA Services — 4 Revamp Content Variations (Component-by-Component)</title>
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            brandRed: '#B82020',
+            brandRedHover: '#9E1818',
+            brandRedLight: '#FDF2F2',
+            brandRedBorder: '#F3CACA',
+            brandRedDarkText: '#FF8A8A',
+            brandCobalt: '#202860',
+            brandCobaltMuted: '#5A6494',
+            brandCobaltLight: '#FAF8F5',
+            brandCobaltBorder: '#D5DCF0',
+            darkBg: '#0A0E24',
+            darkCard: '#131A3E',
+            darkBorder: '#232E66',
+            darkMuted: '#94A3D3'
+          },
+          fontFamily: {
+            editorial: ['Georgia', '"Times New Roman"', 'serif'],
+            sans: ['-apple-system', 'BlinkMacSystemFont', '"SF Pro Display"', '"Segoe UI"', 'Roboto', 'sans-serif'],
+            mono: ['ui-monospace', 'SFMono-Regular', 'Menlo', 'Monaco', 'Consolas', 'monospace']
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    /* Hide scrollbar for Chrome, Safari and Opera */
+    .no-scrollbar::-webkit-scrollbar {
+      display: none;
+    }
+    /* Hide scrollbar for IE, Edge and Firefox */
+    .no-scrollbar {
+      -ms-overflow-style: none;  /* IE and Edge */
+      scrollbar-width: none;  /* Firefox */
+    }
+    .apple-glass {
+      background: rgba(250, 248, 245, 0.88);
+      backdrop-filter: saturate(180%) blur(20px);
+      -webkit-backdrop-filter: saturate(180%) blur(20px);
+    }
+    .dark .apple-glass {
+      background: rgba(10, 14, 36, 0.90);
+      border-color: rgba(35, 46, 102, 0.7);
+    }
+    @keyframes wave {
+      0%, 100% { transform: scaleY(0.3); opacity: 0.5; }
+      50% { transform: scaleY(1); opacity: 1; }
+    }
+    .wave-bar {
+      animation: wave 1.5s ease-in-out infinite;
+      transform-origin: bottom;
+    }
+  </style>
+</head>
+<body class="bg-[#FAF8F5] dark:bg-[#0A0E24] text-[#202860] dark:text-white transition-colors duration-300 min-h-screen flex flex-col font-sans antialiased">
+
+  <!-- =========================================================================
+       GLOBAL FROSTED HEADER & CONTROLS
+       ========================================================================= -->
+  <header class="sticky top-0 z-50 apple-glass border-b border-[#D5DCF0] dark:border-[#232E66] transition-colors duration-300">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 py-3">
+      <div class="flex flex-col md:flex-row md:items-center justify-between gap-3">
+        <!-- Brand & Title -->
+        <div class="flex items-center justify-between">
+          <div class="flex items-center gap-3">
+            <div class="w-10 h-10 rounded-2xl bg-[#202860] dark:bg-[#131A3E] border-2 border-[#B82020] text-white flex items-center justify-center font-editorial font-bold text-lg shadow-sm">
+              Ω
+            </div>
+            <div>
+              <div class="flex items-center gap-2">
+                <span class="font-bold text-base text-[#202860] dark:text-white">OMA Services</span>
+                <span class="px-2 py-0.5 rounded-full bg-[#FDF2F2] dark:bg-[#B82020]/20 border border-[#F3CACA] dark:border-[#B82020]/40 text-[#B82020] dark:text-[#FF8A8A] text-[10px] font-bold uppercase tracking-wider">
+                  Content Revamp Lab
+                </span>
+              </div>
+              <p class="text-[11px] text-[#5A6494] dark:text-[#94A3D3]">4 Separate Revamp Renditions • Component-by-Component</p>
+            </div>
+          </div>
+
+          <!-- Mobile Quick Buttons -->
+          <div class="flex items-center gap-2 md:hidden">
+            <button id="themeToggleBtnMobile" onclick="toggleTheme()" class="p-2 rounded-xl bg-white dark:bg-[#131A3E] border border-[#D5DCF0] dark:border-[#232E66] text-xs">
+              🌙
+            </button>
+            <button onclick="toggleBlueprintDrawer()" class="px-3 py-1.5 rounded-xl bg-[#B82020] text-white text-xs font-bold flex items-center gap-1.5">
+              <span>Blueprint</span>
+              <span id="blueprintCountBadgeMobile" class="w-4 h-4 rounded-full bg-white text-[#B82020] text-[10px] flex items-center justify-center font-bold">0</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- Mode Controls & Tools -->
+        <div class="flex flex-wrap items-center gap-2 sm:gap-3">
+          <!-- View Mode Toggle (Single Page vs 4-Way Side-by-Side Matrix) -->
+          <div class="inline-flex rounded-xl p-1 bg-white dark:bg-[#131A3E] border border-[#D5DCF0] dark:border-[#232E66] shadow-sm text-xs font-semibold">
+            <button id="btnViewSingle" onclick="setViewMode('single')" class="px-3 py-1.5 rounded-lg bg-[#202860] text-white shadow-sm transition-all flex items-center gap-1.5">
+              <span>📄 Page Flow</span>
+            </button>
+            <button id="btnViewMatrix" onclick="setViewMode('matrix')" class="px-3 py-1.5 rounded-lg text-[#5A6494] dark:text-[#94A3D3] hover:text-[#202860] dark:hover:text-white transition-all flex items-center gap-1.5">
+              <span>⚖️ 4-Way Comparison</span>
+            </button>
+          </div>
+
+          <!-- Dark / Light Theme Toggle -->
+          <button id="themeToggleBtn" onclick="toggleTheme()" class="hidden md:inline-flex items-center gap-1.5 px-3 py-2 rounded-xl bg-white dark:bg-[#131A3E] border border-[#D5DCF0] dark:border-[#232E66] text-xs font-semibold text-[#202860] dark:text-white hover:border-[#B82020] transition-colors shadow-sm" title="Toggle Light/Dark Theme">
+            <span id="themeIcon">🌙</span>
+            <span id="themeLabel">Dark Mode</span>
+          </button>
+
+          <!-- Blueprint Review Drawer Button -->
+          <button onclick="toggleBlueprintDrawer()" class="hidden md:inline-flex items-center gap-2 px-3.5 py-2 rounded-xl bg-[#B82020] hover:bg-[#9E1818] text-white text-xs font-bold uppercase tracking-wider transition-colors shadow-sm">
+            <span>📋 My Blueprint</span>
+            <span id="blueprintCountBadge" class="w-5 h-5 rounded-full bg-white text-[#B82020] text-xs flex items-center justify-center font-bold">0</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- Second Bar: Variation Selector Tabs -->
+      <div id="variationBarContainer" class="mt-3 pt-3 border-t border-[#E2E6F2] dark:border-[#232E66] flex items-center justify-between gap-2 overflow-x-auto no-scrollbar">
+        <span class="text-xs font-bold uppercase tracking-wider text-[#5A6494] dark:text-[#94A3D3] shrink-0 mr-1 hidden sm:inline">
+          Variation:
+        </span>
+        <div class="flex items-center gap-2 shrink-0">
+          <button onclick="setVariation('v1')" id="varTab-v1" class="var-tab px-3.5 py-1.5 rounded-full text-xs font-bold transition-all border flex items-center gap-1.5 bg-[#202860] text-white border-[#202860] shadow-sm">
+            <span class="w-2 h-2 rounded-full bg-[#FF8A8A]"></span>
+            <span>V1: British Pedigree</span>
+          </button>
+          <button onclick="setVariation('v2')" id="varTab-v2" class="var-tab px-3.5 py-1.5 rounded-full text-xs font-semibold transition-all border flex items-center gap-1.5 bg-white dark:bg-[#131A3E] text-[#202860] dark:text-white border-[#D5DCF0] dark:border-[#232E66] hover:border-[#B82020]">
+            <span class="w-2 h-2 rounded-full bg-[#B82020]"></span>
+            <span>V2: Apple Minimalist</span>
+          </button>
+          <button onclick="setVariation('v3')" id="varTab-v3" class="var-tab px-3.5 py-1.5 rounded-full text-xs font-semibold transition-all border flex items-center gap-1.5 bg-white dark:bg-[#131A3E] text-[#202860] dark:text-white border-[#D5DCF0] dark:border-[#232E66] hover:border-[#B82020]">
+            <span class="w-2 h-2 rounded-full bg-[#202860]"></span>
+            <span>V3: School Transformation</span>
+          </button>
+          <button onclick="setVariation('v4')" id="varTab-v4" class="var-tab px-3.5 py-1.5 rounded-full text-xs font-semibold transition-all border flex items-center gap-1.5 bg-white dark:bg-[#131A3E] text-[#202860] dark:text-white border-[#D5DCF0] dark:border-[#232E66] hover:border-[#B82020]">
+            <span class="w-2 h-2 rounded-full bg-emerald-400"></span>
+            <span>V4: Dual-Engine Ecosystem</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- Third Bar: Page Switcher Strip (All 9 Pages) -->
+      <div class="mt-2.5 flex items-center gap-1.5 overflow-x-auto no-scrollbar py-1">
+        <span class="text-xs font-bold uppercase tracking-wider text-[#5A6494] dark:text-[#94A3D3] shrink-0 mr-1 hidden sm:inline">
+          Page:
+        </span>
+        <div id="pageTabsContainer" class="flex items-center gap-1.5 shrink-0">
+          <!-- Populated via JS -->
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- =========================================================================
+       VARIATION STRATEGY BILLBOARD BANNER
+       ========================================================================= -->
+  <section id="strategyBanner" class="bg-white dark:bg-[#131A3E] border-b border-[#D5DCF0] dark:border-[#232E66] py-5 px-6 transition-colors duration-300">
+    <div class="max-w-7xl mx-auto flex flex-col md:flex-row md:items-center justify-between gap-4">
+      <div class="space-y-1">
+        <div class="flex items-center gap-2">
+          <span id="currentVarBadge" class="px-2.5 py-0.5 rounded-full bg-[#FDF2F2] dark:bg-[#B82020]/20 border border-[#F3CACA] dark:border-[#B82020]/40 text-[#B82020] dark:text-[#FF8A8A] text-[11px] font-bold uppercase tracking-widest">
+            Prestige Edition
+          </span>
+          <span class="text-xs text-[#5A6494] dark:text-[#94A3D3]">• Current Strategic Angle</span>
+        </div>
+        <h2 id="currentVarTitle" class="text-xl sm:text-2xl font-bold font-editorial text-[#202860] dark:text-white">
+          Variation 1: British Standard & Institutional Pedigree
+        </h2>
+        <p id="currentVarSummary" class="text-xs sm:text-sm text-[#424B78] dark:text-[#94A3D3] max-w-4xl leading-relaxed">
+          Positions OMA Services as an illustrious, accredited institution upholding classical British Received Pronunciation and sovereign digital craft. Emphasizes academic rigor, classical terminology, and board-level governance.
+        </p>
+      </div>
+
+      <!-- Quick Page Indicator -->
+      <div class="shrink-0 bg-[#FAF8F5] dark:bg-[#0A0E24] p-3 rounded-2xl border border-[#D5DCF0] dark:border-[#232E66] text-xs">
+        <div class="text-[#5A6494] dark:text-[#94A3D3] uppercase tracking-wider text-[10px] font-bold">Currently Viewing</div>
+        <div id="currentPageIndicator" class="font-bold text-sm text-[#202860] dark:text-white mt-0.5">
+          🏠 Home Page (8 Components)
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================================================
+       MAIN CANVAS AREA
+       ========================================================================= -->
+  <main class="flex-1 max-w-7xl w-full mx-auto px-4 sm:px-6 py-8">
+
+    <!-- VIEW MODE 1: SINGLE PAGE COMPONENT-BY-COMPONENT FLOW -->
+    <div id="viewSinglePage" class="space-y-12">
+      <!-- Dynamic Components will be injected here -->
+    </div>
+
+    <!-- VIEW MODE 2: 4-WAY COMPARISON MATRIX -->
+    <div id="viewMatrixComparison" class="hidden space-y-8">
+      <div class="bg-white dark:bg-[#131A3E] p-6 rounded-[28px] border border-[#D5DCF0] dark:border-[#232E66] shadow-sm flex flex-col md:flex-row md:items-center justify-between gap-4">
+        <div>
+          <span class="text-xs font-bold uppercase tracking-widest text-[#B82020] dark:text-[#FF8A8A]">
+            Side-by-Side Review Mode
+          </span>
+          <h3 class="text-2xl font-bold text-[#202860] dark:text-white mt-1">
+            4-Way Component Matrix
+          </h3>
+          <p class="text-xs text-[#5A6494] dark:text-[#94A3D3] mt-0.5">
+            Compare all 4 variations horizontally to choose the most compelling headline, tone, and call-to-action.
+          </p>
+        </div>
+
+        <!-- Component Selector Dropdown -->
+        <div class="flex items-center gap-2">
+          <label for="matrixCompSelect" class="text-xs font-bold text-[#202860] dark:text-white whitespace-nowrap">
+            Select Component:
+          </label>
+          <select id="matrixCompSelect" onchange="renderMatrixView()" class="px-4 py-2.5 rounded-xl border border-[#D5DCF0] dark:border-[#232E66] bg-[#FAF8F5] dark:bg-[#0A0E24] text-[#202860] dark:text-white text-xs font-semibold focus:outline-none focus:border-[#B82020]">
+            <!-- Populated via JS -->
+          </select>
+        </div>
+      </div>
+
+      <!-- 4-Column Grid Container -->
+      <div id="matrixGridContainer" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5 items-start">
+        <!-- Injected via JS -->
+      </div>
+    </div>
+
+  </main>
+
+  <!-- =========================================================================
+       BLUEPRINT SELECTION DRAWER (MODAL OVERLAY)
+       ========================================================================= -->
+  <div id="blueprintDrawer" class="fixed inset-0 z-50 bg-black/60 backdrop-blur-sm hidden flex justify-end transition-opacity">
+    <div class="w-full max-w-xl bg-white dark:bg-[#0A0E24] h-full shadow-2xl flex flex-col border-l border-[#D5DCF0] dark:border-[#232E66] overflow-hidden">
+      <!-- Drawer Header -->
+      <div class="p-6 border-b border-[#E2E6F2] dark:border-[#232E66] flex items-center justify-between bg-[#FAF8F5] dark:bg-[#131A3E]">
+        <div>
+          <span class="text-xs font-bold uppercase tracking-widest text-[#B82020] dark:text-[#FF8A8A]">
+            Curated Architecture
+          </span>
+          <h3 class="text-xl font-bold text-[#202860] dark:text-white mt-0.5">
+            My Content Revamp Blueprint
+          </h3>
+          <p class="text-xs text-[#5A6494] dark:text-[#94A3D3]">
+            Components you have marked as your preferred rendition.
+          </p>
+        </div>
+        <button onclick="toggleBlueprintDrawer()" class="w-8 h-8 rounded-full bg-slate-200 dark:bg-white/10 text-slate-700 dark:text-white flex items-center justify-center font-bold text-sm hover:bg-slate-300">
+          ✕
+        </button>
+      </div>
+
+      <!-- Drawer Body -->
+      <div id="blueprintItemsList" class="flex-1 overflow-y-auto p-6 space-y-4">
+        <!-- Rendered items -->
+      </div>
+
+      <!-- Drawer Footer -->
+      <div class="p-6 border-t border-[#E2E6F2] dark:border-[#232E66] bg-[#FAF8F5] dark:bg-[#131A3E] space-y-3">
+        <button onclick="copyBlueprintToClipboard()" class="w-full py-3.5 rounded-xl bg-[#B82020] hover:bg-[#9E1818] text-white text-xs font-bold uppercase tracking-wider shadow-md transition-colors flex items-center justify-center gap-2">
+          <span>📋 Copy Blueprint Summary to Clipboard</span>
+        </button>
+        <button onclick="clearBlueprint()" class="w-full py-2.5 rounded-xl bg-transparent border border-[#D5DCF0] dark:border-[#232E66] text-xs font-semibold text-[#5A6494] dark:text-[#94A3D3] hover:text-[#B82020]">
+          Reset All Selections
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Global Toast Notification -->
+  <div id="toastNotification" class="fixed bottom-6 right-6 z-50 transform translate-y-24 opacity-0 transition-all duration-300 px-5 py-3 rounded-2xl bg-[#202860] text-white text-xs font-semibold shadow-2xl flex items-center gap-2 border border-white/20">
+    <span id="toastIcon">✓</span>
+    <span id="toastMessage">Selection updated!</span>
+  </div>
+
+  <!-- =========================================================================
+       EMBEDDED CLIENT SCRIPTS & REACTIVE ENGINE
+       ========================================================================= -->
+  <script>
+    const RAW_DATA = {"home": {"title": "Home Page", "icon": "\ud83c\udfe0", "tag": "Flagship Landing Page", "components": {"hero": {"title": "Hero Section & Concierge Widget", "description": "Primary value proposition, two-tone inline header, category credentials, and immediate concierge entry point.", "v1": {"badge": "Lagos, Nigeria \u2022 The Sovereign Benchmark in Speech & Software", "heading_primary": "Oma Services.", "heading_secondary": "The Sovereign Standard for Spoken English Mastery and High-Pedigree Digital Craft.", "subhead": "Entrusted by premier primary and secondary institutions across Lagos, and discreetly consulted by executives who command national stages.", "typewriter_lines": ["\u2014 Classical Received Pronunciation & Boardroom Oratory", "\u2014 Bespoke Web Architecture Engineered for Distinction", "\u2014 Enterprise Cloud & Native Mobile Systems for Academies"], "cta_primary": "Request Institutional Prospectus \u2192", "cta_secondary": "Explore The 2024 Awards Laurels", "concierge_card": {"title": "Direct Chancellor Concierge", "sub": "Inquire regarding academic deployment or proprietary software audit", "link_text": "Speak with an OMA Senior Fellow >"}, "awards_widget": {"title": "9th Annual OMA Diction Awards", "sub": "Silverbird Galleria, Victoria Island \u2022 Grand Gala Laurels", "link_text": "Enroll Pupils via Formal Ledger >"}}, "v2": {"badge": "Speech Academy + Software Studio \u2022 Zero Fluff", "heading_primary": "Oma Services.", "heading_secondary": "Speak clearly. Build beautifully. Scale effortlessly.", "subhead": "Two elite disciplines under one roof: Nigeria's highest-rated diction academy and a rapid-deployment digital engineering studio.", "typewriter_lines": ["\u2014 98% First-Time Fluency Pass Rate for Partner Schools", "\u2014 Full-Stack Next.js 15 Web Platforms Delivered in 14 Days", "\u2014 Native iOS & Android Apps with Paystack & Offline Sync"], "cta_primary": "Get an Instant Quote / Consultation \u2192", "cta_secondary": "View Live 2024 Award Tracks", "concierge_card": {"title": "Fast-Track Support", "sub": "Need a rapid quote, website estimate, or school syllabus?", "link_text": "Chat with a Specialist within 15 Mins >"}, "awards_widget": {"title": "2024 Diction Awards (\u20a6100K+ Prizes)", "sub": "Live at Silverbird Galleria, VI \u2022 \u20a67,000 Entry / Pupil", "link_text": "Instant 2-Minute Pupil Registration >"}}, "v3": {"badge": "Transforming Scholars & Elevating School Reputations", "heading_primary": "Oma Services.", "heading_secondary": "Turn your pupils into articulate leaders and your school into the #1 choice.", "subhead": "Witness hesitant children command auditoriums with effortless stage poise, while our custom digital platforms drive record admissions and parent referrals.", "typewriter_lines": ["\u2014 Watch Student Confidence Surge from Day One", "\u2014 Attract High-Value Families with Impeccable British Diction", "\u2014 Custom Portals That Eliminate School Operational Chaos"], "cta_primary": "Book a Free School Speech Diagnostic \u2192", "cta_secondary": "Register for the 2024 Awards Stage", "concierge_card": {"title": "School Growth Specialist", "sub": "Want to see how diction training increases school enrollment?", "link_text": "Schedule a 1-on-1 Head of School Consultation >"}, "awards_widget": {"title": "Give Your Students the Stage of a Lifetime", "sub": "\u20a650,000 Top Prize & Live National TV Broadcast", "link_text": "Secure Your Pupils' Competition Slots >"}}, "v4": {"badge": "The Dual-Engine Innovation Hub \u2022 Voice & Code", "heading_primary": "Oma Services.", "heading_secondary": "Human Eloquence Meets Silicon-Grade Engineering.", "subhead": "The modern world demands two fluencies: articulate spoken communication and robust digital infrastructure. We master both to accelerate your institution.", "typewriter_lines": ["\u2014 Certified Phonemic Mastery Powering Media & Podcasting", "\u2014 Proprietary E-Learning Software Reinforcing Daily Speech", "\u2014 Scalable Cloud Architecture for 21st-Century Schools"], "cta_primary": "Explore The Dual-Engine Platform \u2192", "cta_secondary": "Discover The OMA Ecosystem", "concierge_card": {"title": "Ecosystem Advisory Desk", "sub": "Integrate spoken English training with custom school software", "link_text": "Explore Unified Institutional Packages >"}, "awards_widget": {"title": "The 2024 Tech-Enabled Diction Stage", "sub": "Streamed Live on YouTube & Broadcast Media Globally", "link_text": "Access Digital Enrollment Gateway >"}}}, "category_dock": {"title": "Visual Practice Dock (Apple Category Strip)", "description": "One-click horizontal product dock guiding visitors to distinct divisions.", "v1": {"categories": [{"title": "Speech Therapy", "sub": "Articulatory Correction", "badge": "Clinical"}, {"title": "School Diction", "sub": "Classical RP Syllabus", "badge": "Accredited"}, {"title": "Phonics Classes", "sub": "Phonemic Foundations", "badge": "Literacy"}, {"title": "Web Architecture", "sub": "Editorial Digital Assets", "badge": "Bespoke"}, {"title": "Mobile Systems", "sub": "Institutional iOS & Android", "badge": "Native"}, {"title": "Custom Portals", "sub": "Proprietary School SaaS", "badge": "Secure"}, {"title": "2024 Awards", "sub": "Annual Silverbird Gala", "badge": "Laurels"}]}, "v2": {"categories": [{"title": "Speech Therapy", "sub": "Fix Speech Impediments", "badge": "1-on-1"}, {"title": "School Diction", "sub": "All Grades Curriculum", "badge": "Top Rated"}, {"title": "Phonics Classes", "sub": "Rapid Reading & Spelling", "badge": "Ages 3-9"}, {"title": "Website Design", "sub": "Next.js 15 Fast Sprints", "badge": "14-Day Delivery"}, {"title": "Mobile Apps", "sub": "iOS + Android Live Apps", "badge": "Paystack Ready"}, {"title": "School Portals", "sub": "Automate Grades & Fees", "badge": "Zero Chaos"}, {"title": "2024 Awards", "sub": "\u20a650K Prize Competitions", "badge": "Enroll Now"}]}, "v3": {"categories": [{"title": "Speech Therapy", "sub": "Unlock Vocal Confidence", "badge": "Life Changing"}, {"title": "School Diction", "sub": "Elevate School Prestige", "badge": "Parent Magnet"}, {"title": "Phonics Classes", "sub": "Turn Strugglers into Readers", "badge": "Guaranteed"}, {"title": "Website Design", "sub": "Admissions-Boosting Sites", "badge": "High Conversion"}, {"title": "Mobile Apps", "sub": "Parent Communication Hubs", "badge": "Daily Use"}, {"title": "Custom Portals", "sub": "Delight Parents & Teachers", "badge": "Streamlined"}, {"title": "2024 Awards", "sub": "Celebrate Your Stars Live", "badge": "TV Broadcast"}]}, "v4": {"categories": [{"title": "Speech Therapy", "sub": "Acoustic Voice Diagnostics", "badge": "Vocal Lab"}, {"title": "School Diction", "sub": "Hybrid Campus Delivery", "badge": "Systemic"}, {"title": "Phonics Classes", "sub": "Interactive Phoneme Engine", "badge": "Foundation"}, {"title": "Web Architecture", "sub": "Headless Cloud Platforms", "badge": "Next.js 15"}, {"title": "Mobile Systems", "sub": "Offline-First Mobile SDKs", "badge": "iOS / Android"}, {"title": "Custom SaaS", "sub": "Multi-Tenant Infrastructure", "badge": "PostgreSQL"}, {"title": "2024 Awards", "sub": "Omnichannel Talent Showcase", "badge": "Global Stream"}]}}, "flagship_shelf": {"title": "Horizontal Snap-Scroll Flagship Suites", "description": "Five tall 28px Bubble Cards with rich copy, stats, and visual interaction.", "v1": {"shelf_title": "The Institutional Suites.", "shelf_subtitle": "Distinguished programs engineered for academic pedigree and administrative excellence.", "card_1": {"tag": "Division I \u2022 The Classical Diction Academy", "h3": "Cultivate unmistakable vocal nobility across every pupil and faculty member.", "desc": "Our certified master elocutionists integrate British Received Pronunciation, eliminating regional vowel distortions while preserving cultural identity.", "stat": "50+ Accredited Academies"}, "card_2": {"tag": "Division II \u2022 Sovereign Web Architecture", "h3": "Digital storefronts crafted with the dignity and precision of fine print.", "desc": "Bespoke digital architecture using Next.js 15. Zero generic WordPress templates; every pixel honors your institutional prestige and accelerates inquiries.", "stat": "Sub-Second Load Time"}, "card_3": {"tag": "\u2605 The 9th Annual Gala \u2022 Lagos", "h3": "The 2024 OMA Diction Awards Competition at Silverbird Galleria.", "desc": "Two competitive laurels: Category A (Poetry Recitation) and Category B (Words Often Mispronounced). Gold trophies and \u20a6100,000+ merit endowments.", "stat": "\u20a650,000 1st Prize / Category"}, "card_4": {"tag": "Divisions III & IV \u2022 Enterprise Application Engineering", "h3": "High-assurance mobile applications and institutional school management portals.", "desc": "Automated tuition reconciliation, student grading ledgers, and parent communication channels fortified with bank-grade encryption.", "stat": "99.9% Production Uptime"}, "card_5": {"tag": "Leadership Profile \u2022 The Diction Oracle", "h3": "A decade of pioneering speech excellence and educational transformation.", "desc": "Led by certified speech therapists and veteran systems architects who have trained over 10,000 scholars and 830+ verified institutional leaders.", "stat": "10+ Years Proven Track Record"}}, "v2": {"shelf_title": "The Flagship Suites.", "shelf_subtitle": "Take a look at what\u2019s delivering rapid, measurable results right now.", "card_1": {"tag": "Division I \u2022 Diction & Speech Academy", "h3": "Clear, confident speech in classrooms and executive boardrooms.", "desc": "Hands-on phonetic training, tongue-placement drills, and public speaking frameworks that produce audible clarity within 14 days.", "stat": "10,000+ Scholars Trained"}, "card_2": {"tag": "Division II \u2022 Web Design & SEO", "h3": "High-converting websites engineered to turn visitors into buyers.", "desc": "Custom-coded on Next.js 15. Mobile-first, Google PageSpeed 95+, and search-optimized to capture qualified leads 24 hours a day.", "stat": "14-Day Delivery Guarantee"}, "card_3": {"tag": "\u2605 2024 Awards \u2022 Silverbird Galleria", "h3": "\u20a650,000 Top Cash Prize. Real Judges. Real TV Cameras.", "desc": "Register your pupils for Category A (Poetry) or Category B (Mispronounced Words). Simple \u20a67,000 entry fee with instant registration confirmation.", "stat": "\u20a6100,000+ Total Purse"}, "card_4": {"tag": "Divisions III & IV \u2022 Mobile Apps & SaaS", "h3": "Custom iOS, Android & Web Portals built for daily reliance.", "desc": "Eliminate spreadsheets with custom software that tracks payments, manages students, and sends instant WhatsApp/SMS notifications.", "stat": "Zero Monthly Template Fees"}, "card_5": {"tag": "Authority \u2022 The Diction Oracle", "h3": "830+ five-star verified reviews from educators across Nigeria.", "desc": "Explore how our dedicated coaching methodology has made OMA Services the most recommended speech and technology agency in Lagos.", "stat": "4.9\u2605 Aggregate Rating"}}, "v3": {"shelf_title": "Transformation Stories & Flagship Suites.", "shelf_subtitle": "See how schools gain an unfair competitive advantage in admissions and parent loyalty.", "card_1": {"tag": "Division I \u2022 Speech & Confidence Transformation", "h3": "When your students speak at open houses, parents enroll on the spot.", "desc": "Nothing sells a school faster than articulate pupils. We transform hesitant, timid speakers into polished orators who blow parents away.", "stat": "88% Parent Recommendation Surge"}, "card_2": {"tag": "Division II \u2022 High-Impact Web & Admissions Engines", "h3": "A modern website that makes parents choose your school over the competition.", "desc": "Stop losing prospective families to outdated websites. We build breathtaking digital portals with effortless online application forms.", "stat": "3x Increase in Admissions Enquiries"}, "card_3": {"tag": "\u2605 The Ultimate Student Milestone \u2022 Lagos", "h3": "Watch your pupils stand tall on the Silverbird stage and bring home gold.", "desc": "The 2024 OMA Diction Awards gives your pupils life-defining recognition, national media fame, and a trophy your school can display with immense pride.", "stat": "Gold Trophies & State Renown"}, "card_4": {"tag": "Divisions III & IV \u2022 School Operating Systems", "h3": "End tuition payment chases and lost report cards once and for all.", "desc": "Give parents an app they love using. Automatic fee reminders, digital term reports, and instant attendance notifications right on their phones.", "stat": "100% On-Time Fee Collection"}, "card_5": {"tag": "Founder's Heart \u2022 The Diction Oracle", "h3": "A mission born to ensure no Nigerian child is held back by poor diction.", "desc": "We believe eloquent speech unlocks global scholarships, executive careers, and unshakeable self-worth. Here is how we make it happen.", "stat": "Over 10 Years of Changed Lives"}}, "v4": {"shelf_title": "The Dual-Engine Innovation Suites.", "shelf_subtitle": "Unified communication pedagogy powered by intelligent digital tools.", "card_1": {"tag": "Engine 1 \u2022 Phonemic Speech Architecture", "h3": "Systematic phonetic training mapped to international acoustic benchmarks.", "desc": "Blending articulatory phonetics with auditory feedback loops, our elocution engine delivers calibrated vocal resonance and impeccable cadence.", "stat": "Acoustic Vocal Clarity"}, "card_2": {"tag": "Engine 2 \u2022 High-Performance Web Engineering", "h3": "Modern Next.js platforms built as durable institutional infrastructure.", "desc": "Engineered with React Server Components, Tailwind CSS, and edge caching for sub-second performance across mobile networks.", "stat": "Serverless Edge Deployment"}, "card_3": {"tag": "\u2605 Live Demonstration \u2022 2024 Awards", "h3": "Where oral mastery meets digital adjudication and live multi-camera broadcast.", "desc": "Experience the 2024 OMA Diction Awards \u2014 featuring digital scorecards, live YouTube streaming, and instant verification ledgers.", "stat": "Live Multicast & Digital Ledger"}, "card_4": {"tag": "Engines 3 & 4 \u2022 Cloud Platforms & Native Apps", "h3": "Full-stack institutional portals synchronizing speech drills & administration.", "desc": "Custom mobile and web applications equipped with role-based access, automated tuition collection via Paystack, and phonics audio practice modules.", "stat": "Unified Campus Data Layer"}, "card_5": {"tag": "Ecosystem Lead \u2022 The Diction Oracle", "h3": "Architecting the convergence of speech literacy and digital transformation.", "desc": "Discover the vision unifying spoken word mastery, broadcast media production, and bespoke software engineering for West Africa.", "stat": "Integrated Institutional Impact"}}}, "bento_difference": {"title": "The OMA Difference (Bento Value Shelf)", "description": "Four color-keyword bento cards proving institutional superiority.", "v1": {"bento_1": {"metric": "10+", "highlight": "certified diction fellows", "text": "Stationed directly on your school campus or boardroom for disciplined immersion."}, "bento_2": {"metric": "</>", "highlight": "bespoke Next.js platforms", "text": "Engineered with zero third-party themes, ensuring sovereign digital security and speed."}, "bento_3": {"metric": "50+", "highlight": "accredited institutional partners", "text": "Entrusted by premier primary colleges and corporate executives across West Africa."}, "bento_4": {"metric": "\u2605", "highlight": "official Silverbird Galleria stage", "text": "Featuring \u20a6100,000+ in academic prize money broadcast on national television."}}, "v2": {"bento_1": {"metric": "100%", "highlight": "money-back speech diagnostic", "text": "We identify your pupils' exact phonetic gaps in a single 45-minute audit session."}, "bento_2": {"metric": "14 Days", "highlight": "from wireframe to live launch", "text": "No 3-month software delays. Rapid agile sprints designed for fast-moving organizations."}, "bento_3": {"metric": "830+", "highlight": "verified client testimonials", "text": "Every review backed by actual school administrators and corporate clients across Nigeria."}, "bento_4": {"metric": "\u20a650,000", "highlight": "cash prize per award category", "text": "Transparent prize money paid out immediately on stage at the Silverbird Gala."}}, "v3": {"bento_1": {"metric": "3x", "highlight": "enrollment inquiry boost", "text": "Partner schools report parents eagerly transferring children after hearing pupils speak."}, "bento_2": {"metric": "Zero", "highlight": "headaches for school heads", "text": "We handle teacher training, parent workshops, syllabus design, and competition prep."}, "bento_3": {"metric": "10,000+", "highlight": "confident young voices created", "text": "From shy children afraid to talk in class to confident leaders speaking on live television."}, "bento_4": {"metric": "100%", "highlight": "admiration from visiting guests", "text": "Turn your school speech day, carol services, and graduations into jaw-dropping showcases."}}, "v4": {"bento_1": {"metric": "Dual-Track", "highlight": "human + digital literacy", "text": "Equip students with 21st-century oratory confidence and modern digital campus access."}, "bento_2": {"metric": "Cloud-Native", "highlight": "automated school workflow", "text": "Replaces fragmented paper registers with real-time analytics and online tuition payments."}, "bento_3": {"metric": "Omnichannel", "highlight": "broadcast & social production", "text": "High-production YouTube video optimization, podcast distribution, and media growth."}, "bento_4": {"metric": "Tier-1", "highlight": "resilient infrastructure stack", "text": "Built on Next.js 15, PostgreSQL, and AWS/Vercel edge for 99.9% fault-tolerant uptime."}}}, "core_standards": {"title": "Core Standards & Institutional Metrics", "description": "3 program pillars + 4 metric bubble cards.", "v1": {"heading": "Core Standards. Three foundational pillars of academic rigor and digital mastery.", "pillar_1": {"num": "I", "title": "Adaptivity", "sub": "Bespoke Institutional Alignment", "desc": "Customized curricula tailored to the specific demographic and academic ambitions of each private institution."}, "pillar_2": {"num": "II", "title": "Oral Excellence", "sub": "Phonetic & Stage Command", "desc": "Structured elocution modules instilling international British Received Pronunciation standards without accent artificiality."}, "pillar_3": {"num": "III", "title": "Digital Craft", "sub": "Engineering Integrity", "desc": "Precision software crafted with hand-tuned code, responsive fluidity, and rigorous security architecture."}, "stats": [{"value": "10+", "label": "Years Experience", "detail": "Distinguished institutional tenure"}, {"value": "50+", "label": "Partner Schools", "detail": "Active syllabus deployment"}, {"value": "830+", "label": "Verified Endorsements", "detail": "Authenticated proprietor audits"}, {"value": "10K+", "label": "Certified Scholars", "detail": "Coached across Nigeria & diaspora"}]}, "v2": {"heading": "Core Standards. High-speed execution with zero compromises on quality.", "pillar_1": {"num": "I", "title": "Practical Results", "sub": "Audible from Week One", "desc": "No endless grammar drills. Pupils practice live speaking patterns and correct mispronunciations in real time."}, "pillar_2": {"num": "II", "title": "Modern Tech", "sub": "Next.js 15 & Native Mobile", "desc": "Built using modern technologies with zero bloated plugins, fast load speeds, and mobile-first design."}, "pillar_3": {"num": "III", "title": "Transparent Pricing", "sub": "Clear ROI & Fixed Fees", "desc": "No surprise charges or hidden maintenance fees. Everything is clearly scoped, priced, and delivered on schedule."}, "stats": [{"value": "14 Days", "label": "Fast Turnaround", "detail": "Average bespoke website delivery"}, {"value": "98%", "label": "Fluency Pass Rate", "detail": "Measured across annual student cohorts"}, {"value": "\u20a6100K+", "label": "Award Purse", "detail": "Paid live on stage to winner pupils"}, {"value": "24/7", "label": "Direct Support", "detail": "Dedicated account manager SLA"}]}, "v3": {"heading": "Core Standards. Putting student transformation and school growth at the center.", "pillar_1": {"num": "I", "title": "Child-First Empathy", "sub": "Nurturing Self-Esteem", "desc": "We build a psychologically safe environment where quiet and shy pupils find their voice without fear of ridicule."}, "pillar_2": {"num": "II", "title": "Proprietor Peace of Mind", "sub": "Total Curriculum Handover", "desc": "We provide lesson plans, periodic audio assessments, and termly parent reports so management never stresses."}, "pillar_3": {"num": "III", "title": "Market Leadership", "sub": "Standing Out in Lagos", "desc": "Give your school the prestige factor that makes prospective parents say 'This is where my child belongs.'"}, "stats": [{"value": "100%", "label": "Parent Satisfaction", "detail": "At speech day & graduation showcases"}, {"value": "50+", "label": "Proud Schools", "detail": "Dominating their educational zones"}, {"value": "\u20a650,000", "label": "Prize Cheques", "detail": "Inspiring academic brilliance"}, {"value": "10,000+", "label": "Proud Parents", "detail": "Celebrating confident children"}]}, "v4": {"heading": "Core Standards. The synthesis of human articulation and modern computing.", "pillar_1": {"num": "I", "title": "Acoustic Literacy", "sub": "Science-Backed Speech", "desc": "Employing international phonetic alphabet (IPA) acoustics to systematically deconstruct and perfect spoken language."}, "pillar_2": {"num": "II", "title": "Systemic Automation", "sub": "Streamlined Cloud Ops", "desc": "Automating tuition collection, fee reconciliation, and student academic dossiers via custom software."}, "pillar_3": {"num": "III", "title": "Omnichannel Reach", "sub": "Media & Digital Impact", "desc": "Amplifying your message across web, mobile, YouTube broadcasting, and executive digital platforms."}, "stats": [{"value": "1 Unified", "label": "Agency Partner", "detail": "Speech training + software studio"}, {"value": "99.9%", "label": "SaaS Reliability", "detail": "Fault-tolerant cloud operations"}, {"value": "50+", "label": "Hybrid Deployments", "detail": "In-person labs + digital portals"}, {"value": "10+ Yrs", "label": "System Evolution", "detail": "Continuously refined methodologies"}]}}, "awards_billboard": {"title": "2024 Diction Awards Showcase Billboard", "description": "Gala banner, prize distribution, and candidate enrollment callout.", "v1": {"badge": "9th Annual Edition \u2022 Silverbird Galleria, Victoria Island", "heading": "Enroll Your Scholars for Nigeria's Premier Elocution Stage.", "desc": "Open to pupils in Grades 3 to 6 across two prestigious competitive tracks: Category A (Poetry Recitation) and Category B (Words Often Mispronounced). Top prize laureates receive \u20a650,000 merit grants and engraved trophies.", "entry_fee": "\u20a67,000 per pupil", "bank_details": "GTBank \u2022 Oma Professional Services \u2022 0107068307", "cat_a": "Category A \u2022 Classical Poetry Recitation (Elocution, Cadence, Stage Command)", "cat_b": "Category B \u2022 Words Often Mispronounced (Phonetic Precision & Syllable Stress)", "cta": "Enroll Scholars via Official Register \u2192"}, "v2": {"badge": "\u20a6100,000+ Total Cash Prizes \u2022 Live National Stream", "heading": "The 2024 Lagos OMA Diction Awards Competition.", "desc": "Give your pupils the stage experience of a lifetime. Real judges, grand trophies, cash prizes paid on stage, and nationwide media coverage. Fast 2-minute registration.", "entry_fee": "\u20a67,000 flat entry fee", "bank_details": "GTBank: 0107068307 (Oma Professional Services)", "cat_a": "Category A \u2022 Poetry Recitation (\u20a650,000 1st Prize + Trophy)", "cat_b": "Category B \u2022 Mispronounced Words (\u20a650,000 1st Prize + Trophy)", "cta": "Instant Candidate Registration \u2192"}, "v3": {"badge": "Where Future Leaders & Orators Are Born", "heading": "Watch Your School's Stars Shine on National Television.", "desc": "Imagine the pride of your school's parents seeing their children accept the champion's trophy at Silverbird Galleria. Boost your school's reputation and reward your brightest pupils.", "entry_fee": "Only \u20a67,000 per contestant", "bank_details": "GTBank \u2022 Account 0107068307 \u2022 Oma Professional Services", "cat_a": "Category A \u2022 Poetry Recitation (Inspiring verses & stage charisma)", "cat_b": "Category B \u2022 Words Often Mispronounced (Brilliant phonetic mastery)", "cta": "Register Your School's Pupils Today \u2192"}, "v4": {"badge": "The Premier Youth Elocution & Media Showcase", "heading": "2024 Lagos OMA Diction Awards \u2022 Live Broadcast Edition.", "desc": "An electrified hybrid competition combining live stage performances at Silverbird Galleria with global live-streaming on the Diction Oracle YouTube Channel and broadcast TV syndication.", "entry_fee": "\u20a67,000 Official Candidate Enrollment", "bank_details": "Oma Professional Services \u2022 GTBank \u2022 0107068307", "cat_a": "Track A \u2022 Poetry Recitation: Auditory nuance & verse delivery", "cat_b": "Track B \u2022 Mispronounced Words: Rapid-fire phonetic elimination", "cta": "Access the Digital Awards Portal \u2192"}}, "direct_concierge": {"title": "Direct Concierge & Dispatch Form", "description": "Bottom-of-page contact concierge for school audits and project commissions.", "v1": {"heading": "Direct Concierge. Initiate a confidential consultation with Oma Services.", "column_title": "Executive Inquiries & Academic Retainers", "column_text": "Whether commissioning campus-wide elocution deployment, requesting a software architecture review, or inquiring regarding the 2024 Awards, our leadership attends to every dispatch.", "form_heading": "Dispatch Official Inquiry", "form_button": "Transmit Executive Inquiry \u2192"}, "v2": {"heading": "Direct Concierge. Talk to a specialist in under 15 minutes.", "column_title": "Fast-Track Project Scoping", "column_text": "Need a fast quote for your school diction training or a new website? Fill out the quick form and an OMA director will reply with pricing and timelines within hours.", "form_heading": "Send Us a Message", "form_button": "Get an Instant Response \u2192"}, "v3": {"heading": "Let's Talk About Your School's Next Breakthrough.", "column_title": "We're Ready to Help Your Pupils Excel", "column_text": "Every great school starts with a conversation. Tell us your goals, the challenges you face with student speech or school tech, and let's craft a tailored solution.", "form_heading": "Start the Conversation", "form_button": "Schedule Your Free Consultation \u2192"}, "v4": {"heading": "Ecosystem Concierge. Bridge voice and digital infrastructure.", "column_title": "Unified Inquiry Dispatch", "column_text": "Connect with our cross-disciplinary team to explore integrated packages spanning diction training, campus software, and media broadcast channels.", "form_heading": "Submit Platform Specification", "form_button": "Initiate Ecosystem Engagement \u2192"}}, "quick_links": {"title": "Apple-Style Quick Links Bar & Footer", "description": "Pill-shaped shortcut bar above the footer.", "v1": {"pills": [{"label": "Institutional Diction Prospectus \u2197", "href": "#"}, {"label": "2024 Recitation Category Ledger \u2197", "href": "#"}, {"label": "Words Mispronounced Entry \u2197", "href": "#"}, {"label": "Commission Sovereign Web Architecture \u2197", "href": "#"}, {"label": "Verify Scholar Credential Pass \u2197", "href": "#"}]}, "v2": {"pills": [{"label": "Book 45-Min Speech Audit \u2197", "href": "#"}, {"label": "Instant \u20a67,000 Award Registration \u2197", "href": "#"}, {"label": "14-Day Website Design Quote \u2197", "href": "#"}, {"label": "Custom School Portal Demo \u2197", "href": "#"}, {"label": "WhatsApp an OMA Specialist \u2197", "href": "#"}]}, "v3": {"pills": [{"label": "How to Increase School Admissions \u2197", "href": "#"}, {"label": "Enroll Your School's Best Pupils \u2197", "href": "#"}, {"label": "Parent Speech Day Showcase Guide \u2197", "href": "#"}, {"label": "Upgrade Your School Website \u2197", "href": "#"}, {"label": "Read Verified Parent Reviews \u2197", "href": "#"}]}, "v4": {"pills": [{"label": "Explore The Dual-Engine Model \u2197", "href": "#"}, {"label": "Live YouTube Broadcast Channel \u2197", "href": "#"}, {"label": "Next.js 15 Web Tech Stack \u2197", "href": "#"}, {"label": "Mobile App Engineering Specs \u2197", "href": "#"}, {"label": "Cloud Portal Pricing Matrix \u2197", "href": "#"}]}}}}, "about": {"title": "About Page", "icon": "\ud83c\udfdb\ufe0f", "tag": "Heritage & Pedagogy", "components": {"hero_heritage": {"title": "Split Hero Narrative (Our Heritage)", "description": "Origin story, institutional identity, and foundational purpose.", "v1": {"badge": "01 / Institutional Heritage \u2022 Established Over a Decade", "heading_primary": "Our Heritage.", "heading_secondary": "A decade of classical phonetics, sovereign standards, and digital mastery.", "lead": "Founded to preserve and elevate the rigor of the spoken English language across Nigerian academies, Oma Services has evolved into West Africa's foremost elocution and digital craft institution.", "body": "We believe that eloquence is neither an accident of birth nor an optional embellishment; it is the sovereign instrument of leadership. Combined with precision digital software, we empower institutions to project unmatched authority in both speech and technology.", "pillars_preview": ["Classical British Received Pronunciation", "Accredited Campus Delivery", "Sovereign Engineering Standards"]}, "v2": {"badge": "01 / Who We Are \u2022 Real Results Fast", "heading_primary": "Our Heritage.", "heading_secondary": "Over 10 years of cutting through noise and delivering measurable excellence.", "lead": "We started with a simple belief: school diction programs were too academic and slow, while digital agencies were full of overpriced templates. We changed both.", "body": "Today, Oma Services delivers high-velocity results. In our speech academy, students achieve clear articulation in weeks, not years. In our digital studio, bespoke Next.js websites and custom school portals launch in 14 days, fully optimized to drive enrollment.", "pillars_preview": ["Audible Speech Transformation", "Zero-Template Modern Code", "Transparent Fixed-Fee Pricing"]}, "v3": {"badge": "01 / The Story Behind the Transformation", "heading_primary": "Our Heritage.", "heading_secondary": "Born to give every child a commanding voice and every school a competitive edge.", "lead": "Ten years ago, we watched brilliant Nigerian students fail interviews, stay silent in class, and miss global scholarships simply because they had never been taught the mechanics of confident, articulate speech.", "body": "Oma Services was created to change that forever. Over the past decade, we have worked alongside passionate school proprietors to transform over 10,000 students into stage laureates. We don't just teach diction \u2014 we build unshakeable self-worth that lasts a lifetime.", "pillars_preview": ["Confidence-First Coaching", "Admissions-Multiplying Portals", "Unbreakable School Loyalty"]}, "v4": {"badge": "01 / The Dual-Engine Genesis", "heading_primary": "Our Heritage.", "heading_secondary": "The fusion of acoustic phonetics and cloud-native software architecture.", "lead": "In an increasingly interconnected world, institutional influence is defined by two vectors: how convincingly you speak, and how seamlessly your digital systems perform.", "body": "Oma Services was established as a cross-disciplinary hybrid studio. By marrying deep articulatory phonetics with enterprise full-stack development, we provide schools, executives, and organizations with a single, synchronized platform for human and digital elevation.", "pillars_preview": ["Acoustic Speech Science", "Cloud-Native Infrastructure", "Unified Digital Presence"]}}, "institutional_metrics": {"title": "Institutional Proof Metrics", "description": "Key milestone numbers with contextual detail.", "v1": {"stats": [{"value": "10+", "label": "Years of Pedigree", "detail": "Consecutive academic governance"}, {"value": "50+", "label": "Partner Academies", "detail": "Accredited primary & secondary schools"}, {"value": "830+", "label": "Audited Endorsements", "detail": "Proprietors, rectors & executives"}, {"value": "10K+", "label": "Certified Scholars", "detail": "Trained under British RP standards"}]}, "v2": {"stats": [{"value": "10+ Yrs", "label": "Field Experience", "detail": "Proven track record in Lagos"}, {"value": "98%", "label": "First-Time Pass", "detail": "Phonetics & speech mastery rate"}, {"value": "14 Days", "label": "Web Delivery", "detail": "Fast-track design & build sprint"}, {"value": "\u20a6100K+", "label": "Annual Gala Purse", "detail": "Cash awards paid directly on stage"}]}, "v3": {"stats": [{"value": "10,000+", "label": "Transformed Lives", "detail": "Children who found their true voice"}, {"value": "50+", "label": "Thriving Schools", "detail": "Now #1 choices in their districts"}, {"value": "3x", "label": "Admissions Inquiries", "detail": "Reported by partner school leadership"}, {"value": "830+", "label": "Grateful Letters", "detail": "From parents, teachers & directors"}]}, "v4": {"stats": [{"value": "2 Engines", "label": "Unified Platform", "detail": "Elocution academy + software studio"}, {"value": "99.9%", "label": "Platform Uptime", "detail": "Serverless edge cloud deployment"}, {"value": "50+", "label": "Integrated Campuses", "detail": "Hybrid physical & digital delivery"}, {"value": "10K+", "label": "Digital & Voice Alumni", "detail": "Graduates across West Africa"}]}}, "three_pillars": {"title": "The Three Foundational Standards", "description": "Core philosophical tenets guiding all teaching and engineering.", "v1": {"heading": "The Three Pillars of The Oma Canon.", "pillar_1": {"title": "I. Classical Adaptivity", "sub": "Contextual Institutional Calibration", "desc": "No two academies are identical. Our senior fellows calibrate curriculum delivery to your specific school culture, entry exams, and academic milestones."}, "pillar_2": {"title": "II. Sovereign Oral Excellence", "sub": "Received Pronunciation Rigor", "desc": "We teach classical British Received Pronunciation using articulatory phonetics, eliminating regional vowel traps while nurturing authentic oratorical flair."}, "pillar_3": {"title": "III. Digital Craftsmanship", "sub": "Uncompromising Engineering", "desc": "We build software with the care of fine bookbinding. Clean React architectures, ironclad security, and responsive layouts that command immediate respect."}}, "v2": {"heading": "Our 3 Operating Rules for High-Performance Delivery.", "pillar_1": {"title": "I. Rapid Audible Results", "sub": "Clarity from the Very First Session", "desc": "We focus on high-frequency phonetic corrections. Pupils correct everyday mistakes (e.g. silent letters, weak stress) immediately so results are heard at home."}, "pillar_2": {"title": "II. Modern Full-Stack Tech", "sub": "No Legacy Templates or WordPress", "desc": "Every website and portal is built on Next.js 15, Tailwind CSS, and cloud databases. Lightning-fast speeds, zero bloat, and 100% mobile perfection."}, "pillar_3": {"title": "III. Full Accountability", "sub": "Audited Reports Every Term", "desc": "School proprietors receive transparent termly progress ledgers, student audio recordings, and measurable milestones every single quarter."}}, "v3": {"heading": "The 3 Commitments That Guide Our Work.", "pillar_1": {"title": "I. No Child Left Unheard", "sub": "Patient, Confidence-Building Care", "desc": "Every child has a natural gift of expression. We work patiently with hesitant pupils until their stage fright dissolves into radiant confidence."}, "pillar_2": {"title": "II. Measurable School Growth", "sub": "Becoming the Crown Jewel of Your Area", "desc": "We design our programs and digital tools specifically to make your school the proudest, most admired institution in your neighbourhood."}, "pillar_3": {"title": "III. Lasting Pride for Parents", "sub": "Moments That Bring Tears of Joy", "desc": "From speech day presentations to national TV competitions, we create milestone moments that make parents brag about your school everywhere."}}, "v4": {"heading": "The 3 Architectural Layers of the OMA Ecosystem.", "pillar_1": {"title": "I. Acoustic & Vocal Layer", "sub": "Biomechanical Speech Mastery", "desc": "Precision speech coaching addressing breath control, vocal resonance, articulatory precision, and international phonetics (IPA)."}, "pillar_2": {"title": "II. Cloud & Software Layer", "sub": "Institutional Systems Architecture", "desc": "Custom digital ecosystems integrating student records, automated fee gateways (Paystack), and phonics audio drills into one dashboard."}, "pillar_3": {"title": "III. Broadcast & Media Layer", "sub": "Global Reach & Digital Presence", "desc": "Amplifying institutional brand reach via professional YouTube channel production, podcast syndication on Spotify, and national TV specials."}}}, "leadership_oracle": {"title": "Executive Leadership Mandate (The Diction Oracle)", "description": "Practice Lead profile, credentials, and institutional mandate.", "v1": {"badge": "Office of the Practice Lead \u2022 The Diction Oracle", "title": "A Life Dedicated to the Sovereign Discipline of Speech.", "quote": "To speak with precision is to honor one's intellect. In an era of hurried communication, we restore the dignity of deliberate, articulate English to African youth.", "narrative": "Under the moniker of 'The Diction Oracle', our practice leadership has spent over a decade training educators, advising corporate executives, and evaluating national speech contests. Supported by a faculty of certified speech therapists and software architects, Oma Services represents an uncompromising standard of West African excellence.", "cta": "Request an Executive Engagement >"}, "v2": {"badge": "Practice Leadership \u2022 The Diction Oracle", "title": "Proven Authority with Over 830 Verified Reviews.", "quote": "We don't teach theory from dusty textbooks. We teach speaking that commands attention in real rooms, and we build software that works on real devices.", "narrative": "Widely known across educational circles as 'The Diction Oracle', our lead has personally trained over 10,000 scholars and steered speech transformations for 50+ schools. With a strong presence on YouTube, TV broadcasts, and corporate stages, our focus remains 100% on tangible student mastery and client growth.", "cta": "Book a 30-Minute Consultation >"}, "v3": {"badge": "The Heart Behind the Mission \u2022 The Diction Oracle", "title": "Passionate Advocate for Every Child's Brilliance.", "quote": "When a child learns to speak with confidence, their entire future changes. They raise their hand in class, they dream bigger, and they step onto any stage without fear.", "narrative": "Known affectionately as 'The Diction Oracle', our founder's mission began with a deep love for children and an unshakeable belief that Nigerian pupils can match any international standard. Over 10 years later, that same passion fuels every classroom visit, teacher training session, and annual Awards Gala.", "cta": "Invite The Diction Oracle to Your Campus >"}, "v4": {"badge": "Ecosystem Architect \u2022 The Diction Oracle", "title": "Pioneering the Synergy of Voice and Digital Media.", "quote": "The voice is the oldest human technology; the web is the newest. Mastering both is the superpower of the 21st-century institution.", "narrative": "The Diction Oracle leads an interdisciplinary team bridging linguistics, broadcast media, and software engineering. From the studio at Silverbird Galleria to cloud-native Next.js codebases, our leadership guides schools into an era where eloquent pupils and automated systems flourish side by side.", "cta": "Connect with Our Leadership Desk >"}}, "pedagogy_methodology": {"title": "Pedagogical & Engineering Methodology", "description": "Step-by-step breakdown of how OMA delivers results.", "v1": {"heading": "The OMA Quad-Phasic Methodology.", "step_1": {"phase": "01", "name": "Diagnostic Phonetic Audit", "desc": "Comprehensive vocal screening of pupils and faculty to isolate vowel shifts, consonant clusters, and cadence deficiencies."}, "step_2": {"phase": "02", "name": "Immersion & Orthoepy", "desc": "Weekly structured modules covering IPA symbols, syllable stress, intonation contours, and classical poetry analysis."}, "step_3": {"phase": "03", "name": "Stage Poise & Oratory", "desc": "Practical podium rehearsals focusing on breath management, microphone technique, and auditorium vocal projection."}, "step_4": {"phase": "04", "name": "Merit Certification & Gala", "desc": "Formal assessment, graduation recitals, and selection for the annual Lagos OMA Diction Awards Competition."}}, "v2": {"heading": "Our 4-Step Rapid Transformation System.", "step_1": {"phase": "01", "name": "Instant Speech Audit", "desc": "A 45-minute on-site or video audit that pinpoints the exact mispronounced words and bad speech habits across your students."}, "step_2": {"phase": "02", "name": "Live Classroom Drills", "desc": "High-energy, interactive drills where students correct errors aloud, play pronunciation games, and build immediate muscle memory."}, "step_3": {"phase": "03", "name": "Weekly Audio Proof", "desc": "Parents and administrators receive weekly audio clips comparing 'Before' and 'After' pronunciation to prove clear progress."}, "step_4": {"phase": "04", "name": "The Silverbird Stage", "desc": "Top-performing pupils represent your school in the \u20a6100,000+ Diction Awards on national television."}}, "v3": {"heading": "How We Turn Shy Students into Confident Champions.", "step_1": {"phase": "01", "name": "Gentle Encouragement & Assessment", "desc": "We get to know each child's personality, removing anxiety and building a safe space where making mistakes is just part of learning."}, "step_2": {"phase": "02", "name": "Fun & Unforgettable Phonics Games", "desc": "Using rhythm, poetry, tongue twisters, and interactive drama, speech practice becomes the highlight of every student's week."}, "step_3": {"phase": "03", "name": "The Classroom Confidence Surge", "desc": "Teachers notice children speaking louder, volunteering to read in assembly, and participating actively in debates."}, "step_4": {"phase": "04", "name": "Standing Ovations at Graduation", "desc": "Your pupils perform flawlessly before hundreds of parents at school events and the Grand OMA Awards Gala."}}, "v4": {"heading": "The Dual-Engine Deployment Architecture.", "step_1": {"phase": "01", "name": "Campus & Tech Infrastructure Audit", "desc": "Simultaneous evaluation of school speech proficiency and digital infrastructure (website, parent portal, tuition flow)."}, "step_2": {"phase": "02", "name": "Hybrid Curriculum & Portal Launch", "desc": "Deploy certified diction instructors on campus while provisioning custom cloud portal and mobile app dashboards."}, "step_3": {"phase": "03", "name": "Automated Audio Feedback Loop", "desc": "Students practice phonetics exercises via cloud-accessible audio portals with real-time feedback for teachers."}, "step_4": {"phase": "04", "name": "Broadcast & Media Amplification", "desc": "School events and student laurels filmed, edited, and showcased across YouTube, Instagram, and national television."}}}, "institutional_cta": {"title": "Institutional Partnership Call-to-Action", "description": "Closing conversion block for school heads and corporate clients.", "v1": {"heading": "Elevate Your Academy to Sovereign Distinction.", "sub": "Partner with West Africa's premier diction academy and digital engineering practice.", "button": "Commission an Institutional Retainer \u2192"}, "v2": {"heading": "Ready to Transform Your School This Term?", "sub": "Book your free 45-minute campus speech audit and see immediate results.", "button": "Book Free Campus Speech Audit \u2192"}, "v3": {"heading": "Give Your Students the Gift of a Lifetime.", "sub": "Join 50+ leading schools who have made Oma Services their secret weapon.", "button": "Join Our Next School Cohort \u2192"}, "v4": {"heading": "Step into the Future of School Excellence.", "sub": "Unite elite speech mastery with custom Next.js software and broadcast media.", "button": "Deploy the Dual-Engine Platform \u2192"}}}}, "awards": {"title": "Diction Awards (Gala & Register)", "icon": "\u2605", "tag": "Competition & Laurels", "components": {"awards_hero": {"title": "Gala Announcement Billboard & Venue Details", "description": "Primary event hero, date, venue, prestige status, and broadcast notice.", "v1": {"badge": "9th Annual Sovereign Gala \u2022 Silverbird Galleria, Victoria Island, Lagos", "heading_primary": "The 2024 Lagos OMA Diction Awards.", "heading_secondary": "The Grand Academic Conclave Celebrating Classical Elocution & Youthful Poise.", "lead": "Under the patronage of discerning educators and cultural leaders, the 9th annual edition convenes the finest young orators across primary and secondary academies.", "sub": "Witness Nigeria's most gifted scholars deliver classical verse and phonetic mastery on an illustrious stage, adjudicated by certified British phonetics examiners.", "venue_pill": "Silverbird Galleria, Ahmadu Bello Way, Victoria Island, Lagos", "broadcast_pill": "Recorded for National Television & Global YouTube Broadcast"}, "v2": {"badge": "\u20a6100,000+ Total Cash Prizes \u2022 Instant Registration", "heading_primary": "2024 Diction Awards.", "heading_secondary": "\u20a650,000 Cash Top Prize per category. Register in 2 minutes.", "lead": "Open to pupils in Grades 3 to 6. Two clear categories: Poetry Recitation & Words Mispronounced. Real trophies, cash cheques presented on stage, and nationwide recognition.", "sub": "Entry is \u20a67,000 per pupil. Simple payment to GTBank, instant online receipt verification, and automatic candidate seat allocation.", "venue_pill": "Silverbird Galleria, VI Lagos \u2022 Fully Air-Conditioned Grand Hall", "broadcast_pill": "Live-Streamed to 15,000+ Viewers on YouTube"}, "v3": {"badge": "The Stage That Changes Everything For Your Child", "heading_primary": "The 2024 OMA Diction Awards.", "heading_secondary": "Give your pupils the moment of their lives and bring home the champion's cup.", "lead": "Every year, proud parents and dedicated teachers gather at Silverbird Galleria to witness ordinary school pupils transform into extraordinary, confident champions.", "sub": "Your pupils will perform under stage lights, accept applause from hundreds of cheering guests, and walk away with cash prizes, medals, and unforgettable pride.", "venue_pill": "Silverbird Galleria, Victoria Island \u2022 The Red Carpet Experience", "broadcast_pill": "Featured on National Television & Family Keepsake Video"}, "v4": {"badge": "The Modern Speech Championship \u2022 Digital & Stage", "heading_primary": "2024 Lagos OMA Diction Awards.", "heading_secondary": "The Premier Multi-Camera Youth Elocution & Media Showcase.", "lead": "Combining high-stakes live stage competition with modern digital adjudication, live scoreboards, and global multichannel streaming.", "sub": "Scholars from leading private schools compete across two calibrated tracks evaluated on acoustic clarity, phonemic accuracy, and dramatic cadence.", "venue_pill": "Silverbird Galleria Media Stage \u2022 Victoria Island, Lagos", "broadcast_pill": "High-Definition Multi-Cam YouTube Live & TV Syndication"}}, "prize_ledger": {"title": "Official Prize Money Ledger", "description": "Financial merit grants, physical trophies, and institutional accolades.", "v1": {"title": "Official Academic Merit Endowments", "sub": "Merit bursaries and laurels conferred per category (Category A and Category B):", "prizes": [{"rank": "1st Prize Laureate", "cash": "\u20a650,000", "perk": "The Grand OMA Gold Cup + Certificate of Sovereign Distinction"}, {"rank": "1st Runner-Up", "cash": "\u20a630,000", "perk": "Silver Elocution Medal + Institutional Merit Scroll"}, {"rank": "2nd Runner-Up", "cash": "\u20a620,000", "perk": "Bronze Elocution Medal + Commendation Scroll"}, {"rank": "All Enrolled Contestants", "cash": "Certificate", "perk": "Official 2024 Gala Participation Laurels"}]}, "v2": {"title": "Cash Prize Breakdown (Per Category)", "sub": "Both Category A and Category B award identical cash payouts on stage:", "prizes": [{"rank": "1st Place Winner", "cash": "\u20a650,000", "perk": "Giant Championship Trophy + National TV Feature"}, {"rank": "2nd Place (1st Runner Up)", "cash": "\u20a630,000", "perk": "Silver Medal + Official Framed Certificate"}, {"rank": "3rd Place (2nd Runner Up)", "cash": "\u20a620,000", "perk": "Bronze Medal + Official Framed Certificate"}, {"rank": "All Participants", "cash": "Certificate", "perk": "Official Participation Medal & Certificate"}]}, "v3": {"title": "Trophies, Cash Rewards & Lasting Honors", "sub": "Reward your hardworking pupils with life-changing recognition:", "prizes": [{"rank": "Grand Champion", "cash": "\u20a650,000", "perk": "Golden Championship Cup for your school display cabinet"}, {"rank": "1st Runner-Up", "cash": "\u20a630,000", "perk": "Prestigious Silver Medal + Cheering Parent Ovation"}, {"rank": "2nd Runner-Up", "cash": "\u20a620,000", "perk": "Prestigious Bronze Medal + School Commendation"}, {"rank": "Every Brave Contestant", "cash": "Laurel", "perk": "Official Medal & Certificate of Courageous Elocution"}]}, "v4": {"title": "The 2024 Prize & Media Allocation", "sub": "Dual-track financial endowment and digital media profile package:", "prizes": [{"rank": "1st Place Laureate", "cash": "\u20a650,000", "perk": "Omnichannel Feature on Diction Oracle YouTube (10K+ Views) + Trophy"}, {"rank": "1st Runner-Up", "cash": "\u20a630,000", "perk": "Silver Medal + High-Res Photo & Video Package"}, {"rank": "2nd Runner-Up", "cash": "\u20a620,000", "perk": "Bronze Medal + Digital Commendation Asset"}, {"rank": "All Contestants", "cash": "Credentials", "perk": "Verified Digital Attendance Ledger & Certificate"}]}}, "category_a": {"title": "Category A Track: Classical Poetry Recitation", "description": "Rules, approved repertoire, scoring rubric, and age requirements.", "v1": {"title": "Category A \u2022 Classical Poetry Recitation", "subtitle": "Elocution, Meter, Cadence, and Stage Poise", "eligibility": "Scholars in Primary Grades 3 to 6", "adjudication_criteria": ["Phonetic Accuracy (Classical British RP consonants and vowel fidelity)", "Prosodic Intonation & Dramatic Restraint (Nuanced emotional resonance)", "Auditorium Projection & Postural Poise (Microphone discipline and gaze)"], "approved_repertoire": ["The Vultures \u2013 David Diop", "Abiku \u2013 JP Clark", "The Chaos \u2013 Gerard Nolst Trinit\u00e9", "Yesterday \u2013 Godswill Effiong Samuel", "Butterfly \u2013 Godswill Effiong Samuel", "Home \u2013 Godswill Effiong Samuel", "Evergreen \u2013 Godswill Effiong Samuel", "Air \u2013 Abiola Matthew Olagunju"]}, "v2": {"title": "Category A: Poetry Recitation", "subtitle": "\u20a650,000 Cash 1st Prize \u2022 Fast Scoring", "eligibility": "Grades 3, 4, 5, and 6", "adjudication_criteria": ["Pronunciation: Clean articulation of every line with zero mumbling", "Expression: Bringing the emotion and story of the poem to life", "Stage Presence: Eye contact with judges, clear projection, no nervous fidgeting"], "approved_repertoire": ["The Vultures by David Diop", "Abiku by JP Clark", "The Chaos by Gerard Nolst Trinit\u00e9", "Yesterday by Godswill Effiong Samuel", "Butterfly by Godswill Effiong Samuel", "Home by Godswill Effiong Samuel", "Evergreen by Godswill Effiong Samuel", "Air by Abiola Matthew Olagunju"]}, "v3": {"title": "Category A: The Master Poetry Showcase", "subtitle": "Where Words Stir Hearts and Win Crowds", "eligibility": "Open to all enthusiastic pupils in Grades 3 to 6", "adjudication_criteria": ["The Magic of Delivery: Captivating the audience with confidence and warmth", "Vocal Power: Clear, beautiful British pronunciation that echoes across the hall", "Emotional Connection: Feeling every word and telling a moving story"], "approved_repertoire": ["The Vultures (David Diop) \u2014 Powerful historical reflection", "Abiku (JP Clark) \u2014 Captivating African literary treasure", "The Chaos (Gerard Nolst Trinit\u00e9) \u2014 The ultimate English pronunciation test", "Yesterday (Godswill Effiong Samuel) \u2014 Moving verses of memory", "Butterfly (Godswill Effiong Samuel) \u2014 Playful, vibrant imagery", "Home (Godswill Effiong Samuel) \u2014 Heartfelt tribute to family", "Evergreen (Godswill Effiong Samuel) \u2014 Inspiring verses of resilience", "Air (Abiola Matthew Olagunju) \u2014 Lyrical environmental majesty"]}, "v4": {"title": "Track A: Acoustic & Poetic Articulation", "subtitle": "Scored on International IPA & Performance Dynamics", "eligibility": "Grades 3 through 6 Pupils", "adjudication_criteria": ["Acoustic Clarity: Formant resonance and consonant plosive accuracy", "Prosodic Rhythm: Correct poetic meter, pause timing, and stress contours", "Broadcast Poise: Camera awareness, vocal level stability, and stage confidence"], "approved_repertoire": ["David Diop \u2014 The Vultures", "JP Clark \u2014 Abiku", "Gerard Nolst Trinit\u00e9 \u2014 The Chaos", "Godswill Effiong Samuel \u2014 Yesterday", "Godswill Effiong Samuel \u2014 Butterfly", "Godswill Effiong Samuel \u2014 Home", "Godswill Effiong Samuel \u2014 Evergreen", "Abiola Matthew Olagunju \u2014 Air"]}}, "category_b": {"title": "Category B Track: Words Often Mispronounced", "description": "Rapid-fire phonetic accuracy, syllable stress, and elimination rounds.", "v1": {"title": "Category B \u2022 Words Often Mispronounced", "subtitle": "Orthoepy, Phonemic Precision, and Rapid Articulation", "eligibility": "Scholars in Primary Grades 3 to 6", "format": "Scholars are presented with high-frequency English trap words containing silent letters, unstressed schwas, and deceptive orthography.", "evaluation": "Immediate disqualification upon incorrect primary stress or corrupted diphthong phonemes. Finalists face rapid-fire tiebreakers.", "sample_words": "Subtle, Epitome, Hyperbole, Draught, Colonel, Choir, February, Wednesday, Comfortable"}, "v2": {"title": "Category B: Words Mispronounced Challenge", "subtitle": "\u20a650,000 Cash 1st Prize \u2022 Sudden Death Rounds", "eligibility": "Grades 3 to 6", "format": "Contestants step to the microphone one by one. The pronouncer calls out tricky words, and the pupil has 5 seconds to pronounce it flawlessly.", "evaluation": "Survive every round to reach the finals. Fast, exciting, and transparent scoring that keeps the audience on the edge of their seats.", "sample_words": "Pronunciation, Debris, Archive, Mischievous, Recipe, Banal, Wednesday, Bouquet"}, "v3": {"title": "Category B: The Pronunciation Superstars", "subtitle": "Turning Tricky English Words into Trophies", "eligibility": "Pupils in Grades 3 to 6 who love a fun challenge", "format": "Does your pupil know that the 'b' in 'subtle' is silent, or how to pronounce 'hyperbole'? This thrilling round lets your smartest pupils show off their incredible skills!", "evaluation": "Judged with warmth and encouragement. Every round boosts their courage until the final champion is crowned!", "sample_words": "Listen, Castle, Island, Chaos, Yacht, Autumn, Handkerchief, Sword"}, "v4": {"title": "Track B: Phonetic Orthoepy Elimination", "subtitle": "Precision Syllable Stress & Phoneme Discrimination", "eligibility": "Primary Scholars (Grades 3 to 6)", "format": "Algorithmic word randomization covering vowel reductions, diphthongs, consonant cluster reduction, and non-phonetic English lexical items.", "evaluation": "Standard Oxford English Dictionary (OED) phonetic key. Instant electronic buzzer adjudication by certified phoneticians.", "sample_words": "Gauge, Sovereign, Epitome, Pseudonym, Solder, Salmon, Hierarchy"}}, "payment_ledger": {"title": "Official Fee Payment & Verification Ledger", "description": "Tuition instruction, bank details, fee schedule, and anti-fraud protocols.", "v1": {"heading": "Official Treasury & Registration Ledger", "fee_notice": "A statutory candidate enrollment fee of \u20a67,000 applies per scholar. Please remit payment exclusively to our designated corporate depository prior to submission:", "bank_account": {"bank": "Guaranty Trust Bank (GTBANK)", "account_name": "Oma Professional Services", "account_number": "0107068307", "currency": "Nigerian Naira (NGN)"}, "protocol": "Upon electronic transfer, copy the payment reference number or screenshot link and insert into Section V of the official register below for automated reconciliation."}, "v2": {"heading": "Registration Fee: \u20a67,000 Flat per Candidate", "fee_notice": "To guarantee your pupil's seat and competition number, transfer \u20a67,000 to the official bank account below:", "bank_account": {"bank": "GTBANK", "account_name": "Oma Professional Services", "account_number": "0107068307", "currency": "NGN"}, "protocol": "Paste your payment receipt link (Google Drive, WhatsApp link, or cloud URL) in the form below. Confirmation is sent within 24 hours."}, "v3": {"heading": "Simple Enrollment: \u20a67,000 per Contestant", "fee_notice": "Your \u20a67,000 registration fee covers your pupil's official competition pass, personalized participation medal, branded gala pack, and refreshments at Silverbird Galleria:", "bank_account": {"bank": "Guaranty Trust Bank (GTBank)", "account_name": "Oma Professional Services", "account_number": "0107068307", "currency": "Naira"}, "protocol": "Make the quick transfer, snap a photo or screenshot of the receipt, and paste the link below so we can prepare your pupil's certificate and stage badge."}, "v4": {"heading": "Candidate Enrollment & Depository Ledger", "fee_notice": "Statutory candidate accreditation fee: \u20a67,000 per pupil. Direct electronic settlement to the official Oma Professional Services institutional account:", "bank_account": {"bank": "GTBank", "account_name": "Oma Professional Services", "account_number": "0107068307", "currency": "NGN"}, "protocol": "Real-time ledger reconciliation: attach your transaction receipt link in Section V for immediate cryptographic ticket provisioning."}}, "enrollment_form": {"title": "Pupil Enrollment & Guardian Release Form", "description": "The multi-section submission form copy.", "v1": {"section_1": "I. Scholar Details (First Name, Middle Name, Surname, Grade 3-6, Age, Gender, Guardian WhatsApp)", "section_2": "II. Academy / Institutional Affiliation (School Name, Campus Address, Administrator Contact)", "section_3": "III. Competitive Selection (Poem Choice & Classical Author Identification)", "section_4": "IV. Sovereign Guardian / Head of School Release (Formal authorization to participate in public broadcast)", "section_5": "V. Remittance Verification Link (Cloud URL to GTBank electronic transaction receipt)", "button": "Transmit Formal Candidate Enrollment \u2192"}, "v2": {"section_1": "I. Pupil Details (Name, Grade 3-6, Age, Gender, Parent WhatsApp)", "section_2": "II. School Details (School Name, Address, Contact Email & Phone)", "section_3": "III. Category Selection (Choose Poem from Repertoire + Author)", "section_4": "IV. Parent / Teacher Authorization (Broadcast permission & emergency release)", "section_5": "V. Payment Receipt (Paste Google Drive / Cloud Link)", "button": "Complete Registration & Secure Seat \u2192"}, "v3": {"section_1": "I. About the Young Champion (Pupil's Full Name, Class, Age, Gender, Parent's Phone)", "section_2": "II. Your Proud School (School Name, School Address, School Email)", "section_3": "III. Their Winning Poem (Select from the 8 approved poems)", "section_4": "IV. Parent's Blessing & Permission (Allowing child to shine on television & stage)", "section_5": "V. Proof of Payment (Simple link to bank transfer receipt)", "button": "Submit Candidate & Claim Their Spot \u2192"}, "v4": {"section_1": "I. Candidate Dossier (Full Names, Academic Class 3-6, Age, Gender, Primary Contact)", "section_2": "II. Institutional Host (School Name, Location, Verified Email)", "section_3": "III. Track Allocation (Poem selection or Mispronounced word track specification)", "section_4": "IV. Broadcast Media Release (Permission for YouTube Live & syndicated TV distribution)", "section_5": "V. Cryptographic Ledger Proof (Cloud URL to receipt asset)", "button": "Execute Digital Enrollment Entry \u2192"}}, "broadcast_press": {"title": "Broadcast Credentials & Media Syndication", "description": "Television syndication, YouTube channel broadcast, and press coverage details.", "v1": {"text": "The Lagos OMA Diction Awards are documented under broadcast lighting and syndicated to national television stations and the official Diction Oracle archival channel. All scholars receive broadcast-quality photographic portfolios."}, "v2": {"text": "Streamed live to thousands of viewers across Nigeria. Watch your child's performance live on the Diction Oracle YouTube Channel and download high-resolution photos and stage clips after the ceremony."}, "v3": {"text": "An unforgettable day your family will rewatch for decades! Professionally filmed with multi-camera HD video, streamed live for relatives abroad on YouTube, and broadcast on national television."}, "v4": {"text": "Omnichannel media production featuring 4K multi-cam coverage, real-time live-streaming on YouTube, digital certificates with QR validation, and high-impact social clips engineered for institutional marketing."}}}}, "contact": {"title": "Contact & Concierge", "icon": "\u2709\ufe0f", "tag": "Direct Inquiry Dispatch", "components": {"concierge_hero": {"title": "Direct Concierge Header & Triage Channels", "description": "Top-level orientation, immediate triage channels, and response SLA.", "v1": {"badge": "Chancery Desk \u2022 Sovereign Consultations & Audits", "heading_primary": "Direct Concierge.", "heading_secondary": "Initiate an executive dialogue with the leadership of Oma Services.", "lead": "Whether your institution seeks an on-campus elocution deployment, a bespoke digital engineering RFP, or entry into the 2024 Diction Awards, our chancellor desk responds with discretion and dispatch.", "sla": "Guaranteed response from an OMA Partner within 4 business hours."}, "v2": {"badge": "Fast-Track Support \u2022 We Reply Within Hours", "heading_primary": "Get In Touch.", "heading_secondary": "Tell us what you need. We'll give you clear answers, pricing, and timelines.", "lead": "No sales runaround or pushy pitch decks. Connect directly with the people who coach the students and write the software code.", "sla": "Average response time: Under 2 hours during Lagos business hours."}, "v3": {"badge": "Let's Elevate Your School Together", "heading_primary": "We'd Love to Hear From You.", "heading_secondary": "Take the first step toward transforming your students and your school.", "lead": "Every great school transformation begins with a simple, friendly conversation. Tell us your goals, the challenges you're facing, and let's explore how we can support you.", "sla": "We are available 6 days a week to visit your school campus in Lagos."}, "v4": {"badge": "The Dual-Engine Communications Hub", "heading_primary": "Connect with OMA.", "heading_secondary": "Synchronize your spoken voice and digital software roadmap.", "lead": "Reach our cross-functional team across speech pathology, articulatory phonetics, cloud infrastructure, and Next.js full-stack development through a unified dispatch channel.", "sla": "Direct engineering and academic triage within 3 hours."}}, "inquiry_triage": {"title": "3 Tailored Consultation Pathways", "description": "Self-selection cards directing users to their exact area of need.", "v1": {"pathway_1": {"title": "Track I: Academic & Elocution Deployment", "sub": "For School Proprietors & Directors of Study", "desc": "Request a full-term British Received Pronunciation syllabus, on-campus instructor placement, or faculty speech workshops."}, "pathway_2": {"title": "Track II: Digital Architecture & SaaS RFP", "sub": "For Founders, Enterprise Heads & Institutions", "desc": "Commission bespoke Next.js websites, high-security school management portals, or mobile applications."}, "pathway_3": {"title": "Track III: 2024 Awards & Press Credentials", "sub": "For Enrolled Contestants, Media & Sponsors", "desc": "Inquire regarding candidate ledger reconciliation, gala seating, press passes, or corporate sponsorship."}}, "v2": {"pathway_1": {"title": "1. Diction & Speech Coaching", "sub": "Schools, Individuals & Executives", "desc": "Book an immediate on-site speech diagnostic, enroll in elocution classes, or hire an executive speech coach."}, "pathway_2": {"title": "2. Website & Mobile App Projects", "sub": "Custom Code \u2022 Fast 14-Day Delivery", "desc": "Get a fixed-price quote and timeline for your new website, mobile app, or custom school dashboard."}, "pathway_3": {"title": "3. 2024 Diction Awards Support", "sub": "Registration & Payment Help", "desc": "Verify your \u20a67,000 pupil registration, confirm your candidate number, or ask event questions."}}, "v3": {"pathway_1": {"title": "1. Help My Students Speak Clearly", "sub": "Book a Free Campus Visit", "desc": "We will visit your school, meet your teachers, and conduct a fun, free 45-minute speech assessment for your pupils."}, "pathway_2": {"title": "2. Build an Outstanding School Website", "sub": "Impress Prospective Parents", "desc": "Upgrade your school's online presence with a stunning modern website that attracts more student admissions."}, "pathway_3": {"title": "3. Enter the 2024 Awards Competition", "sub": "Cheer on Your Brightest Pupils", "desc": "Get your pupils registered for the \u20a650,000 top prize at Silverbird Galleria and celebrate their talents."}}, "v4": {"pathway_1": {"title": "1. Speech & Acoustic Pedagogy", "sub": "Campus Deployment & Diagnostics", "desc": "Deploy certified phoneticians and structured audio drills across your school or corporate organization."}, "pathway_2": {"title": "2. Software Engineering & Systems", "sub": "Next.js 15 & Cloud Infrastructure", "desc": "Architect custom web applications, student portals, and automated tuition payment processing engines."}, "pathway_3": {"title": "3. Gala Adjudication & Broadcast", "sub": "Live Stream & Press Operations", "desc": "Coordinate candidate registration, YouTube Live broadcast feeds, and TV syndication assets."}}}, "interactive_form": {"title": "Interactive Dispatch Form", "description": "Input fields, labels, selector options, and submission copy.", "v1": {"heading": "Official Transmission Ledger", "field_inquiry_type": "Primary Consultation Division (Elocution Academy, Digital Architecture, 2024 Gala, Other)", "field_name": "Full Legal Name / Institutional Representative", "field_institution": "Academy, Corporate Entity, or Organization Name", "field_contact": "Electronic Mail Address & Verified WhatsApp Number", "field_scope": "Institutional Requirements & Scope Description", "submit_button": "Dispatch Official Transmission \u2192"}, "v2": {"heading": "Send Us a Message", "field_inquiry_type": "What are you looking for? (School Diction, Web Design, Mobile App, 2024 Awards, Custom SaaS)", "field_name": "Your Name", "field_institution": "Your School or Business Name", "field_contact": "Your Email & WhatsApp Number", "field_scope": "Brief description of your project or school requirements", "submit_button": "Get an Instant Response \u2192"}, "v3": {"heading": "Start Your Transformation", "field_inquiry_type": "How can we best help you? (School Diction Training, School Website Upgrade, Register for 2024 Awards, Other)", "field_name": "Your Full Name (Proprietor / Parent / Leader)", "field_institution": "Name of Your School or Brand", "field_contact": "Your Phone / WhatsApp & Email", "field_scope": "Tell us about your students or your project goals", "submit_button": "Schedule Your Free Consultation \u2192"}, "v4": {"heading": "Initiate Platform Specification", "field_inquiry_type": "Engagement Vector (Speech Curriculum, Digital Product Studio, Dual-Engine Campus Suite, Awards)", "field_name": "Contact Name & Title", "field_institution": "Organization / Academy Entity", "field_contact": "Official Email & WhatsApp Channel", "field_scope": "Technical Specifications or Academic Enrollment Target", "submit_button": "Execute Platform Dispatch \u2192"}}, "executive_card": {"title": "Executive Contact Card & Office Details", "description": "Headquarters address, official channels, hours, and direct hotline.", "v1": {"office_name": "Oma Professional Services \u2022 Chancery Headquarters", "address": "Lagos, Nigeria \u2022 Operating Across Premier Institutions Nationwide", "email": "partnerships@omadiction.pro", "channels": "Official Electronic Dispatch \u2022 Executive WhatsApp \u2022 Encrypted Channels", "hours": "Monday through Friday: 08:00 \u2013 17:00 WAT | Weekend Inquiries Attended by Priority Fellowship"}, "v2": {"office_name": "Oma Services Main Hub", "address": "Victoria Island & Mainland Hubs, Lagos, Nigeria", "email": "partnerships@omadiction.pro", "channels": "Direct Email \u2022 Fast-Track WhatsApp \u2022 24/7 Server Operations", "hours": "Mon - Fri: 8:00 AM - 6:00 PM | Fast weekend email & WhatsApp support"}, "v3": {"office_name": "Oma Services \u2022 Always Here for You", "address": "Lagos, Nigeria \u2022 Ready to Visit Your Campus Anywhere in Lagos & Ogun State", "email": "partnerships@omadiction.pro", "channels": "Friendly WhatsApp Hotline \u2022 Direct Phone Calls \u2022 Campus Visits", "hours": "Monday - Saturday: 8:00 AM - 6:00 PM \u2022 Evening appointments available for school boards"}, "v4": {"office_name": "OMA Dual-Engine Ecosystem Lab", "address": "Silverbird Galleria Media & Tech Studio, Victoria Island, Lagos", "email": "partnerships@omadiction.pro", "channels": "API Webhook \u2022 Direct Developer Hotline \u2022 YouTube Channel Desk", "hours": "08:00 - 18:00 WAT Daily \u2022 99.9% Uptime Cloud Infrastructure Support"}}, "client_faq": {"title": "Frequently Asked Questions (Pre-Consultation)", "description": "Direct answers to common institutional queries.", "v1": {"faqs": [{"q": "How does Oma Services deploy instructors to our campus?", "a": "We station certified diction fellows directly at your school on dedicated weekly timetables, fully aligned with your academic calendar."}, {"q": "What differentiates your web engineering from digital agencies?", "a": "We build hand-crafted Next.js 15 platforms with bespoke database architectures, eliminating generic template vulnerabilities and sluggish loading times."}, {"q": "How is student progress assessed and documented?", "a": "Each scholar receives termly articulatory evaluations, acoustic audio ledgers, and formal progress scrolls presented to parents."}]}, "v2": {"faqs": [{"q": "How fast do students start speaking better?", "a": "You will hear clear, audible pronunciation improvements within the first 2 weeks as we correct common Nigerian pronunciation traps."}, {"q": "How long does a website take to build and launch?", "a": "Our standard bespoke website sprint is 14 business days from kickoff to live deployment on your custom domain."}, {"q": "What is the fee to enter the 2024 Diction Awards?", "a": "It is a flat \u20a67,000 per pupil, paid to GTBank 0107068307, covering stage access, competition materials, and medals."}]}, "v3": {"faqs": [{"q": "Can timid, shy pupils really perform on stage?", "a": "Yes! In fact, timid children often make our biggest champions. Our patient, playful coaching unlocks their courage step by step."}, {"q": "How does this help my school gain more admissions?", "a": "Articulate pupils are your best marketing tool. When parents hear your pupils speak at open days, enrollment inquiries skyrocket."}, {"q": "Do you also train our school teachers?", "a": "Absolutely. We host engaging teacher elocution workshops so your entire faculty models impeccable spoken English daily."}]}, "v4": {"faqs": [{"q": "Can we bundle school diction training with a new school portal?", "a": "Yes. Our Unified Campus Suite integrates on-campus diction coaching with custom Next.js web portals and fee management at a discounted rate."}, {"q": "Where does the Diction Awards Gala take place?", "a": "At the iconic Silverbird Galleria in Victoria Island, Lagos, fully equipped with broadcast television and digital streaming stages."}, {"q": "Is our student and financial data secure in your portals?", "a": "Every portal uses PostgreSQL databases, role-based access control, SSL encryption, and bank-grade Paystack payment gateways."}]}}}}, "services_overview": {"title": "All Services Storefront", "icon": "\u26a1", "tag": "Full Practice Catalogue", "components": {"storefront_header": {"title": "Master Storefront Two-Tone Header & Concierge", "description": "High-level overview of all OMA practice divisions.", "v1": {"badge": "Practice Storefront \u2022 Sovereign Curriculum & Engineering", "heading_primary": "All Services.", "heading_secondary": "Classical elocution academy and high-assurance digital software under one sovereign roof.", "lead": "Explore our accredited disciplines: from school-wide British Received Pronunciation deployment to bespoke enterprise software engineering.", "concierge": "Need a formal institutional prospectus or bespoke syllabus? Consult an OMA Senior Fellow >"}, "v2": {"badge": "Full-Service Catalogue \u2022 Fast Execution", "heading_primary": "All Services.", "heading_secondary": "World-class speech training and full-stack software built to perform.", "lead": "Everything you need to make your students speak with clarity and elevate your brand's digital presence in weeks.", "concierge": "Not sure which package fits your school? Chat with a specialist now >"}, "v3": {"badge": "Transforming Your School's Voice & Online Reach", "heading_primary": "Our Full Suite of Services.", "heading_secondary": "Empowering your pupils, delighting parents, and growing your school.", "lead": "From speech therapy and stage confidence to breathtaking school websites and portals that eliminate paperwork.", "concierge": "Want to discover how other schools achieved record admissions? Talk to us today >"}, "v4": {"badge": "The Dual-Engine Practice Catalogue", "heading_primary": "Unified Solutions.", "heading_secondary": "Where vocal articulation synchronizes with cloud computing.", "lead": "A modern dual-track ecosystem delivering speech diagnostics, Next.js web applications, mobile tools, and broadcast production.", "concierge": "Explore integrated campus infrastructure packages >"}}, "speech_division": {"title": "Division I: Speech, Diction & Phonemic Literacy", "description": "Speech Therapy, Diction Training, Phonics Classes.", "v1": {"badge": "Division I \u2022 The Classical Elocution Academy", "title": "Speech Therapy, Phonics & Received Pronunciation", "item_1": {"name": "Classical Speech Therapy", "sub": "Articulatory correction for speech impediments, vocal fatigue, and tongue placement."}, "item_2": {"name": "School Diction Curriculum", "sub": "Class-by-class British RP training integrated directly into your school timetable."}, "item_3": {"name": "Phonemic Literacy & Phonics", "sub": "Foundational reading and spelling mastery using the International Phonetic Alphabet (IPA)."}}, "v2": {"badge": "Division I \u2022 Speech & Elocution", "title": "Clear Articulation & Confidence Training", "item_1": {"name": "Speech Therapy (1-on-1)", "sub": "Fix lisping, stuttering, and unclear pronunciation with targeted physical exercises."}, "item_2": {"name": "School Diction Classes", "sub": "Weekly interactive lessons that eliminate mother-tongue interference and polish delivery."}, "item_3": {"name": "Phonics Reading System", "sub": "Rapid phonics for nursery and primary pupils to read and spell words effortlessly."}}, "v3": {"badge": "Division I \u2022 Unlocking Student Potential", "title": "From Shy Voices to Inspiring Orators", "item_1": {"name": "Gentle Speech Therapy", "sub": "Caring, one-on-one sessions that give struggling children vocal clarity and joy."}, "item_2": {"name": "School Diction Transformation", "sub": "Watch your entire student body speak with impressive, confident British accents."}, "item_3": {"name": "Phonics That Sparks a Love for Reading", "sub": "Fun, rhythmic phonics games that turn struggling pupils into enthusiastic readers."}}, "v4": {"badge": "Division I \u2022 Acoustic & Phonetic Science", "title": "Biomechanical Speech & Acoustic Literacy", "item_1": {"name": "Acoustic Speech Therapy", "sub": "Clinical speech diagnostics utilizing spectrogram analysis and articulatory correction."}, "item_2": {"name": "Systemic School Diction", "sub": "Modular phonetics syllabus integrated with digital audio reinforcement drills."}, "item_3": {"name": "Cognitive Phonics Engine", "sub": "Structured synthetic phonics grounding pupils in acoustic phoneme-grapheme mapping."}}}, "web_division": {"title": "Division II: Media & Web Architecture", "description": "Website Design, Management, SEO, Digital Marketing.", "v1": {"badge": "Division II \u2022 Sovereign Web Architecture", "title": "Bespoke Digital Platforms & Brand Authority", "item_1": {"name": "Editorial Website Architecture", "sub": "Bespoke Next.js platforms designed with typographic elegance and sub-second speed."}, "item_2": {"name": "Proactive Platform Stewardship", "sub": "24/7 security auditing, speed optimization, and zero downtime guarantees."}, "item_3": {"name": "Institutional Search Authority (SEO)", "sub": "Technical search architecture positioning your academy at the pinnacle of organic queries."}}, "v2": {"badge": "Division II \u2022 Fast-Track Web Development", "title": "High-Converting Websites in 14 Days", "item_1": {"name": "14-Day Bespoke Web Sprints", "sub": "Zero-template Next.js websites built to capture inquiries and convert visitors on mobile."}, "item_2": {"name": "Worry-Free Website Management", "sub": "We handle hosting, security updates, and daily backups so you never think about technical bugs."}, "item_3": {"name": "Google SEO & Paid Ads", "sub": "Targeted Google and Meta campaigns that put your school in front of enrolling parents."}}, "v3": {"badge": "Division II \u2022 Websites That Boost Admissions", "title": "A Digital Front Door That Impresses Every Parent", "item_1": {"name": "Showcase School Websites", "sub": "Stunning photo galleries, virtual tours, and easy enrollment forms parents love."}, "item_2": {"name": "Always-Online Reliability", "sub": "Your website never crashes, loads instantly on weak phone signals, and stays fresh."}, "item_3": {"name": "Be #1 When Parents Search in Lagos", "sub": "Rank at the top of Google when parents search for the best schools in your area."}}, "v4": {"badge": "Division II \u2022 Headless Web Engineering", "title": "High-Performance Cloud Web Architecture", "item_1": {"name": "Next.js 15 Edge Engineering", "sub": "Server-side rendering, React Server Components, and sub-second global edge delivery."}, "item_2": {"name": "Continuous Delivery & CI/CD", "sub": "Automated regression testing, SSL provisioning, and cloud deployment pipelines."}, "item_3": {"name": "Data-Driven SEO Engines", "sub": "Structured JSON-LD schema, semantic HTML, and algorithmic organic visibility."}}}, "mobile_division": {"title": "Division III: Mobile App Engineering", "description": "iOS & Android Apps, ASO, Lifecycle Management.", "v1": {"badge": "Division III \u2022 Mobile Systems Engineering", "title": "Native iOS & Android Applications for Institutions", "desc": "High-assurance mobile applications built for school governance, student portals, and executive communications with offline data persistence."}, "v2": {"badge": "Division III \u2022 Mobile Apps", "title": "Custom iOS & Android Apps with Paystack Payments", "desc": "Put your brand directly in your users' pockets. Push notifications, instant fee payments, and offline access with 5-star app store reviews."}, "v3": {"badge": "Division III \u2022 School & Parent Apps", "title": "The Mobile App That Delights Every School Parent", "desc": "Send instant homework alerts, term reports, and fee reminders straight to parents' phones. Zero paper circulars, 100% parent engagement."}, "v4": {"badge": "Division III \u2022 Cross-Platform Mobile SDKs", "title": "Resilient Mobile Architectures (Flutter & React Native)", "desc": "Cross-platform mobile engineering with biometric authentication, background push pipelines, and synchronized offline-first data engines."}}, "broadcast_division": {"title": "Division IV: Social & Broadcast Growth", "description": "YouTube Production, Spotify Podcasts, Content Strategy.", "v1": {"badge": "Division IV \u2022 Broadcast & Media Syndication", "title": "Executive Channel Production & Educational Syndication", "desc": "Production-grade video capture, YouTube channel optimization, and Spotify podcast syndication amplifying educational and executive authority."}, "v2": {"badge": "Division IV \u2022 Media & Video", "title": "YouTube Growth, Podcasts & Social Monetization", "desc": "Professional video editing, click-worthy thumbnails, and podcast distribution to turn your knowledge into a high-reach digital asset."}, "v3": {"badge": "Division IV \u2022 School Fame & Media", "title": "Make Your School Famous on YouTube & Social Media", "desc": "Showcase your student debates, speech days, and choir performances with cinema-quality video that parents share enthusiastically."}, "v4": {"badge": "Division IV \u2022 Multichannel Content Engine", "title": "Omnichannel Broadcast & Streaming Infrastructure", "desc": "End-to-end multi-cam live-streaming, automated podcast RSS distribution, and programmatic social clipping for rapid audience scaling."}}, "enterprise_bundles": {"title": "Institutional Package Comparison", "description": "3 comparative packages for schools and corporate clients.", "v1": {"pkg_1": {"name": "The Academy Fellowship", "target": "For Private Primary & Secondary Schools", "includes": "Termly RP syllabus, stationed certified instructor, termly speech audits, and gala entry."}, "pkg_2": {"name": "The Sovereign Digital Suite", "target": "For Growing Institutions & Brands", "includes": "Custom Next.js website, technical SEO, platform management, and brand identity."}, "pkg_3": {"name": "The Institutional Flagship", "target": "For Premier Academies & Groups of Schools", "includes": "Full campus elocution deployment, custom school management portal, iOS/Android mobile app, and gala VIP seats."}}, "v2": {"pkg_1": {"name": "Starter Diction Package", "target": "Schools wanting immediate speech improvement", "includes": "Weekly classes, pronunciation drills, teacher workshop, and 2024 Gala tickets."}, "pkg_2": {"name": "14-Day Fast-Track Website", "target": "Schools & businesses needing a modern site fast", "includes": "Custom design, mobile-first build, Paystack payments, hosting setup, and SEO."}, "pkg_3": {"name": "All-in-One School Growth Pack", "target": "Schools wanting total domination", "includes": "Diction coaching + custom website + parent mobile app + free pupil contest entries."}}, "v3": {"pkg_1": {"name": "The Confident Voices Bundle", "target": "Transform your students' speech and stage presence", "includes": "Fun weekly diction lessons, speech day performance prep, and parent showcase clips."}, "pkg_2": {"name": "The Enrollment Booster Website", "target": "Attract more parents and increase student admissions", "includes": "Breathtaking school site, easy online application form, and Google SEO ranking."}, "pkg_3": {"name": "The Total School Transformation", "target": "Everything your school needs to be #1 in your district", "includes": "Complete diction overhaul + modern website + parent notification app + Gala trophy glory."}}, "v4": {"pkg_1": {"name": "Speech Tech Core", "target": "Educational speech deployment with digital audio tools", "includes": "Stationed elocutionist + cloud audio practice portal + annual student certifications."}, "pkg_2": {"name": "Cloud Infrastructure Suite", "target": "Modern web & mobile digital foundation", "includes": "Next.js 15 web platform + PostgreSQL database + Paystack tuition automation."}, "pkg_3": {"name": "Dual-Engine Campus OS", "target": "Unified acoustic speech training + full school cloud ERP", "includes": "Campus-wide speech academy + custom portal + native mobile app + broadcast video."}}}}}, "services_diction": {"title": "Services: Diction Academy", "icon": "\ud83c\udf99\ufe0f", "tag": "Speech & Elocution", "components": {"academy_hero": {"title": "Elocution Academy Hero & Vocal Waveform", "v1": {"badge": "Division I \u2022 The Classical Diction Academy", "heading_primary": "Diction Academy.", "heading_secondary": "Speak with the sovereign dignity of classical British Received Pronunciation.", "lead": "Eliminating regional articulatory impediments, instilling phonemic awareness, and cultivating stage presence across classrooms and boardrooms."}, "v2": {"badge": "Speech Training \u2022 Fast, Audible Results", "heading_primary": "Diction Academy.", "heading_secondary": "Speak clearly. Eliminate accents. Command every room.", "lead": "Practical, fun, and proven speech coaching for students, executives, and schools across Lagos. Hear the difference in two weeks."}, "v3": {"badge": "Transforming Children into Confident Leaders", "heading_primary": "Diction Academy.", "heading_secondary": "Give your child the gift of clear, beautiful, confident speech.", "lead": "Watch timid students find their courage, speak up proudly in class, and win standing ovations at school speech days and graduation ceremonies."}, "v4": {"badge": "Biomechanical Acoustic Speech Laboratory", "heading_primary": "Diction Academy.", "heading_secondary": "Science-backed phonetic articulation and vocal projection.", "lead": "Calibrating formant resonance, consonant plosives, and International Phonetic Alphabet literacy for the modern communicator."}}, "six_modules": {"title": "6 Core Practice Modules", "v1": {"mod_1": {"title": "Speech Therapy", "desc": "Articulatory diagnosis and physiological tongue-placement drills to resolve speech impediments."}, "mod_2": {"title": "Classical Diction Training", "desc": "Structured British Received Pronunciation modules focusing on vowel precision and stress patterns."}, "mod_3": {"title": "Phonics & Orthoepy", "desc": "Synthetic phonics grounding scholars in phoneme-grapheme decoding and lexical accuracy."}, "mod_4": {"title": "The Elocution Guild", "desc": "A disciplined forum for oratory debates, poetry recitation, and peer phonetic critique."}, "mod_5": {"title": "Executive Oratory & Etiquette", "desc": "Boardroom cadence, podium posture, microphone mastery, and formal public address."}, "mod_6": {"title": "Classical Orthographic Games", "desc": "Rigorous linguistic challenges reinforcing syllable stress and pronunciation rules."}}, "v2": {"mod_1": {"title": "Speech Therapy", "desc": "Fix lisping, stuttering, and unclear words with personalized 1-on-1 exercises."}, "mod_2": {"title": "Diction Training", "desc": "Eliminate heavy local accents and master smooth, natural British pronunciation."}, "mod_3": {"title": "Phonics Classes", "desc": "Help struggling readers decode and spell words quickly using phonetic sounds."}, "mod_4": {"title": "Diction Club", "desc": "Weekly practice club where students build courage speaking in front of peers."}, "mod_5": {"title": "Executive Polish", "desc": "Pitch coaching and presentation confidence for professionals, founders, and managers."}, "mod_6": {"title": "Diction Games", "desc": "Fun competitions and tongue twister challenges that make good pronunciation stick."}}, "v3": {"mod_1": {"title": "Gentle Speech Therapy", "desc": "Loving, patient coaching that helps quiet children overcome speech struggles with joy."}, "mod_2": {"title": "Confident Diction Classes", "desc": "Transform your child into an articulate speaker who sounds polished and educated everywhere."}, "mod_3": {"title": "Joyful Phonics", "desc": "Turn reading from a frustrating struggle into an exciting daily adventure."}, "mod_4": {"title": "Friendly Diction Club", "desc": "A warm community where students laugh, practice, and overcome public speaking fear."}, "mod_5": {"title": "Social Poise & Manners", "desc": "Teach children polite dining etiquette, confident handshakes, and respectful speech."}, "mod_6": {"title": "Exciting Speech Games", "desc": "Interactive games that make children eagerly practice proper pronunciation at home."}}, "v4": {"mod_1": {"title": "Acoustic Speech Therapy", "desc": "Spectrogram vocal profiling, velopharyngeal precision, and articulatory biofeedback."}, "mod_2": {"title": "Phonemic Diction Matrix", "desc": "Calibrated syllabic stress, vowel quantity, and RP consonant cluster optimization."}, "mod_3": {"title": "Synthetic Phonics Architecture", "desc": "44 English phoneme integration with digital audio prompts and reading benchmarks."}, "mod_4": {"title": "Oratory Laboratory", "desc": "Recorded debate analysis with audio waveform feedback and cadence pacing reviews."}, "mod_5": {"title": "Media & Podcast Voice Lab", "desc": "Microphone acoustics, proximity effect management, and broadcast vocal stamina."}, "mod_6": {"title": "Algorithmic Orthoepy Drills", "desc": "Rapid-fire pronunciation challenges benchmarking phonemic reaction times."}}}, "school_integration": {"title": "School Integration Plan & Faculty Workshops", "v1": {"text": "We deploy certified diction fellows directly to your campus. Our comprehensive deployment includes termly syllabi, faculty training workshops, speech day preparations, and audited student dossiers."}, "v2": {"text": "Zero work for your teachers. An OMA speech specialist comes to your school every week, teaches the classes, gives homework, and provides management with clear progress reports every term."}, "v3": {"text": "We become an extension of your school family. We inspire your students, train your teachers to speak flawlessly, and prepare your pupils to shine at school events and national competitions."}, "v4": {"text": "A full hybrid campus deployment: physical on-campus instruction combined with digital cloud audio resources, parent mobile listening apps, and measurable termly phonetic KPIs."}}, "executive_coaching": {"title": "Executive Elocution for Leaders", "v1": {"text": "Confidential, one-on-one voice refinement for C-suite directors, diplomats, and public leaders who require effortless authority in national and global forums."}, "v2": {"text": "Private coaching for CEOs, founders, and professionals who want to eliminate speech filler words, command attention in meetings, and pitch investors with confidence."}, "v3": {"text": "Personalized elocution sessions designed to help ambitious adults feel proud, poised, and confident whenever they pick up a microphone or lead a team."}, "v4": {"text": "Acoustic vocal conditioning for high-profile podcasters, media personalities, and tech founders preparing for keynote addresses and global broadcasts."}}, "transformation_proof": {"title": "Phonetic Fluency Matrix & Evidence", "v1": {"text": "50+ partner schools. 10,000+ scholars certified. 98% pass rate in external phonetics and elocution assessments across Lagos."}, "v2": {"text": "Hear the results yourself. We provide side-by-side 'Before & After' audio clips showing dramatic pronunciation improvements within 14 days."}, "v3": {"text": "Over 10,000 smiling children, hundreds of crying-with-pride parents, and 50+ schools that saw their enrollment surge after partnering with us."}, "v4": {"text": "A quantitative phonetic mastery index tracking vowel purity, syllable stress precision, and cadence fluency across multi-year student cohorts."}}, "diagnostic_cta": {"title": "Complimentary Campus Speech Audit CTA", "v1": {"button": "Schedule an Institutional Speech Diagnostic \u2192"}, "v2": {"button": "Book Free 45-Min Campus Audit \u2192"}, "v3": {"button": "Invite Us to Your School for Free \u2192"}, "v4": {"button": "Request Acoustic Speech Profiling \u2192"}}}}, "services_web_design": {"title": "Services: Website Design", "icon": "\ud83d\udcbb", "tag": "Digital Product Studio", "components": {"web_hero": {"title": "Web Engineering Hero & Live Platform Preview", "v1": {"badge": "Division II \u2022 Sovereign Digital Product Architecture", "heading_primary": "Website Design.", "heading_secondary": "Digital storefronts engineered with the dignity, permanence, and precision of fine print.", "lead": "Hand-crafted on Next.js 15. We eliminate sluggish WordPress templates in favor of bespoke React architectures that command institutional respect."}, "v2": {"badge": "Next.js 15 Web Studio \u2022 14-Day Delivery", "heading_primary": "Website Design.", "heading_secondary": "Fast, beautiful websites that turn visitors into paying clients.", "lead": "Zero bloated templates. Mobile-first design, 95+ Google speed scores, and integrated payment gateways built to convert visitors from day one."}, "v3": {"badge": "Websites That Make Parents Choose Your School", "heading_primary": "Website Design.", "heading_secondary": "A stunning online home that makes your school the talk of the town.", "lead": "Stop losing prospective families to schools with better websites. We build breathtaking school websites that showcase your campus and multiply admissions."}, "v4": {"badge": "Headless Cloud Engineering \u2022 Edge Deployed", "heading_primary": "Website Architecture.", "heading_secondary": "High-performance digital platforms built for scale and durability.", "lead": "Engineered with React Server Components, Tailwind CSS, PostgreSQL, and serverless edge caching for sub-second speeds on any device."}}, "four_offerings": {"title": "4 Web Engineering Capabilities", "v1": {"off_1": {"title": "Bespoke Editorial UI Architecture", "desc": "Custom typographical layouts reflecting fine print aesthetics, high contrast, and responsive fluid motion."}, "off_2": {"title": "Platform Stewardship & Security", "desc": "Proactive zero-downtime maintenance, vulnerability patching, automated backups, and performance auditing."}, "off_3": {"title": "Technical Search Architecture (SEO)", "desc": "Algorithmic on-page optimization, structured schema markup, and speed metrics targeting organic dominance."}, "off_4": {"title": "High-Assurance Paid Acquisition", "desc": "Targeted Google and Meta campaigns designed to place your academy before high-net-worth families."}}, "v2": {"off_1": {"title": "Custom Website Design", "desc": "Clean, modern websites custom-coded to look gorgeous on every phone, tablet, and computer."}, "off_2": {"title": "Full Website Management", "desc": "We keep your site fast, updated, and secure every month so you never have to deal with hosting issues."}, "off_3": {"title": "Google SEO Optimization", "desc": "Make sure your business or school ranks at the very top of Google when potential clients search in Lagos."}, "off_4": {"title": "Targeted Lead Generation Ads", "desc": "High-converting Facebook, Instagram, and Google ads that drive immediate inquiries to your WhatsApp."}}, "v3": {"off_1": {"title": "Breathtaking School Portals", "desc": "Showcase your student achievements, facilities, and academic results with interactive photo galleries."}, "off_2": {"title": "Easy Online Application Forms", "desc": "Make it effortless for busy parents to apply, upload birth certificates, and pay entrance fees online."}, "off_3": {"title": "Local SEO Superpower", "desc": "Help parents in your neighborhood discover your school before they see any of your competitors."}, "off_4": {"title": "Admissions Campaign Marketing", "desc": "Targeted social media campaigns during admission season that fill your classrooms with bright pupils."}}, "v4": {"off_1": {"title": "Headless Web Platforms", "desc": "Decoupled Next.js 15 frontends paired with headless content engines for instant global edge delivery."}, "off_2": {"title": "DevOps & Cloud SRE", "desc": "Continuous integration, automated Lighthouse audits, SSL encryption, and multi-region failover."}, "off_3": {"title": "Programmatic SEO Architecture", "desc": "Dynamic page generation with structured JSON-LD, OpenGraph protocols, and sub-second crawlability."}, "off_4": {"title": "Conversion Tracking & Analytics", "desc": "Real-time user heatmaps, Google Tag Manager event tracking, and conversion rate optimization (CRO)."}}}, "engineering_process": {"title": "4-Phase Delivery Process", "v1": {"step_1": {"p": "01", "name": "Discovery & Institutional Audit", "desc": "Strategic alignment on your academic pedigree, target audience, and digital objectives."}, "step_2": {"p": "02", "name": "Editorial UI Prototyping", "desc": "High-fidelity interactive layouts designed with classical typography for your review."}, "step_3": {"p": "03", "name": "Next.js 15 Production Build", "desc": "Clean, accessible code using React Server Components, Tailwind CSS, and edge caching."}, "step_4": {"p": "04", "name": "Sovereign Launch & SLA", "desc": "Custom domain provisioning with ongoing 24/7 technical guardianship."}}, "v2": {"step_1": {"p": "01", "name": "48-Hour Kickoff & Wireframe", "desc": "We outline your site structure, copy, and features in a single collaborative session."}, "step_2": {"p": "02", "name": "Visual Design Approval", "desc": "You review and approve the clean, mobile-first design mockup before coding begins."}, "step_3": {"p": "03", "name": "7-Day Next.js Build", "desc": "We code your site with lightning-fast speeds, online forms, and Paystack integration."}, "step_4": {"p": "04", "name": "Live Launch on Day 14", "desc": "We connect your domain, test everything on real phones, and hand over the keys."}}, "v3": {"step_1": {"p": "01", "name": "Understanding Your School's Story", "desc": "We listen to your school's vision, heritage, and what makes your campus uniquely special."}, "step_2": {"p": "02", "name": "Designing the Dream Experience", "desc": "We design a website that makes prospective parents say 'Wow, this school is incredible.'"}, "step_3": {"p": "03", "name": "Building with Care & Speed", "desc": "Every button, gallery, and form is tested to ensure a delightful experience for parents."}, "step_4": {"p": "04", "name": "Celebration & Parent Launch", "desc": "We launch your new site, announce it to your school community, and watch the inquiries roll in."}}, "v4": {"step_1": {"p": "01", "name": "Technical Architecture Spec", "desc": "Schema design, API endpoints, user persona mapping, and performance budget definition."}, "step_2": {"p": "02", "name": "Component Design System", "desc": "Atomic design system built in Figma, matching Tailwind CSS utility tokens and dark mode."}, "step_3": {"p": "03", "name": "Edge Code Implementation", "desc": "Next.js 15, TypeScript, PostgreSQL integration, and Paystack payment webhook listeners."}, "step_4": {"p": "04", "name": "Global Edge Deployment", "desc": "Vercel edge network propagation, automated SSL, Core Web Vitals validation, and SRE monitoring."}}}, "tech_guarantees": {"title": "Performance & Reliability Guarantees", "v1": {"text": "99.9% Uptime Guarantee \u2022 Sub-Second Time-to-First-Byte \u2022 Bank-Grade SSL Encryption \u2022 Zero Template Bloat"}, "v2": {"text": "14-Day Delivery Guarantee \u2022 Google PageSpeed 90+ Guaranteed \u2022 100% Mobile Optimized \u2022 Zero Hidden Fees"}, "v3": {"text": "Loved by Parents Guaranteed \u2022 Easy-to-Update Dashboard \u2022 WhatsApp Inquiry Integration \u2022 100% Satisfaction"}, "v4": {"text": "Edge Serverless Architecture \u2022 100/100 Core Web Vitals Target \u2022 PostgreSQL Relational Integrity \u2022 Full CI/CD"}}, "proposal_cta": {"title": "Website Commission Call-to-Action", "v1": {"button": "Commission a Bespoke Digital Platform \u2192"}, "v2": {"button": "Get Your 14-Day Website Quote \u2192"}, "v3": {"button": "Upgrade Your School Website Today \u2192"}, "v4": {"button": "Initiate Next.js Web Specification \u2192"}}}}, "services_mobile_apps": {"title": "Services: Mobile Apps", "icon": "\ud83d\udcf1", "tag": "Native iOS & Android", "components": {"mobile_hero": {"title": "Mobile App Studio Hero & Native Device Visuals", "v1": {"badge": "Division III \u2022 Sovereign Mobile Engineering", "heading_primary": "Mobile Applications.", "heading_secondary": "Native iOS and Android systems engineered for institutional resilience.", "lead": "Purpose-built mobile applications for school portals, student engagement, and executive operations with bank-grade encryption."}, "v2": {"badge": "iOS & Android Apps \u2022 Paystack Ready", "heading_primary": "Mobile Applications.", "heading_secondary": "Custom mobile apps designed, built, and launched on the App Store.", "lead": "Fast, responsive mobile applications that keep your clients, parents, and students connected 24/7 with push notifications and online payments."}, "v3": {"badge": "The Mobile App Parents Love to Use", "heading_primary": "Mobile Applications.", "heading_secondary": "Keep school parents connected, informed, and delighted every day.", "lead": "Instant attendance alerts, digital report cards, and seamless tuition payments right in the palm of your school parents' hands."}, "v4": {"badge": "Cross-Platform Mobile Studio \u2022 Flutter & React Native", "heading_primary": "Mobile Engineering.", "heading_secondary": "Offline-first mobile applications engineered for high concurrency.", "lead": "High-performance native apps for iOS and Android featuring biometric security, background sync, and Paystack/Flutterwave SDK integrations."}}, "mobile_offerings": {"title": "4 Mobile Capabilities", "v1": {"m_1": {"title": "Human-Centric Mobile UI", "desc": "Refined touch gestures, typography, and accessibility adhering to Apple Human Interface Guidelines."}, "m_2": {"title": "Native iOS & Android Engineering", "desc": "Cross-platform architectures ensuring identical fluid performance across Apple iPhones and Android devices."}, "m_3": {"title": "Continuous Lifecycle Support", "desc": "Proactive OS compatibility updates, crash monitoring, security patches, and version upgrades."}, "m_4": {"title": "App Store Distribution & ASO", "desc": "Complete App Store and Google Play compliance, metadata tuning, and fast approval turnaround."}}, "v2": {"m_1": {"title": "Intuitive App UI/UX", "desc": "Simple, clean designs that anyone can use without needing a manual or training session."}, "m_2": {"title": "Fast iOS & Android Development", "desc": "Single codebase deployment on Flutter or React Native to get you into both app stores fast."}, "m_3": {"title": "Maintenance & Bug Fixes", "desc": "We keep your app running smoothly across new iOS and Android software updates every year."}, "m_4": {"title": "App Store Publishing", "desc": "We manage the entire submission process until your app is live and downloadable by the public."}}, "v3": {"m_1": {"title": "Parent-Friendly Design", "desc": "Big, readable fonts, clean layout, and zero confusion for busy mothers and fathers."}, "m_2": {"title": "School Mobile Hub", "desc": "School news, term dates, homework assignments, and photo galleries all in one safe app."}, "m_3": {"title": "Instant Push Notifications", "desc": "Send urgent messages, bus delay alerts, and event reminders straight to parents' lock screens."}, "m_4": {"title": "Digital Fee Payments", "desc": "Parents pay school fees with debit card or bank transfer in seconds, reducing unpaid tuition."}}, "v4": {"m_1": {"title": "Mobile UI/UX Architecture", "desc": "Design token systems, fluid micro-interactions, dark mode support, and 60fps animations."}, "m_2": {"title": "Offline-First Data Engine", "desc": "Local SQLite caching with background conflict-free synchronized replication to PostgreSQL."}, "m_3": {"title": "DevOps & Release Pipeline", "desc": "Automated Fastlane build scripts, OTA updates, Sentry error tracking, and analytics."}, "m_4": {"title": "App Store Optimization (ASO)", "desc": "Keyword indexing, conversion-optimized app preview video assets, and organic rank scaling."}}}, "feature_checklist": {"title": "Mobile Production Feature Checklist", "v1": {"items": ["Apple iOS & Google Android", "Biometric Authentication (FaceID/TouchID)", "Role-Based Parental & Faculty Access", "Bank-Grade Paystack/Flutterwave Integration", "Encrypted Offline Data Storage", "Audit Logging & Security Compliance"]}, "v2": {"items": ["Works on iOS & Android", "Push Notifications to All Users", "Paystack & Debit Card Payments", "Works Even When Internet Drops", "Real-Time User Analytics", "Direct WhatsApp Support Integration"]}, "v3": {"items": ["Easy for Every Parent to Use", "Instant School Alert Notifications", "Zero Paper Fees or Bank Teller Chases", "Student Daily Attendance Tracking", "Digital Report Cards & Results", "Direct Chat with Class Teachers"]}, "v4": {"items": ["Flutter & React Native Cross-Platform", "SQLite Offline-First Storage Layer", "Firebase Cloud Messaging (FCM)", "Paystack, Flutterwave & Stripe SDKs", "Biometric Encryption & JWT Auth", "Real-Time WebSockets & Telemetry"]}}, "mobile_stack": {"title": "Mobile Technology Stack", "v1": {"text": "Flutter \u2022 Swift \u2022 Kotlin \u2022 PostgreSQL \u2022 Firebase Cloud Messaging \u2022 Paystack Secured API"}, "v2": {"text": "React Native \u2022 Flutter \u2022 Node.js \u2022 Paystack \u2022 Google Play Store \u2022 Apple App Store"}, "v3": {"text": "Built for Nigeria's Mobile Networks \u2022 Ultra-Light Data Usage \u2022 Android & iPhone Compatible"}, "v4": {"text": "Flutter 3 \u2022 React Native \u2022 PostgreSQL \u2022 Redis \u2022 Docker \u2022 Vercel Cloud \u2022 Fastlane CI/CD"}}, "app_estimate_cta": {"title": "Mobile App Estimation CTA", "v1": {"button": "Commission an Institutional Mobile Architecture \u2192"}, "v2": {"button": "Get an Instant Mobile App Quote \u2192"}, "v3": {"button": "Build Your School's Mobile App \u2192"}, "v4": {"button": "Schedule Mobile Architecture Review \u2192"}}}}, "services_web_apps": {"title": "Services: Custom Web Apps & SaaS", "icon": "\u2699\ufe0f", "tag": "Enterprise Cloud Systems", "components": {"saas_hero": {"title": "Custom SaaS Hero & Enterprise Systems Diagram", "v1": {"badge": "Division IV \u2022 Sovereign Cloud & SaaS Engineering", "heading_primary": "Web Applications.", "heading_secondary": "Custom institutional portals, e-learning architectures, and administrative automation.", "lead": "Replacing fragile manual spreadsheets with hardened, role-based cloud software engineered for academic and corporate governance."}, "v2": {"badge": "Custom Software \u2022 Zero Monthly Bloatware", "heading_primary": "Custom Web Apps.", "heading_secondary": "Powerful portals and dashboards built to automate your operations.", "lead": "Eliminate chaotic spreadsheets, automate student records, track tuition payments, and run your institution effortlessly from any browser."}, "v3": {"badge": "End School Operational Headaches Forever", "heading_primary": "Custom School Portals.", "heading_secondary": "The custom school management system your staff and parents will love.", "lead": "No more lost report cards, unpaid fees, or angry parent queues. Everything from attendance to exam grades automated in a single, simple portal."}, "v4": {"badge": "Enterprise Cloud Architecture \u2022 Distributed Systems", "heading_primary": "Cloud Applications.", "heading_secondary": "Multi-tenant SaaS architectures, workflow engines, and real-time APIs.", "lead": "Engineered on Next.js 15, Node.js, and PostgreSQL for high concurrency, cryptographic security, and automated microservices."}}, "saas_capabilities": {"title": "4 Custom SaaS Offerings", "v1": {"s_1": {"title": "Multi-Tier Institutional Portals", "desc": "Role-based access separating student academic dossiers, faculty grading ledgers, and bursary accounting."}, "s_2": {"title": "Enterprise Process Automation", "desc": "Custom software automating complex administrative workflows, admissions approvals, and staff scheduling."}, "s_3": {"title": "E-Learning & Phonetics Repositories", "desc": "Secure membership repositories housing audio phonetics lessons, recorded lectures, and digital libraries."}, "s_4": {"title": "Financial Reconciliation Engines", "desc": "Automated ledger balancing integrating direct bank feeds, Paystack webhooks, and automated receipts."}}, "v2": {"s_1": {"title": "Custom School Portals", "desc": "Dedicated portals for teachers to enter grades, parents to view report cards, and bursars to track fees."}, "s_2": {"title": "Business Workflow Automation", "desc": "Custom web apps that replace Excel sheets with fast, search-enabled digital record keeping."}, "s_3": {"title": "Student Learning Hubs", "desc": "Online learning platforms where students access lecture notes, video lessons, and online quizzes."}, "s_4": {"title": "Automated Invoicing & Receipts", "desc": "Generate branded PDF receipts automatically whenever a client or parent completes a payment."}}, "v3": {"s_1": {"title": "School Management Portal", "desc": "Everything in one place: student enrollment, teacher remarks, termly report card generation, and fee status."}, "s_2": {"title": "Tuition Collection on Autopilot", "desc": "Parents receive automatic payment links on WhatsApp. When they pay, their receipt is generated instantly."}, "s_3": {"title": "Digital Result Sheets in Seconds", "desc": "Teachers enter scores once; the system automatically calculates averages, ranks, and prints gorgeous report cards."}, "s_4": {"title": "Parent Peace of Mind", "desc": "Parents log in from anywhere in the world to check their child's academic growth, attendance, and teacher feedback."}}, "v4": {"s_1": {"title": "Multi-Tenant SaaS Engines", "desc": "Isolated tenant data partitioning, custom domain mapping, and dynamic database routing in PostgreSQL."}, "s_2": {"title": "Event-Driven Automation Pipelines", "desc": "Background worker queues processing PDF generation, email dispatches, and webhook listeners via Redis."}, "s_3": {"title": "Phonetics & Audio Repositories", "desc": "Cloudflare R2 object storage streaming audio phonetics exercises with adaptive bitrate and audio analytics."}, "s_4": {"title": "Cryptographic Audit Trails", "desc": "Immutable ledger tracking fee payments, grade modifications, and administrative logins for absolute accountability."}}}, "saas_tech_stack": {"title": "Software Engineering Stack & Infrastructure", "v1": {"text": "Next.js 15 \u2022 PostgreSQL Relational Database \u2022 Prisma ORM \u2022 Node.js \u2022 Paystack Enterprise Gateway \u2022 AWS / Vercel Cloud"}, "v2": {"text": "Next.js \u2022 React \u2022 Tailwind CSS \u2022 PostgreSQL \u2022 Paystack \u2022 Node.js \u2022 Vercel Cloud Hosting"}, "v3": {"text": "100% Cloud-Based \u2022 No Expensive Servers Needed \u2022 Accessible on Any Phone or Laptop \u2022 Automatic Backups"}, "v4": {"text": "Next.js 15 \u2022 TypeScript \u2022 PostgreSQL \u2022 Redis \u2022 Prisma \u2022 Docker \u2022 Vercel Edge \u2022 Tailwind CSS"}}, "security_compliance": {"title": "Enterprise Security & Compliance", "v1": {"text": "Row-Level Security (RLS) \u2022 Role-Based Access Control (RBAC) \u2022 256-bit TLS Data Encryption \u2022 Daily Offsite Disaster Backups"}, "v2": {"text": "Bank-Grade Security \u2022 Protected Against Hackers \u2022 Automatic Daily Backups \u2022 Individual Password Access for Teachers"}, "v3": {"text": "Safe & Private Student Data \u2022 Only Authorized Parents See Their Own Children's Results \u2022 Zero Risk of Lost Paper Records"}, "v4": {"text": "PostgreSQL RLS \u2022 JWT Session Invalidation \u2022 OWASP Top 10 Compliant \u2022 Rate Limiting & DDoS Protection via Cloudflare"}}, "discovery_session_cta": {"title": "Software Discovery Session CTA", "v1": {"button": "Commission an Institutional Software Audit \u2192"}, "v2": {"button": "Schedule a 20-Min Portal Demo \u2192"}, "v3": {"button": "See How Easy School Management Can Be \u2192"}, "v4": {"button": "Schedule Architecture & Schema Review \u2192"}}}}};
+    const VAR_META = {"v1": {"id": "v1", "name": "Variation 1: British Standard & Institutional Pedigree", "short_name": "V1: British Pedigree", "tagline": "Prestige, Classical Elocution & Board-Level Authority", "badge": "Prestige Edition", "color_accent": "#202860", "color_pill": "bg-[#202860] text-white", "border_accent": "border-[#202860]", "summary": "Positions OMA Services as an illustrious, accredited institution upholding classical British Received Pronunciation and sovereign digital craft. Emphasizes academic rigor, classical terminology, and board-level governance."}, "v2": {"id": "v2", "name": "Variation 2: Apple-Style Minimalist & Direct Conversion", "short_name": "V2: Apple Minimalist", "tagline": "Two-Tone Inline Clarity, Punchy Benefit Hooks & Zero Fluff", "badge": "Conversion Edition", "color_accent": "#B82020", "color_pill": "bg-[#B82020] text-white", "border_accent": "border-[#B82020]", "summary": "Applies Apple Store signature copywriting: two-tone inline split headings, high contrast, bite-sized value blocks, explicit metrics (\u20a650K prizes, 14-day web delivery), and frictionless single-click conversion triggers."}, "v3": {"id": "v3", "name": "Variation 3: Outcome-Driven & School Transformation", "short_name": "V3: School Transformation", "tagline": "Student Transformation, Enrollment Growth & Parent Pride", "badge": "Impact Edition", "color_accent": "#1B2254", "color_pill": "bg-[#1B2254] text-white", "border_accent": "border-[#1B2254]", "summary": "Focuses intensely on tangible outcomes: shy children speaking with auditorium-commanding poise, schools becoming the #1 premium choice in their district, and digital platforms multiplying revenue and admissions."}, "v4": {"id": "v4", "name": "Variation 4: Modern Dual-Engine Ecosystem", "short_name": "V4: Dual-Engine Ecosystem", "tagline": "The Speech Academy + Digital Product Studio", "badge": "Ecosystem Edition", "color_accent": "#FF8A8A", "color_pill": "bg-[#232E66] text-[#FF8A8A]", "border_accent": "border-[#FF8A8A]", "summary": "Celebrates OMA's unique dual engine: how the Speech Academy powers executive voice and podcast authority, while the Digital Studio engineers the school portals and mobile apps that reinforce oral literacy."}};
+
+    let currentVarId = 'v1';
+    let currentPageId = 'home';
+    let currentViewMode = 'single'; // 'single' or 'matrix'
+    let blueprintSelections = {};
+
+    // Load saved blueprint from localStorage if available
+    try {
+      const saved = localStorage.getItem('oma_blueprint_selections');
+      if (saved) blueprintSelections = JSON.parse(saved);
+    } catch(e) {}
+
+    // Init Theme from system or localStorage
+    function initTheme() {
+      const stored = localStorage.getItem('oma-theme');
+      const isDark = stored ? stored === 'dark' : window.matchMedia('(prefers-color-scheme: dark)').matches;
+      if (isDark) {
+        document.documentElement.classList.add('dark');
+        updateThemeUI(true);
+      } else {
+        document.documentElement.classList.remove('dark');
+        updateThemeUI(false);
+      }
+    }
+
+    function toggleTheme() {
+      const isDark = document.documentElement.classList.toggle('dark');
+      localStorage.setItem('oma-theme', isDark ? 'dark' : 'light');
+      updateThemeUI(isDark);
+    }
+
+    function updateThemeUI(isDark) {
+      const icon = document.getElementById('themeIcon');
+      const label = document.getElementById('themeLabel');
+      const mobileBtn = document.getElementById('themeToggleBtnMobile');
+      if (icon && label) {
+        icon.textContent = isDark ? '☀️' : '🌙';
+        label.textContent = isDark ? 'Light Mode' : 'Dark Mode';
+      }
+      if (mobileBtn) {
+        mobileBtn.textContent = isDark ? '☀️' : '🌙';
+      }
+    }
+
+    // Switch Variation
+    function setVariation(varId) {
+      currentVarId = varId;
+      document.querySelectorAll('.var-tab').forEach(btn => {
+        btn.classList.remove('bg-[#202860]', 'text-white', 'border-[#202860]', 'bg-[#B82020]', 'border-[#B82020]');
+        btn.classList.add('bg-white', 'dark:bg-[#131A3E]', 'text-[#202860]', 'dark:text-white', 'border-[#D5DCF0]', 'dark:border-[#232E66]');
+      });
+
+      const activeBtn = document.getElementById('varTab-' + varId);
+      if (activeBtn) {
+        activeBtn.classList.remove('bg-white', 'dark:bg-[#131A3E]', 'text-[#202860]', 'dark:text-white', 'border-[#D5DCF0]', 'dark:border-[#232E66]');
+        if (varId === 'v2') {
+          activeBtn.classList.add('bg-[#B82020]', 'text-white', 'border-[#B82020]');
+        } else {
+          activeBtn.classList.add('bg-[#202860]', 'text-white', 'border-[#202860]');
+        }
+      }
+
+      // Update banner metadata
+      const meta = VAR_META[varId];
+      document.getElementById('currentVarBadge').textContent = meta.badge;
+      document.getElementById('currentVarTitle').textContent = meta.name;
+      document.getElementById('currentVarSummary').textContent = meta.summary;
+
+      if (currentViewMode === 'single') {
+        renderSinglePageView();
+      }
+    }
+
+    // Switch Page
+    function setPage(pageId) {
+      currentPageId = pageId;
+      renderPageTabs();
+      updatePageIndicator();
+
+      if (currentViewMode === 'single') {
+        renderSinglePageView();
+      } else {
+        populateMatrixComponentDropdown();
+        renderMatrixView();
+      }
+    }
+
+    function renderPageTabs() {
+      const container = document.getElementById('pageTabsContainer');
+      container.innerHTML = '';
+
+      Object.keys(RAW_DATA).forEach(pId => {
+        const page = RAW_DATA[pId];
+        const isActive = pId === currentPageId;
+
+        const btn = document.createElement('button');
+        btn.onclick = () => setPage(pId);
+        btn.className = `px-3 py-1.5 rounded-full text-xs font-semibold transition-all border whitespace-nowrap flex items-center gap-1.5 ${
+          isActive 
+            ? 'bg-[#202860] dark:bg-[#18214C] text-white border-[#202860] dark:border-[#B82020] shadow-sm font-bold' 
+            : 'bg-white dark:bg-[#131A3E] text-[#424B78] dark:text-[#94A3D3] border-[#D5DCF0] dark:border-[#232E66] hover:text-[#202860] dark:hover:text-white'
+        }`;
+        btn.innerHTML = `<span>${page.icon}</span> <span>${page.title}</span>`;
+        container.appendChild(btn);
+      });
+    }
+
+    function updatePageIndicator() {
+      const page = RAW_DATA[currentPageId];
+      const count = Object.keys(page.components).length;
+      document.getElementById('currentPageIndicator').textContent = `${page.icon} ${page.title} (${count} Components)`;
+    }
+
+    // Switch View Mode: 'single' or 'matrix'
+    function setViewMode(mode) {
+      currentViewMode = mode;
+      const btnSingle = document.getElementById('btnViewSingle');
+      const btnMatrix = document.getElementById('btnViewMatrix');
+      const containerSingle = document.getElementById('viewSinglePage');
+      const containerMatrix = document.getElementById('viewMatrixComparison');
+      const varBar = document.getElementById('variationBarContainer');
+
+      if (mode === 'single') {
+        btnSingle.className = 'px-3 py-1.5 rounded-lg bg-[#202860] text-white shadow-sm transition-all flex items-center gap-1.5';
+        btnMatrix.className = 'px-3 py-1.5 rounded-lg text-[#5A6494] dark:text-[#94A3D3] hover:text-[#202860] dark:hover:text-white transition-all flex items-center gap-1.5';
+        containerSingle.classList.remove('hidden');
+        containerMatrix.classList.add('hidden');
+        varBar.classList.remove('opacity-40', 'pointer-events-none');
+        renderSinglePageView();
+      } else {
+        btnMatrix.className = 'px-3 py-1.5 rounded-lg bg-[#202860] text-white shadow-sm transition-all flex items-center gap-1.5';
+        btnSingle.className = 'px-3 py-1.5 rounded-lg text-[#5A6494] dark:text-[#94A3D3] hover:text-[#202860] dark:hover:text-white transition-all flex items-center gap-1.5';
+        containerSingle.classList.add('hidden');
+        containerMatrix.classList.remove('hidden');
+        varBar.classList.add('opacity-40', 'pointer-events-none');
+        populateMatrixComponentDropdown();
+        renderMatrixView();
+      }
+    }
+
+    // RENDER: SINGLE PAGE COMPONENT-BY-COMPONENT FLOW
+    function renderSinglePageView() {
+      const container = document.getElementById('viewSinglePage');
+      container.innerHTML = '';
+
+      const page = RAW_DATA[currentPageId];
+      const components = page.components;
+
+      let idx = 1;
+      for (const compKey in components) {
+        const comp = components[compKey];
+        const compData = comp[currentVarId];
+        const isSelected = blueprintSelections[`${currentPageId}_${compKey}`] === currentVarId;
+
+        const card = document.createElement('div');
+        card.className = "rounded-[28px] bg-white dark:bg-[#131A3E] border border-[#D5DCF0] dark:border-[#232E66] shadow-sm p-6 sm:p-8 space-y-6 transition-all relative overflow-hidden";
+        
+        // Component Header Badge & Selection Tool
+        let headerHtml = `
+          <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3 pb-5 border-b border-[#E2E6F2] dark:border-[#232E66]">
+            <div>
+              <div class="flex items-center gap-2">
+                <span class="px-2.5 py-0.5 rounded-full bg-[#FAF8F5] dark:bg-[#0A0E24] border border-[#D5DCF0] dark:border-[#232E66] text-[#202860] dark:text-white text-[11px] font-bold uppercase tracking-wider font-mono">
+                  Component 0${idx}
+                </span>
+                <span class="text-xs font-bold text-[#5A6494] dark:text-[#94A3D3]">• ${comp.title}</span>
+              </div>
+              <p class="text-xs text-[#5A6494] dark:text-[#94A3D3] mt-1">${comp.description || ''}</p>
+            </div>
+            
+            <button onclick="toggleComponentSelection('${currentPageId}', '${compKey}', '${currentVarId}')" class="select-btn px-4 py-2 rounded-xl text-xs font-bold transition-all flex items-center gap-1.5 shrink-0 ${
+              isSelected 
+                ? 'bg-emerald-600 text-white shadow-md' 
+                : 'bg-[#FAF8F5] dark:bg-[#0A0E24] text-[#202860] dark:text-white border border-[#D5DCF0] dark:border-[#232E66] hover:border-[#B82020]'
+            }">
+              <span>${isSelected ? '✓ Selected for Blueprint' : '⭐ Select This Rendition'}</span>
+            </button>
+          </div>
+        `;
+
+        // Render Component Content Body based on type
+        let bodyHtml = renderComponentBody(compKey, compData);
+
+        card.innerHTML = headerHtml + bodyHtml;
+        container.appendChild(card);
+        idx++;
+      }
+    }
+
+    // Helper: Component Body Renderer
+    function renderComponentBody(compKey, data) {
+      if (!data) return '<div class="text-xs text-rose-500">Data missing for this variation</div>';
+
+      // 1. HERO COMPONENT
+      if (compKey.includes('hero')) {
+        return `
+          <div class="space-y-6 pt-2">
+            ${data.badge ? `<div class="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-[#FDF2F2] dark:bg-[#B82020]/20 border border-[#F3CACA] dark:border-[#B82020]/40 text-[#B82020] dark:text-[#FF8A8A] text-xs font-bold uppercase tracking-wider">
+              <span class="w-1.5 h-1.5 rounded-full bg-[#B82020]"></span>
+              ${data.badge}
+            </div>` : ''}
+
+            <h1 class="text-2xl sm:text-4xl lg:text-5xl font-bold tracking-tight leading-[1.12]">
+              <span class="text-[#202860] dark:text-white">${data.heading_primary || ''}</span>
+              <span class="text-[#5A6494] dark:text-[#94A3D3] font-normal block sm:inline"> ${data.heading_secondary || ''}</span>
+            </h1>
+
+            ${data.subhead || data.lead ? `<p class="text-sm sm:text-base text-[#424B78] dark:text-[#94A3D3] leading-relaxed max-w-3xl">${data.subhead || data.lead}</p>` : ''}
+
+            ${data.typewriter_lines ? `
+              <div class="p-3.5 rounded-xl bg-[#FAF8F5] dark:bg-[#0A0E24] border border-[#D5DCF0] dark:border-[#232E66] text-xs font-mono text-[#B82020] dark:text-[#FF8A8A] space-y-1">
+                <span class="text-[10px] text-[#5A6494] uppercase tracking-wider font-sans font-bold block">Dynamic Typewriter Sequences:</span>
+                ${data.typewriter_lines.map(l => `<div>${l}</div>`).join('')}
+              </div>
+            ` : ''}
+
+            <div class="flex flex-wrap items-center gap-3 pt-2">
+              ${data.cta_primary ? `<button class="px-6 py-3 rounded-full bg-[#B82020] hover:bg-[#9E1818] text-white text-xs font-bold uppercase tracking-wider shadow-md">${data.cta_primary}</button>` : ''}
+              ${data.cta_secondary ? `<button class="px-6 py-3 rounded-full bg-[#202860] hover:bg-[#1B2254] dark:bg-white dark:hover:bg-slate-200 text-white dark:text-[#202860] text-xs font-bold uppercase tracking-wider shadow-md">${data.cta_secondary}</button>` : ''}
+              ${data.venue_pill ? `<span class="px-3.5 py-2 rounded-xl bg-[#FAF8F5] dark:bg-[#0A0E24] border border-[#D5DCF0] dark:border-[#232E66] text-xs font-semibold text-[#202860] dark:text-slate-200">📍 ${data.venue_pill}</span>` : ''}
+            </div>
+
+            ${data.concierge_card ? `
+              <div class="mt-4 p-4 rounded-2xl bg-[#EFF2FA] dark:bg-[#0A0E24] border border-[#D5DCF0] dark:border-[#232E66] flex items-center justify-between gap-4">
+                <div>
+                  <span class="text-[10px] font-bold uppercase tracking-wider text-[#B82020] dark:text-[#FF8A8A] block">${data.concierge_card.title}</span>
+                  <p class="text-xs text-[#202860] dark:text-slate-200 font-medium">${data.concierge_card.sub}</p>
+                </div>
+                <span class="text-xs font-bold text-[#B82020] dark:text-[#FF8A8A] hover:underline cursor-pointer shrink-0">${data.concierge_card.link_text}</span>
+              </div>
+            ` : ''}
+          </div>
+        `;
+      }
+
+      // 2. CATEGORY DOCK
+      if (compKey === 'category_dock') {
+        return `
+          <div class="space-y-3 pt-2">
+            <span class="text-xs font-bold uppercase tracking-wider text-[#5A6494] dark:text-[#94A3D3]">Interactive Product Strip (${data.categories.length} Categories):</span>
+            <div class="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-7 gap-3">
+              ${data.categories.map(c => `
+                <div class="p-3.5 rounded-2xl bg-[#FAF8F5] dark:bg-[#0A0E24] border border-[#D5DCF0] dark:border-[#232E66] text-center flex flex-col justify-between h-32 hover:border-[#B82020] transition-colors">
+                  <span class="inline-block self-center px-2 py-0.5 rounded-full bg-white dark:bg-[#131A3E] text-[10px] font-bold text-[#B82020] dark:text-[#FF8A8A] border border-[#D5DCF0] dark:border-[#232E66]">${c.badge}</span>
+                  <div>
+                    <h5 class="text-xs font-bold text-[#202860] dark:text-white mt-1">${c.title}</h5>
+                    <p class="text-[10px] text-[#5A6494] dark:text-[#94A3D3] mt-0.5 leading-snug">${c.sub}</p>
+                  </div>
+                </div>
+              `).join('')}
+            </div>
+          </div>
+        `;
+      }
+
+      // 3. FLAGSHIP SHELF
+      if (compKey === 'flagship_shelf') {
+        const cards = [data.card_1, data.card_2, data.card_3, data.card_4, data.card_5].filter(Boolean);
+        return `
+          <div class="space-y-4 pt-2">
+            <div>
+              <h3 class="text-xl sm:text-2xl font-bold font-editorial text-[#202860] dark:text-white">${data.shelf_title}</h3>
+              <p class="text-xs text-[#5A6494] dark:text-[#94A3D3]">${data.shelf_subtitle}</p>
+            </div>
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+              ${cards.map(c => `
+                <div class="p-6 rounded-[24px] bg-[#FAF8F5] dark:bg-[#0A0E24] border border-[#D5DCF0] dark:border-[#232E66] flex flex-col justify-between space-y-4">
+                  <div>
+                    <span class="text-[11px] font-bold uppercase tracking-wider text-[#B82020] dark:text-[#FF8A8A]">${c.tag}</span>
+                    <h4 class="font-editorial text-lg font-bold text-[#202860] dark:text-white mt-1 leading-snug">${c.h3}</h4>
+                    <p class="text-xs text-[#424B78] dark:text-[#94A3D3] mt-2 leading-relaxed">${c.desc}</p>
+                  </div>
+                  <div class="pt-3 border-t border-[#E2E6F2] dark:border-[#232E66] flex items-center justify-between text-xs">
+                    <span class="font-bold text-[#202860] dark:text-slate-200">${c.stat}</span>
+                    <span class="font-bold text-[#B82020] dark:text-[#FF8A8A]">Learn More ></span>
+                  </div>
+                </div>
+              `).join('')}
+            </div>
+          </div>
+        `;
+      }
+
+      // 4. BENTO DIFFERENCE
+      if (compKey === 'bento_difference') {
+        const bentos = [data.bento_1, data.bento_2, data.bento_3, data.bento_4];
+        return `
+          <div class="space-y-3 pt-2">
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+              ${bentos.map(b => `
+                <div class="p-5 rounded-[24px] bg-[#FAF8F5] dark:bg-[#0A0E24] border border-[#D5DCF0] dark:border-[#232E66]">
+                  <div class="w-10 h-10 rounded-xl bg-white dark:bg-[#131A3E] border border-[#D5DCF0] dark:border-[#232E66] text-[#B82020] dark:text-[#FF8A8A] font-bold text-sm flex items-center justify-center mb-3">
+                    ${b.metric}
+                  </div>
+                  <p class="text-sm font-bold text-[#202860] dark:text-white leading-snug">
+                    <span class="text-[#B82020] dark:text-[#FF8A8A] underline decoration-2">${b.highlight}</span>
+                    ${b.text.replace(b.highlight, '')}
+                  </p>
+                </div>
+              `).join('')}
+            </div>
+          </div>
+        `;
+      }
+
+      // 5. CORE STANDARDS / PILLARS / METRICS
+      if (compKey === 'core_standards' || compKey === 'three_pillars') {
+        const p1 = data.pillar_1;
+        const p2 = data.pillar_2;
+        const p3 = data.pillar_3;
+        const stats = data.stats || [];
+
+        return `
+          <div class="space-y-6 pt-2">
+            ${data.heading ? `<h4 class="text-xl font-bold font-editorial text-[#202860] dark:text-white">${data.heading}</h4>` : ''}
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-5">
+              ${[p1, p2, p3].filter(Boolean).map(p => `
+                <div class="p-5 rounded-[22px] bg-[#FAF8F5] dark:bg-[#0A0E24] border border-[#D5DCF0] dark:border-[#232E66] space-y-2">
+                  <div class="flex items-center justify-between">
+                    <span class="text-[11px] font-bold uppercase tracking-wider text-[#B82020] dark:text-[#FF8A8A]">${p.sub || p.title}</span>
+                    ${p.num ? `<span class="w-6 h-6 rounded-full bg-white dark:bg-[#131A3E] text-xs font-bold flex items-center justify-center">${p.num}</span>` : ''}
+                  </div>
+                  <h5 class="text-base font-bold text-[#202860] dark:text-white">${p.title}</h5>
+                  <p class="text-xs text-[#424B78] dark:text-[#94A3D3] leading-relaxed">${p.desc}</p>
+                </div>
+              `).join('')}
+            </div>
+
+            ${stats.length > 0 ? `
+              <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 pt-2">
+                ${stats.map(s => `
+                  <div class="p-4 rounded-2xl bg-white dark:bg-[#0A0E24] border border-[#D5DCF0] dark:border-[#232E66] text-center">
+                    <div class="text-2xl sm:text-3xl font-bold font-editorial text-[#B82020] dark:text-[#FF8A8A]">${s.value}</div>
+                    <div class="text-xs font-bold text-[#202860] dark:text-white mt-1">${s.label}</div>
+                    <div class="text-[10px] text-[#5A6494] dark:text-[#94A3D3] mt-0.5">${s.detail}</div>
+                  </div>
+                `).join('')}
+              </div>
+            ` : ''}
+          </div>
+        `;
+      }
+
+      // 6. PRIZE LEDGER
+      if (compKey === 'prize_ledger') {
+        return `
+          <div class="space-y-4 pt-2">
+            <div>
+              <h4 class="text-xl font-bold text-[#202860] dark:text-white">${data.title}</h4>
+              <p class="text-xs text-[#5A6494] dark:text-[#94A3D3]">${data.sub}</p>
+            </div>
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+              ${data.prizes.map((p, idx) => `
+                <div class="p-5 rounded-[22px] bg-[#FAF8F5] dark:bg-[#0A0E24] border border-[#D5DCF0] dark:border-[#232E66] text-center space-y-2">
+                  <span class="text-[11px] font-bold uppercase tracking-wider text-[#B82020] dark:text-[#FF8A8A] block">${p.rank}</span>
+                  <div class="text-2xl sm:text-3xl font-bold font-editorial text-[#202860] dark:text-white">${p.cash}</div>
+                  <p class="text-xs text-[#5A6494] dark:text-[#94A3D3] leading-snug">${p.perk}</p>
+                </div>
+              `).join('')}
+            </div>
+          </div>
+        `;
+      }
+
+      // 7. AWARDS CATEGORIES & REPERTOIRE
+      if (compKey === 'category_a' || compKey === 'category_b') {
+        return `
+          <div class="space-y-4 pt-2">
+            <div class="p-5 rounded-[24px] bg-[#FAF8F5] dark:bg-[#0A0E24] border border-[#D5DCF0] dark:border-[#232E66] space-y-4">
+              <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2">
+                <div>
+                  <h4 class="text-lg font-bold text-[#202860] dark:text-white">${data.title}</h4>
+                  <p class="text-xs text-[#B82020] dark:text-[#FF8A8A] font-semibold">${data.subtitle}</p>
+                </div>
+                <span class="px-3 py-1 rounded-full bg-white dark:bg-[#131A3E] text-xs font-bold text-[#202860] dark:text-white border border-[#D5DCF0] dark:border-[#232E66] shrink-0">
+                  Target: ${data.eligibility}
+                </span>
+              </div>
+
+              ${data.adjudication_criteria ? `
+                <div class="space-y-1.5">
+                  <span class="text-xs font-bold uppercase tracking-wider text-[#5A6494] dark:text-[#94A3D3] block">Adjudication Criteria:</span>
+                  <ul class="text-xs text-[#424B78] dark:text-[#94A3D3] space-y-1 list-disc list-inside">
+                    ${data.adjudication_criteria.map(c => `<li>${c}</li>`).join('')}
+                  </ul>
+                </div>
+              ` : ''}
+
+              ${data.format ? `
+                <div class="text-xs text-[#424B78] dark:text-[#94A3D3]">
+                  <strong class="text-[#202860] dark:text-white">Format & Adjudication:</strong> ${data.format} ${data.evaluation || ''}
+                </div>
+              ` : ''}
+
+              ${data.approved_repertoire ? `
+                <div class="pt-2 border-t border-[#E2E6F2] dark:border-[#232E66]">
+                  <span class="text-xs font-bold uppercase tracking-wider text-[#5A6494] dark:text-[#94A3D3] block mb-2">Approved 2024 Poem Selection (${data.approved_repertoire.length}):</span>
+                  <div class="grid grid-cols-1 sm:grid-cols-2 gap-2 text-xs font-mono">
+                    ${data.approved_repertoire.map((poem, i) => `
+                      <div class="p-2 rounded-lg bg-white dark:bg-[#131A3E] border border-[#D5DCF0] dark:border-[#232E66] text-[#202860] dark:text-slate-200">
+                        ${i+1}. ${poem}
+                      </div>
+                    `).join('')}
+                  </div>
+                </div>
+              ` : ''}
+            </div>
+          </div>
+        `;
+      }
+
+      // 8. PAYMENT & TREASURY LEDGER
+      if (compKey === 'payment_ledger') {
+        const b = data.bank_account;
+        return `
+          <div class="p-6 rounded-[24px] bg-[#202860] dark:bg-[#0E1538] text-white space-y-4">
+            <div class="flex items-center justify-between">
+              <span class="px-3 py-1 rounded-full bg-[#B82020] text-xs font-bold uppercase tracking-wider">Official Depository</span>
+              <span class="text-xs text-slate-300">${b.bank}</span>
+            </div>
+            <h4 class="text-xl font-bold font-editorial">${data.heading}</h4>
+            <p class="text-xs text-slate-200">${data.fee_notice}</p>
+
+            <div class="grid grid-cols-1 sm:grid-cols-3 gap-3 p-4 rounded-xl bg-white/10 border border-white/15 text-xs">
+              <div>
+                <span class="text-[#FF8A8A] font-bold block uppercase text-[10px]">Account Name:</span>
+                <span class="font-bold text-white">${b.account_name}</span>
+              </div>
+              <div>
+                <span class="text-[#FF8A8A] font-bold block uppercase text-[10px]">Account Number:</span>
+                <span class="font-mono text-base font-bold text-white tracking-wider">${b.account_number}</span>
+              </div>
+              <div>
+                <span class="text-[#FF8A8A] font-bold block uppercase text-[10px]">Bank & Currency:</span>
+                <span class="font-bold text-white">${b.bank} (${b.currency})</span>
+              </div>
+            </div>
+            <p class="text-[11px] text-slate-300 italic">Protocol: ${data.protocol}</p>
+          </div>
+        `;
+      }
+
+      // 9. GENERAL / FALLBACK COMPONENT RENDERER
+      let genericFields = [];
+      for (const k in data) {
+        if (typeof data[k] === 'string' && !['title', 'description', 'heading'].includes(k)) {
+          genericFields.push(`<div class="p-3 rounded-xl bg-[#FAF8F5] dark:bg-[#0A0E24] border border-[#D5DCF0] dark:border-[#232E66] text-xs">
+            <span class="font-bold uppercase tracking-wider text-[10px] text-[#B82020] dark:text-[#FF8A8A] block mb-1">${k.replace(/_/g, ' ')}:</span>
+            <div class="text-[#424B78] dark:text-slate-200 leading-relaxed">${data[k]}</div>
+          </div>`);
+        } else if (Array.isArray(data[k])) {
+          genericFields.push(`<div class="p-3 rounded-xl bg-[#FAF8F5] dark:bg-[#0A0E24] border border-[#D5DCF0] dark:border-[#232E66] text-xs">
+            <span class="font-bold uppercase tracking-wider text-[10px] text-[#B82020] dark:text-[#FF8A8A] block mb-1">${k.replace(/_/g, ' ')} (${data[k].length} items):</span>
+            <ul class="list-disc list-inside space-y-1 text-[#424B78] dark:text-slate-200">
+              ${data[k].map(item => `<li>${typeof item === 'string' ? item : JSON.stringify(item)}</li>`).join('')}
+            </ul>
+          </div>`);
+        } else if (typeof data[k] === 'object' && data[k] !== null) {
+          genericFields.push(`<div class="p-3 rounded-xl bg-[#FAF8F5] dark:bg-[#0A0E24] border border-[#D5DCF0] dark:border-[#232E66] text-xs">
+            <span class="font-bold uppercase tracking-wider text-[10px] text-[#B82020] dark:text-[#FF8A8A] block mb-1">${k.replace(/_/g, ' ')}:</span>
+            <pre class="font-mono text-[11px] whitespace-pre-wrap text-[#424B78] dark:text-slate-300">${JSON.stringify(data[k], null, 2)}</pre>
+          </div>`);
+        }
+      }
+
+      return `<div class="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-2">${genericFields.join('')}</div>`;
+    }
+
+    // POPULATE & RENDER: 4-WAY COMPARISON MATRIX
+    function populateMatrixComponentDropdown() {
+      const select = document.getElementById('matrixCompSelect');
+      select.innerHTML = '';
+
+      const page = RAW_DATA[currentPageId];
+      const comps = page.components;
+
+      for (const compKey in comps) {
+        const opt = document.createElement('option');
+        opt.value = compKey;
+        opt.textContent = comps[compKey].title || compKey;
+        select.appendChild(opt);
+      }
+    }
+
+    function renderMatrixView() {
+      const select = document.getElementById('matrixCompSelect');
+      const compKey = select.value;
+      if (!compKey) return;
+
+      const page = RAW_DATA[currentPageId];
+      const compObj = page.components[compKey];
+      const grid = document.getElementById('matrixGridContainer');
+      grid.innerHTML = '';
+
+      const varKeys = ['v1', 'v2', 'v3', 'v4'];
+
+      varKeys.forEach(vKey => {
+        const vMeta = VAR_META[vKey];
+        const vData = compObj[vKey];
+        const isSelected = blueprintSelections[`${currentPageId}_${compKey}`] === vKey;
+
+        const col = document.createElement('div');
+        col.className = `rounded-[24px] bg-white dark:bg-[#131A3E] border ${
+          isSelected 
+            ? 'border-emerald-500 ring-2 ring-emerald-500/20 shadow-lg' 
+            : 'border-[#D5DCF0] dark:border-[#232E66] shadow-sm'
+        } p-5 flex flex-col justify-between space-y-5 transition-all`;
+
+        let header = `
+          <div>
+            <div class="flex items-center justify-between mb-2">
+              <span class="px-2 py-0.5 rounded-full text-[10px] font-bold uppercase tracking-wider ${vMeta.color_pill}">
+                ${vMeta.short_name}
+              </span>
+              <button onclick="toggleComponentSelection('${currentPageId}', '${compKey}', '${vKey}')" class="p-1.5 rounded-lg border text-xs font-bold ${
+                isSelected 
+                  ? 'bg-emerald-600 text-white border-emerald-600' 
+                  : 'bg-slate-100 dark:bg-[#0A0E24] text-[#202860] dark:text-white border-[#D5DCF0] dark:border-[#232E66] hover:border-[#B82020]'
+              }" title="Choose this version">
+                ${isSelected ? '✓ Picked' : '⭐ Pick'}
+              </button>
+            </div>
+            <h4 class="font-editorial text-sm font-bold text-[#202860] dark:text-white">${vMeta.tagline}</h4>
+          </div>
+        `;
+
+        let body = `<div class="text-xs space-y-3 flex-1">${renderComponentBody(compKey, vData)}</div>`;
+
+        col.innerHTML = header + body;
+        grid.appendChild(col);
+      });
+    }
+
+    // BLUEPRINT SELECTION SYSTEM
+    function toggleComponentSelection(pageId, compKey, varId) {
+      const key = `${pageId}_${compKey}`;
+      if (blueprintSelections[key] === varId) {
+        delete blueprintSelections[key];
+        showToast('Removed from Blueprint', 'ℹ️');
+      } else {
+        blueprintSelections[key] = varId;
+        showToast(`Saved ${VAR_META[varId].short_name} for ${compKey}`, '✓');
+      }
+
+      // Persist
+      try {
+        localStorage.setItem('oma_blueprint_selections', JSON.stringify(blueprintSelections));
+      } catch(e) {}
+
+      updateBlueprintBadge();
+
+      // Refresh current view
+      if (currentViewMode === 'single') {
+        renderSinglePageView();
+      } else {
+        renderMatrixView();
+      }
+    }
+
+    function updateBlueprintBadge() {
+      const count = Object.keys(blueprintSelections).length;
+      document.getElementById('blueprintCountBadge').textContent = count;
+      document.getElementById('blueprintCountBadgeMobile').textContent = count;
+    }
+
+    function toggleBlueprintDrawer() {
+      const drawer = document.getElementById('blueprintDrawer');
+      const isHidden = drawer.classList.contains('hidden');
+      if (isHidden) {
+        renderBlueprintList();
+        drawer.classList.remove('hidden');
+      } else {
+        drawer.classList.add('hidden');
+      }
+    }
+
+    function renderBlueprintList() {
+      const list = document.getElementById('blueprintItemsList');
+      list.innerHTML = '';
+
+      const keys = Object.keys(blueprintSelections);
+      if (keys.length === 0) {
+        list.innerHTML = `
+          <div class="text-center py-12 space-y-3">
+            <div class="text-3xl">📋</div>
+            <h4 class="text-sm font-bold text-[#202860] dark:text-white">Your Blueprint is Empty</h4>
+            <p class="text-xs text-[#5A6494] dark:text-[#94A3D3] max-w-xs mx-auto">
+              Click "Select This Rendition" on any component across the 4 variations to compile your preferred website blueprint.
+            </p>
+          </div>
+        `;
+        return;
+      }
+
+      keys.forEach(k => {
+        const [pId, cKey] = k.split('_');
+        const varId = blueprintSelections[k];
+        const page = RAW_DATA[pId];
+        const comp = page ? page.components[cKey] : null;
+        const vMeta = VAR_META[varId];
+
+        const item = document.createElement('div');
+        item.className = "p-4 rounded-2xl bg-[#FAF8F5] dark:bg-[#131A3E] border border-[#D5DCF0] dark:border-[#232E66] flex items-center justify-between gap-3 text-xs";
+        item.innerHTML = `
+          <div>
+            <div class="flex items-center gap-2">
+              <span class="font-bold text-[#202860] dark:text-white">${page ? page.title : pId}</span>
+              <span class="text-[#5A6494] dark:text-[#94A3D3]">/ ${comp ? comp.title : cKey}</span>
+            </div>
+            <div class="text-[11px] font-bold text-[#B82020] dark:text-[#FF8A8A] mt-0.5">
+              ${vMeta.name}
+            </div>
+          </div>
+          <button onclick="toggleComponentSelection('${pId}', '${cKey}', '${varId}'); renderBlueprintList();" class="text-slate-400 hover:text-rose-500 font-bold p-1">
+            ✕
+          </button>
+        `;
+        list.appendChild(item);
+      });
+    }
+
+    function clearBlueprint() {
+      blueprintSelections = {};
+      localStorage.removeItem('oma_blueprint_selections');
+      updateBlueprintBadge();
+      renderBlueprintList();
+      if (currentViewMode === 'single') renderSinglePageView();
+      else renderMatrixView();
+      showToast('Blueprint reset', '🗑️');
+    }
+
+    function copyBlueprintToClipboard() {
+      const keys = Object.keys(blueprintSelections);
+      if (keys.length === 0) {
+        alert('Please select at least one component before copying.');
+        return;
+      }
+
+      let text = "=== OMA SERVICES CONTENT REVAMP BLUEPRINT ===\n\n";
+      keys.forEach(k => {
+        const [pId, cKey] = k.split('_');
+        const varId = blueprintSelections[k];
+        const page = RAW_DATA[pId];
+        const comp = page ? page.components[cKey] : null;
+        const vMeta = VAR_META[varId];
+        text += `• [${page ? page.title : pId}] ${comp ? comp.title : cKey} -> ${vMeta.name}\n`;
+      });
+      text += "\n=== END BLUEPRINT ===";
+
+      navigator.clipboard.writeText(text).then(() => {
+        showToast('Blueprint copied to clipboard! Paste in chat.', '✓');
+      }).catch(() => {
+        prompt('Copy your blueprint below:', text);
+      });
+    }
+
+    function showToast(msg, icon = '✓') {
+      const toast = document.getElementById('toastNotification');
+      document.getElementById('toastMessage').textContent = msg;
+      document.getElementById('toastIcon').textContent = icon;
+
+      toast.classList.remove('translate-y-24', 'opacity-0');
+      toast.classList.add('translate-y-0', 'opacity-100');
+
+      setTimeout(() => {
+        toast.classList.add('translate-y-24', 'opacity-0');
+        toast.classList.remove('translate-y-0', 'opacity-100');
+      }, 3000);
+    }
+
+    // Boot
+    window.addEventListener('DOMContentLoaded', () => {
+      initTheme();
+      renderPageTabs();
+      updatePageIndicator();
+      updateBlueprintBadge();
+      renderSinglePageView();
+    });
+  </script>
+</body>
+</html>

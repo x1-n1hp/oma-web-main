@@ -15,49 +15,49 @@ import {
 } from "@heroicons/react/24/outline";
 
 export const metadata = {
-  title: "Web Applications | Oma Services",
+  title: "Custom School Portals & Management SaaS | Oma Services",
   description:
-    "Custom web applications — portals, dashboards, SaaS tools, and internal systems built for performance.",
+    "End school operational headaches forever. The custom school management system your staff and parents will love — attendance, result sheets, and automated fee collection.",
 };
 
 const offerings = [
   {
     num: "01",
-    title: "Custom Institutional & Client Portals",
+    title: "School Management Portal",
     description:
-      "Multi-user platforms with role-based access — school management portals, client dashboards, booking systems, and more.",
+      "Everything in one place: student enrollment, teacher remarks, termly report card generation, and real-time fee tracking.",
     icon: Squares2X2Icon,
   },
   {
     num: "02",
-    title: "Business Process Automation",
+    title: "Tuition Collection on Autopilot",
     description:
-      "Custom web software that replaces manual spreadsheet workflows — inventory, invoicing, scheduling, and executive reporting.",
+      "Parents receive automatic payment links on WhatsApp. When they pay, their receipt and bursary ledger are generated instantly.",
     icon: BoltIcon,
   },
   {
     num: "03",
-    title: "Social & Broadcast Management Tools",
+    title: "Digital Result Sheets in Seconds",
     description:
-      "Bespoke tools for scheduling, audience analytics, and managing your digital presence across platforms.",
+      "Teachers enter scores once; the system automatically calculates averages, ranks pupils, and prints gorgeous report cards.",
     icon: ShareIcon,
   },
   {
     num: "04",
-    title: "E-Learning & Content Platforms",
+    title: "Parent Peace of Mind",
     description:
-      "Membership portals, digital academies, and content hubs with secure access and monetization built in.",
+      "Parents log in from anywhere in the world to check their child's academic growth, attendance records, and teacher feedback.",
     icon: BookOpenIcon,
   },
 ];
 
 const stack = [
-  "Next.js",
-  "React",
-  "Node.js",
+  "Next.js 15",
   "Tailwind CSS",
   "PostgreSQL",
-  "Vercel Cloud",
+  "Paystack / Banks",
+  "Cloud Servers",
+  "Automated Backups",
 ];
 
 export default function WebAppsPage() {
@@ -70,20 +70,20 @@ export default function WebAppsPage() {
         <ScrollReveal direction="up" delay={0.1} className="max-w-3xl">
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#FDF2F2] dark:bg-[#B82020]/20 border border-[#F3CACA] dark:border-[#B82020]/40 text-[#B82020] dark:text-[#FF8A8A] text-[11px] font-bold uppercase tracking-widest mb-3">
             <span className="w-1.5 h-1.5 rounded-full bg-[#B82020]" />
-            Division IV • Enterprise Web Applications
+            End School Operational Headaches Forever
           </div>
           <h1 className="text-4xl sm:text-5xl font-bold tracking-tight leading-[1.08]">
-            <span className="text-[#202860] dark:text-white transition-colors duration-300">Web Applications.</span>{" "}
+            <span className="text-[#202860] dark:text-white transition-colors duration-300">Custom School Portals.</span>{" "}
             <span className="text-[#5A6494] dark:text-[#94A3D3] font-semibold transition-colors duration-300">
-              Software architected around how your organisation operates.
+              The custom school management system your staff and parents will love.
             </span>
           </h1>
           <div className="flex flex-wrap gap-3 mt-6">
-            <a href="mailto:partnerships@omadiction.pro">
+            <Link href="/contact">
               <button className="px-6 py-3 bg-[#B82020] text-white text-xs font-bold uppercase tracking-wider rounded-full hover:bg-[#D12828] transition-colors shadow-md">
-                Scope Your Web Application →
+                See How Easy School Management Can Be →
               </button>
-            </a>
+            </Link>
           </div>
         </ScrollReveal>
 
@@ -94,13 +94,13 @@ export default function WebAppsPage() {
             </div>
             <div className="text-xs leading-snug">
               <p className="font-bold text-[#202860] dark:text-white">
-                Building a portal or SaaS tool?
+                Want a 20-min demo of our school portal?
               </p>
               <Link
                 href="/contact"
                 className="text-[#B82020] dark:text-[#FF8A8A] font-semibold hover:underline inline-flex items-center gap-1 mt-0.5"
               >
-                Ask a Systems Engineer <span>↗</span>
+                Ask a School Systems Specialist <span>↗</span>
               </Link>
             </div>
           </div>
@@ -114,9 +114,9 @@ export default function WebAppsPage() {
           className="flex items-end justify-between mb-8"
         >
           <h2 className="text-2xl sm:text-3xl font-bold tracking-tight">
-            <span className="text-[#202860] dark:text-white transition-colors duration-300">Custom Systems.</span>{" "}
+            <span className="text-[#202860] dark:text-white transition-colors duration-300">Portal Capabilities.</span>{" "}
             <span className="text-[#5A6494] dark:text-[#94A3D3] font-semibold transition-colors duration-300">
-              Portals, automation, and full-stack software.
+              Designed specifically for the daily reality of Nigerian schools.
             </span>
           </h2>
           <span className="text-xs font-semibold text-[#5A6494] dark:text-[#94A3D3] hidden sm:inline">
@@ -154,9 +154,9 @@ export default function WebAppsPage() {
       <section className="max-w-7xl mx-auto px-6 py-12 border-t border-[#E2E6F2] dark:border-[#232E66]">
         <ScrollReveal direction="up" className="mb-8">
           <h2 className="text-2xl sm:text-3xl font-bold tracking-tight">
-            <span className="text-[#202860] dark:text-white transition-colors duration-300">Engineering Foundation.</span>{" "}
+            <span className="text-[#202860] dark:text-white transition-colors duration-300">Reliable Cloud Infrastructure.</span>{" "}
             <span className="text-[#5A6494] dark:text-[#94A3D3] font-semibold transition-colors duration-300">
-              Our production technology stack.
+              Fast, safe, and accessible on any smartphone or laptop.
             </span>
           </h2>
         </ScrollReveal>
@@ -180,18 +180,17 @@ export default function WebAppsPage() {
       <section className="bg-[#202860] dark:bg-[#131A3E] py-16 px-6 text-center transition-colors duration-300">
         <ScrollReveal direction="up" className="max-w-3xl mx-auto">
           <span className="text-xs font-bold uppercase tracking-widest text-[#FF8A8A]">
-            Technical Consultation
+            Effortless Administration
           </span>
           <h2 className="font-editorial text-3xl sm:text-4xl font-bold text-white mt-2 mb-3">
-            Have a Workflow That Needs a Custom Web Platform?
+            Ready to End Spreadsheets, Paper Reports &amp; Lost Invoices?
           </h2>
           <p className="text-slate-200 text-sm sm:text-base mb-8">
-            Walk us through the challenge and we&apos;ll architect the right
-            solution together.
+            Schedule a 20-minute live demonstration. See how easy managing tuition, exam scores, and parent communications can truly be.
           </p>
           <Link href="/contact">
             <button className="px-7 py-3.5 bg-[#B82020] text-white text-xs font-bold uppercase tracking-wider rounded-xl hover:bg-[#D12828] transition-colors shadow-md">
-              Start the Conversation →
+              Schedule Your Free Portal Demo →
             </button>
           </Link>
         </ScrollReveal>

@@ -9,52 +9,52 @@ const programs = [
   {
     numeral: "I",
     image: "/images/DSC_6849.JPG",
-    alt: "Adaptivity",
-    title: "Adaptivity",
-    subtitle: "Tailored Coaching & Custom Architecture",
+    alt: "Child-First Empathy",
+    title: "Child-First Empathy",
+    subtitle: "Nurturing Self-Esteem & Voice",
     description:
-      "Programmes and digital solutions bespoke-engineered to match the exact needs of each school, executive, or enterprise.",
+      "We build a safe, encouraging environment where quiet, hesitant pupils find their voice without fear of ridicule or mistakes.",
   },
   {
     numeral: "II",
     image: "/images/DSC_6802.JPG",
-    alt: "Oral Excellence",
-    title: "Oral Excellence",
-    subtitle: "Phonetic Precision & Stage Command",
+    alt: "Proprietor Peace of Mind",
+    title: "Proprietor Peace of Mind",
+    subtitle: "Complete Curriculum Handover",
     description:
-      "Structured diction, elocution, and speech therapy curricula that instil lasting vocal confidence and clarity.",
+      "We provide weekly lesson plans, audio recordings, and termly parent reports so your leadership never stresses over speech standards.",
   },
   {
     numeral: "III",
     image: "/images/DSC_6811.JPG",
-    alt: "Flawless English",
-    title: "Flawless English",
-    subtitle: "Global Standard Articulation",
+    alt: "Market Leadership",
+    title: "Market Leadership",
+    subtitle: "Standing Out in Lagos & Beyond",
     description:
-      "Elevating spoken and written communication to international standards across classrooms and boardrooms.",
+      "Give your school the prestige factor that makes prospective parents say 'This is where our child belongs.'",
   },
 ];
 
 const stats = [
   {
-    value: "10+",
-    label: "Years Experience",
-    detail: "Proven institutional track record",
+    value: "100%",
+    label: "Parent Satisfaction",
+    detail: "At speech day & graduation showcases",
   },
   {
     value: "50+",
-    label: "Partner Schools",
-    detail: "Active curriculum deployment",
+    label: "Proud Schools",
+    detail: "Dominating their educational zones",
   },
   {
-    value: "830+",
-    label: "Positive Reviews",
-    detail: "Verified client endorsements",
+    value: "₦50,000",
+    label: "Prize Cheques",
+    detail: "Inspiring student excellence",
   },
   {
     value: "10K+",
-    label: "Trusted Students",
-    detail: "Coached across Nigeria & beyond",
+    label: "Proud Parents",
+    detail: "Celebrating articulate children",
   },
 ];
 
@@ -75,40 +75,40 @@ const About = () => {
         >
           <BubbleCard className="snap-start shrink-0 w-[285px] sm:w-[310px] rounded-[28px] bg-white dark:bg-[#131A3E] border border-[#D5DCF0] dark:border-[#232E66] p-7 shadow-sm">
             <div className="w-11 h-11 rounded-2xl bg-[#FDF2F2] dark:bg-[#B82020]/20 border border-[#F3CACA] dark:border-[#B82020]/40 text-[#B82020] dark:text-[#FF8A8A] group-hover:bg-[#B82020] group-hover:text-white flex items-center justify-center font-editorial font-bold text-lg mb-4 transition-colors">
-              10+
+              3x
             </div>
             <p className="text-lg font-bold text-[#202860] dark:text-white group-hover:text-white leading-snug transition-colors">
-              Deploy{" "}
+              Enjoy a{" "}
               <span className="text-[#B82020] dark:text-[#FF8A8A] group-hover:text-[#FF8A8A]">
-                certified diction specialists
+                3x admissions inquiry boost
               </span>{" "}
-              directly to your school campus or executive boardroom.
+              when visiting parents hear your pupils speak articulate English.
             </p>
           </BubbleCard>
 
           <BubbleCard className="snap-start shrink-0 w-[285px] sm:w-[310px] rounded-[28px] bg-white dark:bg-[#131A3E] border border-[#D5DCF0] dark:border-[#232E66] p-7 shadow-sm">
-            <div className="w-11 h-11 rounded-2xl bg-[#EFF2FA] dark:bg-[#18214C] border border-[#D5DCF0] dark:border-[#232E66] text-[#202860] dark:text-white group-hover:bg-[#B82020] group-hover:text-white flex items-center justify-center font-mono font-bold text-sm mb-4 transition-colors">
-              &lt;/&gt;
+            <div className="w-11 h-11 rounded-2xl bg-[#EFF2FA] dark:bg-[#18214C] border border-[#D5DCF0] dark:border-[#232E66] text-[#202860] dark:text-white group-hover:bg-[#B82020] group-hover:text-white flex items-center justify-center font-editorial font-bold text-sm mb-4 transition-colors">
+              Zero
             </div>
             <p className="text-lg font-bold text-[#202860] dark:text-white group-hover:text-white leading-snug transition-colors">
-              Commission{" "}
+              Deliver{" "}
               <span className="text-[#B82020] dark:text-[#FF8A8A] group-hover:text-[#FF8A8A]">
-                custom Next.js websites &amp; mobile apps
+                zero headaches for school management
               </span>{" "}
-              engineered from scratch for your brand.
+              with our full syllabus, teacher workshops &amp; termly audits.
             </p>
           </BubbleCard>
 
           <BubbleCard className="snap-start shrink-0 w-[285px] sm:w-[310px] rounded-[28px] bg-white dark:bg-[#131A3E] border border-[#D5DCF0] dark:border-[#232E66] p-7 shadow-sm">
             <div className="w-11 h-11 rounded-2xl bg-[#FDF2F2] dark:bg-[#B82020]/20 border border-[#F3CACA] dark:border-[#B82020]/40 text-[#B82020] dark:text-[#FF8A8A] group-hover:bg-[#B82020] group-hover:text-white flex items-center justify-center font-editorial font-bold text-lg mb-4 transition-colors">
-              50+
+              10K+
             </div>
             <p className="text-lg font-bold text-[#202860] dark:text-white group-hover:text-white leading-snug transition-colors">
-              Trusted by{" "}
+              Over{" "}
               <span className="text-[#B82020] dark:text-[#FF8A8A] group-hover:text-[#FF8A8A]">
-                50+ partner schools and 10,000+ scholars
+                10,000 confident young voices created
               </span>{" "}
-              with 830+ verified positive reviews.
+              transforming shy children into poised school stage laureates.
             </p>
           </BubbleCard>
 
@@ -117,11 +117,11 @@ const About = () => {
               ★
             </div>
             <p className="text-lg font-bold text-[#202860] dark:text-white group-hover:text-white leading-snug transition-colors">
-              Compete on live television at the{" "}
+              Earn{" "}
               <span className="text-[#B82020] dark:text-[#FF8A8A] group-hover:text-[#FF8A8A]">
-                Lagos OMA Diction Awards
+                standing ovations from parents
               </span>{" "}
-              with ₦100,000+ in category prizes.
+              at speech days, carol services, and graduations.
             </p>
           </BubbleCard>
         </ShelfCarousel>
@@ -162,8 +162,7 @@ const About = () => {
             <h3 className="text-2xl sm:text-3xl lg:text-4xl font-bold tracking-tight">
               <span className="text-[#202860] dark:text-white transition-colors duration-300">Core Standards.</span>{" "}
               <span className="text-[#5A6494] dark:text-[#94A3D3] font-normal transition-colors duration-300">
-                Three foundational pillars that define every cohort and
-                engineering engagement.
+                Putting student transformation and school growth at the center.
               </span>
             </h3>
           </div>

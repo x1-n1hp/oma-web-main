@@ -21,6 +21,13 @@ const Footer = () => {
           </h2>
           <div className="flex flex-wrap gap-2.5">
             <Link
+              href="/about"
+              className="inline-flex items-center gap-1.5 px-4 py-2 rounded-full bg-white dark:bg-[#131A3E] border border-[#D5DCF0] dark:border-[#232E66] text-xs font-semibold text-[#202860] dark:text-white hover:bg-[#202860] dark:hover:bg-[#B82020] hover:text-white transition-colors shadow-sm"
+            >
+              <span>How to Increase School Admissions</span>
+              <span>↗</span>
+            </Link>
+            <Link
               href="/registration/register/recitation"
               className="inline-flex items-center gap-1.5 px-4 py-2 rounded-full bg-white dark:bg-[#131A3E] border border-[#D5DCF0] dark:border-[#232E66] text-xs font-semibold text-[#202860] dark:text-white hover:bg-[#202860] dark:hover:bg-[#B82020] hover:text-white transition-colors shadow-sm"
             >
@@ -38,14 +45,14 @@ const Footer = () => {
               href="/diction"
               className="inline-flex items-center gap-1.5 px-4 py-2 rounded-full bg-white dark:bg-[#131A3E] border border-[#D5DCF0] dark:border-[#232E66] text-xs font-semibold text-[#202860] dark:text-white hover:bg-[#B82020] hover:text-white hover:border-[#B82020] transition-colors shadow-sm"
             >
-              <span>School Diction Deployment Inquiry</span>
+              <span>Book Free Campus Speech Audit</span>
               <span>↗</span>
             </Link>
             <Link
               href="/web-design"
               className="inline-flex items-center gap-1.5 px-4 py-2 rounded-full bg-white dark:bg-[#131A3E] border border-[#D5DCF0] dark:border-[#232E66] text-xs font-semibold text-[#202860] dark:text-white hover:bg-[#202860] dark:hover:bg-[#B82020] hover:text-white transition-colors shadow-sm"
             >
-              <span>Commission Website / Mobile App</span>
+              <span>Upgrade Your School Website</span>
               <span>↗</span>
             </Link>
             <a

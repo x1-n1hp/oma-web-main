@@ -19,52 +19,52 @@ import {
 } from "@heroicons/react/24/outline";
 
 export const metadata = {
-  title: "Professional Diction | Oma Services",
+  title: "Diction Academy & Speech Transformation | Oma Services",
   description:
-    "World-class diction training, speech therapy, phonics, and language coaching for individuals and schools.",
+    "Give your child the gift of clear, beautiful, confident speech. Gentle speech therapy, school diction programs, and joyful phonics.",
 };
 
 const dictionServices = [
   {
     num: "01",
-    title: "Speech Therapy",
+    title: "Gentle Speech Therapy",
     description:
-      "Targeted correction of pronunciation patterns, accent refinement, and vocal clarity for confident everyday communication.",
+      "Loving, patient coaching that helps quiet children overcome speech struggles, lisps, and hesitation with joy.",
     icon: SpeakerWaveIcon,
   },
   {
     num: "02",
-    title: "Diction Training",
+    title: "Confident Diction Classes",
     description:
-      "Structured class-by-class programmes that sharpen articulation, rhythm, and delivery for students and professionals alike.",
+      "Transform your child into an articulate speaker who sounds polished and educated everywhere.",
     icon: AcademicCapIcon,
   },
   {
     num: "03",
-    title: "Phonics Classes",
+    title: "Joyful Phonics",
     description:
-      "Building strong reading and spelling foundations through phonemic awareness — ideal for young and remedial learners.",
+      "Turn reading from a frustrating struggle into an exciting daily adventure with phonetic games.",
     icon: BookOpenIcon,
   },
   {
     num: "04",
-    title: "Diction Club",
+    title: "Friendly Diction Club",
     description:
-      "A community programme where members practise together, receive peer feedback, and build lasting communication confidence.",
+      "A warm community where students laugh, practice, and overcome public speaking fear together.",
     icon: UserGroupIcon,
   },
   {
     num: "05",
-    title: "Social Polish & Etiquette",
+    title: "Social Poise & Manners",
     description:
-      "Etiquette and executive communication coaching for interviews, boardrooms, presentations, and public speaking.",
+      "Teach children polite dining etiquette, confident handshakes, and respectful, articulate speech.",
     icon: ChatBubbleLeftRightIcon,
   },
   {
     num: "06",
-    title: "Diction Games",
+    title: "Exciting Speech Games",
     description:
-      "Interactive linguistic challenges and activities that make mastering pronunciation engaging for children and adults.",
+      "Interactive games that make children eagerly practice proper pronunciation at home and on weekends.",
     icon: PuzzlePieceIcon,
   },
 ];
@@ -88,18 +88,18 @@ export default function DictionPage() {
         <ScrollReveal direction="up" delay={0.1} className="max-w-3xl">
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#FDF2F2] dark:bg-[#B82020]/20 border border-[#F3CACA] dark:border-[#B82020]/40 text-[#B82020] dark:text-[#FF8A8A] text-[11px] font-bold uppercase tracking-widest mb-3">
             <span className="w-1.5 h-1.5 rounded-full bg-[#B82020]" />
-            Division I • Professional Diction &amp; Elocution
+            Transforming Children into Confident Leaders
           </div>
           <h1 className="text-4xl sm:text-5xl font-bold tracking-tight leading-[1.08]">
             <span className="text-[#202860] dark:text-white transition-colors duration-300">Diction Academy.</span>{" "}
             <span className="text-[#5A6494] dark:text-[#94A3D3] font-semibold transition-colors duration-300">
-              Speak English with clarity, phonemic precision, and executive authority.
+              Give your child the gift of clear, beautiful, confident speech.
             </span>
           </h1>
           <div className="flex flex-wrap gap-3 mt-6">
             <a href="mailto:partnerships@omadiction.pro">
               <button className="px-6 py-3 bg-[#B82020] text-white text-xs font-bold uppercase tracking-wider rounded-full hover:bg-[#D12828] transition-colors shadow-md">
-                Enrol Your School or Team →
+                Enrol Your School or Child →
               </button>
             </a>
             <Link href="/registration">
@@ -117,7 +117,7 @@ export default function DictionPage() {
             </div>
             <div className="text-xs leading-snug">
               <p className="font-bold text-[#202860] dark:text-white">
-                Need a school diction audit?
+                Want to hear the before &amp; after difference?
               </p>
               <Link
                 href="/contact"
@@ -137,10 +137,10 @@ export default function DictionPage() {
           className="grid grid-cols-2 md:grid-cols-4 gap-4"
         >
           {[
-            { value: "10+", label: "Years Training" },
-            { value: "50+", label: "Partner Schools" },
-            { value: "10,000+", label: "Students Trained" },
-            { value: "830+", label: "Positive Reviews" },
+            { value: "10K+", label: "Transformed Scholars" },
+            { value: "50+", label: "Thriving Schools" },
+            { value: "3x", label: "Admissions Inquiries" },
+            { value: "100%", label: "Parent Pride" },
           ].map((stat, idx) => (
             <StaggerItem key={stat.label}>
               <BubbleCard className="bg-white dark:bg-[#131A3E] rounded-[28px] shadow-sm border border-[#D5DCF0] dark:border-[#232E66] p-6 sm:p-8 text-center h-full">
@@ -164,9 +164,9 @@ export default function DictionPage() {
       <section className="max-w-7xl mx-auto px-6 py-12">
         <ScrollReveal direction="up" amount={0.3} className="mb-8">
           <h2 className="text-2xl sm:text-3xl font-bold tracking-tight">
-            <span className="text-[#202860] dark:text-white transition-colors duration-300">Curriculum &amp; Coaching.</span>{" "}
+            <span className="text-[#202860] dark:text-white transition-colors duration-300">6 Life-Changing Modules.</span>{" "}
             <span className="text-[#5A6494] dark:text-[#94A3D3] font-semibold transition-colors duration-300">
-              What we offer in our Diction Academy.
+              Designed to unlock every child&apos;s courage and brilliance.
             </span>
           </h2>
         </ScrollReveal>
@@ -206,8 +206,8 @@ export default function DictionPage() {
       {/* Diction Awards Horizontal Shelf */}
       <section className="max-w-7xl mx-auto px-6 py-12 border-t border-[#E2E6F2] dark:border-[#232E66]">
         <ShelfCarousel
-          title="The Lagos OMA Diction Awards."
-          subtitle="Celebrating exceptional communicators across Lagos schools."
+          title="The 2024 Lagos OMA Diction Awards."
+          subtitle="Watch ordinary school pupils transform into confident stage champions."
         >
           {galleryImages.map((src, i) => (
             <div
@@ -229,24 +229,23 @@ export default function DictionPage() {
       <section className="bg-[#202860] dark:bg-[#131A3E] py-16 px-6 text-center transition-colors duration-300">
         <ScrollReveal direction="up" className="max-w-3xl mx-auto">
           <span className="text-xs font-bold uppercase tracking-widest text-[#FF8A8A]">
-            Next Steps
+            Campus Transformation
           </span>
           <h2 className="font-editorial text-3xl sm:text-4xl font-bold text-white mt-2 mb-3">
-            Ready to Transform How Your Institution Speaks?
+            Ready to Hear Your Pupils Speak with Incredible Confidence?
           </h2>
           <p className="text-slate-200 text-sm sm:text-base mb-8">
-            Register for the 2024 competition or schedule a consultation for
-            school-wide or executive diction training.
+            Invite us to your campus for a complimentary 45-minute speech assessment or enroll your students for the 2024 Awards.
           </p>
           <div className="flex justify-center gap-4 flex-wrap">
-            <Link href="/registration">
+            <Link href="/contact">
               <button className="px-7 py-3.5 bg-[#B82020] text-white text-xs font-bold uppercase tracking-wider rounded-xl hover:bg-[#D12828] transition-colors shadow-md">
-                Register for Awards →
+                Invite Us to Your School Free →
               </button>
             </Link>
-            <Link href="/contact">
+            <Link href="/registration">
               <button className="px-7 py-3.5 border border-white/30 text-white text-xs font-bold uppercase tracking-wider rounded-xl hover:bg-white hover:text-[#202860] transition-colors">
-                Book Consultation
+                Register for 2024 Awards
               </button>
             </Link>
           </div>
