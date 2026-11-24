@@ -30,6 +30,14 @@ const coreServices = [
       "Fun, rhythmic phonics games and International Phonetic Alphabet drills that turn struggling pupils into enthusiastic, fluent readers.",
     image: "/images/classroom.png",
   },
+  {
+    numeral: "IV",
+    title: "Supply Teacher",
+    subtitle: "UK Secondary & FE Schools",
+    description:
+      "We supply qualified, vetted teachers to UK secondary and FE schools — delivering reliable classroom cover and subject-specialist support.",
+    image: "/images/school.png",
+  },
 ];
 
 const additionalServices = [

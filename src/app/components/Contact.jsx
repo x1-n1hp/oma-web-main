@@ -68,11 +68,33 @@ const ContactUs = () => {
 
               <div>
                 <div className="text-[#FF8A8A] uppercase font-bold tracking-wider text-[11px]">
+                  Phone
+                </div>
+                <a
+                  href="tel:07391285441"
+                  className="text-sm font-medium text-white hover:text-[#FF8A8A] transition-colors mt-0.5 block"
+                >
+                  07391285441
+                </a>
+              </div>
+
+              <div>
+                <div className="text-[#FF8A8A] uppercase font-bold tracking-wider text-[11px]">
+                  Address
+                </div>
+                <div className="text-slate-200 mt-1 leading-relaxed">
+                  14 Britten Place Sullivan Court, Biggleswade, Bedfordshire SG18 8RE.
+                </div>
+              </div>
+
+              <div>
+                <div className="text-[#FF8A8A] uppercase font-bold tracking-wider text-[11px]">
                   Practice Divisions
                 </div>
                 <div className="text-slate-200 mt-1 leading-relaxed">
-                  Executive Elocution • School Phonics &amp; Diction • Website
-                  Design • Mobile &amp; Web Engineering
+                  Executive Elocution • School Phonics &amp; Diction • Supply
+                  Teacher (UK Secondary &amp; FE) • Website Design • Mobile &amp;
+                  Web Engineering
                 </div>
               </div>
             </div>
@@ -152,6 +174,9 @@ const ContactUs = () => {
                   </option>
                   <option value="OMA Diction Awards Registration">
                     OMA Diction Awards Competition
+                  </option>
+                  <option value="Supply Teacher (UK Secondary & FE Schools)">
+                    Supply Teacher (UK Secondary &amp; FE Schools)
                   </option>
                 </select>
               </div>

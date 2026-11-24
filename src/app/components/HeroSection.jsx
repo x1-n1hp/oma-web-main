@@ -224,7 +224,25 @@ const HeroSection = () => {
             </span>
           </Link>
 
-          {/* Category 7: 2024 Awards */}
+          {/* Category 7: Supply Teacher */}
+          <Link
+            href="/services"
+            className="group flex flex-col items-center gap-1.5 min-w-[110px] p-3 rounded-2xl hover:bg-white dark:hover:bg-[#131A3E] transition-all"
+          >
+            <div className="w-16 h-16 rounded-2xl bg-white dark:bg-[#131A3E] border border-[#D5DCF0] dark:border-[#232E66] group-hover:border-[#202860] dark:group-hover:border-[#FF8A8A] shadow-sm flex items-center justify-center transition-all group-hover:-translate-y-1">
+              <span className="text-xl font-bold text-[#202860] dark:text-white">
+                🎓
+              </span>
+            </div>
+            <span className="text-xs font-bold text-[#202860] dark:text-slate-200 group-hover:text-[#B82020] dark:group-hover:text-[#FF8A8A] text-center transition-colors">
+              Supply Teacher
+            </span>
+            <span className="text-[10px] text-[#5A6494] dark:text-[#94A3D3] text-center">
+              UK Secondary &amp; FE
+            </span>
+          </Link>
+
+          {/* Category 8: 2024 Awards */}
           <Link
             href="/registration"
             className="group flex flex-col items-center gap-1.5 min-w-[110px] p-3 rounded-2xl hover:bg-white dark:hover:bg-[#131A3E] transition-all"

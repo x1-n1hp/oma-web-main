@@ -101,6 +101,14 @@ const Footer = () => {
               and beyond with world-class elocution training and bespoke digital
               product engineering.
             </p>
+            <div className="text-xs text-slate-300 space-y-1 pt-1">
+              <p>14 Britten Place Sullivan Court, Biggleswade, Bedfordshire SG18 8RE.</p>
+              <p>
+                <a href="tel:07391285441" className="hover:text-[#FF8A8A] transition-colors">
+                  07391285441
+                </a>
+              </p>
+            </div>
           </div>
 
           {/* Navigation Column */}
