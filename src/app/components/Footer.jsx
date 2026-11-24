@@ -102,8 +102,9 @@ const Footer = () => {
               product engineering.
             </p>
             <div className="text-xs text-slate-300 space-y-1 pt-1">
-              <p>14 Britten Place Sullivan Court, Biggleswade, Bedfordshire SG18 8RE.</p>
+              <p>Address: 14 Britten Place Sullivan Court, Biggleswade, Bedfordshire SG18 8RE.</p>
               <p>
+                Phone:{" "}
                 <a href="tel:07391285441" className="hover:text-[#FF8A8A] transition-colors">
                   07391285441
                 </a>
