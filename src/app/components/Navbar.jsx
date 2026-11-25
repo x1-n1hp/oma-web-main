@@ -60,10 +60,10 @@ export default function Navbar() {
               <Link
                 key={link.path}
                 href={link.path}
-                className={`text-[15px] transition-colors duration-150 ${
+                className={`border-b-2 pb-1 text-[15px] transition-[color,border-color] duration-150 ${
                   active
-                    ? "font-medium text-oma-text"
-                    : "text-oma-text2 hover:text-oma-text"
+                    ? "border-oma-crimson font-medium text-oma-text"
+                    : "border-transparent text-oma-text2 hover:text-oma-text"
                 }`}
               >
                 {link.title}
