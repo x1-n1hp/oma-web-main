@@ -161,40 +161,40 @@ html {
 /* ===================================================================== */
 
 :root {
-  --oma-bg: #FAF8F5;
-  --oma-surface-1: #F3F0EA;
+  --oma-bg: #FCFBF9;
+  --oma-surface-1: #F4F1EC;
   --oma-surface-2: #ECE8E0;
   --oma-surface-3: #E3DED4;
   --oma-text: #0B0F2A;
   --oma-text-2: #3A4066;
   --oma-text-3: #6B7099;
-  --oma-line: rgba(11, 15, 42, 0.10);
-  --oma-line-strong: rgba(11, 15, 42, 0.28);
+  --oma-line: rgba(11, 15, 42, 0.07);
+  --oma-line-strong: rgba(11, 15, 42, 0.22);
   --oma-crimson: #B82020;
   --oma-crimson-hover: #9E1A1A;
   --oma-on-crimson: #FAF8F5;
-  --oma-glow-a: rgba(32, 40, 96, 0.18);
-  --oma-glow-b: rgba(184, 32, 32, 0.10);
-  --oma-nav-bg: rgba(250, 248, 245, 0.72);
-  --oma-grain-opacity: 0.035;
+  --oma-glow-a: rgba(32, 40, 96, 0.14);
+  --oma-glow-b: rgba(184, 32, 32, 0.08);
+  --oma-nav-bg: rgba(252, 251, 249, 0.78);
+  --oma-grain-opacity: 0.03;
   --oma-radius: 12px;
   --oma-ease: cubic-bezier(0.22, 1, 0.36, 1);
 }
 
 html.dark {
   --oma-bg: #0B0F2A;
-  --oma-surface-1: #111637;
-  --oma-surface-2: #171D45;
-  --oma-surface-3: #1E2554;
+  --oma-surface-1: #12183B;
+  --oma-surface-2: #19204B;
+  --oma-surface-3: #222B61;
   --oma-text: #F3F1EC;
   --oma-text-2: #B9BDD6;
   --oma-text-3: #7F84A8;
-  --oma-line: rgba(243, 241, 236, 0.09);
-  --oma-line-strong: rgba(243, 241, 236, 0.30);
+  --oma-line: rgba(243, 241, 236, 0.07);
+  --oma-line-strong: rgba(243, 241, 236, 0.24);
   --oma-glow-a: rgba(60, 72, 170, 0.45);
   --oma-glow-b: rgba(184, 32, 32, 0.28);
-  --oma-nav-bg: rgba(11, 15, 42, 0.66);
-  --oma-grain-opacity: 0.06;
+  --oma-nav-bg: rgba(11, 15, 42, 0.72);
+  --oma-grain-opacity: 0.055;
 }
 
 html, body { overflow-x: clip; }

@@ -83,7 +83,7 @@ export default function Navbar() {
             type="button"
             onClick={() => setMenuOpen((prev) => !prev)}
             aria-label={menuOpen ? "Close menu" : "Open menu"}
-            className="inline-grid h-10 w-10 place-items-center rounded-oma border border-oma-line text-oma-text transition-colors duration-150 hover:border-oma-lineStrong md:hidden"
+            className="inline-grid h-10 w-10 place-items-center rounded-oma border border-oma-line bg-oma-s1 text-oma-text transition-colors duration-150 hover:border-oma-lineStrong hover:bg-oma-s2 md:hidden"
           >
             {menuOpen ? (
               <XMarkIcon className="h-5 w-5" aria-hidden="true" />

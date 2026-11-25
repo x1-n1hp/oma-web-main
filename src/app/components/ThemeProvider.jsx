@@ -64,7 +64,7 @@ export function ThemeToggle({ className = "" }) {
       type="button"
       onClick={toggleTheme}
       aria-label={isDark ? "Switch to light mode" : "Switch to dark mode"}
-      className={`relative inline-grid h-10 w-10 place-items-center rounded-oma border border-oma-line text-oma-text transition-colors duration-150 hover:border-oma-lineStrong ${className}`}
+      className={`relative inline-grid h-10 w-10 place-items-center rounded-oma border border-oma-line bg-oma-s1 text-oma-text transition-colors duration-150 hover:border-oma-lineStrong hover:bg-oma-s2 ${className}`}
     >
       {/* Moon */}
       <svg
