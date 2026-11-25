@@ -155,3 +155,95 @@ html.dark .input,
 html {
   scroll-behavior: smooth;
 }
+
+/* ===================================================================== */
+/* OMA DESIGN SYSTEM (ink-navy / ivory, crimson signal)                  */
+/* ===================================================================== */
+
+:root {
+  --oma-bg: #FAF8F5;
+  --oma-surface-1: #F3F0EA;
+  --oma-surface-2: #ECE8E0;
+  --oma-surface-3: #E3DED4;
+  --oma-text: #0B0F2A;
+  --oma-text-2: #3A4066;
+  --oma-text-3: #6B7099;
+  --oma-line: rgba(11, 15, 42, 0.10);
+  --oma-line-strong: rgba(11, 15, 42, 0.28);
+  --oma-crimson: #B82020;
+  --oma-crimson-hover: #9E1A1A;
+  --oma-on-crimson: #FAF8F5;
+  --oma-glow-a: rgba(32, 40, 96, 0.18);
+  --oma-glow-b: rgba(184, 32, 32, 0.10);
+  --oma-nav-bg: rgba(250, 248, 245, 0.72);
+  --oma-grain-opacity: 0.035;
+  --oma-radius: 12px;
+  --oma-ease: cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+html.dark {
+  --oma-bg: #0B0F2A;
+  --oma-surface-1: #111637;
+  --oma-surface-2: #171D45;
+  --oma-surface-3: #1E2554;
+  --oma-text: #F3F1EC;
+  --oma-text-2: #B9BDD6;
+  --oma-text-3: #7F84A8;
+  --oma-line: rgba(243, 241, 236, 0.09);
+  --oma-line-strong: rgba(243, 241, 236, 0.30);
+  --oma-glow-a: rgba(60, 72, 170, 0.45);
+  --oma-glow-b: rgba(184, 32, 32, 0.28);
+  --oma-nav-bg: rgba(11, 15, 42, 0.66);
+  --oma-grain-opacity: 0.06;
+}
+
+html, body { overflow-x: clip; }
+
+/* Theme cross-fade (only while switching) */
+html.theme-fade *, html.theme-fade *::before, html.theme-fade *::after {
+  transition: background-color 400ms var(--oma-ease), color 400ms var(--oma-ease), border-color 400ms var(--oma-ease) !important;
+}
+
+/* Grain overlay */
+.oma-grain::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 100;
+  opacity: var(--oma-grain-opacity);
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+/* Ambient hero glow */
+@keyframes omaDrift {
+  0%   { transform: translate3d(-3%, -2%, 0) scale(1); }
+  50%  { transform: translate3d(3%, 2%, 0) scale(1.06); }
+  100% { transform: translate3d(-1%, 3%, 0) scale(1.02); }
+}
+.oma-glow {
+  position: absolute;
+  inset: -20% -10% auto -10%;
+  height: 120%;
+  pointer-events: none;
+  background:
+    radial-gradient(40% 45% at 30% 40%, var(--oma-glow-a), transparent 70%),
+    radial-gradient(35% 40% at 70% 55%, var(--oma-glow-b), transparent 70%);
+  filter: blur(40px);
+  animation: omaDrift 20s var(--oma-ease) infinite alternate;
+}
+
+.oma-nav-scrolled {
+  background: var(--oma-nav-bg);
+  backdrop-filter: blur(14px) saturate(140%);
+  -webkit-backdrop-filter: blur(14px) saturate(140%);
+  border-bottom-color: var(--oma-line) !important;
+}
+
+:focus-visible { outline: 2px solid var(--oma-crimson); outline-offset: 3px; }
+::selection { background: var(--oma-crimson); color: var(--oma-on-crimson); }
+
+@media (prefers-reduced-motion: reduce) {
+  .oma-glow { animation: none; }
+  html.theme-fade * { transition: none !important; }
+}

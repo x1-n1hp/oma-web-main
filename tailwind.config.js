@@ -9,6 +9,20 @@ module.exports = {
   theme: {
     extend: {
       colors: {
+        oma: {
+          bg: "var(--oma-bg)",
+          s1: "var(--oma-surface-1)",
+          s2: "var(--oma-surface-2)",
+          s3: "var(--oma-surface-3)",
+          text: "var(--oma-text)",
+          text2: "var(--oma-text-2)",
+          text3: "var(--oma-text-3)",
+          line: "var(--oma-line)",
+          lineStrong: "var(--oma-line-strong)",
+          crimson: "var(--oma-crimson)",
+          crimsonHover: "var(--oma-crimson-hover)",
+          onCrimson: "var(--oma-on-crimson)",
+        },
         background: "var(--background)",
         foreground: "var(--foreground)",
         customBlue: "#FAF7F2",
@@ -32,7 +46,11 @@ module.exports = {
       letterSpacing: {
         title: "-0.03em",
       },
+      borderRadius: {
+        oma: "12px",
+      },
       fontFamily: {
+        sans: ["var(--font-inter-tight)", "ui-sans-serif", "system-ui", "sans-serif"],
         editorial: ["Georgia", "'Times New Roman'", "serif"],
         santa: ["FagoWeb W04 ExtdIta"],
         lato: ["Lato"],

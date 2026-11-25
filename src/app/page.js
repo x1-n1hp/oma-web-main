@@ -1,18 +1,20 @@
-import HeroSection from "./components/HeroSection";
 import Navbar from "./components/Navbar";
-import About from "./components/About";
-import Service from "./components/Service";
-import Contact from "./components/Contact";
 import Footer from "./components/Footer";
+import Hero from "./components/home/Hero";
+import ServicesGrid from "./components/home/ServicesGrid";
+import Featured from "./components/home/Featured";
+import Approach from "./components/home/Approach";
+import ContactBand from "./components/home/ContactBand";
 
 export default function Home() {
   return (
-    <main className="scroll-smooth flex min-h-screen flex-col bg-[#F5F5F7] dark:bg-[#0A0E24] text-[#202860] dark:text-white mx-auto transition-colors duration-300">
+    <main className="oma-grain flex min-h-screen flex-col bg-oma-bg text-oma-text">
       <Navbar />
-      <HeroSection />
-      <About />
-      <Service />
-      <Contact />
+      <Hero />
+      <ServicesGrid />
+      <Featured />
+      <Approach />
+      <ContactBand />
       <Footer />
     </main>
   );

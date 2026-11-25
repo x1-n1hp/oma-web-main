@@ -1,7 +1,14 @@
 import localFont from "next/font/local";
+import { Inter_Tight } from "next/font/google";
 import "./globals.css";
 import { ScrollProgressBar } from "./components/motion";
 import { ThemeProvider } from "./components/ThemeProvider";
+
+const interTight = Inter_Tight({
+  subsets: ["latin"],
+  variable: "--font-inter-tight",
+  display: "swap",
+});
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -39,7 +46,7 @@ export const metadata = {
   // Open Graph for rich previews on WhatsApp, LinkedIn, Facebook
   openGraph: {
     type: "website",
-    locale: "en_NG", // Assuming target audience is primarily Nigeria based on context
+    locale: "en_GB",
     url: "https://omadiction.pro",
     title: "Oma Services | Digital Agency & Professional Diction",
     description: "Expert diction coaching combined with top-tier digital product engineering.",
@@ -84,7 +91,7 @@ export default function RootLayout({ children }) {
             __html: `(function() {
               try {
                 var stored = localStorage.getItem('oma-theme');
-                var isDark = stored ? stored === 'dark' : window.matchMedia('(prefers-color-scheme: dark)').matches;
+                var isDark = stored ? stored === 'dark' : true;
                 if (isDark) {
                   document.documentElement.classList.add('dark');
                 } else {
@@ -95,7 +102,7 @@ export default function RootLayout({ children }) {
           }}
         />
       </head>
-      <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
+      <body className={`${interTight.variable} ${geistSans.variable} ${geistMono.variable} font-sans antialiased`}>
         <ThemeProvider>
           <ScrollProgressBar />
           {children}

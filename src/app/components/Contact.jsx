@@ -1,219 +1,126 @@
 "use client";
 
 import React from "react";
-import Image from "next/image";
-import { motion } from "framer-motion";
+import { Button, Reveal } from "./ui";
 
-const ContactUs = () => {
+export default function ContactUs() {
   return (
-    <section className="bg-[#F5F5F7] dark:bg-[#0A0E24] py-16 px-6 overflow-hidden transition-colors duration-300" id="contact">
-      <div className="max-w-7xl mx-auto">
-        <div className="mb-8">
-          <h2 className="text-2xl sm:text-3xl font-bold tracking-tight">
-            <span className="text-[#202860] dark:text-white transition-colors duration-300">Let&apos;s Talk About Your School&apos;s Next Breakthrough.</span>{" "}
-            <span className="text-[#5A6494] dark:text-[#94A3D3] font-semibold transition-colors duration-300">
-              We&apos;re ready to help your pupils excel.
-            </span>
-          </h2>
-        </div>
+    <section className="oma-grain bg-oma-bg py-24 text-oma-text md:py-32" id="contact">
+      <div className="mx-auto grid w-full max-w-[1200px] grid-cols-1 items-start gap-12 px-7 lg:grid-cols-[minmax(0,7fr)_minmax(0,5fr)] lg:gap-16">
+        <Reveal>
+          <form
+            action="https://submit-form.com/LvrjBvQzY"
+            method="POST"
+            className="rounded-oma border border-oma-line bg-oma-s1 p-8 md:p-12"
+          >
+            <p className="mb-3 text-sm text-oma-text3">Book a consultation</p>
+            <h1 className="mb-8 min-w-0 break-words text-[clamp(32px,4vw,48px)] font-semibold leading-[1.05] tracking-[-0.035em] text-oma-text">
+              Tell us what you need.
+            </h1>
 
-        <motion.div
-          className="rounded-[28px] bg-white dark:bg-[#131A3E] border border-[#D5DCF0] dark:border-[#232E66] shadow-xl overflow-hidden grid grid-cols-1 lg:grid-cols-12"
-          initial={{ opacity: 0, y: 28 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, amount: 0.2 }}
-          transition={{ duration: 0.7, ease: [0.21, 0.47, 0.32, 0.98] }}
-        >
-          {/* Left Royal Cobalt Indigo & Crimson Concierge Column */}
-          <div className="lg:col-span-5 bg-[#202860] dark:bg-[#0E1538] text-white p-8 sm:p-10 flex flex-col justify-between border-b-4 lg:border-b-0 lg:border-r-4 border-[#B82020]">
-            <div className="space-y-4">
-              <div className="flex items-center gap-3">
-                <span className="h-px w-6 bg-[#B82020]"></span>
-                <span className="text-xs font-bold uppercase tracking-widest text-[#FF8A8A]">
-                  School Growth Partner
-                </span>
+            <div className="mb-4 grid grid-cols-1 gap-4 sm:grid-cols-2">
+              <div className="grid gap-2">
+                <label htmlFor="name" className="text-sm text-oma-text3">
+                  Your full name
+                </label>
+                <input
+                  type="text"
+                  id="name"
+                  name="name"
+                  placeholder="e.g. Adebayo Williams"
+                  required
+                  className="w-full rounded-oma border border-oma-line bg-transparent px-4 py-3.5 text-base text-oma-text placeholder:text-oma-text3 focus:border-oma-lineStrong focus:outline-none"
+                />
               </div>
-              <h2 className="font-editorial text-3xl sm:text-4xl font-bold leading-tight">
-                Start Your School&apos;s Transformation with Oma Services.
-              </h2>
-              <p className="text-xs sm:text-sm text-slate-200 leading-relaxed">
-                Every great school breakthrough begins with a friendly conversation. Whether
-                you want your pupils to speak with jaw-dropping confidence, need a free 45-minute
-                campus speech audit, or want to upgrade your school website and parent portal — our team is here for you.
+
+              <div className="grid gap-2">
+                <label htmlFor="email" className="text-sm text-oma-text3">
+                  Email address
+                </label>
+                <input
+                  type="email"
+                  id="email"
+                  name="email"
+                  placeholder="you@organisation.com"
+                  required
+                  className="w-full rounded-oma border border-oma-line bg-transparent px-4 py-3.5 text-base text-oma-text placeholder:text-oma-text3 focus:border-oma-lineStrong focus:outline-none"
+                />
+              </div>
+            </div>
+
+            <div className="mb-4 grid gap-2">
+              <label htmlFor="inquiry_type" className="text-sm text-oma-text3">
+                Service
+              </label>
+              <select
+                id="inquiry_type"
+                name="inquiry_type"
+                className="w-full rounded-oma border border-oma-line bg-oma-bg px-4 py-3.5 text-base text-oma-text focus:border-oma-lineStrong focus:outline-none"
+              >
+                <option value="Supply Teacher (UK Secondary & FE Schools)">
+                  Supply Teacher (UK Secondary &amp; FE Schools)
+                </option>
+                <option value="Professional Diction & School Training">
+                  Articulation &amp; Diction Training
+                </option>
+                <option value="Kids Development">
+                  Kids Development (Speech Therapy &amp; Phonics)
+                </option>
+                <option value="OMA Diction Awards Registration">
+                  Speaking &amp; OMA Diction Awards
+                </option>
+                <option value="School Growth Consulting">
+                  Consulting
+                </option>
+                <option value="Website Design & Digital Engineering">
+                  Tech (Websites, Mobile &amp; Web Apps)
+                </option>
+              </select>
+            </div>
+
+            <div className="mb-6 grid gap-2">
+              <label htmlFor="message" className="text-sm text-oma-text3">
+                Message
+              </label>
+              <textarea
+                id="message"
+                name="message"
+                rows={4}
+                placeholder="Tell us how we can help your school or child"
+                required
+                className="w-full rounded-oma border border-oma-line bg-transparent px-4 py-3.5 text-base text-oma-text placeholder:text-oma-text3 focus:border-oma-lineStrong focus:outline-none"
+              />
+            </div>
+
+            <Button type="submit" variant="primary">
+              Send message
+            </Button>
+          </form>
+        </Reveal>
+
+        <Reveal delay={0.08}>
+          <div className="space-y-6 lg:pt-4">
+            <p className="text-sm text-oma-text3">Direct</p>
+            <div className="grid gap-2">
+              <a
+                href="tel:07391285441"
+                className="break-words text-[clamp(24px,3vw,36px)] font-medium leading-tight tracking-[-0.025em] text-oma-text transition-colors duration-150 hover:text-oma-text2"
+              >
+                07391285441
+              </a>
+              <a
+                href="mailto:partnerships@omadiction.pro"
+                className="break-words text-xl font-medium text-oma-text transition-colors duration-150 hover:text-oma-text2"
+              >
+                partnerships@omadiction.pro
+              </a>
+              <p className="mt-3 text-base leading-relaxed text-oma-text2">
+                14 Britten Place Sullivan Court, Biggleswade, Bedfordshire SG18 8RE.
               </p>
             </div>
-
-            <div className="space-y-5 pt-8 border-t border-white/15 mt-8 text-xs">
-              <div className="flex items-center gap-3.5">
-                <div className="p-2.5 bg-[#FDF2F2] rounded-xl border border-[#F3CACA] shrink-0">
-                  <Image
-                    src="/images/mail-icon.png"
-                    alt="Email Icon"
-                    width={20}
-                    height={20}
-                  />
-                </div>
-                <div>
-                  <div className="text-[#FF8A8A] uppercase font-bold tracking-wider text-[11px]">
-                    Electronic Mail
-                  </div>
-                  <a
-                    href="mailto:partnerships@omadiction.pro"
-                    className="text-sm font-medium text-white hover:text-[#FF8A8A] transition-colors mt-0.5 block"
-                  >
-                    partnerships@omadiction.pro
-                  </a>
-                </div>
-              </div>
-
-              <div>
-                <div className="text-[#FF8A8A] uppercase font-bold tracking-wider text-[11px]">
-                  Phone
-                </div>
-                <a
-                  href="tel:07391285441"
-                  className="text-sm font-medium text-white hover:text-[#FF8A8A] transition-colors mt-0.5 block"
-                >
-                  07391285441
-                </a>
-              </div>
-
-              <div>
-                <div className="text-[#FF8A8A] uppercase font-bold tracking-wider text-[11px]">
-                  Address
-                </div>
-                <div className="text-slate-200 mt-1 leading-relaxed">
-                  14 Britten Place Sullivan Court, Biggleswade, Bedfordshire SG18 8RE.
-                </div>
-              </div>
-
-              <div>
-                <div className="text-[#FF8A8A] uppercase font-bold tracking-wider text-[11px]">
-                  Practice Divisions
-                </div>
-                <div className="text-slate-200 mt-1 leading-relaxed">
-                  Executive Elocution • School Phonics &amp; Diction • Supply
-                  Teacher (UK Secondary &amp; FE) • Website Design • Mobile &amp;
-                  Web Engineering
-                </div>
-              </div>
-            </div>
           </div>
-
-          {/* Right Clean Editorial Form */}
-          <div className="lg:col-span-7 p-8 sm:p-10">
-            <div className="mb-6">
-              <span className="text-xs font-bold uppercase tracking-widest text-[#B82020] dark:text-[#FF8A8A]">
-                Start the Conversation
-              </span>
-              <h3 className="font-editorial text-2xl sm:text-3xl font-bold text-[#202860] dark:text-white mt-1">
-                Book Your Free Consultation or School Audit
-              </h3>
-            </div>
-
-            <form
-              action="https://submit-form.com/LvrjBvQzY"
-              method="POST"
-              className="space-y-5"
-            >
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                <div>
-                  <label
-                    htmlFor="name"
-                    className="block text-xs font-bold uppercase tracking-wider text-[#202860] dark:text-slate-200 mb-1.5"
-                  >
-                    Your Full Name
-                  </label>
-                  <input
-                    type="text"
-                    id="name"
-                    name="name"
-                    placeholder="e.g. Adebayo Williams"
-                    required
-                    className="w-full px-4 py-3 rounded-xl bg-[#FAF8F5] dark:bg-[#0A0E24] border border-[#D5DCF0] dark:border-[#232E66] text-sm text-[#202860] dark:text-white placeholder-[#5A6494] dark:placeholder-[#6B7BA8] focus:outline-none focus:border-[#B82020] dark:focus:border-[#FF8A8A] focus:bg-white dark:focus:bg-[#18214C] transition-colors"
-                  />
-                </div>
-                <div>
-                  <label
-                    htmlFor="email"
-                    className="block text-xs font-bold uppercase tracking-wider text-[#202860] dark:text-slate-200 mb-1.5"
-                  >
-                    Email Address
-                  </label>
-                  <input
-                    type="email"
-                    id="email"
-                    name="email"
-                    placeholder="you@organisation.com"
-                    required
-                    className="w-full px-4 py-3 rounded-xl bg-[#FAF8F5] dark:bg-[#0A0E24] border border-[#D5DCF0] dark:border-[#232E66] text-sm text-[#202860] dark:text-white placeholder-[#5A6494] dark:placeholder-[#6B7BA8] focus:outline-none focus:border-[#B82020] dark:focus:border-[#FF8A8A] focus:bg-white dark:focus:bg-[#18214C] transition-colors"
-                  />
-                </div>
-              </div>
-
-              <div>
-                <label
-                  htmlFor="inquiry_type"
-                  className="block text-xs font-bold uppercase tracking-wider text-[#202860] dark:text-slate-200 mb-1.5"
-                >
-                  Inquiry Pillar
-                </label>
-                <select
-                  id="inquiry_type"
-                  name="inquiry_type"
-                  className="w-full px-4 py-3 rounded-xl bg-[#FAF8F5] dark:bg-[#0A0E24] border border-[#D5DCF0] dark:border-[#232E66] text-sm text-[#202860] dark:text-white focus:outline-none focus:border-[#B82020] dark:focus:border-[#FF8A8A] focus:bg-white dark:focus:bg-[#18214C] transition-colors"
-                >
-                  <option value="Website Design & Digital Engineering">
-                    Website Design &amp; Digital Engineering
-                  </option>
-                  <option value="Professional Diction & School Training">
-                    Professional Diction &amp; School Training
-                  </option>
-                  <option value="Mobile App / Custom Software">
-                    Mobile App / Custom Web Application
-                  </option>
-                  <option value="OMA Diction Awards Registration">
-                    OMA Diction Awards Competition
-                  </option>
-                  <option value="Supply Teacher (UK Secondary & FE Schools)">
-                    Supply Teacher (UK Secondary &amp; FE Schools)
-                  </option>
-                </select>
-              </div>
-
-              <div>
-                <label
-                  htmlFor="message"
-                  className="block text-xs font-bold uppercase tracking-wider text-[#202860] dark:text-slate-200 mb-1.5"
-                >
-                  Your Message or Project Brief
-                </label>
-                <textarea
-                  id="message"
-                  name="message"
-                  rows="4"
-                  placeholder="Tell us about your timeline, goals, or training requirements..."
-                  required
-                  className="resize-none w-full px-4 py-3 rounded-xl bg-[#FAF8F5] dark:bg-[#0A0E24] border border-[#D5DCF0] dark:border-[#232E66] text-sm text-[#202860] dark:text-white placeholder-[#5A6494] dark:placeholder-[#6B7BA8] focus:outline-none focus:border-[#B82020] dark:focus:border-[#FF8A8A] focus:bg-white dark:focus:bg-[#18214C] transition-colors"
-                ></textarea>
-              </div>
-
-              <div>
-                <motion.button
-                  type="submit"
-                  whileHover={{ scale: 1.02 }}
-                  whileTap={{ scale: 0.98 }}
-                  className="px-8 py-3.5 rounded-xl bg-[#B82020] text-white text-xs font-bold uppercase tracking-wider hover:bg-[#9E1818] transition shadow-md shadow-[#B82020]/20"
-                >
-                  Schedule Your Free Consultation →
-                </motion.button>
-              </div>
-            </form>
-          </div>
-        </motion.div>
+        </Reveal>
       </div>
     </section>
   );
-};
-
-export default ContactUs;
+}
