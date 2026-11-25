@@ -9,7 +9,7 @@ export default function Featured() {
         <Reveal>
           <div className="relative aspect-[4/3] overflow-hidden rounded-oma border border-oma-line bg-oma-s2">
             <Image
-              src="/images/school.png"
+              src="/images/class.png"
               alt="A UK secondary classroom"
               fill
               sizes="(max-width: 1024px) 100vw, 58vw"

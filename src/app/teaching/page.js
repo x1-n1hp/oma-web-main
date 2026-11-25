@@ -81,7 +81,7 @@ export default function TeachingPage() {
           <Reveal delay={0.08}>
             <div className="relative aspect-[4/3] overflow-hidden rounded-oma border border-oma-line bg-oma-s2">
               <Image
-                src="/images/school.png"
+                src="/images/class.png"
                 alt="UK secondary and FE classroom"
                 fill
                 sizes="(max-width: 1024px) 100vw, 50vw"
