@@ -12,12 +12,12 @@ export default function Footer() {
             Address: 14 Britten Place Sullivan Court, Biggleswade, Bedfordshire SG18 8RE.
           </div>
           <div>
-            Phone:{" "}
+            Phone (UK):{" "}
             <a
-              href="tel:07391285441"
+              href="tel:+447391285441"
               className="text-oma-text2 transition-colors duration-150 hover:text-oma-text"
             >
-              07391285441
+              +44 7391 285441
             </a>
           </div>
         </div>

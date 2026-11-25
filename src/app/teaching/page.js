@@ -44,8 +44,8 @@ export default function TeachingPage() {
               <Button variant="primary" href="/contact">
                 Request a teacher
               </Button>
-              <Button variant="outline" href="tel:07391285441">
-                Call 07391285441
+              <Button variant="outline" href="tel:+447391285441">
+                Call +44 7391 285441
               </Button>
             </div>
           </Reveal>

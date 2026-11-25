@@ -3,6 +3,7 @@ import { Inter_Tight } from "next/font/google";
 import "./globals.css";
 import { ScrollProgressBar } from "./components/motion";
 import { ThemeProvider } from "./components/ThemeProvider";
+import WhatsAppBubble from "./components/WhatsAppBubble";
 
 const interTight = Inter_Tight({
   subsets: ["latin"],
@@ -106,6 +107,7 @@ export default function RootLayout({ children }) {
         <ThemeProvider>
           <ScrollProgressBar />
           {children}
+          <WhatsAppBubble />
         </ThemeProvider>
       </body>
     </html>
