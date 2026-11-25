@@ -21,11 +21,11 @@ export default function ContactUs() {
       setStatus("Please fill in your name, email, and message.");
       return;
     }
+    setStatus("");
     const url = `https://wa.me/447391285441?text=${encodeURIComponent(
       buildText()
     )}`;
     window.open(url, "_blank", "noopener,noreferrer");
-    setStatus("Opening WhatsApp with your enquiry...");
   };
 
   const handleEmail = () => {
@@ -33,10 +33,11 @@ export default function ContactUs() {
       setStatus("Please fill in your name, email, and message.");
       return;
     }
+    setStatus("");
     const subject = encodeURIComponent(`Consultation Enquiry: ${service}`);
     const body = encodeURIComponent(buildText());
-    window.location.href = `mailto:partnerships@omadiction.pro?subject=${subject}&body=${body}`;
-    setStatus("Opening your email client...");
+    const gmailUrl = `https://mail.google.com/mail/?view=cm&fs=1&to=partnerships@omadiction.pro&su=${subject}&body=${body}`;
+    window.open(gmailUrl, "_blank", "noopener,noreferrer");
   };
 
   return (
@@ -68,7 +69,7 @@ export default function ContactUs() {
                   onChange={(e) => setName(e.target.value)}
                   placeholder="e.g. Adebayo Williams"
                   required
-                  className="w-full rounded-oma border border-oma-line bg-transparent px-4 py-3.5 text-base text-oma-text placeholder:text-oma-text3 focus:border-oma-lineStrong focus:outline-none"
+                  className="w-full resize-none rounded-oma border border-oma-line bg-transparent px-4 py-3.5 text-base text-oma-text placeholder:text-oma-text3 focus:border-oma-lineStrong focus:outline-none"
                 />
               </div>
 
@@ -84,7 +85,7 @@ export default function ContactUs() {
                   onChange={(e) => setEmail(e.target.value)}
                   placeholder="you@organisation.com"
                   required
-                  className="w-full rounded-oma border border-oma-line bg-transparent px-4 py-3.5 text-base text-oma-text placeholder:text-oma-text3 focus:border-oma-lineStrong focus:outline-none"
+                  className="w-full resize-none rounded-oma border border-oma-line bg-transparent px-4 py-3.5 text-base text-oma-text placeholder:text-oma-text3 focus:border-oma-lineStrong focus:outline-none"
                 />
               </div>
             </div>
@@ -131,7 +132,7 @@ export default function ContactUs() {
                 onChange={(e) => setMessage(e.target.value)}
                 placeholder="Tell us how we can help your school or child"
                 required
-                className="w-full rounded-oma border border-oma-line bg-transparent px-4 py-3.5 text-base text-oma-text placeholder:text-oma-text3 focus:border-oma-lineStrong focus:outline-none"
+                className="w-full resize-none rounded-oma border border-oma-line bg-transparent px-4 py-3.5 text-base text-oma-text placeholder:text-oma-text3 focus:border-oma-lineStrong focus:outline-none"
               />
             </div>
 
