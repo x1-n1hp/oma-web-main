@@ -1,6 +1,17 @@
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
-import { Button, Reveal, Section } from "../components/ui";
+import { Button, FaqSection, Reveal, Section } from "../components/ui";
+
+const speakingFaqs = [
+  {
+    q: "What events do you speak at?",
+    a: "School assemblies, speech days, parent evenings, educator conferences and leadership workshops.",
+  },
+  {
+    q: "How can schools enter the OMA Diction Awards?",
+    a: "Visit our OMA Diction Awards page to view categories (Poetry Recitation and Words Often Mispronounced) and register pupils directly.",
+  },
+];
 
 export const metadata = {
   title: "Speaking",
@@ -67,6 +78,8 @@ export default function SpeakingPage() {
           ))}
         </div>
       </Section>
+
+      <FaqSection heading="Speaking & events FAQs." items={speakingFaqs} />
 
       <Footer />
     </main>

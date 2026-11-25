@@ -1,7 +1,22 @@
 "use client";
 
 import React from "react";
-import { Button, Reveal, Section } from "../components/ui";
+import { Button, FaqSection, Reveal, Section } from "../components/ui";
+
+const aboutFaqs = [
+  {
+    q: "Where is Oma Services based?",
+    a: "We are based in Biggleswade, Bedfordshire (14 Britten Place Sullivan Court, SG18 8RE), serving schools across Bedfordshire, Hertfordshire, surrounding counties, and internationally.",
+  },
+  {
+    q: "Can a school combine multiple services?",
+    a: "Yes. Many schools partner with us for both supply teaching or diction training alongside website and portal engineering.",
+  },
+  {
+    q: "How do we start a conversation?",
+    a: "Book a consultation through our Contact page, call +44 7391 285441, or message us directly on WhatsApp.",
+  },
+];
 
 const pillars = [
   {
@@ -53,6 +68,8 @@ export default function AboutHome() {
           ))}
         </div>
       </Section>
+
+      <FaqSection heading="About Oma Services." items={aboutFaqs} />
 
       <Section>
         <Reveal>

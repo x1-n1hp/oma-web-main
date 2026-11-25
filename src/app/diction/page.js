@@ -1,6 +1,21 @@
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
-import { Button, Reveal, Section } from "../components/ui";
+import { Button, FaqSection, Reveal, Section } from "../components/ui";
+
+const dictionFaqs = [
+  {
+    q: "Who is diction and phonics training for?",
+    a: "We work with primary and secondary pupils, school staff teams, and individual learners seeking clearer pronunciation and stronger reading confidence.",
+  },
+  {
+    q: "Are sessions delivered on campus or online?",
+    a: "Both. We run in-school workshops and termly programmes as well as flexible online one-to-one sessions.",
+  },
+  {
+    q: "How do we book a school speech audit?",
+    a: "Contact our team via the Consultation page or WhatsApp on +44 7391 285441 to schedule an introductory session.",
+  },
+];
 
 export const metadata = {
   title: "Articulation & Kids Development",
@@ -67,6 +82,8 @@ export default function DictionPage() {
           ))}
         </div>
       </Section>
+
+      <FaqSection heading="Diction & phonics FAQs." items={dictionFaqs} />
 
       <Footer />
     </main>

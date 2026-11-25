@@ -3,6 +3,7 @@ import Footer from "./components/Footer";
 import Hero from "./components/home/Hero";
 import ServicesGrid from "./components/home/ServicesGrid";
 import Featured from "./components/home/Featured";
+import HowItWorks from "./components/home/HowItWorks";
 import Approach from "./components/home/Approach";
 import ContactBand from "./components/home/ContactBand";
 
@@ -13,6 +14,7 @@ export default function Home() {
       <Hero />
       <ServicesGrid />
       <Featured />
+      <HowItWorks />
       <Approach />
       <ContactBand />
       <Footer />
