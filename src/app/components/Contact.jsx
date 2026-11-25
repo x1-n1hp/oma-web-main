@@ -1,16 +1,53 @@
 "use client";
 
-import React from "react";
+import React, { useState } from "react";
 import { Button, Reveal } from "./ui";
 
 export default function ContactUs() {
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [service, setService] = useState(
+    "Supply Teacher (UK Secondary & FE Schools)"
+  );
+  const [message, setMessage] = useState("");
+  const [status, setStatus] = useState("");
+
+  const buildText = () =>
+    `Hello Oma Services,\n\nName: ${name}\nEmail: ${email}\nService: ${service}\n\nMessage:\n${message}`;
+
+  const handleWhatsApp = (e) => {
+    e.preventDefault();
+    if (!name.trim() || !email.trim() || !message.trim()) {
+      setStatus("Please fill in your name, email, and message.");
+      return;
+    }
+    const url = `https://wa.me/447391285441?text=${encodeURIComponent(
+      buildText()
+    )}`;
+    window.open(url, "_blank", "noopener,noreferrer");
+    setStatus("Opening WhatsApp with your enquiry...");
+  };
+
+  const handleEmail = () => {
+    if (!name.trim() || !email.trim() || !message.trim()) {
+      setStatus("Please fill in your name, email, and message.");
+      return;
+    }
+    const subject = encodeURIComponent(`Consultation Enquiry: ${service}`);
+    const body = encodeURIComponent(buildText());
+    window.location.href = `mailto:partnerships@omadiction.pro?subject=${subject}&body=${body}`;
+    setStatus("Opening your email client...");
+  };
+
   return (
-    <section className="oma-grain bg-oma-bg py-24 text-oma-text md:py-32" id="contact">
+    <section
+      className="oma-grain bg-oma-bg py-24 text-oma-text md:py-32"
+      id="contact"
+    >
       <div className="mx-auto grid w-full max-w-[1200px] grid-cols-1 items-start gap-12 px-7 lg:grid-cols-[minmax(0,7fr)_minmax(0,5fr)] lg:gap-16">
         <Reveal>
           <form
-            action="https://submit-form.com/LvrjBvQzY"
-            method="POST"
+            onSubmit={handleWhatsApp}
             className="rounded-oma border border-oma-line bg-oma-s1 p-8 md:p-12"
           >
             <p className="mb-3 text-sm text-oma-text3">Book a consultation</p>
@@ -27,6 +64,8 @@ export default function ContactUs() {
                   type="text"
                   id="name"
                   name="name"
+                  value={name}
+                  onChange={(e) => setName(e.target.value)}
                   placeholder="e.g. Adebayo Williams"
                   required
                   className="w-full rounded-oma border border-oma-line bg-transparent px-4 py-3.5 text-base text-oma-text placeholder:text-oma-text3 focus:border-oma-lineStrong focus:outline-none"
@@ -41,6 +80,8 @@ export default function ContactUs() {
                   type="email"
                   id="email"
                   name="email"
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
                   placeholder="you@organisation.com"
                   required
                   className="w-full rounded-oma border border-oma-line bg-transparent px-4 py-3.5 text-base text-oma-text placeholder:text-oma-text3 focus:border-oma-lineStrong focus:outline-none"
@@ -55,6 +96,8 @@ export default function ContactUs() {
               <select
                 id="inquiry_type"
                 name="inquiry_type"
+                value={service}
+                onChange={(e) => setService(e.target.value)}
                 className="w-full rounded-oma border border-oma-line bg-oma-bg px-4 py-3.5 text-base text-oma-text focus:border-oma-lineStrong focus:outline-none"
               >
                 <option value="Supply Teacher (UK Secondary & FE Schools)">
@@ -69,9 +112,7 @@ export default function ContactUs() {
                 <option value="OMA Diction Awards Registration">
                   Speaking &amp; OMA Diction Awards
                 </option>
-                <option value="School Growth Consulting">
-                  Consulting
-                </option>
+                <option value="School Growth Consulting">Consulting</option>
                 <option value="Website Design & Digital Engineering">
                   Tech (Websites, Mobile &amp; Web Apps)
                 </option>
@@ -86,15 +127,28 @@ export default function ContactUs() {
                 id="message"
                 name="message"
                 rows={4}
+                value={message}
+                onChange={(e) => setMessage(e.target.value)}
                 placeholder="Tell us how we can help your school or child"
                 required
                 className="w-full rounded-oma border border-oma-line bg-transparent px-4 py-3.5 text-base text-oma-text placeholder:text-oma-text3 focus:border-oma-lineStrong focus:outline-none"
               />
             </div>
 
-            <Button type="submit" variant="primary">
-              Send message
-            </Button>
+            <div className="flex flex-wrap gap-3">
+              <Button type="submit" variant="primary">
+                Send via WhatsApp
+              </Button>
+              <Button type="button" variant="outline" onClick={handleEmail}>
+                Send via Email
+              </Button>
+            </div>
+
+            {status && (
+              <p className="mt-4 text-sm text-oma-text2" role="status">
+                {status}
+              </p>
+            )}
           </form>
         </Reveal>
 
