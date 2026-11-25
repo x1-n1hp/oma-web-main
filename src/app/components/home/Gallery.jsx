@@ -37,14 +37,14 @@ export default function Gallery() {
       <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4">
         {photos.map((photo, i) => (
           <Reveal key={photo.src} delay={i * 0.06}>
-            <figure className="overflow-hidden rounded-oma border border-oma-line bg-oma-s1">
+            <figure className="group overflow-hidden rounded-oma border border-oma-line bg-oma-s1 transition-[border-color,transform,box-shadow] duration-200 hover:-translate-y-1 hover:border-oma-lineStrong hover:shadow-[0_14px_32px_rgba(11,15,42,0.12)]">
               <div className="relative aspect-[4/3] w-full overflow-hidden bg-oma-s2">
                 <Image
                   src={photo.src}
                   alt={photo.alt}
                   fill
                   sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
-                  className="object-cover"
+                  className="object-cover transition-transform duration-500 ease-out group-hover:scale-105"
                 />
               </div>
               <figcaption className="px-5 py-4 text-sm text-oma-text2">

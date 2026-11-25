@@ -31,7 +31,7 @@ export default function HowItWorks() {
       <div className="grid grid-cols-1 gap-4 md:grid-cols-3">
         {steps.map((step, i) => (
           <Reveal key={step.num} delay={i * 0.08}>
-            <div className="flex h-full flex-col justify-between gap-8 rounded-oma border border-oma-line bg-oma-s1 p-7">
+            <div className="flex h-full flex-col justify-between gap-8 rounded-oma border border-oma-line bg-oma-s1 p-7 transition-[border-color,background-color,transform] duration-200 hover:-translate-y-1 hover:border-oma-lineStrong hover:bg-oma-s2">
               <span className="text-sm font-medium text-oma-text3">
                 {step.num}
               </span>

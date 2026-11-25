@@ -32,7 +32,7 @@ export default function WhoWeServe() {
       <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4">
         {audiences.map((item, i) => (
           <Reveal key={item.title} delay={i * 0.06}>
-            <div className="h-full rounded-oma border border-oma-line bg-oma-s1 p-7">
+            <div className="h-full rounded-oma border border-oma-line bg-oma-s1 p-7 transition-[border-color,background-color,transform] duration-200 hover:-translate-y-1 hover:border-oma-lineStrong hover:bg-oma-s2">
               <h3 className="mb-2 text-xl font-semibold tracking-[-0.02em] text-oma-text">
                 {item.title}
               </h3>

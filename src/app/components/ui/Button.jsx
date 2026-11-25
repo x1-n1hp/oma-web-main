@@ -5,9 +5,9 @@ const base =
 
 const variants = {
   primary:
-    "h-[46px] px-[22px] text-[15px] bg-oma-crimson text-oma-onCrimson border border-transparent hover:bg-oma-crimsonHover",
+    "h-[46px] px-[22px] text-[15px] bg-oma-crimson text-oma-onCrimson border border-transparent hover:-translate-y-0.5 hover:bg-oma-crimsonHover",
   outline:
-    "h-[46px] px-[22px] text-[15px] bg-transparent text-oma-text border border-oma-lineStrong hover:border-oma-text",
+    "h-[46px] px-[22px] text-[15px] bg-transparent text-oma-text border border-oma-lineStrong hover:-translate-y-0.5 hover:border-oma-text",
   outlineSm:
     "h-10 px-4 text-sm bg-transparent text-oma-text border border-oma-lineStrong hover:border-oma-text",
   link:

@@ -4,7 +4,7 @@ export default function Tile({ title, description, href = "/contact", className 
   return (
     <Link
       href={href}
-      className={`group flex min-h-[220px] flex-col justify-between gap-10 rounded-oma border border-oma-line bg-oma-s1 p-7 text-oma-text transition-[border-color,background-color] duration-150 hover:border-oma-lineStrong hover:bg-oma-s2 ${className}`}
+      className={`group flex min-h-[220px] flex-col justify-between gap-10 rounded-oma border border-oma-line bg-oma-s1 p-7 text-oma-text transition-[border-color,background-color,transform,box-shadow] duration-200 hover:-translate-y-1 hover:border-oma-lineStrong hover:bg-oma-s2 hover:shadow-[0_14px_32px_rgba(11,15,42,0.12)] ${className}`}
     >
       <div>
         <h3 className="mb-2 text-2xl font-semibold tracking-[-0.02em] text-oma-text">
@@ -16,7 +16,7 @@ export default function Tile({ title, description, href = "/contact", className 
       </div>
       <span
         aria-hidden="true"
-        className="inline-block text-xl text-oma-text3 transition-[transform,color] duration-150 group-hover:translate-x-1 group-hover:text-oma-text"
+        className="inline-block text-xl text-oma-text3 transition-[transform,color] duration-200 group-hover:translate-x-2 group-hover:text-oma-crimson"
       >
         &rarr;
       </span>
