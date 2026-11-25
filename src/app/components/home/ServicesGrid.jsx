@@ -20,7 +20,7 @@ const services = [
   {
     title: "Speaking",
     description: "Keynotes, workshops and student competitions.",
-    href: "/registration",
+    href: "/speaking",
   },
   {
     title: "Consulting",

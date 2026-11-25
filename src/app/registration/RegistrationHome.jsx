@@ -3,184 +3,125 @@
 import React from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { motion } from "framer-motion";
-import { BubbleCard } from "../components/motion";
+import { Button, Reveal, Section } from "../components/ui";
 
-const RegistrationHome = () => {
+const prizes = [
+  { place: "Grand Champion", amount: "₦50,000", note: "Championship Cup & Display Glory" },
+  { place: "1st Runner-Up", amount: "₦30,000", note: "Silver Medal & Parent Ovation" },
+  { place: "2nd Runner-Up", amount: "₦20,000", note: "Bronze Medal & Commendation" },
+];
+
+export default function RegistrationHome() {
   return (
-    <section className="py-14 lg:py-20 px-6 bg-[#F5F5F7] dark:bg-[#0A0E24] text-[#202860] dark:text-white flex-1 overflow-hidden transition-colors duration-300">
-      <div className="max-w-7xl mx-auto">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
-          {/* Left: Structured Competition Information & Category Selection */}
-          <motion.div
-            className="lg:col-span-7 space-y-6"
-            initial={{ opacity: 0, x: -28 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.7, ease: [0.21, 0.47, 0.32, 0.98] }}
-          >
-            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[#FDF2F2] dark:bg-[#B82020]/20 border border-[#F3CACA] dark:border-[#B82020]/40 text-[#B82020] dark:text-[#FF8A8A] text-xs font-bold uppercase tracking-wider">
-              ★ The Stage That Changes Everything For Your Child
-            </div>
-
-            <h1 className="text-3xl sm:text-5xl font-bold tracking-tight leading-[1.08]">
-              <span className="text-[#202860] dark:text-white transition-colors duration-300">The 2024 OMA Diction Awards.</span>{" "}
-              <span className="text-[#5A6494] dark:text-[#94A3D3] font-semibold transition-colors duration-300">
-                Give your pupils the moment of their lives and bring home the champion&apos;s cup.
-              </span>
+    <div className="oma-grain bg-oma-bg text-oma-text">
+      <section className="py-24 md:py-32">
+        <div className="mx-auto grid w-full max-w-[1200px] grid-cols-1 items-center gap-12 px-7 lg:grid-cols-[minmax(0,7fr)_minmax(0,5fr)]">
+          <Reveal>
+            <p className="mb-4 text-sm text-oma-text3">9th Annual Edition • Silverbird Galleria, Victoria Island</p>
+            <h1 className="mb-6 min-w-0 break-words text-[clamp(36px,5.5vw,64px)] font-semibold leading-[1.03] tracking-[-0.04em] text-oma-text">
+              The 2024 OMA Diction Awards.
             </h1>
-
-            <p className="text-[#424B78] dark:text-[#94A3D3] text-sm sm:text-base leading-relaxed">
-              Every year, proud parents and dedicated teachers gather at Silverbird Galleria to witness
-              ordinary school pupils transform into extraordinary, confident champions. Your pupils will
-              perform under stage lights, accept applause from hundreds of cheering guests, and walk away
-              with cash prizes, medals, and unforgettable pride.
+            <p className="mb-8 max-w-[50ch] text-lg leading-relaxed text-oma-text2">
+              Give your pupils the stage of a lifetime. Pupils compete under
+              stage lights for cash prizes, medals and lasting confidence. Entry: ₦7,000.
             </p>
-
-            {/* Architectural Prize Ledger */}
-            <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
-              {[
-                {
-                  rank: "Grand Champion",
-                  amount: "₦50,000",
-                  sub: "Championship Cup + Display Glory",
-                },
-                {
-                  rank: "1st Runner-Up",
-                  amount: "₦30,000",
-                  sub: "Silver Medal + Parent Ovation",
-                },
-                {
-                  rank: "2nd Runner-Up",
-                  amount: "₦20,000",
-                  sub: "Bronze Medal + Commendation",
-                },
-              ].map((prize, idx) => (
-                <BubbleCard
-                  key={prize.rank}
-                  className="bg-white dark:bg-[#131A3E] p-4 rounded-[24px] border border-[#D5DCF0] dark:border-[#232E66] shadow-sm text-center"
-                >
-                  <div className="text-[11px] font-bold uppercase tracking-wider text-[#B82020] dark:text-[#FF8A8A] group-hover:text-[#FF8A8A] transition-colors duration-500">
-                    {prize.rank}
-                  </div>
-                  <div
-                    className={`font-editorial text-xl sm:text-2xl font-bold group-hover:text-white mt-0.5 transition-colors duration-500 ${
-                      idx === 0 ? "text-[#B82020] dark:text-[#FF8A8A]" : "text-[#202860] dark:text-white"
-                    }`}
-                  >
-                    {prize.amount}
-                  </div>
-                  <div className="text-xs text-[#5A6494] dark:text-[#94A3D3] group-hover:text-slate-200 transition-colors duration-500">
-                    {prize.sub}
-                  </div>
-                </BubbleCard>
-              ))}
+            <div className="flex flex-wrap gap-3">
+              <Button variant="primary" href="/registration/register/recitation">
+                Register for Recitation
+              </Button>
+              <Button variant="outline" href="/registration/register/mispronounced">
+                Register for W.O.M
+              </Button>
             </div>
+          </Reveal>
 
-            {/* Two Interactive Registration Category Cards */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-1">
-              <BubbleCard
-                className="p-6 rounded-[28px] border-2 border-[#202860] dark:border-[#B82020] bg-white dark:bg-[#131A3E] text-[#202860] dark:text-white shadow-sm"
-                contentClassName="flex flex-col justify-between"
-              >
-                <div>
-                  <span className="text-xs uppercase tracking-widest text-[#B82020] dark:text-[#FF8A8A] group-hover:text-[#FF8A8A] font-bold transition-colors duration-500">
-                    Category A
-                  </span>
-                  <h2 className="font-editorial text-xl font-bold mt-1 text-[#202860] dark:text-white group-hover:text-white transition-colors duration-500">
-                    Poetry Recitation
-                  </h2>
-                  <p className="text-xs text-[#424B78] dark:text-[#94A3D3] group-hover:text-slate-200 mt-1.5 leading-relaxed transition-colors duration-500">
-                    Where words stir hearts and win crowds. Evaluates vocal power, heartfelt emotion, and clear British pronunciation.
-                  </p>
-                </div>
-                <Link
-                  href="/registration/register/recitation"
-                  className="mt-5 block"
-                >
-                  <button className="w-full py-3 rounded-xl bg-[#B82020] text-white group-hover:bg-white group-hover:text-[#202860] text-xs font-bold uppercase tracking-wider transition-colors duration-500">
-                    Register for Recitation →
-                  </button>
-                </Link>
-              </BubbleCard>
-
-              <BubbleCard
-                className="p-6 rounded-[28px] border-2 border-[#D5DCF0] dark:border-[#232E66] bg-white dark:bg-[#131A3E] text-[#202860] dark:text-white shadow-sm"
-                contentClassName="flex flex-col justify-between"
-              >
-                <div>
-                  <span className="text-xs uppercase tracking-widest text-[#202860] dark:text-slate-300 group-hover:text-[#FF8A8A] font-bold transition-colors duration-500">
-                    Category B
-                  </span>
-                  <h2 className="font-editorial text-xl font-bold mt-1 text-[#202860] dark:text-white group-hover:text-white transition-colors duration-500">
-                    Words Mispronounced
-                  </h2>
-                  <p className="text-xs text-[#424B78] dark:text-[#94A3D3] group-hover:text-slate-200 mt-1.5 leading-relaxed transition-colors duration-500">
-                    Turning tricky English words into trophies. Tests confidence with silent letters, deceptive spellings, and stress.
-                  </p>
-                </div>
-                <Link
-                  href="/registration/register/mispronounced"
-                  className="mt-5 block"
-                >
-                  <button className="w-full py-3 rounded-xl bg-[#202860] dark:bg-[#B82020] text-white group-hover:bg-[#B82020] group-hover:text-white text-xs font-bold uppercase tracking-wider transition-colors duration-500">
-                    Register for W.O.M →
-                  </button>
-                </Link>
-              </BubbleCard>
+          <Reveal delay={0.08}>
+            <div className="overflow-hidden rounded-oma border border-oma-line bg-oma-s1 p-4">
+              <Image
+                src="/images/oma-awards-2024.jpg"
+                alt="2024 OMA Diction Awards Poster"
+                width={520}
+                height={620}
+                className="h-auto w-full rounded-lg object-cover"
+              />
             </div>
-
-            <div className="pt-2">
-              <Link
-                href="/registration/register"
-                className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-[#B82020] dark:text-[#FF8A8A] hover:text-[#202860] dark:hover:text-white transition-colors"
-              >
-                <span>View Full Category Selection Directory</span>
-                <span>→</span>
-              </Link>
-            </div>
-          </motion.div>
-
-          {/* Right: Framed Official Event Poster Card */}
-          <motion.div
-            className="lg:col-span-5"
-            initial={{ opacity: 0, scale: 0.94, x: 28 }}
-            animate={{ opacity: 1, scale: 1, x: 0 }}
-            transition={{
-              duration: 0.7,
-              delay: 0.15,
-              ease: [0.21, 0.47, 0.32, 0.98],
-            }}
-          >
-            <div className="bg-white dark:bg-[#131A3E] p-5 rounded-3xl border-2 border-[#D5DCF0] dark:border-[#232E66] shadow-xl max-w-sm mx-auto transition-colors duration-300">
-              <div className="rounded-2xl overflow-hidden border border-[#E2E6F2] dark:border-[#232E66] bg-[#202860]">
-                <Image
-                  src="/images/diction-awards.jpg"
-                  alt="2024 OMA Diction Awards Poster"
-                  width={420}
-                  height={520}
-                  className="w-full h-96 object-cover object-top"
-                  priority
-                />
-              </div>
-              <div className="mt-4 flex items-center justify-between text-xs pt-2 border-t border-[#E2E6F2] dark:border-[#232E66]">
-                <div>
-                  <span className="font-bold text-[#202860] dark:text-white block">
-                    Silverbird Galleria, Victoria Island
-                  </span>
-                  <span className="text-[#5A6494] dark:text-[#94A3D3]">
-                    The Red Carpet Experience • Entry: ₦7,000
-                  </span>
-                </div>
-                <span className="px-3 py-1 rounded-full bg-[#FDF2F2] dark:bg-[#B82020]/20 text-[#B82020] dark:text-[#FF8A8A] font-bold border border-[#F3CACA] dark:border-[#B82020]/40">
-                  Stage Pass
-                </span>
-              </div>
-            </div>
-          </motion.div>
+          </Reveal>
         </div>
-      </div>
-    </section>
-  );
-};
+      </section>
 
-export default RegistrationHome;
+      <Section>
+        <Reveal>
+          <p className="mb-4 text-sm text-oma-text3">Prizes per category</p>
+          <div className="grid grid-cols-1 gap-4 sm:grid-cols-3">
+            {prizes.map((p) => (
+              <div
+                key={p.place}
+                className="rounded-oma border border-oma-line bg-oma-s1 p-7"
+              >
+                <p className="text-sm text-oma-text3">{p.place}</p>
+                <p className="mt-2 text-3xl font-semibold tracking-[-0.03em] text-oma-text">
+                  {p.amount}
+                </p>
+                <p className="mt-2 text-sm text-oma-text2">{p.note}</p>
+              </div>
+            ))}
+          </div>
+        </Reveal>
+      </Section>
+
+      <Section>
+        <Reveal>
+          <p className="mb-4 text-sm text-oma-text3">Categories</p>
+          <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
+            <div className="flex flex-col justify-between gap-6 rounded-oma border border-oma-line bg-oma-s1 p-8">
+              <div>
+                <p className="mb-2 text-sm text-oma-text3">Category A</p>
+                <h2 className="mb-3 text-2xl font-semibold tracking-[-0.02em] text-oma-text">
+                  Poetry Recitation
+                </h2>
+                <p className="text-[15px] leading-relaxed text-oma-text2">
+                  Evaluates vocal power, heartfelt emotion and clear British
+                  pronunciation on stage.
+                </p>
+              </div>
+              <Button variant="primary" href="/registration/register/recitation">
+                Register for Recitation
+              </Button>
+            </div>
+
+            <div className="flex flex-col justify-between gap-6 rounded-oma border border-oma-line bg-oma-s1 p-8">
+              <div>
+                <p className="mb-2 text-sm text-oma-text3">Category B</p>
+                <h2 className="mb-3 text-2xl font-semibold tracking-[-0.02em] text-oma-text">
+                  Words Often Mispronounced
+                </h2>
+                <p className="text-[15px] leading-relaxed text-oma-text2">
+                  Tests confidence with silent letters, deceptive spellings and
+                  stress patterns.
+                </p>
+              </div>
+              <Button variant="outline" href="/registration/register/mispronounced">
+                Register for W.O.M
+              </Button>
+            </div>
+          </div>
+
+          <div className="mt-8">
+            <Link
+              href="/registration/register"
+              className="group inline-flex items-center gap-1.5 text-[15px] font-medium text-oma-text"
+            >
+              <span>View full category directory</span>
+              <span
+                aria-hidden="true"
+                className="inline-block transition-transform duration-150 group-hover:translate-x-1"
+              >
+                &rarr;
+              </span>
+            </Link>
+          </div>
+        </Reveal>
+      </Section>
+    </div>
+  );
+}

@@ -26,7 +26,7 @@ const allServices = [
     cat: "speaking",
     title: "Speaking",
     description: "Keynotes, staff workshops and live student speaking competitions.",
-    href: "/registration",
+    href: "/speaking",
   },
   {
     cat: "consulting",
