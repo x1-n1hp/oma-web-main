@@ -55,14 +55,14 @@ export default function AboutHome() {
       </section>
 
       <Section>
-        <div>
+        <div className="grid grid-cols-1 gap-4 md:grid-cols-3">
           {pillars.map((item, i) => (
             <Reveal key={item.title} delay={i * 0.08}>
-              <div className="grid grid-cols-1 items-baseline gap-3 border-t border-oma-line py-10 last:border-b md:grid-cols-2 md:gap-8">
-                <h2 className="text-[clamp(28px,3.4vw,44px)] font-semibold leading-[1.08] tracking-[-0.03em] text-oma-text">
+              <div className="flex h-full flex-col justify-between gap-4 rounded-oma border border-oma-line bg-oma-s1 p-7 transition-[border-color,background-color,transform] duration-200 hover:-translate-y-1 hover:border-oma-lineStrong hover:bg-oma-s2">
+                <h2 className="text-2xl font-semibold tracking-[-0.02em] text-oma-text">
                   {item.title}
                 </h2>
-                <p className="max-w-[44ch] text-[17px] leading-relaxed text-oma-text2">
+                <p className="text-[15px] leading-relaxed text-oma-text2">
                   {item.body}
                 </p>
               </div>
