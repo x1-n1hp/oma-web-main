@@ -2,6 +2,8 @@
 
 import React from "react";
 import { Button, FaqSection, Reveal, Section } from "../components/ui";
+import FounderSpotlight from "../components/home/FounderSpotlight";
+import Gallery from "../components/home/Gallery";
 
 const aboutFaqs = [
   {
@@ -69,6 +71,8 @@ export default function AboutHome() {
         </div>
       </Section>
 
+      <FounderSpotlight />
+      <Gallery />
       <FaqSection heading="About Oma Services." items={aboutFaqs} />
 
       <Section>
