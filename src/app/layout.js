@@ -24,8 +24,11 @@ const geistMono = localFont({
 });
 
 export const metadata = {
-  // Replace with the actual production URL to resolve relative image paths
-  metadataBase: new URL('https://omadiction.pro'), 
+  metadataBase: new URL("https://www.oma.services"),
+  icons: {
+    icon: "/images/oma-logo.png",
+    apple: "/images/oma-logo.png",
+  },
   
   title: {
     default: "Oma Services | Digital Agency & Professional Diction",
@@ -48,7 +51,7 @@ export const metadata = {
   openGraph: {
     type: "website",
     locale: "en_GB",
-    url: "https://omadiction.pro",
+    url: "https://www.oma.services",
     title: "Oma Services | Digital Agency & Professional Diction",
     description: "Expert diction coaching combined with top-tier digital product engineering.",
     siteName: "Oma Services",
