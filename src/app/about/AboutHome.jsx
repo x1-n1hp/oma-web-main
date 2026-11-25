@@ -1,6 +1,7 @@
 "use client";
 
 import React from "react";
+import Image from "next/image";
 import { Button, FaqSection, Reveal, Section } from "../components/ui";
 import FounderSpotlight from "../components/home/FounderSpotlight";
 import Gallery from "../components/home/Gallery";
@@ -23,15 +24,36 @@ const aboutFaqs = [
 const pillars = [
   {
     title: "Our mission.",
-    body: "Give every pupil a clear voice and every school the support to thrive.",
+    image: "/images/DSC_6546.JPG",
+    alt: "Pupils speaking with confidence",
+    body: "Give every pupil a clear, confident voice and equip every school with the educators and systems they need to thrive.",
+    points: [
+      "Child-first speech & phonics development",
+      "Reliable UK secondary & FE supply cover",
+      "Long-term partnerships with school leaders",
+    ],
   },
   {
     title: "Consulting.",
-    body: "Strategic guidance on school reputation, admissions growth and parent trust.",
+    image: "/images/class.png",
+    alt: "UK secondary school classroom",
+    body: "Strategic guidance for proprietors and heads of school focused on elevating reputation, strengthening admissions and deepening parent trust.",
+    points: [
+      "School positioning & parent communication",
+      "Admissions growth & digital front-door audits",
+      "Campus-wide articulation standards",
+    ],
   },
   {
     title: "How we work.",
-    body: "Direct communication, vetted educators and practical tools tailored to each school.",
+    image: "/images/DSC_6561.JPG",
+    alt: "Oma Services workshop and collaboration",
+    body: "Direct communication, vetted educators and practical digital tools tailored to your timetable—without agency friction.",
+    points: [
+      "Fast response via phone or WhatsApp",
+      "Matched to your subjects and school culture",
+      "Transparent, ongoing support every term",
+    ],
   },
 ];
 
@@ -55,16 +77,37 @@ export default function AboutHome() {
       </section>
 
       <Section>
-        <div className="grid grid-cols-1 gap-4 md:grid-cols-3">
+        <div className="grid grid-cols-1 gap-6 md:grid-cols-3">
           {pillars.map((item, i) => (
             <Reveal key={item.title} delay={i * 0.08}>
-              <div className="flex h-full flex-col justify-between gap-4 rounded-oma border border-oma-line bg-oma-s1 p-7 transition-[border-color,background-color,transform] duration-200 hover:-translate-y-1 hover:border-oma-lineStrong hover:bg-oma-s2">
-                <h2 className="text-2xl font-semibold tracking-[-0.02em] text-oma-text">
-                  {item.title}
-                </h2>
-                <p className="text-[15px] leading-relaxed text-oma-text2">
-                  {item.body}
-                </p>
+              <div className="group flex h-full flex-col overflow-hidden rounded-oma border border-oma-line bg-oma-s1 transition-[border-color,background-color,transform,box-shadow] duration-200 hover:-translate-y-1 hover:border-oma-lineStrong hover:bg-oma-s2 hover:shadow-[0_14px_32px_rgba(11,15,42,0.12)]">
+                <div className="relative aspect-[16/10] w-full overflow-hidden bg-oma-s2">
+                  <Image
+                    src={item.image}
+                    alt={item.alt}
+                    fill
+                    sizes="(max-width: 768px) 100vw, 33vw"
+                    className="object-cover transition-transform duration-500 ease-out group-hover:scale-105"
+                  />
+                </div>
+                <div className="flex flex-1 flex-col justify-between gap-6 p-7">
+                  <div>
+                    <h2 className="mb-3 text-2xl font-semibold tracking-[-0.02em] text-oma-text">
+                      {item.title}
+                    </h2>
+                    <p className="text-[15px] leading-relaxed text-oma-text2">
+                      {item.body}
+                    </p>
+                  </div>
+                  <ul className="space-y-2 border-t border-oma-line pt-5 text-sm text-oma-text2">
+                    {item.points.map((pt) => (
+                      <li key={pt} className="flex items-start gap-2">
+                        <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-oma-crimson" />
+                        <span>{pt}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
               </div>
             </Reveal>
           ))}
