@@ -38,7 +38,7 @@ const faqs = [
   },
   {
     q: "How quickly can you arrange cover?",
-    a: "For urgent cover, call us directly on +44 7391 285441 or message us on WhatsApp. We respond promptly to match an available teacher to your timetable.",
+    a: "For urgent cover, call us directly on +44 7587 337870 or message us on WhatsApp. We respond promptly to match an available teacher to your timetable.",
   },
   {
     q: "Can we book the same teacher for ongoing cover?",
@@ -46,7 +46,7 @@ const faqs = [
   },
   {
     q: "How do we request a teacher?",
-    a: "Use our consultation form, call +44 7391 285441, or send a WhatsApp message with your school name, subject, and dates.",
+    a: "Use our consultation form, call +44 7587 337870, or send a WhatsApp message with your school name, subject, and dates.",
   },
 ];
 
@@ -72,8 +72,8 @@ export default function TeachingPage() {
               <Button variant="primary" href="/contact">
                 Request a teacher
               </Button>
-              <Button variant="outline" href="tel:+447391285441">
-                Call +44 7391 285441
+              <Button variant="outline" href="tel:+447587337870">
+                Call +44 7587 337870
               </Button>
             </div>
           </Reveal>

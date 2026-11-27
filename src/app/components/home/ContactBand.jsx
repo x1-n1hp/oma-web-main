@@ -12,10 +12,10 @@ export default function ContactBand() {
 
           <div className="my-8 grid gap-1 md:my-10">
             <a
-              href="tel:+447391285441"
+              href="tel:+447587337870"
               className="break-words text-[clamp(24px,3.2vw,40px)] font-medium leading-tight tracking-[-0.025em] text-oma-text transition-colors duration-150 hover:text-oma-text2"
             >
-              +44 7391 285441 (UK)
+              +44 7587 337870 (UK)
             </a>
             <a
               href="mailto:partnerships@omadiction.pro"

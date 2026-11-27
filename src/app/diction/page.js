@@ -13,7 +13,7 @@ const dictionFaqs = [
   },
   {
     q: "How do we book a school speech audit?",
-    a: "Contact our team via the Consultation page or WhatsApp on +44 7391 285441 to schedule an introductory session.",
+    a: "Contact our team via the Consultation page or WhatsApp on +44 7587 337870 to schedule an introductory session.",
   },
 ];
 

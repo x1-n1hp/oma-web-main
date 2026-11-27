@@ -32,10 +32,10 @@ export default function Footer() {
             <div>
               Phone (UK):{" "}
               <a
-                href="tel:+447391285441"
+                href="tel:+447587337870"
                 className="font-medium text-oma-text transition-colors duration-150 hover:text-oma-text2"
               >
-                +44 7391 285441
+                +44 7587 337870
               </a>
             </div>
             <div>
@@ -103,7 +103,7 @@ export default function Footer() {
             </li>
             <li>
               <a
-                href="https://wa.me/447391285441"
+                href="https://wa.me/447587337870"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-oma-text2 hover:text-oma-text"

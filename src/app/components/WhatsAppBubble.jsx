@@ -3,7 +3,7 @@
 import { motion, useReducedMotion } from "framer-motion";
 
 const WHATSAPP_URL =
-  "https://wa.me/447391285441?text=Hello%20Oma%20Services%2C%20I%27d%20like%20to%20make%20an%20enquiry.";
+  "https://wa.me/447587337870?text=Hello%20Oma%20Services%2C%20I%27d%20like%20to%20make%20an%20enquiry.";
 
 export default function WhatsAppBubble() {
   const reduced = useReducedMotion();
@@ -13,7 +13,7 @@ export default function WhatsAppBubble() {
       href={WHATSAPP_URL}
       target="_blank"
       rel="noopener noreferrer"
-      aria-label="Chat on WhatsApp (+44 7391 285441)"
+      aria-label="Chat on WhatsApp (+44 7587 337870)"
       initial={reduced ? false : { opacity: 0, y: 24, scale: 0.92 }}
       animate={{ opacity: 1, y: 0, scale: 1 }}
       transition={{

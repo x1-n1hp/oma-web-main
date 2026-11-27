@@ -17,7 +17,7 @@ const aboutFaqs = [
   },
   {
     q: "How do we start a conversation?",
-    a: "Book a consultation through our Contact page, call +44 7391 285441, or message us directly on WhatsApp.",
+    a: "Book a consultation through our Contact page, call +44 7587 337870, or message us directly on WhatsApp.",
   },
 ];
 

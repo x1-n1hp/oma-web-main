@@ -22,7 +22,7 @@ export default function ContactUs() {
       return;
     }
     setStatus("");
-    const url = `https://wa.me/447391285441?text=${encodeURIComponent(
+    const url = `https://wa.me/447587337870?text=${encodeURIComponent(
       buildText()
     )}`;
     window.open(url, "_blank", "noopener,noreferrer");
@@ -158,10 +158,10 @@ export default function ContactUs() {
             <p className="text-sm text-oma-text3">Direct</p>
             <div className="grid gap-2">
               <a
-                href="tel:+447391285441"
+                href="tel:+447587337870"
                 className="break-words text-[clamp(24px,3vw,36px)] font-medium leading-tight tracking-[-0.025em] text-oma-text transition-colors duration-150 hover:text-oma-text2"
               >
-                +44 7391 285441 (UK)
+                +44 7587 337870 (UK)
               </a>
               <a
                 href="mailto:partnerships@omadiction.pro"

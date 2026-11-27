@@ -9,7 +9,7 @@ export default function FounderSpotlight() {
           <div className="relative aspect-[4/5] overflow-hidden rounded-oma border border-oma-line bg-oma-s1">
             <Image
               src="/images/Oma-pic.JPG"
-              alt="Founder of Oma Services"
+              alt="Head of Public Speaking at Oma Services"
               fill
               sizes="(max-width: 1024px) 100vw, 42vw"
               className="object-cover object-top"
@@ -18,7 +18,9 @@ export default function FounderSpotlight() {
         </Reveal>
 
         <Reveal delay={0.08}>
-          <p className="mb-4 text-sm text-oma-text3">Founder&apos;s note</p>
+          <p className="mb-4 text-sm text-oma-text3">
+            From our Head of Public Speaking
+          </p>
           <h2 className="mb-6 min-w-0 break-words text-[clamp(32px,4vw,52px)] font-semibold leading-[1.05] tracking-[-0.035em] text-oma-text">
             Every pupil deserves a clear voice.
           </h2>
