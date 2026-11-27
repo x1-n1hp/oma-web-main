@@ -36,8 +36,7 @@ export default function ContactUs() {
     setStatus("");
     const subject = encodeURIComponent(`Consultation Enquiry: ${service}`);
     const body = encodeURIComponent(buildText());
-    const gmailUrl = `https://mail.google.com/mail/?view=cm&fs=1&to=partnerships@oma.services&su=${subject}&body=${body}`;
-    window.open(gmailUrl, "_blank", "noopener,noreferrer");
+    window.location.href = `mailto:partnerships@oma.services?subject=${subject}&body=${body}`;
   };
 
   return (
