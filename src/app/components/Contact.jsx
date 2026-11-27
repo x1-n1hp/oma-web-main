@@ -117,6 +117,9 @@ export default function ContactUs() {
                 <option value="Website Design & Digital Engineering">
                   Tech (Websites, Mobile &amp; Web Apps)
                 </option>
+                <option value="Media (Social Media, Video Creation & Editing)">
+                  Media (Social Media, Video Creation &amp; Editing)
+                </option>
               </select>
             </div>
 
