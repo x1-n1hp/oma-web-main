@@ -32,6 +32,11 @@ const services = [
     description: "School websites, apps and custom platforms.",
     href: "/services",
   },
+  {
+    title: "Media",
+    description: "Social media management, video creation and editing.",
+    href: "/media",
+  },
 ];
 
 export default function ServicesGrid() {
@@ -42,7 +47,7 @@ export default function ServicesGrid() {
           <div>
             <p className="mb-4 text-sm text-oma-text3">Services</p>
             <h2 className="min-w-0 break-words text-[clamp(32px,4vw,52px)] font-semibold leading-[1.05] tracking-[-0.035em] text-oma-text">
-              Six ways we help.
+              Seven ways we help.
             </h2>
           </div>
           <Link

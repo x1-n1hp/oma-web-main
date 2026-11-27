@@ -40,6 +40,13 @@ const allServices = [
     description: "Bespoke school websites, parent mobile apps and custom web platforms.",
     href: "/web-design",
   },
+  {
+    cat: "media",
+    title: "Media",
+    description:
+      "Social media management, video creation, editing, photography and content production.",
+    href: "/media",
+  },
 ];
 
 const filters = [
@@ -50,6 +57,7 @@ const filters = [
   { id: "speaking", label: "Speaking" },
   { id: "consulting", label: "Consulting" },
   { id: "tech", label: "Tech" },
+  { id: "media", label: "Media" },
 ];
 
 export default function ServiceHome() {
@@ -70,7 +78,7 @@ export default function ServiceHome() {
               Everything we do.
             </h1>
             <p className="mb-12 max-w-[52ch] text-lg leading-relaxed text-oma-text2">
-              Six focused services for schools, educators and families.
+              Seven focused services for schools, educators and families.
             </p>
           </Reveal>
 

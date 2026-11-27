@@ -22,7 +22,7 @@ export default function Footer() {
           </Link>
           <p className="max-w-sm text-oma-text2">
             UK supply teaching, articulation, kids development, consulting,
-            speaking and digital engineering for schools.
+            speaking, media and digital engineering for schools.
           </p>
           <div className="space-y-1 pt-2 text-oma-text2">
             <div>
@@ -77,6 +77,11 @@ export default function Footer() {
             <li>
               <Link href="/web-design" className="text-oma-text2 hover:text-oma-text">
                 Websites, Mobile &amp; Web Apps
+              </Link>
+            </li>
+            <li>
+              <Link href="/media" className="text-oma-text2 hover:text-oma-text">
+                Media &amp; Content Production
               </Link>
             </li>
           </ul>
