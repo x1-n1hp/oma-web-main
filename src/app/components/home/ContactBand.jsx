@@ -18,10 +18,10 @@ export default function ContactBand() {
               +44 7587 337870 (UK)
             </a>
             <a
-              href="mailto:partnerships@omadiction.pro"
+              href="mailto:partnerships@oma.services"
               className="break-words text-[clamp(20px,2.8vw,36px)] font-medium leading-tight tracking-[-0.025em] text-oma-text transition-colors duration-150 hover:text-oma-text2"
             >
-              partnerships@omadiction.pro
+              partnerships@oma.services
             </a>
             <p className="mt-3 text-lg text-oma-text2">
               14 Britten Place Sullivan Court, Biggleswade, Bedfordshire SG18 8RE.

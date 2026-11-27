@@ -36,7 +36,7 @@ export default function ContactUs() {
     setStatus("");
     const subject = encodeURIComponent(`Consultation Enquiry: ${service}`);
     const body = encodeURIComponent(buildText());
-    const gmailUrl = `https://mail.google.com/mail/?view=cm&fs=1&to=partnerships@omadiction.pro&su=${subject}&body=${body}`;
+    const gmailUrl = `https://mail.google.com/mail/?view=cm&fs=1&to=partnerships@oma.services&su=${subject}&body=${body}`;
     window.open(gmailUrl, "_blank", "noopener,noreferrer");
   };
 
@@ -164,10 +164,10 @@ export default function ContactUs() {
                 +44 7587 337870 (UK)
               </a>
               <a
-                href="mailto:partnerships@omadiction.pro"
+                href="mailto:partnerships@oma.services"
                 className="break-words text-xl font-medium text-oma-text transition-colors duration-150 hover:text-oma-text2"
               >
-                partnerships@omadiction.pro
+                partnerships@oma.services
               </a>
               <p className="mt-3 text-base leading-relaxed text-oma-text2">
                 14 Britten Place Sullivan Court, Biggleswade, Bedfordshire SG18 8RE.

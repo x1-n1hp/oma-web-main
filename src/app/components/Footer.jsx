@@ -41,10 +41,10 @@ export default function Footer() {
             <div>
               Email:{" "}
               <a
-                href="mailto:partnerships@omadiction.pro"
+                href="mailto:partnerships@oma.services"
                 className="font-medium text-oma-text transition-colors duration-150 hover:text-oma-text2"
               >
-                partnerships@omadiction.pro
+                partnerships@oma.services
               </a>
             </div>
           </div>
