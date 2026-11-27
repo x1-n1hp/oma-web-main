@@ -84,6 +84,11 @@ export default function Footer() {
                 Media &amp; Content Production
               </Link>
             </li>
+            <li>
+              <Link href="/literacy" className="text-oma-text2 hover:text-oma-text">
+                Reading &amp; Writing (Virtual &amp; In-Person)
+              </Link>
+            </li>
           </ul>
         </div>
 

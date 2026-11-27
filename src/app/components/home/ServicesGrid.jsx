@@ -37,6 +37,12 @@ const services = [
     description: "Social media management, video creation and editing.",
     href: "/media",
   },
+  {
+    title: "Reading & writing",
+    description:
+      "Virtual & physical literacy classes for children, including autism support.",
+    href: "/literacy",
+  },
 ];
 
 export default function ServicesGrid() {
@@ -47,7 +53,7 @@ export default function ServicesGrid() {
           <div>
             <p className="mb-4 text-sm text-oma-text3">Services</p>
             <h2 className="min-w-0 break-words text-[clamp(32px,4vw,52px)] font-semibold leading-[1.05] tracking-[-0.035em] text-oma-text">
-              Seven ways we help.
+              Eight ways we help.
             </h2>
           </div>
           <Link

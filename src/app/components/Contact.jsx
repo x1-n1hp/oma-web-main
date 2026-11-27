@@ -120,6 +120,9 @@ export default function ContactUs() {
                 <option value="Media (Social Media, Video Creation & Editing)">
                   Media (Social Media, Video Creation &amp; Editing)
                 </option>
+                <option value="Reading & Writing Classes (Virtual & Physical — incl. Autism Support)">
+                  Reading &amp; Writing Classes (Virtual &amp; Physical — incl. Autism Support)
+                </option>
               </select>
             </div>
 

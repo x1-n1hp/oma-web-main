@@ -47,6 +47,13 @@ const allServices = [
       "Social media management, video creation, editing, photography and content production.",
     href: "/media",
   },
+  {
+    cat: "literacy",
+    title: "Reading & writing",
+    description:
+      "Virtual and physical classes teaching children to read and write (including children living with autism), with books and videos.",
+    href: "/literacy",
+  },
 ];
 
 const filters = [
@@ -54,6 +61,7 @@ const filters = [
   { id: "teaching", label: "Teaching" },
   { id: "articulation", label: "Articulation" },
   { id: "kids", label: "Kids development" },
+  { id: "literacy", label: "Reading & writing" },
   { id: "speaking", label: "Speaking" },
   { id: "consulting", label: "Consulting" },
   { id: "tech", label: "Tech" },
@@ -78,7 +86,7 @@ export default function ServiceHome() {
               Everything we do.
             </h1>
             <p className="mb-12 max-w-[52ch] text-lg leading-relaxed text-oma-text2">
-              Seven focused services for schools, educators and families.
+              Eight focused services for schools, educators and families.
             </p>
           </Reveal>
 
